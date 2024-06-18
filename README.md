@@ -40,7 +40,7 @@ To contribute to Snapfolia, follow these steps:
 
 1. Clone the repository to your local machine:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/CHlNlTO/snapfolia.git
    cd snapfolia
 2. Checkout to your assigned branch (model, web):
    ```bash
@@ -59,6 +59,6 @@ To contribute to Snapfolia, follow these steps:
 - Provide a brief summary of your changes and submit the pull request for review.
 7. Collaborate and iterate: Discuss and address feedback received during the review process. Once approved, changes will be merged into the target branch (**main**, **staging**, **develop**).
 
-## Getting Started
+## Inquiries
 - For any questions or assistance, contact the project lead or fellow collaborators.
 - Adhere to project guidelines and coding standards to maintain consistency and quality across Snapfolia.
