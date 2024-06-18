@@ -30,17 +30,21 @@ Each collaborator has specific roles assigned for contributing to the Snapfolia 
 
 - **Model Branch Collaborators**:
   - Responsible for the `model` folder within the `model` branch.
-  - Only authorized to edit, push, and make changes to the `model` folder.
+  - Must create sub-branch such as `model/<action>` for the `model` branch to make changes.
+  - Only authorized to add, delete, edit, and make updates to the `model` folder
+  - Only authorized to edit, push, and make changes to the `model/<action>` sub-branch.
   - All changes related to the machine-learning model should be made within this branch.
 
 - **Web Branch Collaborators**:
   - Responsible for the `web` branch.
-  - Only authorized to push and make changes to the `web` folder.
+  - Must create sub-branch such as `web/<action>` for the `web` branch to make changes.
+  - Only authorized to add, delete, edit, and make updates to the `web` folder
+  - Only authorized to edit, push, and make changes to the `web/<action>` sub-branch.
   - Tasks include frontend, backend, database, and integration tasks specific to the web interface.
 
 ### Collaborator Responsibilities
 
-- **Pull Requests**: Create pull requests from your assigned branch (`model`, `web`) to the respective target branch (`main`, `staging`, `develop`) for code review and merging.
+- **Pull Requests**: Create pull requests from your assigned branch (`model/<action>`, `web/<action>`) to the respective target branch (`model`, `web`) for code review and merging.
 - **Review Process**: All changes must undergo review by at least one other collaborator before merging.
 - **Code Quality**: Ensure code quality, documentation, and adherence to coding standards before submitting pull requests.
 
