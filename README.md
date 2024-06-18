@@ -16,11 +16,11 @@ Welcome to the Snapfolia repository! Snapfolia is a leaf classifier web applicat
 
 ### Branches Overview
 
-- **main**: Production-ready code base.
-- **staging**: Development stage for testing new features.
-- **develop**: Ongoing development branch.
-- **web**: Branch for web application development.
 - **model**: Branch for machine-learning model development.
+- **web**: Branch for web application development.
+- **develop**: Merging branch of web and model branches.
+- **staging**: Testing stage of the compiled develop branch.
+- **main**: Production-ready code base.
 
 ### Collaborator Roles and Permissions
 
