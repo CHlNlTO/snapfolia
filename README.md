@@ -63,7 +63,7 @@ To contribute to Snapfolia, follow these steps:
 5. Push changes to your assigned branch:
    ```bash
    git push origin <branch-name>
-Once approved, changes will be merged into the target branch (main, staging, develop).
+Once approved, changes will be merged into the target branch (develop, staging, main).
 
 ## Inquiries
 - For any questions or assistance, contact the project lead or fellow collaborators.
