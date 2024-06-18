@@ -2,6 +2,16 @@
 
 Welcome to the Snapfolia repository! Snapfolia is a leaf classifier web application using a machine-learning model.
 
+## Tech Stack
+
+- **Frontend:**
+  - HTML
+  - CSS
+  - JavaScript
+
+- **Backend:**
+  - Python
+
 ## Collaborator Roles and Branch Permissions
 
 ### Branches Overview
