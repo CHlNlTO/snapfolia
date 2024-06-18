@@ -63,11 +63,7 @@ To contribute to Snapfolia, follow these steps:
 5. Push changes to your assigned branch:
    ```bash
    git push origin <branch-name>
-6. Create a pull request:
-- Navigate to the repository on GitHub.
-- Select your branch and click "Compare & pull request".
-- Provide a brief summary of your changes and submit the pull request for review.
-7. Collaborate and iterate: Discuss and address feedback received during the review process. Once approved, changes will be merged into the target branch (**main**, **staging**, **develop**).
+Once approved, changes will be merged into the target branch (main, staging, develop).
 
 ## Inquiries
 - For any questions or assistance, contact the project lead or fellow collaborators.
