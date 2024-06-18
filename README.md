@@ -35,8 +35,8 @@ Each collaborator has specific roles assigned for contributing to the Snapfolia 
 
 - **Web Branch Collaborators**:
   - Responsible for the `web` branch.
-  - Only authorized to push and make changes to the web application.
-  - Tasks include frontend, backend, and integration tasks specific to the web interface.
+  - Only authorized to push and make changes to the `web` folder.
+  - Tasks include frontend, backend, database, and integration tasks specific to the web interface.
 
 ### Collaborator Responsibilities
 
