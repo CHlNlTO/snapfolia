@@ -48,32 +48,32 @@ var progressBar = document.getElementById("upload-progress");
 
 const dropdown = document.getElementById("serverDropdown");
 const mDropdown = document.getElementById("modelDropdown");
-let url;
+let url = "http://127.0.0.1:5000/upload";
 let model;
 
-$(document).ready(function () {
-  $.getJSON("https://api.ipify.org?format=json", function (data) {
-    const ipAddress = data.ip;
-    $("#gfg").html(ipAddress);
+// $(document).ready(function () {
+//   $.getJSON("https://api.ipify.org?format=json", function (data) {
+//     const ipAddress = data.ip;
+//     $("#gfg").html(ipAddress);
 
-    // Log the IP address to the console
-    console.log("IP Address:", ipAddress);
+//     // Log the IP address to the console
+//     console.log("IP Address:", ipAddress);
 
-    // Set the default URL based on the IP address
-    const schoolNetworkIP = "58.71.56";
+//     // Set the default URL based on the IP address
+//     const schoolNetworkIP = "58.71.56";
 
-    if (
-      typeof ipAddress === "string" &&
-      ipAddress.startsWith(schoolNetworkIP)
-    ) {
-      url = "http://172.16.101.123:5000/classify"; // Private FAITH Server
-    } else {
-      url = "http://58.71.56.23:5000/classify"; // Public FAITH Server
-    }
+//     if (
+//       typeof ipAddress === "string" &&
+//       ipAddress.startsWith(schoolNetworkIP)
+//     ) {
+//       url = "http://172.16.101.123:5000/classify"; // Private FAITH Server
+//     } else {
+//       url = "http://58.71.56.23:5000/classify"; // Public FAITH Server
+//     }
 
-    console.log(url);
-  });
-});
+//     console.log(url);
+//   });
+// });
 
 function setDefaultModel() {
   const defaultOption = mDropdown.options[0];
@@ -137,128 +137,39 @@ window.addEventListener("DOMContentLoaded", setDefaultModel);
 }
 
 function scan_capture() {
-  const fileInput = document.getElementById("capture");
-  const file = fileInput.files[0];
-
-  if (file === undefined) {
+  const file = input_capture.files[0];
+  if (!file) {
     alert("No image attached.");
     return;
   }
+
+  console.log("File selected: ", file.name); // Log file name
 
   progressBar.classList.remove("d-none");
   btn_scan_capture.style.display = "none";
 
   const formData = new FormData();
-  formData.append("image", file);
+  formData.append("file", file); // Ensure the key matches what the server expects
   formData.append("model", model);
 
-  // Set a timeout for the Axios request (10 seconds in this example)
   const axiosConfig = {
     timeout: 300000,
-    onUploadProgress: function (progressEvent) {
-      const percentCompleted = Math.round(
+    onUploadProgress: (progressEvent) => {
+      progressBar.value = Math.round(
         (progressEvent.loaded * 50) / progressEvent.total
       );
-      progressBar.value = percentCompleted;
-      console.log("axiosConfig");
     },
   };
 
   axios
     .post(url, formData, axiosConfig)
     .then((response) => {
-      const responseData = response.data;
-      console.log(responseData);
-
-      let responseReceived = false;
-      let result;
-
-      if (typeof responseData === "string") {
-        result = JSON.parse(responseData); // Parse the string to a JSON object
-        console.log("Parsed Result:", result);
-      } else {
-        result = responseData;
-        console.log("Non-Parsed Result:", result);
-      }
-
-      // Accessing the prediction value
-      const classResult = result[0].prediction;
-      console.log("Parsed Result:", result[0].prediction);
-
-      // Printing the value
-      console.log("Class Result:", classResult);
-
-      // Display the Filipino name (class)
-      document.getElementById("fname").innerHTML = classResult;
-
-      const [dom, sec, ter] = result[0].class_probabilities;
-      const [dom1, sec1, ter1] = result[0].class_name_probabilities;
-
-      // Add threshold: if below 70%, add alert instead
-      if (dom < 70.0) {
-        alert("Result lower than expected. Please try again.");
-      }
-
-      // Assign probabilities to variables
-      const domProbability = dom.toFixed(2) + "%";
-      const secProbability = sec.toFixed(2) + "%";
-      const terProbability = ter.toFixed(2) + "%";
-
-      // Use the assigned probabilities as needed
-      console.log(
-        "Dominant Probability:",
-        domProbability + result[0].prediction
-      );
-      console.log("Secondary Probability:", secProbability);
-      console.log("Tertiary Probability:", terProbability);
-
-      // Update the corresponding HTML elements with class probabilities
-      document.getElementById("ename").innerHTML = getEnglishName(classResult);
-      document.getElementById("sname").innerHTML =
-        getScientificName(classResult);
-      document.getElementById("dom").innerHTML = domProbability + " \t" + dom1;
-      document.getElementById("sec").innerHTML = secProbability + " \t" + sec1;
-      document.getElementById("ter").innerHTML = terProbability + " \t" + ter1;
-
-      // Add fade-in animation
-      document.getElementById("fname").classList.add("animate-fade-in-result");
-      document.getElementById("ename").classList.add("animate-fade-in-result");
-      document.getElementById("sname").classList.add("animate-fade-in-result");
-      document.getElementById("dom").classList.add("animate-fade-in-result");
-      document.getElementById("sec").classList.add("animate-fade-in-result");
-      document.getElementById("ter").classList.add("animate-fade-in-result");
-
-      // Construct the Wikipedia URL based on the classResult
-      const treeUrl = "./static/trees/" + getURL(classResult) + ".html";
-
-      // Set the src attribute of the iframe to the constructed Wikipedia URL
-      fetch(treeUrl)
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("tree-div").innerHTML = data;
-        });
-
-      responseReceived = true;
-
-      // Timeout
-      if (responseReceived === false) {
-        setTimeout(function () {
-          alert(
-            "Leaflet took too long to respond. Please check your internet connection."
-          );
-        }, 10000);
-      }
+      console.log("Response received: ", response.data);
+      handleResponse(response.data);
     })
     .catch((error) => {
-      console.error("Error:", error.message);
-
-      if (axios.isCancel(error)) {
-        alert(
-          "The request timed out. Please check your internet connection or try again later."
-        );
-      } else {
-        alert("An error occurred. Please try again.");
-      }
+      console.error("Error: ", error.message); // Log error
+      handleError(error);
     })
     .finally(() => {
       progressBar.classList.add("d-none");
@@ -279,7 +190,7 @@ function scan() {
   btn_scan.style.display = "none";
 
   const formData = new FormData();
-  formData.append("image", file);
+  formData.append("file", file);
   formData.append("model", model);
 
   const xhr = new XMLHttpRequest();
@@ -319,11 +230,14 @@ function scan() {
       console.log(result);
 
       if (typeof result === "string") {
-        result = JSON.parse(JSON.parse(result)); // Parse the string to JSON object
+        result = JSON.parse(result); // Parse the string to JSON object
         console.log("Parsed Result:", result);
       }
+
+      console.log(result.results[0].label);
+
       // Accessing the prediction value
-      const classResult = result[0].prediction;
+      const classResult = result.results[0].label;
 
       // Printing the value
       console.log("Class Result:", classResult);
@@ -331,31 +245,32 @@ function scan() {
       // Display the Filipino name (class)
       document.getElementById("fname").innerHTML = classResult;
 
-      const [dom, sec, ter] = result[0].class_probabilities;
-      const [dom1, sec1, ter1] = result[0].class_name_probabilities;
+      // const [dom, sec, ter] = result[0].class_probabilities;
+      // const [dom1, sec1, ter1] = result[0].class_name_probabilities;
 
-      // Assign probabilities to variables
-      const domProbability = dom.toFixed(2) + "%";
-      const secProbability = sec.toFixed(2) + "%";
-      const terProbability = ter.toFixed(2) + "%";
+      // // Assign probabilities to variables
+      // const domProbability = dom.toFixed(2) + "%";
+      // const secProbability = sec.toFixed(2) + "%";
+      // const terProbability = ter.toFixed(2) + "%";
 
-      // Use the assigned probabilities as needed
-      console.log("Dominant Probability:", dom + " - " + domProbability);
-      console.log("Secondary Probability:", sec + " - " + secProbability);
-      console.log("Tertiary Probability:", ter + " - " + terProbability);
+      // // Use the assigned probabilities as needed
+      // console.log("Dominant Probability:", dom + " - " + domProbability);
+      // console.log("Secondary Probability:", sec + " - " + secProbability);
+      // console.log("Tertiary Probability:", ter + " - " + terProbability);
 
       // Add threshold: if below 70%, add alert instead
-      if (dom < 70.0) {
-        alert("Result lower than expected. Please try again.");
-      }
+      // if (dom < 70.0) {
+      //   alert("Result lower than expected. Please try again.");
+      // }
 
       // Update the corresponding HTML elements with class probabilities
-      document.getElementById("ename").innerHTML = getEnglishName(classResult);
-      document.getElementById("sname").innerHTML =
-        getScientificName(classResult);
-      document.getElementById("dom").innerHTML = domProbability + " \t" + dom1;
-      document.getElementById("sec").innerHTML = secProbability + " \t" + sec1;
-      document.getElementById("ter").innerHTML = terProbability + " \t" + ter1;
+      // document.getElementById("ename").innerHTML = getEnglishName(classResult);
+      // document.getElementById("sname").innerHTML =
+      // getScientificName(classResult);
+      document.getElementById("dom").innerHTML =
+        result.results[0].confidence.toFixed(2) + "%";
+      // document.getElementById("sec").innerHTML = secProbability + " \t" + sec1;
+      // document.getElementById("ter").innerHTML = terProbability + " \t" + ter1;
 
       // Add fade-in animation
       document.getElementById("fname").classList.add("animate-fade-in-result");
