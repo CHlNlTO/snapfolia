@@ -720,3 +720,28 @@ function showSnackbar() {
 }
 
 // ----------------------------------------------------------------------------------------------------------
+document.getElementById('file').addEventListener('change', function(event) {
+  const file = event.target.files[0];
+  const formData = new FormData();
+  formData.append('file', file);
+
+  axios.post('/upload', formData, {
+      headers: {
+          'Content-Type': 'multipart/form-data'
+      }
+  })
+  .then(response => {
+      // Handle success
+      console.log(response.data);
+      // Update the UI with the results
+      const results = response.data.results;
+      // For example, display the classification results
+      results.forEach(result => {
+          console.log(`Label: ${result.label}, Confidence: ${result.confidence}`);
+          // Update the DOM accordingly
+      });
+  })
+  .catch(error => {
+      console.error(error);
+  });
+});
