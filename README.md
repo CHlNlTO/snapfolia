@@ -58,7 +58,7 @@ To contribute to Snapfolia, follow these steps:
    cd snapfolia
 2. Checkout to your assigned branch (model, web):
    ```bash
-   git checkout <branch-name>
+   git checkout -b <branch-name>
 3. Make changes, add features, or fix bugs within your assigned branch.
 4. Commit your changes:
    ```bash
@@ -67,6 +67,8 @@ To contribute to Snapfolia, follow these steps:
 5. Push changes to your assigned branch:
    ```bash
    git push origin <branch-name>
+6. Go to Github and merge the changes from your created branch into the corresponding branch (model, web).
+
 Once approved, changes will be merged into the target branch (develop, staging, main).
 
 ## Inquiries
