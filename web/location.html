@@ -1,116 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>New Location Detected</title>
-
-    <!-- Leaflet CSS -->
+    <title>Location</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
-    <!-- Custom CSS -->
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-      }
-      .container {
-        background-color: #ffffff;
-        color: #000;
-        width: 800px;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      }
-      .header {
-        padding: 20px;
-        background-color: #f3f3f3;
-        border-bottom: 1px solid #ddd;
-      }
-      .header h2 {
-        margin: 0;
-        font-size: 18px;
-      }
-      .map {
-        height: 400px;
-      }
-      .footer {
-        padding: 10px 20px;
-        background-color: #f3f3f3;
-        border-top: 1px solid #ddd;
-        text-align: center;
-      }
-      .footer p {
-        margin: 0;
-      }
-      .footer .active {
-        color: #00ff00;
-      }
-      .footer .inactive {
-        color: #ff0000;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Container for the map -->
-    <div class="container">
-      <!-- Map section -->
-      <div id="map" class="map"></div>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 
-      <!-- Footer section -->
-      <div class="header">
-        <h2>FAITH Campus</h2>
-        <p>Narra leaf</p>
-      </div>
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="./static/css/style.css" />
+
+    <!-- Google Fonts and Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            color: #000;
+            width: 999px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 70px;
+        }
+        .map {
+            height: 520px;
+        }
+        .custom-div-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-md fixed-top p-0" id="navbar_main">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex" href="./index.html">
+                <img src="./static/img/snapfolia_logo.png" class="m-2 mb-1 logo-size" alt="Snapfolia">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarOptions">
+                <span class="fas fa-bars color-green"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarOptions">
+                <div class="navbar-nav fs-responsive navbar-options">
+                    <a class="nav-link ms-3 color-dgreen fw-bold nav-item" href="./index.html">Home</a>
+                    <a class="nav-link ms-3 color-dgreen fw-bold nav-item" href="./datasets.html">Datasets</a>
+                    <a class="nav-link ms-3 color-dgreen fw-bold nav-item" href="./developers.html">Developers</a>
+                    <a class="nav-link ms-3 color-dgreen fw-bold nav-item" href="./location.html">Location</a>
+                </div>
+            </div>
+            <a class="navbar-brand d-flex" href="https://www.firstasia.edu.ph/" target="_blank">
+                <img src="./static/img/faith_logo.png" class="m-2 logo-size faith-logo" alt="FAITH Colleges">
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="map" class="map"></div>
     </div>
 
-    <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-    <!-- JavaScript for initializing the map and adding markers -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <script>
-      // Initialize the map
-      var map = L.map("map").setView([14.07767, 121.14981], 19); // Default coordinates and zoom level
+        var map = L.map('map').setView([14.07767, 121.14981], 19);
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            maxZoom: 18
+        }).addTo(map);
 
-      // Add the base map tiles
-      L.tileLayer(
-        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-      ).addTo(map);
-
-      // Initialize marker
-      var marker = L.marker([0, 0]).addTo(map); // Placeholder marker at [0, 0]
-
-      // Function to update marker position based on user location
-      function updateUserLocation(position) {
-        var { latitude, longitude } = position.coords;
-        marker.setLatLng([latitude, longitude]).update();
-        map.setView([latitude, longitude], 19); // Update map center to user location
-      }
-
-      // Function to handle errors in geolocation
-      function handleLocationError(error) {
-        console.warn(`Error(${error.code}): ${error.message}`);
-      }
-
-      // Function to continuously get user's current location
-      function trackUserLocation() {
-        if (navigator.geolocation) {
-          navigator.geolocation.watchPosition(
-            updateUserLocation,
-            handleLocationError
-          );
-        } else {
-          alert("Geolocation is not supported by this browser.");
+        function trackUserLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(position => {
+                    var { latitude, longitude } = position.coords;
+                    map.setView([latitude, longitude], 19);
+                }, error => {
+                    console.warn(`Error(${error.code}): ${error.message}`);
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
         }
-      }
+        trackUserLocation();
 
-      // Call the function to start tracking user location
-      trackUserLocation();
+        function loadGeoJson(url) {
+            fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                L.geoJSON(data, {
+                    pointToLayer: function (feature, latlng) {
+                        return L.marker(latlng, { icon: getCustomIcon(feature) })
+                               .bindTooltip(capitalizeFirstLetter(extractTreeName(feature.properties.tree)), {permanent: false, direction: "top", offset: [0, -20]});
+                    },
+                    onEachFeature: function (feature, layer) {
+                        if (feature.properties && feature.properties.popupContent) {
+                            layer.bindPopup(feature.properties.popupContent);
+                        }
+                    }
+                }).addTo(map);
+            })
+            .catch(error => console.error('Error loading the GeoJSON data: ', error));
+        }
+
+        var geoJsonUrl = 'https://api.maptiler.com/data/c38a252b-0830-4793-afac-67265acd5836/features.json?key=Bnn1u1MtPCYvvZs3JJmV';
+        loadGeoJson(geoJsonUrl);
+
+        function getCustomIcon(feature) {
+            var treeType = feature.properties.tree;
+            var color = "grey"; // Default color
+            var number = ""; // Default number
+
+            if (treeType) {
+                var match = treeType.match(/(\D+)(\d+)/); // Match name and number
+                if (match) {
+                    number = match[2];
+                    treeType = capitalizeFirstLetter(match[1]);
+                    switch (treeType.toLowerCase()) {
+                        case "palo-maria": color = "blue"; break;
+                        case "duhat": color = "purple"; break;
+                        case "mulawin": color = "green"; break;
+                        case "narra": color = "red"; break;
+                        case "apitong": color = "brown"; break;
+                        case "kalios": color = "orange"; break;
+                        case "dita": color = "yellow"; break;
+                        case "ilang-ilang": color = "pink"; break;
+                        case "yakal": color = "cyan"; break;
+                        case "betis": color = "magenta"; break;
+                        case "dau": color = "lime"; break;
+                        case "manga": color = "maroon"; break;
+                        case "guyabano": color = "navy"; break;
+                        case "balete": color = "teal"; break;
+                        case "balayong": color = "olive"; break;
+                        case "kamagong": color = "silver"; break;
+                        case "scramble-egg": color = "gold"; break;
+                        case "ipil": color = "coral"; break;
+                        case "langka": color = "aqua"; break;
+                        case "sintores": color = "fuchsia"; break;
+                        case "bayabas": color = "indigo"; break;
+                        default: color = "grey"; // Fallback color
+                    }
+                }
+            }
+
+            return L.divIcon({
+                html: `<div style="background-color:${color};">${number}</div>`,
+                className: 'custom-div-icon',
+                iconSize: [30, 30],
+                iconAnchor: [15, 15],
+                popupAnchor: [0, -15]
+            });
+        }
+
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+        }
+
+        function extractTreeName(treeType) {
+            var match = treeType.match(/(\D+)(\d+)/); // Match name and number
+            if (match) {
+                return match[1];
+            }
+            return treeType;
+        }
     </script>
-  </body>
+</body>
 </html>
