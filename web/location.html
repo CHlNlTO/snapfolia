@@ -3,10 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>New Location Detected</title>
+    <title>Location</title>
+
+    <!-- MapTiler SDK-->
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.min.js"></script>
 
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <link
+      href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css"
+      rel="stylesheet"
+    />
 
     <!-- Custom CSS -->
     <style>
@@ -22,7 +30,7 @@
       .container {
         background-color: #ffffff;
         color: #000;
-        width: 800px;
+        width: 1000px;
         border-radius: 10px;
         overflow: hidden;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -35,82 +43,159 @@
       .header h2 {
         margin: 0;
         font-size: 18px;
+        color: green;
+      }
+      .header p {
+        margin: 0;
+        font-size: 14px;
+        color: #666;
       }
       .map {
-        height: 400px;
+        height: 550px;
+        width: 100%;
       }
-      .footer {
-        padding: 10px 20px;
-        background-color: #f3f3f3;
-        border-top: 1px solid #ddd;
-        text-align: center;
+      .dropdown {
+        margin: 10px 0 10px 0;
+        position: relative;
       }
-      .footer p {
-        margin: 0;
+      label {
+        display: block;
+        font-size: 14px;
+        margin-top: 15px;
+        color: #555;
       }
-      .footer .active {
-        color: #00ff00;
+      .dropdown select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        appearance: none;
+        cursor: pointer;
+        transition: border-color 0.3s;
       }
-      .footer .inactive {
-        color: #ff0000;
+      .dropdown select:focus {
+        border-color: #007bff;
+        outline: none;
+      }
+      .dropdown::after {
+        content: "▼";
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        pointer-events: none;
+        font-size: 14px;
+        color: #888;
       }
     </style>
   </head>
   <body>
+    <!-- NAVBAR -->
+    <div id="navbar"></div>
+
     <!-- Container for the map -->
     <div class="container">
+      <!-- Dropdown section -->
+      <label for="leafDropdown">Select Leaf Type:</label>
+      <div class="dropdown">
+        <select id="leafDropdown">
+          <option value="">Select a leaf...</option>
+          <option value="acacia">Acacia</option>
+          <option value="alibangbang">Alibangbang</option>
+          <option value="apitong">Apitong</option>
+          <option value="asis">Asis</option>
+          <option value="balayong">Balayong</option>
+          <option value="balete">Balete</option>
+          <option value="bayabas">Bayabas</option>
+          <option value="betis">Betis</option>
+          <option value="dao">Dao</option>
+          <option value="dita">Dita</option>
+          <option value="guyabano">Guyabano</option>
+          <option value="ilang-ilang">Ilang-Ilang</option>
+          <option value="ipil">Ipil</option>
+          <option value="kalios">Kalios</option>
+          <option value="kamagong">Kamagong</option>
+          <option value="langka">Langka</option>
+          <option value="mahogany">Mahogany</option>
+          <option value="mangga">Mangga</option>
+          <option value="mulawin">Mulawin</option>
+          <option value="narra">Narra</option>
+          <option value="palo-maria">Palo Maria</option>
+          <option value="sintores">Sintores</option>
+          <option value="yakal">Yakal</option>
+        </select>
+      </div>
+      
       <!-- Map section -->
       <div id="map" class="map"></div>
 
-      <!-- Footer section -->
-      <div class="header">
-        <h2>FAITH Campus</h2>
-        <p>Narra leaf</p>
-      </div>
-    </div>
+    <!-- Navbar Section -->
+    <script src="./static/script/navbar.js"></script>
 
     <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-    <!-- JavaScript for initializing the map and adding markers -->
+    <!-- Import map -->
     <script>
-      // Initialize the map
-      var map = L.map("map").setView([14.07767, 121.14981], 19); // Default coordinates and zoom level
+      // Fetch GeoJSON data
+      fetch(
+        "https://api.maptiler.com/data/c38a252b-0830-4793-afac-67265acd5836/features.json?key=Bnn1u1MtPCYvvZs3JJmV"
+      )
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((geojsonData) => {
+          // Initialize MapTiler SDK after GeoJSON is loaded
+          maptilersdk.config.apiKey = "IFhXYPDjLBHIKtmv9dba";
+          const map = new maptilersdk.Map({
+            container: "map",
+            style: "satellite",
+            center: [121.149667, 14.0772],
+            zoom: 16.5,
+          });
 
-      // Add the base map tiles
-      L.tileLayer(
-        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-      ).addTo(map);
+          let markers = [];
 
-      // Initialize marker
-      var marker = L.marker([0, 0]).addTo(map); // Placeholder marker at [0, 0]
+          // Function to filter markers
+          function filterMarkers(leafType) {
+            markers.forEach((marker) => marker.remove());
+            markers = [];
 
-      // Function to update marker position based on user location
-      function updateUserLocation(position) {
-        var { latitude, longitude } = position.coords;
-        marker.setLatLng([latitude, longitude]).update();
-        map.setView([latitude, longitude], 19); // Update map center to user location
-      }
+            if (leafType) {
+              geojsonData.features.forEach((feature) => {
+                if (feature.properties.tree.includes(leafType)) {
+                  const coordinates = feature.geometry.coordinates;
+                  const popupContent =
+                    "<h3>" + feature.properties.tree + "</h3>";
 
-      // Function to handle errors in geolocation
-      function handleLocationError(error) {
-        console.warn(`Error(${error.code}): ${error.message}`);
-      }
+                  // Create a marker
+                  const marker = new maptilersdk.Marker()
+                    .setLngLat(coordinates)
+                    .setPopup(new maptilersdk.Popup().setHTML(popupContent))
+                    .addTo(map);
 
-      // Function to continuously get user's current location
-      function trackUserLocation() {
-        if (navigator.geolocation) {
-          navigator.geolocation.watchPosition(
-            updateUserLocation,
-            handleLocationError
-          );
-        } else {
-          alert("Geolocation is not supported by this browser.");
-        }
-      }
+                  markers.push(marker);
+                }
+              });
+            }
+          }
 
-      // Call the function to start tracking user location
-      trackUserLocation();
+          // Event listener for dropdown change
+          document
+            .getElementById("leafDropdown")
+            .addEventListener("change", function () {
+              const selectedLeaf = this.value;
+              filterMarkers(selectedLeaf);
+            });
+        })
+        .catch((error) => {
+          console.error("Error fetching GeoJSON:", error);
+        });
     </script>
   </body>
 </html>

@@ -19,6 +19,14 @@
       crossorigin="anonymous"
     />
 
+    <!-- MapTiler SDK-->
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.min.js"></script>
+
+    <link
+      href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css"
+      rel="stylesheet"
+    />
+
     <!-- LINK: Local CSS -->
     <link rel="stylesheet" href="./static/css/style.css" />
 
@@ -205,40 +213,34 @@
             <!-- SCAN: Name -->
             <div class="my-auto text-center pb-3">
               <!-- FILIPINO NAME -->
-              <h1 class="color-dgreen fw-bold animate-slide-in" id="fname">
+              <h1
+                class="color-dgreen fw-bold animate-slide-in"
+                id="filipino-name"
+              >
                 Filipino Name
               </h1>
 
               <!-- ENGLISH AND SCIENTIFIC NAME -->
-              <h2 class="color-dgreen animate-slide-in" id="ename">
+              <h2 class="color-dgreen animate-slide-in" id="english-name">
                 English Name
               </h2>
-              <h2 class="color-dgreen fst-italic animate-slide-in" id="sname">
+              <h2
+                class="color-dgreen fst-italic animate-slide-in"
+                id="scientific-name"
+              >
                 Scientific Name
               </h2>
 
               <!-- PERCENTAGE -->
               <div class="row ps-3">
-                <!-- Dominant -->
+                <!-- Probability -->
                 <div
                   class="d-flex flex-row justify-content-center animate-slide-in"
                 >
                   <h3><i class="fas fa-square color-dgreen me-1"></i></h3>
-                  <h3 class="color-dgreen col-4 fw-bold" id="dom">Dominant</h3>
-                </div>
-                <!-- Secondary -->
-                <div
-                  class="d-flex flex-row justify-content-center animate-slide-in"
-                >
-                  <h3><i class="fas fa-square color-green me-1"></i></h3>
-                  <h3 class="color-green col-4" id="sec">Secondary</h3>
-                </div>
-                <!-- Tertiary -->
-                <div
-                  class="d-flex flex-row justify-content-center animate-slide-in"
-                >
-                  <h3><i class="fas fa-square color-lgreen me-1"></i></h3>
-                  <h3 class="color-lgreen col-4" id="ter">Tertiary</h3>
+                  <h3 class="color-dgreen col-4 fw-bold" id="probability">
+                    Probability
+                  </h3>
                 </div>
               </div>
             </div>
@@ -257,12 +259,6 @@
             <div class="container">
               <!-- Map section -->
               <div id="map" class="map"></div>
-
-              <!-- Footer section -->
-              <div class="header">
-                <h2>FAITH Campus</h2>
-                <p>Narra leaf</p>
-              </div>
             </div>
           </div>
         </section>
@@ -349,23 +345,67 @@
     <!-- LINK: Local Script -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="./static/script/script.js"></script>
+    <script src="./static/script/trees_information.js"></script>
+    <script src="./static/script/navbar.js"></script>
+    <script src="./static/script/tree_div.js"></script>
+    <script src="./static/script/initialization.js"></script>
+    <script src="./static/script/scan.js"></script>
+    <script src="./static/script/drag_drop.js"></script>
+    <script src="./static/script/snackbar.js"></script>
 
-    <!-- Leaflet JavaScript -->
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-    <!-- JavaScript for initializing the map and adding markers -->
+    <!-- JavaScript for initializing the result map and adding markers -->
     <script>
-      // Initialize the map
-      var map = L.map("map").setView([14.07767, 121.14981], 19); // Coordinates in [lat, lng] format and zoom level
+      let geojsonData = {};
+      let map;
+      let markers = [];
 
-      // Add the base map tiles
-      L.tileLayer(
-        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-      ).addTo(map);
+      // Fetch GeoJSON data
+      fetch(
+        "https://api.maptiler.com/data/c38a252b-0830-4793-afac-67265acd5836/features.json?key=Bnn1u1MtPCYvvZs3JJmV"
+      )
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          geojsonData = data;
+          // Initialize MapTiler SDK after GeoJSON is loaded
+          maptilersdk.config.apiKey = "IFhXYPDjLBHIKtmv9dba";
+          map = new maptilersdk.Map({
+            container: "map",
+            style: "satellite",
+            center: [121.149667, 14.0772],
+            zoom: 16.5,
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching GeoJSON:", error);
+        });
 
-      // Add a marker with a popup
-      var marker = L.marker([14.07767, 121.14981]).addTo(map);
+      // Function to filter markers
+      function filterMarkers(leafType) {
+        markers.forEach((marker) => marker.remove());
+        markers = [];
+
+        if (leafType) {
+          geojsonData.features.forEach((feature) => {
+            if (feature.properties.tree.includes(leafType)) {
+              const coordinates = feature.geometry.coordinates;
+              const popupContent = "<h3>" + feature.properties.tree + "</h3>";
+
+              // Create a marker
+              const marker = new maptilersdk.Marker()
+                .setLngLat(coordinates)
+                .setPopup(new maptilersdk.Popup().setHTML(popupContent))
+                .addTo(map);
+
+              markers.push(marker);
+            }
+          });
+        }
+      }
     </script>
   </body>
 </html>

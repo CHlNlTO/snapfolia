@@ -6,6 +6,7 @@ from PIL import Image
 from torchvision import transforms
 from transformers import AutoProcessor, AutoModelForZeroShotObjectDetection
 import torchvision
+import numpy as np
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = '../uploads'
@@ -14,7 +15,13 @@ app.config['UPLOAD_FOLDER'] = '../uploads'
 CORS(app)
 
 # Class Labels
-class_labels = ['Apitong', 'Balete', 'Bayabas', 'Guyabano', 'Kamagong', 'Langka', 'Mahogany', 'Mangga', 'Palo Maria']
+class_labels = [
+    "Acacia", "Alibangbang", "Apitong", "Asis", "Balayong",
+    "Balete", "Bayabas", "Betis", "Dao", "Dita",
+    "Guyabano", "Ilang_Ilang", "Ipil", "Kalios", "Kamagong",
+    "Langka", "Mahogany", "Mangga", "Mulawin", "Narra",
+    "Palo-Maria", "Sintores", "Yakal"
+]
 
 # Ensure the upload folder exists
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
@@ -22,6 +29,7 @@ if not os.path.exists(app.config['UPLOAD_FOLDER']):
 
 # Load the leaf classification model
 def load_leaf_classification_model(model_path, num_classes):
+    print("Initializing leaf classification model...")
     model = torchvision.models.resnet50(pretrained=False)
     model.fc = torch.nn.Linear(model.fc.in_features, num_classes)
     model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
@@ -30,16 +38,28 @@ def load_leaf_classification_model(model_path, num_classes):
 
 # Load the object detection model
 def load_object_detection_model(model_id):
+    print("Initializing object detection model...")
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     processor = AutoProcessor.from_pretrained(model_id)
     model = AutoModelForZeroShotObjectDetection.from_pretrained(model_id).to(device)
     model.eval()
     return model, processor
 
+# Grayscale conversion
+def to_grayscale(image):
+    print("Converting to grayscale...")
+    grayscale_image = image.convert("L")
+    grayscale_image = np.stack([np.array(grayscale_image)]*3, axis=-1)
+    return Image.fromarray(grayscale_image)
+
 # Data transformation for leaf classification
 def transform_image(image):
+    print("Transforming image...")
     transform = transforms.Compose([
         transforms.Resize(size=(224, 224)),
+        transforms.Lambda(to_grayscale),
+        transforms.RandomHorizontalFlip(),
+        transforms.RandomRotation(10),
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
     ])
@@ -47,14 +67,19 @@ def transform_image(image):
 
 # Process uploaded image
 def process_image(image_path, leaf_model, object_detection_model, processor):
+    print("Processing image...")
+    
+    print("Opening image...")
     image = Image.open(image_path).convert('RGB')
     
     # Object detection
+    print("Running object detection...")
     inputs = processor(images=image, text="a leaf. leaves.", return_tensors="pt")
     with torch.no_grad():
         outputs = object_detection_model(**inputs)
     
     # Post-process object detection
+    print("Post-processing object detection...")
     results = processor.post_process_grounded_object_detection(
         outputs,
         inputs.input_ids,
@@ -64,6 +89,7 @@ def process_image(image_path, leaf_model, object_detection_model, processor):
     )
     
     # Leaf classification on detected regions
+    print("Object detection complete...")
     classification_results = []
     if results and "boxes" in results[0] and results[0]["boxes"].shape[0] > 0:
         for result in results:
@@ -74,6 +100,7 @@ def process_image(image_path, leaf_model, object_detection_model, processor):
                 cropped_image_tensor = transform_image(cropped_image)
                 
                 # Classify leaf
+                print("Classifying leaf...")
                 with torch.no_grad():
                     logits = leaf_model(cropped_image_tensor)
                 confidence, predicted_class = torch.max(torch.nn.functional.softmax(logits, dim=1), dim=1)
@@ -96,7 +123,7 @@ def index():
 # Route for uploading image and processing
 @app.route('/upload', methods=['POST'])
 def upload_file():
-    print("Identifying...")  # Log when endpoint is hit
+    print("Connection established...")  # Log when endpoint is hit
     
     if 'file' not in request.files:
         print("No file part in request")  # Log if file part is missing
@@ -115,9 +142,13 @@ def upload_file():
     file.save(file_path)
     
     # Load models
-    leaf_model_path = 'final_model.pth'
+    print("Loading resnet50 model...")
+    leaf_model_path = 'resnet50-v2.pth'
+    
+    print("Loading dino model...")
     object_detection_model_id = 'IDEA-Research/grounding-dino-tiny'
-    leaf_model = load_leaf_classification_model(leaf_model_path, num_classes=len(class_labels))  # Adjust num_classes as per your model
+    
+    leaf_model = load_leaf_classification_model(leaf_model_path, num_classes=len(class_labels))
     object_detection_model, processor = load_object_detection_model(object_detection_model_id)
     
     # Process image

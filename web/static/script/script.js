@@ -126,7 +126,7 @@ window.addEventListener("DOMContentLoaded", setDefaultModel);
   );
   function modelScanAgainCapture() {
     refresh();
-    scan_capture();
+    scan();
   }
 
   var btn_model_scan = document.getElementById("btn-model-scan");
@@ -234,7 +234,17 @@ function scan() {
         console.log("Parsed Result:", result);
       }
 
-      console.log(result.results[0].label);
+      if (result.results.length === 0) {
+        console.log("Image does not contain a leaf.");
+        alert("Image does not contain a leaf.");
+        return;
+      }
+
+      if (result.results[0].confidence < 70.0) {
+        console.log("Result lower than expected. Please try again.");
+        alert("Result lower than expected. Please try again.");
+        return;
+      }
 
       // Accessing the prediction value
       const classResult = result.results[0].label;
