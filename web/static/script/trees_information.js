@@ -20,7 +20,7 @@ function getURL(classResult) {
     Mangga: "mangga",
     Mulawin: "mulawin",
     Narra: "narra",
-    "Palo Maria": "palo-maria",
+    "Palo-Maria": "palo-maria",
     Sintores: "sintores",
     Yakal: "yakal",
   };
@@ -50,7 +50,7 @@ function getEnglishName(classResult) {
     Mangga: "Mango",
     Mulawin: "Small-flower Chaste",
     Narra: "Rosewood",
-    "Palo Maria": "Palo Maria",
+    "Palo-Maria": "Palo Maria",
     Sintores: "Mandarin Orange",
     Yakal: "Yakal",
   };
@@ -80,7 +80,7 @@ function getScientificName(classResult) {
     Mangga: "Mangifera indica",
     Mulawin: "Vitex parviflora",
     Narra: "Pterocarpus indicus",
-    "Palo Maria": "Calophyllum inophyllum",
+    "Palo-Maria": "Calophyllum inophyllum",
     Sintores: "Citrus reticulata Blanco",
     Yakal: "Shorea astylosa",
   };

@@ -66,10 +66,11 @@ function scan() {
       // }
 
       // Accessing the prediction value
-      const classResult = result.results[0].label;
+      const classResult = result.results.label;
 
+      console.log("hatdog:", classResult);
       const probability =
-        (result.results[0].confidence.toFixed(2) * 100).toString() + "%";
+        (result.results.confidence.toFixed(2) * 100).toString() + "%";
 
       // Printing the value
       console.log("Class Result:", classResult);

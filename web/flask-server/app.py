@@ -3,10 +3,9 @@ from flask_cors import CORS
 import os
 import torch
 from PIL import Image
-from torchvision import transforms
 from transformers import AutoProcessor, AutoModelForZeroShotObjectDetection
-import torchvision
 import numpy as np
+from ultralytics import YOLO
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = '../uploads'
@@ -16,29 +15,24 @@ CORS(app)
 
 # Class Labels
 class_labels = [
-    "Acacia", "Alibangbang", "Apitong", "Asis", "Balayong",
-    "Balete", "Bayabas", "Betis", "Dao", "Dita",
-    "Guyabano", "Ilang_Ilang", "Ipil", "Kalios", "Kamagong",
-    "Langka", "Mahogany", "Mangga", "Mulawin", "Narra",
-    "Palo-Maria", "Sintores", "Yakal"
+    "Apitong",
+    "Balete", "Bayabas",
+    "Guyabano", "Kamagong",
+    "Langka", "Mahogany", "Mangga", 
+    "Palo-Maria", 
 ]
 
 # Ensure the upload folder exists
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
     os.makedirs(app.config['UPLOAD_FOLDER'])
 
-# Load the leaf classification model
-def load_leaf_classification_model(model_path, num_classes):
-    print("Initializing leaf classification model...")
-    model = torchvision.models.resnet50(pretrained=False)
-    model.fc = torch.nn.Linear(model.fc.in_features, num_classes)
-    model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
-    model.eval()
-    return model
-
-# Load the object detection model
+# Load the object detection model (Grounding Dino)
 def load_object_detection_model(model_id):
     print("Initializing object detection model...")
+    if torch.cuda.is_available():
+        print("cuda is available")
+    else:
+        print("cuda is not available")
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     processor = AutoProcessor.from_pretrained(model_id)
     model = AutoModelForZeroShotObjectDetection.from_pretrained(model_id).to(device)
@@ -71,14 +65,12 @@ def process_image(image_path, leaf_model, object_detection_model, processor):
     
     print("Opening image...")
     image = Image.open(image_path).convert('RGB')
-    
-    # Object detection
+
     print("Running object detection...")
-    inputs = processor(images=image, text="a leaf. leaves.", return_tensors="pt")
+    inputs = processor(images=image, text="a leaf. leaves.", return_tensors="pt").to(device)
     with torch.no_grad():
         outputs = object_detection_model(**inputs)
     
-    # Post-process object detection
     print("Post-processing object detection...")
     results = processor.post_process_grounded_object_detection(
         outputs,
@@ -114,11 +106,34 @@ def process_image(image_path, leaf_model, object_detection_model, processor):
     
     return classification_results
 
-# Route for checking server status
-@app.route('/')
-def index():
-    print("running...")
-    return jsonify({'message': 'Server is running'})
+# Process uploaded image
+def process_image(image_path, object_detection_model, processor, yolov8_model, device):
+    leaf_detected, image = detect_objects(image_path, object_detection_model, processor, device)
+    
+    if not leaf_detected:
+        print("No leaf identified.")
+        classification_results = {
+            "label": "None",
+            "confidence": None
+        }
+        return classification_results
+
+    classification_results = classify_leaf(image, yolov8_model)
+
+    return classification_results
+
+# Load the object detection model (Grounding Dino)
+def load_object_detection_model(model_id):
+    print("Initializing object detection model...")
+    if torch.cuda.is_available():
+        print("cuda is available")
+    else:
+        print("cuda is not available")
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    processor = AutoProcessor.from_pretrained(model_id)
+    model = AutoModelForZeroShotObjectDetection.from_pretrained(model_id).to(device)
+    model.eval()
+    return model, processor, device
 
 # Route for uploading image and processing
 @app.route('/upload', methods=['POST'])
@@ -142,10 +157,11 @@ def upload_file():
     file.save(file_path)
     
     # Load models
-    print("Loading resnet50 model...")
-    leaf_model_path = 'resnet50-v2.pth'
+    print("Loading YOLOv8 model...")
+    yolov8_model_path = 'YOLO_V8.pt'
+    yolov8_model = load_yolov8_model(yolov8_model_path)
     
-    print("Loading dino model...")
+    print("Loading Grounding Dino model...")
     object_detection_model_id = 'IDEA-Research/grounding-dino-tiny'
     
     leaf_model = load_leaf_classification_model(leaf_model_path, num_classes=len(class_labels))
