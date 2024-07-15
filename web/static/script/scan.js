@@ -39,10 +39,17 @@ function scan() {
 
   xhr.open("POST", url, true);
 
+  // Start time
+  const startTime = performance.now();
+
   // Handle the response
   xhr.onload = function () {
+    // End time
+    const endTime = performance.now();
+    const timeSpent = (endTime - startTime) / 1000; // Convert milliseconds to seconds
+    console.log(`Time spent on API call: ${timeSpent.toFixed(2)} seconds`);
+
     if (xhr.status === 200) {
-      // == success: function(result, status)
       let result = xhr.responseText;
 
       console.log("MODEL:", model);
@@ -53,38 +60,24 @@ function scan() {
         console.log("Parsed Result:", result);
       }
 
-      if (result.results.length === 0) {
+      if (result.length === 0) {
         console.log("Image does not contain a leaf.");
         alert("Image does not contain a leaf.");
         return;
       }
 
-      // if (result.results[0].confidence <= 1.0) {
-      //   console.log("Result lower than expected. Please try again.");
-      //   alert("Result lower than expected. Please try again.");
-      //   return;
-      // }
+      const classResult = result.label;
+      const probability = (result.confidence.toFixed(2) * 100).toString() + "%";
 
-      // Accessing the prediction value
-      const classResult = result.results[0].label;
-
-      const probability =
-        (result.results[0].confidence.toFixed(2) * 100).toString() + "%";
-
-      // Printing the value
       console.log("Class Result:", classResult);
 
-      // Display the Filipino name (class)
       document.getElementById("filipino-name").innerHTML = classResult;
-
-      // Update the corresponding HTML elements with class probabilities
       document.getElementById("english-name").innerHTML =
         getEnglishName(classResult);
       document.getElementById("scientific-name").innerHTML =
         getScientificName(classResult);
       document.getElementById("probability").innerHTML = probability;
 
-      // Add fade-in animation
       document
         .getElementById("filipino-name")
         .classList.add("animate-fade-in-result");
@@ -98,13 +91,10 @@ function scan() {
         .getElementById("probability")
         .classList.add("animate-fade-in-result");
 
-      // Trigger the marker filtering based on the Filipino name
       filterMarkers(classResult.toLowerCase());
 
-      // Construct the Wikipedia URL based on the classResult
       const treeUrl = "./static/trees/" + getURL(classResult) + ".html";
 
-      // Set the src attribute of the iframe to the constructed Wikipedia URL
       fetch(treeUrl)
         .then((response) => response.text())
         .then((data) => {
@@ -129,42 +119,4 @@ function scan() {
       btn_scan_again.style.display = "block";
     }
   };
-}
-
-function scan_again() {
-  imgBox.style.display = null;
-  imgBox.style.backgroundImage = null;
-  fa_image.style.display = "block";
-  btn_capture.style.display = "block";
-  input_capture.value = null;
-  btn_upload.style.display = "block";
-  input_upload.value = null;
-  progressBar.classList.add("d-none");
-
-  fetch("./static/trees/tree_div.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("tree-div").innerHTML = data;
-    });
-
-  document.getElementById("upload-progress").value = 0;
-  document.getElementById("filipino-name").innerHTML = "Filipino Name";
-  document.getElementById("english-name").innerHTML = "English Name";
-  document.getElementById("scientific-name").innerHTML = "Scientific Name";
-  document.getElementById("probability").innerHTML = "Probability";
-
-  document
-    .getElementById("filipino-name")
-    .classList.remove("animate-fade-in-result");
-  document
-    .getElementById("english-name")
-    .classList.remove("animate-fade-in-result");
-  document
-    .getElementById("scientific-name")
-    .classList.remove("animate-fade-in-result");
-  document
-    .getElementById("probability")
-    .classList.remove("animate-fade-in-result");
-
-  btn_scan_again.style.display = "none";
 }

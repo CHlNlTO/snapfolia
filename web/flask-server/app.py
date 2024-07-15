@@ -3,9 +3,9 @@ from flask_cors import CORS
 import os
 import torch
 from PIL import Image
-from torchvision import transforms
 from transformers import AutoProcessor, AutoModelForZeroShotObjectDetection
-import torchvision
+from ultralytics import YOLO
+import dill  # Explicitly import dill
 import numpy as np
 
 app = Flask(__name__)
@@ -14,71 +14,40 @@ app.config['UPLOAD_FOLDER'] = '../uploads'
 # Enable CORS
 CORS(app)
 
-# Class Labels
-class_labels = [
-    "Acacia", "Alibangbang", "Apitong", "Asis", "Balayong",
-    "Balete", "Bayabas", "Betis", "Dao", "Dita",
-    "Guyabano", "Ilang_Ilang", "Ipil", "Kalios", "Kamagong",
-    "Langka", "Mahogany", "Mangga", "Mulawin", "Narra",
-    "Palo-Maria", "Sintores", "Yakal"
-]
-
 # Ensure the upload folder exists
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
     os.makedirs(app.config['UPLOAD_FOLDER'])
 
-# Load the leaf classification model
-def load_leaf_classification_model(model_path, num_classes):
-    print("Initializing leaf classification model...")
-    model = torchvision.models.resnet50(pretrained=False)
-    model.fc = torch.nn.Linear(model.fc.in_features, num_classes)
-    model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
-    model.eval()
-    return model
-
-# Load the object detection model
+# Load the object detection model (Grounding Dino)
 def load_object_detection_model(model_id):
     print("Initializing object detection model...")
+    if torch.cuda.is_available():
+        print("cuda is available")
+    else:
+        print("cuda is not available")
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     processor = AutoProcessor.from_pretrained(model_id)
     model = AutoModelForZeroShotObjectDetection.from_pretrained(model_id).to(device)
     model.eval()
-    return model, processor
+    return model, processor, device
 
-# Grayscale conversion
-def to_grayscale(image):
-    print("Converting to grayscale...")
-    grayscale_image = image.convert("L")
-    grayscale_image = np.stack([np.array(grayscale_image)]*3, axis=-1)
-    return Image.fromarray(grayscale_image)
+# Load the YOLOv8 model
+def load_yolov8_model(model_path):
+    print("Initializing YOLOv8 model...")
+    import dill  # Ensure dill is imported within the function scope
+    model = YOLO(model_path)
+    return model
 
-# Data transformation for leaf classification
-def transform_image(image):
-    print("Transforming image...")
-    transform = transforms.Compose([
-        transforms.Resize(size=(224, 224)),
-        transforms.Lambda(to_grayscale),
-        transforms.RandomHorizontalFlip(),
-        transforms.RandomRotation(10),
-        transforms.ToTensor(),
-        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
-    ])
-    return transform(image).unsqueeze(0)
-
-# Process uploaded image
-def process_image(image_path, leaf_model, object_detection_model, processor):
-    print("Processing image...")
-    
+# Object detection using Grounding Dino
+def detect_objects(image_path, object_detection_model, processor, device):
     print("Opening image...")
     image = Image.open(image_path).convert('RGB')
-    
-    # Object detection
+
     print("Running object detection...")
-    inputs = processor(images=image, text="a leaf. leaves.", return_tensors="pt")
+    inputs = processor(images=image, text="a leaf. leaves.", return_tensors="pt").to(device)
     with torch.no_grad():
         outputs = object_detection_model(**inputs)
     
-    # Post-process object detection
     print("Post-processing object detection...")
     results = processor.post_process_grounded_object_detection(
         outputs,
@@ -88,31 +57,38 @@ def process_image(image_path, leaf_model, object_detection_model, processor):
         target_sizes=[image.size[::-1]]
     )
     
-    # Leaf classification on detected regions
-    print("Object detection complete...")
-    classification_results = []
-    if results and "boxes" in results[0] and results[0]["boxes"].shape[0] > 0:
-        for result in results:
-            for box in result["boxes"]:
-                box = box.cpu().numpy()
-                x1, y1, x2, y2 = box[0], box[1], box[2], box[3]
-                cropped_image = image.crop((x1, y1, x2, y2))
-                cropped_image_tensor = transform_image(cropped_image)
-                
-                # Classify leaf
-                print("Classifying leaf...")
-                with torch.no_grad():
-                    logits = leaf_model(cropped_image_tensor)
-                confidence, predicted_class = torch.max(torch.nn.functional.softmax(logits, dim=1), dim=1)
-                
-                # Append results
-                classification_results.append({
-                    "box": box.tolist(),
-                    "label": class_labels[predicted_class.item()],
-                    "confidence": confidence.item()
-                })
+    return results
+
+# Classification using YOLOv8
+def classify_leaf(image_path, yolov8_model):
+    image = Image.open(image_path).convert('RGB')
+    print("Classifying leaf...")
+    predict = yolov8_model(image)
+    names_dict = predict[0].names
+    probs = predict[0].probs.data.tolist()
+
+    print(names_dict)
+    print(probs)
+
+    predicted_class = names_dict[np.argmax(probs)]
+    confidence = max(probs)
     
-    return classification_results
+    return predicted_class, confidence
+
+# Process uploaded image
+def process_image(image_path, object_detection_model, processor, yolov8_model, device):
+    results = detect_objects(image_path, object_detection_model, processor, device)
+    
+    # Check if any leaves are detected
+    if results and "boxes" in results[0] and results[0]["boxes"].shape[0] > 0:
+        predicted_class, confidence = classify_leaf(image_path, yolov8_model)
+        return {
+            "leaf_detected": True,
+            "label": predicted_class,
+            "confidence": confidence
+        }
+    else:
+        return {"leaf_detected": False}
 
 # Route for checking server status
 @app.route('/')
@@ -142,19 +118,18 @@ def upload_file():
     file.save(file_path)
     
     # Load models
-    print("Loading resnet50 model...")
-    leaf_model_path = 'resnet50-v2.pth'
+    print("Loading YOLOv8 model...")
+    yolov8_model_path = 'YOLO_V8.pt'
+    yolov8_model = load_yolov8_model(yolov8_model_path)
     
-    print("Loading dino model...")
+    print("Loading Grounding Dino model...")
     object_detection_model_id = 'IDEA-Research/grounding-dino-tiny'
-    
-    leaf_model = load_leaf_classification_model(leaf_model_path, num_classes=len(class_labels))
-    object_detection_model, processor = load_object_detection_model(object_detection_model_id)
+    object_detection_model, processor, device = load_object_detection_model(object_detection_model_id)
     
     # Process image
-    results = process_image(file_path, leaf_model, object_detection_model, processor)
+    result = process_image(file_path, object_detection_model, processor, yolov8_model, device)
     
-    return jsonify({'results': results})
+    return jsonify(result)
 
 if __name__ == '__main__':
     app.run(debug=True)

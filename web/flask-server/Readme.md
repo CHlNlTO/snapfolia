@@ -21,13 +21,19 @@ cd path/to/Snapfolia/web/flask-server
 python -m venv venv
 ```
 
-3. Install dependencies:
+3. Activate the virtual environment. You should be in the **flask-server** folder:
+
+```
+venv\Scripts\activate
+```
+
+4. Install dependencies:
 
 ```
 pip install -r requirements.txt
 ```
 
-4. Run the Flask application. Make sure that you are on the flask-server folder:
+5. Run the Flask application. Make sure that you are on the flask-server folder:
 
 ```
 python app.py
@@ -44,6 +50,8 @@ You have now successfully started the backend server. If you haven't started run
 ## Concerns
 
 - If you encounter compatibility issues with the version dependencies, try to install the compatible version for the modules.
+
+- When you initially click the scan button of the application, it needs to download the grounding-dino object detection model first.
 
 - If a network issue persists, locate the `script.js` within the following folder:
   ```
