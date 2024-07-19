@@ -119,7 +119,7 @@ def upload_file():
     
     # Load models
     print("Loading YOLOv8 model...")
-    yolov8_model_path = 'YOLO_V8.pt'
+    yolov8_model_path = 'YOLO_V8_Split.pt'
     yolov8_model = load_yolov8_model(yolov8_model_path)
     
     print("Loading Grounding Dino model...")
