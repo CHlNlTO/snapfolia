@@ -384,6 +384,20 @@ function getURL(classResult) {
     Narra: "narra",
     Sintores: "sintores",
     Yakal: "yakal",
+    //New Datasets
+    Amugis: "amugis",
+    Banaba: "banaba",
+    Bani: "bani",
+    Barako: "barako",
+    Binunga: "binunga",
+    Duhat: "duhat",
+    Eucalyptus: "eucalyptus",
+    Hinadyong: "hinadyong",
+    Lansones: "lansones",
+    Madrecacao: "madrecacao",
+    Scrambled_Egg: "scrambledegg",
+    Talisay: "talisay",
+    Tibig: "tibig",
   };
 
   return url[classResult] || "N/A";
@@ -405,6 +419,20 @@ function getEnglishName(classResult) {
     Narra: "Rosewood",
     Sintores: "Mandarin Orange",
     Yakal: "Yakal",
+     //New Datasets
+     Amugis: "Amugis",
+     Banaba: "Queen's Cape Myrtle",
+     Bani: "Pongam",
+     Barako: "Liberica Coffee",
+     Binunga: "Parasol",
+     Duhat: "Malabar Plum",
+     Eucalyptus: "Eucalyptus",
+     Hinadyong: "Oriental Trema",
+     Lansones: "Langsat",
+     Madrecacao: "Gliricidia Tree",
+     Scrambled_Egg: "Scrambled Egg",
+     Talisay: "Indian Almond",
+     Tibig: "Sacking Tree",
   };
 
   return englishNames[classResult] || "N/A"; // Return the English name or "N/A" if not found
@@ -426,6 +454,20 @@ function getScientificName(classResult) {
     Narra: "Pterocarpus indicus",
     Sintores: "Citrus reticulata Blanco",
     Yakal: "Shorea astylosa",
+    //New Datasets
+    Amugis: "Koordersiodendron pinnatum",
+    Banaba: "Lagerstroemia speciosa",
+    Bani: "Pongamia pinnata",
+    Barako: "Coffea liberica",
+    Binunga: "Macaranga tanarius",
+    Duhat: "Syzygium cumini",
+    Eucalyptus: "Eucalyptus globulus",
+    Hinadyong: "Trema orientalis",
+    Lansones: "Lansium domesticum",
+    Madrecacao: "Gliricidia Sepium",
+    Scrambled_Egg: "Senna surattensis",
+    Talisay: "Terminalia Catappa",
+    Tibig: "Ficus nota",
   };
 
   return scientificNames[classResult] || "N/A"; // Return the scientific name or "N/A" if not found

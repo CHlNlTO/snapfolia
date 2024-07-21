@@ -29,7 +29,7 @@ function scan() {
       const percentComplete = 50 + (event.loaded / event.total) * 50;
       progressBar.value = percentComplete;
 
-      if (percentComplete == 100) {
+      if (percentComplete === 100) {
         btn_scan.style.display = "none";
         btn_scan_again.style.display = "block";
         progressBar.classList.add("d-none");
@@ -72,33 +72,35 @@ function scan() {
       console.log("Class Result:", classResult);
 
       document.getElementById("filipino-name").innerHTML = classResult;
-      document.getElementById("english-name").innerHTML =
-        getEnglishName(classResult);
-      document.getElementById("scientific-name").innerHTML =
-        getScientificName(classResult);
+      document.getElementById("english-name").innerHTML = getEnglishName(classResult);
+      document.getElementById("scientific-name").innerHTML = getScientificName(classResult);
       document.getElementById("probability").innerHTML = probability;
 
-      document
-        .getElementById("filipino-name")
-        .classList.add("animate-fade-in-result");
-      document
-        .getElementById("english-name")
-        .classList.add("animate-fade-in-result");
-      document
-        .getElementById("scientific-name")
-        .classList.add("animate-fade-in-result");
-      document
-        .getElementById("probability")
-        .classList.add("animate-fade-in-result");
+      // Update scan time
+      document.getElementById("scan-time").innerHTML = `Scan Time: ${timeSpent.toFixed(2)} seconds`;
+
+      document.getElementById("filipino-name").classList.add("animate-fade-in-result");
+      document.getElementById("english-name").classList.add("animate-fade-in-result");
+      document.getElementById("scientific-name").classList.add("animate-fade-in-result");
+      document.getElementById("probability").classList.add("animate-fade-in-result");
+      document.getElementById("scan-time").classList.add("animate-fade-in-result");
 
       filterMarkers(classResult.toLowerCase());
 
       const treeUrl = "./static/trees/" + getURL(classResult) + ".html";
 
       fetch(treeUrl)
-        .then((response) => response.text())
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+          }
+          return response.text();
+        })
         .then((data) => {
           document.getElementById("tree-div").innerHTML = data;
+        })
+        .catch((error) => {
+          console.error('There was a problem with the fetch operation:', error);
         });
     } else {
       console.log("Error:", xhr.statusText);
