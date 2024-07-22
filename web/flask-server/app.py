@@ -25,6 +25,7 @@ def load_object_detection_model(model_id):
         print("cuda is available")
     else:
         print("cuda is not available")
+        
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     processor = AutoProcessor.from_pretrained(model_id)
     model = AutoModelForZeroShotObjectDetection.from_pretrained(model_id).to(device)
@@ -87,6 +88,7 @@ def process_image(image_path, object_detection_model, processor, yolov8_model, d
             "label": predicted_class,
             "confidence": confidence
         }
+        
     else:
         return {"leaf_detected": False}
 
@@ -119,7 +121,7 @@ def upload_file():
     
     # Load models
     print("Loading YOLOv8 model...")
-    yolov8_model_path = 'YOLO_V8.pt'
+    yolov8_model_path = 'yolo_v8_v2.pt'
     yolov8_model = load_yolov8_model(yolov8_model_path)
     
     print("Loading Grounding Dino model...")
