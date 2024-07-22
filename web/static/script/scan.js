@@ -60,7 +60,7 @@ function scan() {
         console.log("Parsed Result:", result);
       }
 
-      if (result.length === 0) {
+      if (result.leaf_detected === false) {
         console.log("Image does not contain a leaf.");
         alert("Image does not contain a leaf.");
         return;
@@ -68,6 +68,12 @@ function scan() {
 
       const classResult = result.label;
       const probability = (result.confidence.toFixed(2) * 100).toString() + "%";
+
+      if (result.confidence <= .7) {
+        console.log("Image does not contain a leaf.");
+        alert("Image does not contain a leaf.");
+        return;
+      }
 
       console.log("Class Result:", classResult);
 
