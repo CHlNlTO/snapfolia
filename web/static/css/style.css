@@ -179,15 +179,36 @@ SNAPFOLIA COLOR PALETTE:
     height: 2rem;
 }
 
+.nav-item {
+    font-size: 0.8rem;
+}
 
 .nav-item {
     font-size: 0.8rem;
+    position: relative;
+    display: inline-block;
 }
 
 .nav-item:hover {
     color: #40A067;
 }
 
+.nav-item::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 3px; /* Adjust the position under the text */
+    left: 0;
+    background-color: #40A067;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-item:hover::before {
+    visibility: visible;
+    width: 100%;
+}
 /* ---------------------- END of NAVBAR ---------------------- */
 
 
@@ -263,7 +284,6 @@ p, li, .dev-fname {
 .fs-responsive {
     font-size: 0.7rem;
 }
-
 
 /* TREE-DIV */
 .tree-div {
