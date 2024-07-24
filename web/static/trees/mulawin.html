@@ -39,106 +39,196 @@
     <!-- LINK: Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <style>
-      .display-color{
+      .display-color {
         color: #000;
       }
-      .nav-tabs{
+      .nav-tabs {
         display: flex;
         justify-content: flex-end;
-      } 
+      }
     </style>
   </head>
   <body>
-        <!-- MAIN: Result -->
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true" style="color: green;">Description</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false" style="color: green;">Uses</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false" style="color: green;">Folklore</button>
-          </li>
-        </ul>
-        <div class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in" id="tree">
-            <div class="col-lg-8 col-12">
-                <!-- TITLE: Sirit-sirit -->
-                <h1 class="color-dgreen fw-bold">
-                  Mulawin
-                  <i class="fas fa-leaf color-dgreen"></i>
-                </h1>
+    <!-- MAIN: Result -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="description-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#description-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="description-tab-pane"
+          aria-selected="true"
+          style="color: green"
+        >
+          Description
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="uses-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#uses-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="uses-tab-pane"
+          aria-selected="false"
+          style="color: green"
+        >
+          Uses
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="folklore-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#folklore-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="folklore-tab-pane"
+          aria-selected="false"
+          style="color: green"
+        >
+          Folklore
+        </button>
+      </li>
+    </ul>
+    <div
+      class="container bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in"
+      id="tree"
+    >
+      <div class="row">
+        <div class="col-lg-8 col-12 order-lg-1 order-2">
+          <!-- TITLE: Mulawin -->
+          <h1 class="color-dgreen fw-bold">
+            Mulawin
+            <i class="fas fa-leaf color-dgreen"></i>
+          </h1>
 
-                <!-- SUBTITLE: Other Tagalog names -->
-                <p class="color-dgreen margin-0">
-                  <b class="color-dgreen fw-bold">Also known as:</b> 
-                  Molauin, Molave
-                </p>
+          <!-- SUBTITLE: Other Tagalog names -->
+          <p class="color-dgreen margin-0">
+            <b class="color-dgreen fw-bold">Also known as:</b>
+            Molauin, Molave
+          </p>
 
-                <hr class="color-dgreen me-3">
+          <hr class="color-dgreen me-3" />
 
-                <!-- SUBTITLE: Gen Info -->
-                <div class="tab-content" id="myTabContent">
-                  <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
-                <h2 class="color-dgreen fw-bold">General Information</h2>
-                <ul>
-                    <li class="color-dgreen">Vitex parviflora is a species of plant in the family Verbenaceae.</li>
-                    <li class="color-dgreen">The name "molave" is Spanish , derived from 'mulawin', the Tagalog word for the tree.</li>
-                    <li class="color-dgreen">In the confusing landscape of commom names, "molave" is shared by Vitex parviflora (Mulawin, small-flower 
-                      chaste tree) and Viitex pinnata (hairy-leafed molave). Both species are native to the Philippines.</li>
-                </ul>
+          <!-- SUBTITLE: Gen Info -->
+          <div class="tab-content" id="myTabContent">
+            <div
+              class="tab-pane fade show active display-color"
+              id="description-tab-pane"
+              role="tabpanel"
+              aria-labelledby="description-tab"
+              tabindex="0"
+            >
+              <h2 class="color-dgreen fw-bold">General Information</h2>
+              <ul>
+                <li class="color-dgreen">
+                  Vitex parviflora is a species of plant in the family
+                  Verbenaceae.
+                </li>
+                <li class="color-dgreen">
+                  The name "molave" is Spanish , derived from 'mulawin', the
+                  Tagalog word for the tree.
+                </li>
+                <li class="color-dgreen">
+                  In the confusing landscape of common names, "molave" is shared
+                  by Vitex parviflora (Mulawin, small-flower chaste tree) and
+                  Viitex pinnata (hairy-leafed molave). Both species are native
+                  to the Philippines.
+                </li>
+              </ul>
 
-                <!-- SUBTITLE: Botany -->
-                <h2 class="color-dgreen fw-bold">Botany</h2>
-                <p class="color-dgreen ps-2 pe-3">
-                  Mulawin is a tree that reaches a height of 8 to 15 meters, smooth or nearly so, with inflorescences that may be slightly hairy. Leaflets 
-                  are three, stalked, ovate to lanceolate, 7 to 18 centimeters long, pointed at the tip, shining and quite smooth. Flowers are blue, numerous, 
-                  6 to 8 millimeters long, hairy outside the corolla, borne on terminal, paniculate and ample inflorescences, up to 20 centimeters in length. 
-                  Fruit is rounded, 5 to 6 millimeters in diameter.
-                </p>
+              <!-- SUBTITLE: Botany -->
+              <h2 class="color-dgreen fw-bold">Botany</h2>
+              <p class="color-dgreen ps-2 pe-3">
+                Mulawin is a tree that reaches a height of 8 to 15 meters,
+                smooth or nearly so, with inflorescences that may be slightly
+                hairy. Leaflets are three, stalked, ovate to lanceolate, 7 to
+                18 centimeters long, pointed at the tip, shining and quite
+                smooth. Flowers are blue, numerous, 6 to 8 millimeters long,
+                hairy outside the corolla, borne on terminal, paniculate and
+                ample inflorescences, up to 20 centimeters in length. Fruit is
+                rounded, 5 to 6 millimeters in diameter.
+              </p>
 
-                <!-- SUBTITLE: Distribution -->
-                <h2 class="color-dgreen fw-bold">Distribution</h2>
-                <ul>
-                    <li class="color-dgreen">Native to the Philippines.</li>
-                    <li class="color-dgreen">Common in secondary and open primary forests at low altitudes throughout the Philippines in most or all islands and provinces.</li>
-                    <li class="color-dgreen">Also native to Caroline Is., Lesser Sunda Is., Maluku, Sulawesi.</li>
-                    <li class="color-dgreen">Grows primarily in the wet tropical biome.</li>
-                    <li class="color-dgreen">Listed as 'Vulnerable' in the IUCB Red List of Threatened Species.</li>
-                </ul>
+              <!-- SUBTITLE: Distribution -->
+              <h2 class="color-dgreen fw-bold">Distribution</h2>
+              <ul>
+                <li class="color-dgreen">Native to the Philippines.</li>
+                <li class="color-dgreen">
+                  Common in secondary and open primary forests at low altitudes
+                  throughout the Philippines in most or all islands and
+                  provinces.
+                </li>
+                <li class="color-dgreen">
+                  Also native to Caroline Is., Lesser Sunda Is., Maluku,
+                  Sulawesi.
+                </li>
+                <li class="color-dgreen">
+                  Grows primarily in the wet tropical biome.
+                </li>
+                <li class="color-dgreen">
+                  Listed as 'Vulnerable' in the IUCB Red List of Threatened
+                  Species.
+                </li>
+              </ul>
 
-                <h3 class="color-green fst-italic pb-4">(c) http://www.stuartxchange.org/Mulawin</h3>
-                </div>
-                <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
-                  Uses
-                </div>
-                <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
-                  Folklore
-                </div>
-                <script>
-                  document.addEventListener('DOMContentLoaded', function () {
-        const tabs = document.querySelectorAll('.nav-link');
-        
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function () {
-                tabs.forEach(otherTab => {
-                    otherTab.style.backgroundColor = '#E6EDED';
-                    otherTab.style.color = 'green';
+              <h3 class="color-green fst-italic pb-4">
+                (c) http://www.stuartxchange.org/Mulawin
+              </h3>
+            </div>
+            <div
+              class="tab-pane fade display-color"
+              id="uses-tab-pane"
+              role="tabpanel"
+              aria-labelledby="uses-tab"
+              tabindex="0"
+            >
+              Uses
+            </div>
+            <div
+              class="tab-pane fade display-color"
+              id="folklore-tab-pane"
+              role="tabpanel"
+              aria-labelledby="folklore-tab"
+              tabindex="0"
+            >
+              Folklore
+            </div>
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const tabs = document.querySelectorAll(".nav-link");
+
+                tabs.forEach((tab) => {
+                  tab.addEventListener("click", function () {
+                    tabs.forEach((otherTab) => {
+                      otherTab.style.backgroundColor = "#E6EDED";
+                      otherTab.style.color = "green";
+                    });
+                    tab.style.backgroundColor = "green";
+                    tab.style.color = "white";
+                  });
                 });
-                tab.style.backgroundColor = 'green';
-                tab.style.color = 'white';
-            });
-        });
-        });
-                </script>
-            </div>
-            <div class="col-lg-4 col-12 d-flex justify-content-center align-content-center">
-              <img 
-                class="w-100 tree-img border-r"
-                src="./static/img/tree-mulawin.jpg" 
-                alt="Mulawin"
-              >
-            </div>
+              });
+            </script>
+          </div>
         </div>
+        <div
+          class="col-lg-4 col-12 d-flex justify-content-center align-content-center order-lg-2 order-1 mb-3 mb-lg-0"
+        >
+          <img
+            class="w-100 tree-img border-r"
+            src="./static/img/tree-mulawin.jpg"
+            alt="Mulawin"
+          />
+        </div>
+      </div>
+    </div>
   </body>
 </html>

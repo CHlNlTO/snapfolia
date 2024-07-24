@@ -39,108 +39,100 @@
     <!-- LINK: Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <style>
-      .display-color{
+      .display-color {
         color: #000;
       }
-      .nav-tabs{
+      .nav-tabs {
         display: flex;
         justify-content: flex-end;
-      } 
+      }
     </style>
   </head>
   <body>
-        <!-- MAIN: Result -->
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true" style="color: green;">Description</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false" style="color: green;">Uses</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false" style="color: green;">Folklore</button>
-          </li>
-        </ul>
-        <div class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in" id="tree">
-            <div class="col-lg-8 col-12">
-                <!-- TITLE: Sirit-sirit -->
-                <h1 class="color-dgreen fw-bold">
-                  Kamagong
-                  <i class="fas fa-leaf color-dgreen"></i>
-                </h1>
+    <!-- MAIN: Result -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true" style="color: green;">Description</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false" style="color: green;">Uses</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false" style="color: green;">Folklore</button>
+      </li>
+    </ul>
+    <div class="container bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in" id="tree">
+      <div class="row">
+        <div class="col-lg-8 col-12 order-lg-1 order-2">
+          <!-- TITLE: Kamagong -->
+          <h1 class="color-dgreen fw-bold">
+            Kamagong
+            <i class="fas fa-leaf color-dgreen"></i>
+          </h1>
+          <!-- SUBTITLE: Other Tagalog names -->
+          <p class="color-dgreen margin-0">
+            <b class="color-dgreen fw-bold">Also known as:</b>
+            Kamagong bundok, Kamagong liitan
+          </p>
+          <hr class="color-dgreen me-3" />
 
-                <!-- SUBTITLE: Other Tagalog names -->
-                <p class="color-dgreen margin-0">
-                  <b class="color-dgreen fw-bold">Also known as:</b> 
-                  Kamagong bundok, Kamagong liitan
-                </p>
-                
-                <hr class="color-dgreen me-3">
+          <!-- SUBTITLE: Gen Info -->
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+              <h2 class="color-dgreen fw-bold">General Information</h2>
+              <ul>
+                <li class="color-dgreen">The genus Diospytos consists of over 700 species of deciduous and evergreen trees and shrubs. The majority are native to the tropics, with a few species extending into temperate regions.</li>
+                <li class="color-dgreen">Individual species are valued for their hard, heavy, dark wood, commonly referred to as ebony trees; others are valued for their fruit and known as persimmon trees.</li>
+                <li class="color-dgreen">The genus name Diospyros derives from Greek words dios and pyros—literally meaning "Zeus wheat" or generally as "divine fruit" or "divine food."</li>
+              </ul>
 
-                <!-- SUBTITLE: Gen Info -->
-                <div class="tab-content" id="myTabContent">
-                  <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
-                <h2 class="color-dgreen fw-bold">General Information</h2>
-                <ul>
-                    <li class="color-dgreen">The genus Diospytos consists of over 700 species of deciduous and evergreen trees and shrubs. The majority 
-                      are native to the tropics, with a few species extending into temperate regions.</li>
-                    <li class="color-dgreen">Individual species are valued for their hard, heavy, dark wood, commonly referred to as ebony trees; others are 
-                      valued for their fruit and known as persimmon trees.</li>
-                    <li class="color-dgreen">The genus name Diospyros derives from Greek words dios and pyros—literally meaning "Zeus wheat" or generally as 
-                      "divine fruit" or "divine food."</li>
-                </ul>
+              <!-- SUBTITLE: Botany -->
+              <h2 class="color-dgreen fw-bold">Botany</h2>
+              <p class="color-dgreen ps-2 pe-3">
+                Kamagong is a small deciduous tree growing up to a height of 15 meters. Bole and older branches are armed with long, hard, stiff, divaricate spines from the stumps of branches. Bark is smooth, grey or yellowish grey. Branchlets are slender, glabrous. Leaves are simple, alternate, elliptic, lance-shaped, somewhat heart-shaped at the base, and sharp or blunt at the tip; smooth above and velvety underneath. Petioles are 5-10 mm, slender, grooved above, glabrous. Male and female flowers grow on separate trees. Male flowers are borne in 3-flowered clusters while female flowers occur singly. Flowers are creamy white or greenish-white, tubular with 4 petals which are curved back. Sepals are ovate, velvety. Stamens of the male flower are longer than the flower tube. Fruit is a berry, 1.5-2 cm across, ovoid to obconical, yellow to orange when ripe, with 3-5 rough and black seeds.
+              </p>
 
-                <!-- SUBTITLE: Botany -->
-                <h2 class="color-dgreen fw-bold">Botany</h2>
-                <p class="color-dgreen ps-2 pe-3">
-                  Kamagong is a small deciduous tree growing up to a height of 15 meters. Bole and older branches are armed with long, hard, 
-                  stiff, divaricate spines from the stumps of branches.. Bark is smooth, grey or yellowish grey. Branchlets are slender, glabrous. 
-                  Leaves are simple, alternate, elliptic, lance-shaped, somewhat heart-shaped at the base, and sharp or blunt at the tip; smooth above 
-                  and velvety underneath. Petioles are 5-10 mm, slender, grooved above, glabrous, Male and female flowers grow on separate trees. Male 
-                  flowers are are borne in 3-flowered clusters while female flowers occur singly. Flowers are creamy white or greenish-white, tubular 
-                  with 4 petals which are curved back. Sepals are ovate, velvety. Stamens of the male flower are longer than the flower tube. Fruit is 
-                  a berry, 1.5-2 cm across, ovoid to obconical, yellow to orange when ripe, with 3-5 rough and black seeds.
-                </p>
+              <!-- SUBTITLE: Distribution -->
+              <h2 class="color-dgreen fw-bold">Distribution</h2>
+              <ul>
+                <li class="color-dgreen">Native to the Philippines.</li>
+                <li class="color-dgreen">Distributed all along the Western Ghats of India, Sri Lanka, Indo-China through to Australia.</li>
+              </ul>
 
-                <!-- SUBTITLE: Distribution -->
-                <h2 class="color-dgreen fw-bold">Distribution</h2>
-                <ul>
-                    <li class="color-dgreen">Native to the Philippines.</li>
-                    <li class="color-dgreen">Distributed all along the Western Ghats of India, Sri Lanka, Indo-China through to Australia.</li>
-                </ul>
+              <h3 class="color-green fst-italic pb-4">(c) http://www.stuartxchange.org/KamagongBundok</h3>
+            </div>
+            <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
+              Uses
+            </div>
+            <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
+              Folklore
+            </div>
+            <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                const tabs = document.querySelectorAll('.nav-link');
 
-                <h3 class="color-green fst-italic pb-4">(c) http://www.stuartxchange.org/KamagongBundok</h3>
-                </div>
-                <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
-                  Uses
-                </div>
-                <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
-                  Folklore
-                </div>
-                <script>
-                  document.addEventListener('DOMContentLoaded', function () {
-        const tabs = document.querySelectorAll('.nav-link');
-        
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function () {
-                tabs.forEach(otherTab => {
-                    otherTab.style.backgroundColor = '#E6EDED';
-                    otherTab.style.color = 'green';
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function () {
+                        tabs.forEach(otherTab => {
+                            otherTab.style.backgroundColor = '#E6EDED';
+                            otherTab.style.color = 'green';
+                        });
+                        tab.style.backgroundColor = 'green';
+                        tab.style.color = 'white';
+                    });
                 });
-                tab.style.backgroundColor = 'green';
-                tab.style.color = 'white';
-            });
-        });
-        });
-                </script>
-            </div>
-            <div class="col-lg-4 col-12 d-flex justify-content-center align-content-center">
-              <img 
-                class="w-100 tree-img border-r"
-                src="./static/img/tree-kamagong.jpg" 
-                alt="Kamagong"
-              >
-            </div>
+              });
+            </script>
+          </div>
         </div>
+        <div class="col-lg-4 col-12 d-flex justify-content-center align-content-center order-lg-2 order-1 mb-3 mb-lg-0">
+          <img
+            class="w-100 tree-img border-r"
+            src="./static/img/tree-kamagong.jpg"
+            alt="Kamagong"
+          />
+        </div>
+      </div>
+    </div>
   </body>
 </html>

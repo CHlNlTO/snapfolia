@@ -61,98 +61,86 @@
         <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false" style="color: green;">Folklore</button>
       </li>
     </ul>
-    <div
-      class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in"
-      id="tree"
-    >
-      <div class="col-lg-8 col-12">
-        <!-- TITLE: Mangga -->
-        <h1 class="color-dgreen fw-bold">
-          Lansones
-          <i class="fas fa-leaf color-dgreen"></i>
-        </h1>
+    <div class="container bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in" id="tree">
+      <div class="row">
+        <div class="col-lg-8 col-12 order-lg-1 order-2">
+          <!-- TITLE: Lansones -->
+          <h1 class="color-dgreen fw-bold">
+            Lansones
+            <i class="fas fa-leaf color-dgreen"></i>
+          </h1>
+          <!-- SUBTITLE: Other Tagalog names -->
+          <p class="color-dgreen margin-0">
+            <b class="color-dgreen fw-bold">Also known as: </b>
+            Langsat or Langkong
+          </p>
+          <hr class="color-dgreen me-3" />
 
-        <!-- SUBTITLE: Other Tagalog names -->
-        <p class="color-dgreen margin-0">
-          <b class="color-dgreen fw-bold">Also known as: </b>
-          Langsat or Langkong
-        </p>
+          <!-- SUBTITLE: Gen Info -->
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+              <h2 class="color-dgreen fw-bold">General Information</h2>
+              <ul>
+                <li class="color-dgreen">
+                  Lansones is a tree reaching heights of 4 to 15 meters, with alternate leaves composed of 5 to 7 oblong-elliptic leaflets. It produces small, yellow flowers on spikes and yellowish-white fruit with translucent, bitter seeds surrounded by succulent pulp.
+                </li>
+                <li class="color-dgreen">
+                  The fruit pulp is succulent and delicious, eaten fresh out of hand; candied or preserved in syrup.
+                </li>
+                <li class="color-dgreen">
+                  The dried fruit skins when burned emit an aromatic smell which repels mosquitoes. In Java, used as incense in rooms of sick people.
+                </li>
+              </ul>
 
-        <hr class="color-dgreen me-3" />
+              <!-- SUBTITLE: Botany -->
+              <h2 class="color-dgreen fw-bold">Botany</h2>
+              <p class="color-dgreen ps-2 pe-3">
+                Lansones is a tree growing to a height of 4 to 15 meters. Leaves are alternate, 20 to 40 centimeters long, with 5 to 7 leaflets, oblong to oblong-elliptic, 7 to 18 centimeters in length, and pointed at both ends. Flowers are small, yellow and borne on spikes, solitary or fascicled on the trunk or larger branches. Fruit is yellowish-white, occurring in bunches on a single stem, ellipsoid or globose, 2 to 4 centimeters long, with bitter seeds that are surrounded by a translucent pulp (arillus). The outer skin is thin and tough, abundant in a milky juice. The pulp occurs in five sections with one well-developed seed.
+              </p>
 
-        <!-- SUBTITLE: Gen Info -->
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
-        <h2 class="color-dgreen fw-bold">General Information</h2>
-        <ul>
-          <li class="color-dgreen">
-            Lansones is a tree reaching heights of 4 to 15 meters, with alternate leaves composed of 5 to 7 oblong-elliptic leaflets. 
-            It produces small, yellow flowers on spikes and yellowish-white fruit with translucent, bitter seeds surrounded by succulent pulp.
-          </li>
-          <li class="color-dgreen">
-            The fruit pulp is succulent and delicious, eaten fresh out of hand; candied or preserved in syrup.
-          </li>
-          <li class="color-dgreen">
-            The dried fruit skins when burned emit an aromatic smell which repels mosquitoes. In Java, used as incense in rooms of sick people.
-          </li>
-        </ul>
+              <!-- SUBTITLE: Distribution -->
+              <h2 class="color-dgreen fw-bold">Distribution</h2>
+              <ul>
+                <li class="color-dgreen">Native to the Philippines.</li>
+                <li class="color-dgreen">Cultivated for its fruit in Luzon, particularly the Quezon and Laguna Provinces, and occurs wild in Mindanao and Basilan.</li>
+                <li class="color-dgreen"> Also native to Borneo, Jawa, Lesser Sunda Is., Malaya, Sulawesi, Sumatera, Thailand</li>
+              </ul>
 
-        <!-- SUBTITLE: Botany -->
-        <h2 class="color-dgreen fw-bold">Botany</h2>
-        <p class="color-dgreen ps-2 pe-3">
-            Lansones is a tree growing to a height of 4 to 15 meters. Leaves are alternate, 20 to 40 centimeters long, with 5 to 7 leaflets, oblong to oblong-elliptic, 7 to 18 centimeters in length, and pointed at both ends. 
-            Flowers are small, yellow and borne on spikes, solitary or fascicled on the trunk or larger branches. Fruit is yellowish-white, occurring in bunches on a single stem, ellipsoid or globose, 2 to 4 centimeters long, 
-            with bitter seeds that are surrounded by a translucent pulp (arillus). The outer skin is thin and tough, abundant in a milky juice. The pulp occurs in five sections with one well-developed seed.
-        </p>
+              <h3 class="color-green fst-italic pb-4">
+                (c) http://www.stuartxchange.org/Lansones
+              </h3>
+            </div>
+            <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
+              Uses
+            </div>
+            <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
+              Folklore
+            </div>
+            <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                const tabs = document.querySelectorAll('.nav-link');
 
-        <!-- SUBTITLE: Distribution -->
-        <h2 class="color-dgreen fw-bold">Distribution</h2>
-        <ul>
-          <li class="color-dgreen">
-            Native to the Philippines.
-          </li>
-          <li class="color-dgreen">
-            Cultivated for its fruit in Luzon, particularly the Quezon and Laguna Provinces, and occurs wild in Mindanao and Basilan.
-          </li>
-          <li class="color-dgreen"> Also native to Borneo, Jawa, Lesser Sunda Is., Malaya, Sulawesi, Sumatera, Thailand
-        </li>
-        </ul>
-
-        <h3 class="color-green fst-italic pb-4">s
-          (c) http://www.stuartxchange.org/Lansones
-        </h3>
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function () {
+                        tabs.forEach(otherTab => {
+                            otherTab.style.backgroundColor = '#E6EDED';
+                            otherTab.style.color = 'green';
+                        });
+                        tab.style.backgroundColor = 'green';
+                        tab.style.color = 'white';
+                    });
+                });
+              });
+            </script>
           </div>
-          <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
-            Uses
-          </div>
-          <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
-            Folklore
-          </div>
-          <script>
-            document.addEventListener('DOMContentLoaded', function () {
-  const tabs = document.querySelectorAll('.nav-link');
-  
-  tabs.forEach(tab => {
-      tab.addEventListener('click', function () {
-          tabs.forEach(otherTab => {
-              otherTab.style.backgroundColor = '#E6EDED';
-              otherTab.style.color = 'green';
-          });
-          tab.style.backgroundColor = 'green';
-          tab.style.color = 'white';
-      });
-  });
-  });
-          </script>
-      </div>
-      <div
-        class="col-lg-4 col-12 d-flex justify-content-center align-content-center"
-      >
-        <img
-          class="w-100 tree-img border-r"
-          src="./static/img/tree-amugis.jpg"
-          alt="Lansones"
-        />
+        </div>
+        <div class="col-lg-4 col-12 d-flex justify-content-center align-content-center order-lg-2 order-1 mb-3 mb-lg-0">
+          <img
+            class="w-100 tree-img border-r"
+            src="./static/img/tree-lansones.jpg"
+            alt="Lansones"
+          />
+        </div>
       </div>
     </div>
   </body>

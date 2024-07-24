@@ -39,115 +39,118 @@
     <!-- LINK: Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <style>
-      .display-color{
+      .display-color {
         color: #000;
       }
-      .nav-tabs{
+      .nav-tabs {
         display: flex;
         justify-content: flex-end;
-      } 
+      }
     </style>
   </head>
   <body>
-        <!-- MAIN: Result -->
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true" style="color: green;">Description</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false" style="color: green;">Uses</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false" style="color: green;">Folklore</button>
-          </li>
-        </ul>
-        <div class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in" id="tree">
-            <div class="col-lg-8 col-12">
-                <!-- TITLE: Acacia -->
-                <h1 class="color-dgreen fw-bold">
-                  Dita
-                  <i class="fas fa-leaf color-dgreen"></i>
-                </h1>
+    <!-- MAIN: Result -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true" style="color: green;">Description</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false" style="color: green;">Uses</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false" style="color: green;">Folklore</button>
+      </li>
+    </ul>
+    <div class="container bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in" id="tree">
+      <div class="row"> <!-- Added row class -->
+        <div class="col-lg-8 col-12 order-lg-1 order-2"> <!-- Added order-lg-1 order-2 classes -->
+          <!-- TITLE: Dita -->
+          <h1 class="color-dgreen fw-bold">
+            Dita
+            <i class="fas fa-leaf color-dgreen"></i>
+          </h1>
 
-                <!-- SUBTITLE: Other Tagalog names -->
-                <p class="color-dgreen margin-0">
-                  <b class="color-dgreen fw-bold">Also known as: </b>
+          <!-- SUBTITLE: Other Tagalog names -->
+          <p class="color-dgreen margin-0">
+            <b class="color-dgreen fw-bold">Also known as: </b>
+            (Wala pa)
+          </p>
+
+          <hr class="color-dgreen me-3" />
+
+          <!-- SUBTITLE: Gen Info -->
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+              <h2 class="color-dgreen fw-bold">General Information</h2>
+              <ul>
+                <li class="color-dgreen">
                   (Wala pa)
-                </p>
+                </li>
+                <li class="color-dgreen">
+                  (Wala pa)
+                </li>
+                <li class="color-dgreen">
+                  (Wala pa)
+                </li>
+              </ul>
 
-        <hr class="color-dgreen me-3" />
+              <!-- SUBTITLE: Botany -->
+              <h2 class="color-dgreen fw-bold">Botany</h2>
+              <p class="color-dgreen ps-2 pe-3">
+                Dita is a smooth tree growing 6 to 20 meters high. Branches are lenticellate. Bark is dark grayish, somewhat rough, yielding 
+                an abundant, bitter, and milky sap. Leaves are in whorls, 4 to 7 in a whorl, leathery, narrowly obovate to spatulate, 10 to 20 
+                centimeters long, 3 to 4.5 centimeters wide, pointed at the base, rounded at the apex, glossy green on the upper surface, white 
+                or grayish on the underside. Lateral nerves are very numerous, parallel, and terminating in an intramarginal vein. Flowers are 
+                crowded, numerous, somewhat hairy, greenish-white, about 1 centimeter long, hairy in the throat, borne in compact, hairy cymes 
+                about 10 centimeters long. Fruits are made up of two slender follicles which are pendulous and cylindric follicles, 20 to 40 
+                centimeters long, 4 to 5 millimeters in diameter. Seeds are 3 to 4 millimeters long, with brown ciliate hairs on the ends.
+              </p>
 
-         <!-- SUBTITLE: Gen Info -->
-         <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
-        <h2 class="color-dgreen fw-bold">General Information</h2>
-        <ul>
-          <li class="color-dgreen">
-           (Wala pa)
-          </li>
-          <li class="color-dgreen">
-            (Wala pa)
-          </li>
-          <li class="color-dgreen">
-            (Wala pa)
-          </li>
-        </ul>
+              <!-- SUBTITLE: Distribution -->
+              <h2 class="color-dgreen fw-bold">Distribution</h2>
+              <ul>
+                <li class="color-dgreen">Native to the Philippines.</li>
+                <li class="color-dgreen">Found from Cagayan in northern Luzon to Palawan and Mindanao, in most or all islands and provinces, 
+                  in primary and secondary forests at low and medium altitudes.</li>
+                <li class="color-dgreen">Also native to Andaman Is., Assam, Australia, Bangladesh, Bismark Archipelago, Borneo, Cambodia, 
+                  China, Himalaya, India, Jawa, Laccadive Is., Laos, Lesser Sunda Is., Malaya, Maluku, Myanmar, Nepal, New Guinea, Nicobar Is., 
+                  Northern Territory, Pakistan, Queensland, Solomon Is., Sri Lanka, Sulawesi, Sumatera, Thailand, Vietnam.</li>
+              </ul>
 
-                <!-- SUBTITLE: Botany -->
-                <h2 class="color-dgreen fw-bold">Botany</h2>
-                <p class="color-dgreen ps-2 pe-3">
-                  Dita is a smooth tree growing 6 to 20 meters high. Branches are lenticellate. Bark is dark grayish, somewhat rough, yielding 
-                  an abundant, bitter, and milky sap. Leaves are in whorls,4 to 7in a whorl, leathery, narrowly obovate to spatulate, 10 to 20 
-                  centimeters long, 3 to 4.5 centimeters wide, pointed at the base, rounded at the apex, glossy green on the upper surface, white 
-                  or grayish on the underside. Lateral nerves are very numerous, parallel, and terminating in a intramarginal vein. Flowers are 
-                  crowded, numerous, somewhat hairy, greenish-white, about 1 centimeter long, hairy in the throat, borne in compact, hairy cymes 
-                  about 10 centimeters long. Fruits is made up of two slender follicles which are pendulous and cylindric follicles, 20 to 40 
-                  centimeters long, 4 to 5 millimeters in diameter. Seeds are 3 to 4 millimeters long, with brown ciliate hairs on the ends.
-                </p>
+              <h3 class="color-green fst-italic pb-4">(c) http://www.stuartxchange.org/Dita</h3>
+            </div>
+            <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
+              Uses
+            </div>
+            <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
+              Folklore
+            </div>
+            <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                const tabs = document.querySelectorAll('.nav-link');
 
-                <!-- SUBTITLE: Distribution -->
-                <h2 class="color-dgreen fw-bold">Distribution</h2>
-                <ul>
-                    <li class="color-dgreen">Native to the Philippines.</li>
-                    <li class="color-dgreen">Found from Cagayan in northern Luzon to Palawan and Mindanao, in most or all islands and provinces, 
-                      in primary and secondary forests at low and medium altitudes.</li>
-                    <li class="color-dgreen">Also native to Andaman Is., Assam, Australia, Bangladesh, Bismark Archipelago, Borneo, Cambodia, 
-                      China, Himalaya, India, Jawa, Laccadive Is., Laos, Lesser Sunda Is., Malaya, Maluku, Myanmar, Nepal, New Guinea, Nicobar Is., 
-                      Northern Territory, Pakistan, Queensland, Solomon Is., Sri Lanka, Sulawesi, Sumatera, Thailand, Vietnam.</li>
-                </ul>
-
-                <h3 class="color-green fst-italic pb-4">(c) http://www.stuartxchange.org/Dita</h3>
-                </div>
-                <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
-                  Uses
-                </div>
-                <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
-                  Folklore
-                </div>
-                <script>
-                  document.addEventListener('DOMContentLoaded', function () {
-        const tabs = document.querySelectorAll('.nav-link');
-        
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function () {
-                tabs.forEach(otherTab => {
-                    otherTab.style.backgroundColor = '#E6EDED';
-                    otherTab.style.color = 'green';
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function () {
+                        tabs.forEach(otherTab => {
+                            otherTab.style.backgroundColor = '#E6EDED';
+                            otherTab.style.color = 'green';
+                        });
+                        tab.style.backgroundColor = 'green';
+                        tab.style.color = 'white';
+                    });
                 });
-                tab.style.backgroundColor = 'green';
-                tab.style.color = 'white';
-            });
-        });
-        });
-                </script>
-            </div>
-            <div class="col-lg-4 col-12 d-flex justify-content-center align-content-center">
-              <img 
-                class="w-100 tree-img border-r"
-                src="./static/img/tree-dita.jpg" 
-                alt="Dita"
-              >
-            </div>
+              });
+            </script>
+          </div>
         </div>
+        <div class="col-lg-4 col-12 d-flex justify-content-center align-content-center order-lg-2 order-1 mb-3 mb-lg-0"> <!-- Added order-lg-2 order-1 classes -->
+          <img
+            class="w-100 tree-img border-r"
+            src="./static/img/tree-dita.jpg"
+            alt="Dita"
+          />
+        </div>
+      </div>
+    </div>
   </body>
 </html>

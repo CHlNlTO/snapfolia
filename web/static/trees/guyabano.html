@@ -39,110 +39,113 @@
     <!-- LINK: Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <style>
-      .display-color{
+      .display-color {
         color: #000;
       }
-      .nav-tabs{
+      .nav-tabs {
         display: flex;
         justify-content: flex-end;
-      } 
+      }
     </style>
   </head>
   <body>
-        <!-- MAIN: Result -->
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true" style="color: green;">Description</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false" style="color: green;">Uses</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false" style="color: green;">Folklore</button>
-          </li>
-        </ul>
-        <div class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in" id="tree">
-            <div class="col-lg-8 col-12">
-                <!-- TITLE: Acacia -->
-                <h1 class="color-dgreen fw-bold">
-                  Guyabano
-                  <i class="fas fa-leaf color-dgreen"></i>
-                </h1>
+    <!-- MAIN: Result -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true" style="color: green;">Description</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false" style="color: green;">Uses</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false" style="color: green;">Folklore</button>
+      </li>
+    </ul>
+    <div class="container bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in" id="tree">
+      <div class="row"> <!-- Added row class -->
+        <div class="col-lg-8 col-12 order-lg-1 order-2"> <!-- Added order-lg-1 order-2 classes -->
+          <!-- TITLE: Guyabano -->
+          <h1 class="color-dgreen fw-bold">
+            Guyabano
+            <i class="fas fa-leaf color-dgreen"></i>
+          </h1>
 
-                <!-- SUBTITLE: Other Tagalog names -->
-                <p class="color-dgreen margin-0">
-                  <b class="color-dgreen fw-bold">Also known as:</b> 
-                  Guabana, Guanabano, Guiabano, Guyabana, Guayabano
-                </p>
-                <hr class="color-dgreen me-3">
+          <!-- SUBTITLE: Other Tagalog names -->
+          <p class="color-dgreen margin-0">
+            <b class="color-dgreen fw-bold">Also known as:</b> 
+            Guabana, Guanabano, Guiabano, Guyabana, Guayabano
+          </p>
+          <hr class="color-dgreen me-3">
 
-                <!-- SUBTITLE: Gen Info -->
-                <div class="tab-content" id="myTabContent">
-                  <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
-                <h2 class="color-dgreen fw-bold">General Information</h2>
-                <ul>
-                    <li class="color-dgreen">The genus name Annona derives from Latin 'anon', meaning 'yearly produce' or signifying 'the year's harvest', referring to the annual harvest of soursop fruits.</li>
-                    <li class="color-dgreen"> Annona muricata was first described by Carl von Linnaeus in Species Plantarum, 1753.</li>
-                </ul>
+          <!-- SUBTITLE: Gen Info -->
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+              <h2 class="color-dgreen fw-bold">General Information</h2>
+              <ul>
+                <li class="color-dgreen">The genus name Annona derives from Latin 'anon', meaning 'yearly produce' or signifying 'the year's harvest', referring to the annual harvest of soursop fruits.</li>
+                <li class="color-dgreen"> Annona muricata was first described by Carl von Linnaeus in Species Plantarum, 1753.</li>
+              </ul>
 
-                <!-- SUBTITLE: Botany -->
-                <h2 class="color-dgreen fw-bold">Botany</h2>
-                <p class="color-dgreen ps-2 pe-3">
-                  Guyabano is a small tree, usually less than 7 meters high. Leaves are smooth, glossy, shiny, oblong-obovate to oblong, 
-                  7 to 20 centimeters in length, pointed on both ends, with petioles about 5 millimeters long. Flower is solitary, large, 
-                  solitary, yellow or greenish-yellow. Three outer petals are broadly ovate with a heart-shaped base, up to 5 centimeters 
-                  long, and 3 centimeters wide; and the inner three are also large, elliptic to obovate, and rounded. Fruit is ovoid and 
-                  large, up to 18 centimeters long, covered with small scattered, soft spinelike processes. Skin is thin, and the pulp is 
-                  soft, rather fibrous, white, and fleshy, with an agreeable, but rather sour flavor.
-                </p>
+              <!-- SUBTITLE: Botany -->
+              <h2 class="color-dgreen fw-bold">Botany</h2>
+              <p class="color-dgreen ps-2 pe-3">
+                Guyabano is a small tree, usually less than 7 meters high. Leaves are smooth, glossy, shiny, oblong-obovate to oblong, 
+                7 to 20 centimeters in length, pointed on both ends, with petioles about 5 millimeters long. Flower is solitary, large, 
+                solitary, yellow or greenish-yellow. Three outer petals are broadly ovate with a heart-shaped base, up to 5 centimeters 
+                long, and 3 centimeters wide; and the inner three are also large, elliptic to obovate, and rounded. Fruit is ovoid and 
+                large, up to 18 centimeters long, covered with small scattered, soft spinelike processes. Skin is thin, and the pulp is 
+                soft, rather fibrous, white, and fleshy, with an agreeable, but rather sour flavor.
+              </p>
 
-                <!-- SUBTITLE: Distribution -->
-                <h2 class="color-dgreen fw-bold">Distribution</h2>
-                <ul>
-                    <li class="color-dgreen">Introduced.</li>
-                    <li class="color-dgreen">Cultivated for its edible fruit.</li>
-                    <li class="color-dgreen">Prevalent in the rain forests of Africa, South America, and Southeast Asia.</li>
-                </ul>
+              <!-- SUBTITLE: Distribution -->
+              <h2 class="color-dgreen fw-bold">Distribution</h2>
+              <ul>
+                <li class="color-dgreen">Introduced.</li>
+                <li class="color-dgreen">Cultivated for its edible fruit.</li>
+                <li class="color-dgreen">Prevalent in the rain forests of Africa, South America, and Southeast Asia.</li>
+              </ul>
 
-                <!-- SUBTITLE: Properties -->
-                <h2 class="color-dgreen fw-bold">Properties</h2>
-                <ul>
-                    <li class="color-dgreen">Fruit is reported antiscorbutic and astringent.</li>
-                    <li class="color-dgreen">Flowers are pectoral.</li>
-                </ul>
+              <!-- SUBTITLE: Properties -->
+              <h2 class="color-dgreen fw-bold">Properties</h2>
+              <ul>
+                <li class="color-dgreen">Fruit is reported antiscorbutic and astringent.</li>
+                <li class="color-dgreen">Flowers are pectoral.</li>
+              </ul>
 
-                <h3 class="color-green fst-italic pb-4">(c) http://www.stuartxchange.org/Guyabano</h3>
-                </div>
-                <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
-                  Uses
-                </div>
-                <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
-                  Folklore
-                </div>
-                <script>
-                  document.addEventListener('DOMContentLoaded', function () {
-        const tabs = document.querySelectorAll('.nav-link');
-        
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function () {
-                tabs.forEach(otherTab => {
-                    otherTab.style.backgroundColor = '#E6EDED';
-                    otherTab.style.color = 'green';
+              <h3 class="color-green fst-italic pb-4">(c) http://www.stuartxchange.org/Guyabano</h3>
+            </div>
+            <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
+              Uses
+            </div>
+            <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
+              Folklore
+            </div>
+            <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                const tabs = document.querySelectorAll('.nav-link');
+
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function () {
+                        tabs.forEach(otherTab => {
+                            otherTab.style.backgroundColor = '#E6EDED';
+                            otherTab.style.color = 'green';
+                        });
+                        tab.style.backgroundColor = 'green';
+                        tab.style.color = 'white';
+                    });
                 });
-                tab.style.backgroundColor = 'green';
-                tab.style.color = 'white';
-            });
-        });
-        });
-                </script>
-            </div>
-            <div class="col-lg-4 col-12 d-flex justify-content-center align-content-center">
-              <img 
-                class="w-100 tree-img border-r"
-                src="./static/img/tree-guyabano.jpg" 
-                alt="Guyabano"
-              >
-            </div>
+              });
+            </script>
+          </div>
         </div>
+        <div class="col-lg-4 col-12 d-flex justify-content-center align-content-center order-lg-2 order-1 mb-3 mb-lg-0"> <!-- Added order-lg-2 order-1 classes -->
+          <img
+            class="w-100 tree-img border-r"
+            src="./static/img/tree-guyabano.jpg"
+            alt="Guyabano"
+          />
+        </div>
+      </div>
+    </div>
   </body>
 </html>

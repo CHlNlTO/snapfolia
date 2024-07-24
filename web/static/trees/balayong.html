@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Leaflet: Apostola</title>
+    <title>Leaflet: Balayong</title>
     <link
       rel="icon"
       type="image/x-icon"
@@ -39,96 +39,99 @@
     <!-- LINK: Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <style>
-      .display-color{
+      .display-color {
         color: #000;
       }
-      .nav-tabs{
+      .nav-tabs {
         display: flex;
         justify-content: flex-end;
-      } 
+      }
     </style>
   </head>
   <body>
-        <!-- MAIN: Result -->
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true" style="color: green;">Description</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false" style="color: green;">Uses</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false" style="color: green;">Folklore</button>
-          </li>
-        </ul>
-        <div class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in" id="tree">
-            <div class="col-lg-8 col-12">
-                <!-- TITLE: Balayong -->
-                <h1 class="color-dgreen fw-bold">
-                  Balayong
-                  <i class="fas fa-leaf color-dgreen"></i>
-                </h1>
-                <hr class="color-dgreen me-3">
+    <!-- MAIN: Result -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true" style="color: green;">Description</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false" style="color: green;">Uses</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false" style="color: green;">Folklore</button>
+      </li>
+    </ul>
+    <div class="container bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in" id="tree">
+      <div class="row"> <!-- Added row class -->
+        <div class="col-lg-8 col-12 order-lg-1 order-2"> <!-- Added order-lg-1 order-2 classes -->
+          <!-- TITLE: Balayong -->
+          <h1 class="color-dgreen fw-bold">
+            Balayong
+            <i class="fas fa-leaf color-dgreen"></i>
+          </h1>
+          <hr class="color-dgreen me-3" />
 
-                <!-- SUBTITLE: Gen Info -->
-                <div class="tab-content" id="myTabContent">
-                  <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
-                <h2 class="color-dgreen fw-bold">General Information</h2>
-                <ul>
-                    <li class="color-dgreen">Genus Cassia is from the word "Kasia" which was used by Dioscorides from a Hebrew plant name.</li>
-                    <li class="color-dgreen">Species javanica means from Java, Indonesia.</li>
-                </ul>
+          <!-- SUBTITLE: Gen Info -->
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+              <h2 class="color-dgreen fw-bold">General Information</h2>
+              <ul>
+                <li class="color-dgreen">Genus Cassia is from the word "Kasia" which was used by Dioscorides from a Hebrew plant name.</li>
+                <li class="color-dgreen">Species javanica means from Java, Indonesia.</li>
+              </ul>
 
-                <!-- SUBTITLE: Botany -->
-                <h2 class="color-dgreen fw-bold">Botany</h2>
-                <p class="color-dgreen ps-2 pe-3">
-                  Balayong is a medium to large-sized tree that is able to grow up to about 10 to 20 meters tall. Its green leaves are measuring
-                  from about 15 to 30 centimeters long with each leaf consisting of 5 to 12 pairs of oblong to ovate leaflets about 2 to 5 
-                  centimeters long and 1.2 to 2 centimeters wide. Its branches are pendulous, slender and whitish in color. The pink to whitish-pink
-                  flowers bloom in a raceme inflorescence with about 10 yellow stamens, surrounded with green anthers. The fruit of Balayong is a
-                  cylindrical seed pod measuring in about 30 to 70 centimeters long and turns to black when it ripes. 
-                </p>
+              <!-- SUBTITLE: Botany -->
+              <h2 class="color-dgreen fw-bold">Botany</h2>
+              <p class="color-dgreen ps-2 pe-3">
+                Balayong is a medium to large-sized tree that is able to grow up to about 10 to 20 meters tall. Its green leaves are measuring
+                from about 15 to 30 centimeters long with each leaf consisting of 5 to 12 pairs of oblong to ovate leaflets about 2 to 5 
+                centimeters long and 1.2 to 2 centimeters wide. Its branches are pendulous, slender and whitish in color. The pink to whitish-pink
+                flowers bloom in a raceme inflorescence with about 10 yellow stamens, surrounded with green anthers. The fruit of Balayong is a
+                cylindrical seed pod measuring in about 30 to 70 centimeters long and turns to black when it ripes. 
+              </p>
 
-                <!-- SUBTITLE: Distribution -->
-                <h2 class="color-dgreen fw-bold">Distribution</h2>
-                <ul>
-                  <li class="color-dgreen">Native to a terrestrial habitat.</li>
-                  <li class="color-dgreen">Preferred tropical climate zone.</li>
-                  <li class="color-dgreen">It is native to Indonesia, Peninsular Malaysia and Thailand</li>
-                </ul>
+              <!-- SUBTITLE: Distribution -->
+              <h2 class="color-dgreen fw-bold">Distribution</h2>
+              <ul>
+                <li class="color-dgreen">Native to a terrestrial habitat.</li>
+                <li class="color-dgreen">Preferred tropical climate zone.</li>
+                <li class="color-dgreen">It is native to Indonesia, Peninsular Malaysia and Thailand</li>
+              </ul>
 
-                <h3 class="color-green fst-italic pb-4">(c) https://www.nparks.gov.sg/florafaunaweb/flora/2/7/2789 </h3>
-                </div>
-                <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
-                  Uses
-                </div>
-                <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
-                  Folklore
-                </div>
-                <script>
-                  document.addEventListener('DOMContentLoaded', function () {
-        const tabs = document.querySelectorAll('.nav-link');
-        
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function () {
-                tabs.forEach(otherTab => {
-                    otherTab.style.backgroundColor = '#E6EDED';
-                    otherTab.style.color = 'green';
+              <h3 class="color-green fst-italic pb-4">(c) https://www.nparks.gov.sg/florafaunaweb/flora/2/7/2789 </h3>
+            </div>
+            <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
+              Uses
+            </div>
+            <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
+              Folklore
+            </div>
+            <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                const tabs = document.querySelectorAll('.nav-link');
+
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function () {
+                        tabs.forEach(otherTab => {
+                            otherTab.style.backgroundColor = '#E6EDED';
+                            otherTab.style.color = 'green';
+                        });
+                        tab.style.backgroundColor = 'green';
+                        tab.style.color = 'white';
+                    });
                 });
-                tab.style.backgroundColor = 'green';
-                tab.style.color = 'white';
-            });
-        });
-        });
-                </script>
-            </div>
-            <div class="col-lg-4 col-12 d-flex justify-content-center align-content-center">
-              <img 
-                class="w-100 tree-img border-r"
-                src="./static/img/tree-balayong.jpg" 
-                alt="Balayong"
-              >
-            </div>
+              });
+            </script>
+          </div>
         </div>
+        <div class="col-lg-4 col-12 d-flex justify-content-center align-content-center order-lg-2 order-1 mb-3 mb-lg-0"> <!-- Added order-lg-2 order-1 classes -->
+          <img 
+            class="w-100 tree-img border-r"
+            src="./static/img/tree-balayong.jpg"
+            alt="Balayong"
+          >
+        </div>
+      </div>
+    </div>
   </body>
 </html>

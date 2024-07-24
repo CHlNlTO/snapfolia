@@ -39,111 +39,176 @@
     <!-- LINK: Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <style>
-      .display-color{
+      .display-color {
         color: #000;
       }
-      .nav-tabs{
+      .nav-tabs {
         display: flex;
         justify-content: flex-end;
-      } 
+      }
     </style>
   </head>
   <body>
-        <!-- MAIN: Result -->
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true" style="color: green;">Description</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false" style="color: green;">Uses</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false" style="color: green;">Folklore</button>
-          </li>
-        </ul>
-        <div class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in" id="tree">
-            <div class="col-lg-8 col-12">
-                <!-- TITLE: Yakal -->
-                <h1 class="color-dgreen fw-bold">
-                  Yakal
-                  <i class="fas fa-leaf color-dgreen"></i>
-                </h1>
+    <!-- MAIN: Result -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="description-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#description-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="description-tab-pane"
+          aria-selected="true"
+          style="color: green"
+        >
+          Description
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="uses-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#uses-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="uses-tab-pane"
+          aria-selected="false"
+          style="color: green"
+        >
+          Uses
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="folklore-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#folklore-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="folklore-tab-pane"
+          aria-selected="false"
+          style="color: green"
+        >
+          Folklore
+        </button>
+      </li>
+    </ul>
+    <div
+      class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in"
+      id="tree"
+    >
+      <div class="col-lg-8 col-12">
+        <!-- TITLE: Yakal -->
+        <h1 class="color-dgreen fw-bold">
+          Yakal
+          <i class="fas fa-leaf color-dgreen"></i>
+        </h1>
 
-                <!-- SUBTITLE: Other Tagalog names -->
-                <p class="color-dgreen margin-0">
-                <b class="color-dgreen fw-bold">Also known as: </b>
-                (Wala pa)
-                </p>
+        <!-- SUBTITLE: Other Tagalog names -->
+        <p class="color-dgreen margin-0">
+          <b class="color-dgreen fw-bold">Also known as: </b>
+          (Wala pa)
+        </p>
 
-                <hr class="color-dgreen me-3" />
+        <hr class="color-dgreen me-3" />
 
-                  <!-- SUBTITLE: Gen Info -->
-                  <div class="tab-content" id="myTabContent">
-                  <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
-                  <h2 class="color-dgreen fw-bold">General Information</h2>
-                  <ul>
-                  <li class="color-dgreen">
-                  (Wala pa)
-                  </li>
-                  <li class="color-dgreen">
-                  (Wala pa)
-                  </li>
-                  <li class="color-dgreen">
-                  (Wala pa)
-                  </li>
-                  </ul>
+        <!-- SUBTITLE: Gen Info -->
+        <div class="tab-content" id="myTabContent">
+          <div
+            class="tab-pane fade show active display-color"
+            id="description-tab-pane"
+            role="tabpanel"
+            aria-labelledby="description-tab"
+            tabindex="0"
+          >
+            <h2 class="color-dgreen fw-bold">General Information</h2>
+            <ul>
+              <li class="color-dgreen">(Wala pa)</li>
+              <li class="color-dgreen">(Wala pa)</li>
+              <li class="color-dgreen">(Wala pa)</li>
+            </ul>
 
-                <!-- SUBTITLE: Botany -->
-                <h2 class="color-dgreen fw-bold">Botany</h2>
-                <p class="color-dgreen ps-2 pe-3">
-                  Yakal is a medium to large tree about 25 to 30 meters tall. Its wood is hard and dark brownish-yellow, its branchlets slender, 
-                  blackish, and slightly hairy. Its leaves are coriaceous, ovate to lanceolate, or oblong-lanceolate or apex acuminate. The base 
-                  are rounded to cuneate, glabrous above and slightly hairy underneath. Its blade is 6.5-nine centimeters long and two-4.5 centimeters 
-                  wide, with its petiole slender, 10-23 millimeters long, and dark. Its inflorescence are axillary, paniculate, and up to about six 
-                  centimeters long, with its flowers yellow, very short-stalked, and about 12 millimeters long. The flowers' petals are narrowly oblong 
-                  or oblong-lanceolate, more or less twisted in bud, rounded at apex, 18 millimeters long, and reticulate.
-                </p>
+            <!-- SUBTITLE: Botany -->
+            <h2 class="color-dgreen fw-bold">Botany</h2>
+            <p class="color-dgreen ps-2 pe-3">
+              Yakal is a medium to large tree about 25 to 30 meters tall. Its wood is hard and dark brownish-yellow, its branchlets slender,
+              blackish, and slightly hairy. Its leaves are coriaceous, ovate to lanceolate, or oblong-lanceolate or apex acuminate. The base
+              are rounded to cuneate, glabrous above and slightly hairy underneath. Its blade is 6.5-nine centimeters long and two-4.5 centimeters
+              wide, with its petiole slender, 10-23 millimeters long, and dark. Its inflorescence are axillary, paniculate, and up to about six
+              centimeters long, with its flowers yellow, very short-stalked, and about 12 millimeters long. The flowers' petals are narrowly oblong
+              or oblong-lanceolate, more or less twisted in bud, rounded at apex, 18 millimeters long, and reticulate.
+            </p>
 
-                <!-- SUBTITLE: Distribution -->
-                <h2 class="color-dgreen fw-bold">Distribution</h2>
-                <ul>
-                    <li class="color-dgreen">Commonly found in Luzon island, particularly in the Quezon and Camarines areas.</li>
-                    <li class="color-dgreen">Can also be seen in the islands of Samar, Negros, and Mindanao (particularly in the island's Zamboanga, Agusan, and Davao regions).</li>
-                    <li class="color-dgreen">It can also be found in primary forests at low altitudes.</li>
-                </ul>
+            <!-- SUBTITLE: Distribution -->
+            <h2 class="color-dgreen fw-bold">Distribution</h2>
+            <ul>
+              <li class="color-dgreen">
+                Commonly found in Luzon island, particularly in the Quezon and Camarines areas.
+              </li>
+              <li class="color-dgreen">
+                Can also be seen in the islands of Samar, Negros, and Mindanao (particularly in the island's Zamboanga, Agusan, and Davao regions).
+              </li>
+              <li class="color-dgreen">
+                It can also be found in primary forests at low altitudes.
+              </li>
+            </ul>
 
-                <h3 class="color-green fst-italic pb-4">(c) https://en.wikipedia.org/wiki/Shorea_astylosa</h3>
-                </div>
-                <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
-                  Uses
-                </div>
-                <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
-                  Folklore
-                </div>
-                <script>
-                  document.addEventListener('DOMContentLoaded', function () {
-        const tabs = document.querySelectorAll('.nav-link');
-        
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function () {
-                tabs.forEach(otherTab => {
-                    otherTab.style.backgroundColor = '#E6EDED';
-                    otherTab.style.color = 'green';
+            <h3 class="color-green fst-italic pb-4">
+              (c)
+              <a href="https://en.wikipedia.org/wiki/Shorea_astylosa" target="_blank">
+                https://en.wikipedia.org/wiki/Shorea_astylosa
+              </a>
+            </h3>
+          </div>
+          <div
+            class="tab-pane fade display-color"
+            id="uses-tab-pane"
+            role="tabpanel"
+            aria-labelledby="uses-tab"
+            tabindex="0"
+          >
+            Uses
+          </div>
+          <div
+            class="tab-pane fade display-color"
+            id="folklore-tab-pane"
+            role="tabpanel"
+            aria-labelledby="folklore-tab"
+            tabindex="0"
+          >
+            Folklore
+          </div>
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const tabs = document.querySelectorAll(".nav-link");
+
+              tabs.forEach((tab) => {
+                tab.addEventListener("click", function () {
+                  tabs.forEach((otherTab) => {
+                    otherTab.style.backgroundColor = "#E6EDED";
+                    otherTab.style.color = "green";
+                  });
+                  tab.style.backgroundColor = "green";
+                  tab.style.color = "white";
                 });
-                tab.style.backgroundColor = 'green';
-                tab.style.color = 'white';
+              });
             });
-        });
-        });
-                </script>
-            </div>
-            <div class="col-lg-4 col-12 d-flex justify-content-center align-content-center">
-              <img 
-                class="w-100 tree-img border-r"
-                src="./static/img/tree-yakal.jpg" 
-                alt="Yakal"
-              >
-            </div>
+          </script>
         </div>
+      </div>
+      <div
+        class="col-lg-4 col-12 d-flex justify-content-center align-content-center"
+      >
+        <img
+          class="w-100 tree-img border-r"
+          src="./static/img/tree-yakal.jpg"
+          alt="Yakal"
+        />
+      </div>
+    </div>
   </body>
 </html>

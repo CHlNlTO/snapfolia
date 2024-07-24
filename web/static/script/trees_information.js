@@ -33,9 +33,9 @@ function getURL(classResult) {
     Eucalyptus: "eucalyptus",
     Hinadyong: "hinadyong",
     Lansones: "lansones",
-    Madrecacao: "madrecacao",
-    Scrambled_Egg: "scrambledegg",
-    Talisay: "talisay",
+    "Madre Cacao": "madrecacao",
+    "Scramble Egg": "scrambledegg",
+    "Native Talisay": "talisay",
     Tibig: "tibig",
   };
 
@@ -77,9 +77,9 @@ function getEnglishName(classResult) {
     Eucalyptus: "Eucalyptus",
     Hinadyong: "Oriental Trema",
     Lansones: "Langsat",
-    Madrecacao: "Gliricidia Tree",
-    Scrambled_Egg: "Scrambled Egg",
-    Talisay: "Indian Almond",
+    "Madre Cacao": "Gliricidia Tree",
+    "Scramble Egg": "Scramble Egg",
+    "Native Talisay": "Indian Almond",
     Tibig: "Sacking Tree",
   };
 
@@ -121,9 +121,9 @@ function getScientificName(classResult) {
     Eucalyptus: "Eucalyptus globulus",
     Hinadyong: "Trema orientalis",
     Lansones: "Lansium domesticum",
-    Madrecacao: "Gliricidia Sepium",
-    Scrambled_Egg: "Senna surattensis",
-    Talisay: "Terminalia Catappa",
+    "Madre Cacao": "Gliricidia Sepium",
+    "Scramble Egg": "Senna surattensis",
+    "Native Talisay": "Terminalia Catappa",
     Tibig: "Ficus nota",
   };
 

@@ -292,10 +292,7 @@ p, li, .dev-fname {
 
 .tree-img {
     object-fit: cover;
-    top: 0;
-    left: 0;
     height: 100%;
-    max-width: 20rem;
 }
 
 /* TREE SCROLLBAR */

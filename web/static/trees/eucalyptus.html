@@ -39,13 +39,13 @@
     <!-- LINK: Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <style>
-      .display-color{
+      .display-color {
         color: #000;
       }
-      .nav-tabs{
+      .nav-tabs {
         display: flex;
         justify-content: flex-end;
-      } 
+      }
     </style>
   </head>
   <body>
@@ -61,98 +61,96 @@
         <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false" style="color: green;">Folklore</button>
       </li>
     </ul>
-    <div
-      class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in"
-      id="tree"
-    >
-      <div class="col-lg-8 col-12">
-        <!-- TITLE: Mangga -->
-        <h1 class="color-dgreen fw-bold">
-          Eucalyptus
-          <i class="fas fa-leaf color-dgreen"></i>
-        </h1>
+    <div class="container bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in" id="tree">
+      <div class="row"> <!-- Added row class -->
+        <div class="col-lg-8 col-12 order-lg-1 order-2"> <!-- Added order-lg-1 order-2 classes -->
+          <!-- TITLE: Eucalyptus -->
+          <h1 class="color-dgreen fw-bold">
+            Eucalyptus
+            <i class="fas fa-leaf color-dgreen"></i>
+          </h1>
 
-        <!-- SUBTITLE: Other Tagalog names -->
-        <p class="color-dgreen margin-0">
-          <b class="color-dgreen fw-bold"></b>
-        </p>
+          <!-- SUBTITLE: Other Tagalog names -->
+          <p class="color-dgreen margin-0">
+            <b class="color-dgreen fw-bold"></b>
+          </p>
 
-        <hr class="color-dgreen me-3" />
+          <hr class="color-dgreen me-3" />
 
-        <!-- SUBTITLE: Gen Info -->
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
-        <h2 class="color-dgreen fw-bold">General Information</h2>
-        <ul>
-          <li class="color-dgreen">
-            Eucalyptus (Eucalyptus globulus), a diverse genus primarily native to Australia with over eight hundred species, 
-            dominates Australia's tree flora and is a prominent member of the Myrtle family (Myrtaceae).
-          </li>
-          <li class="color-dgreen">
-            It may relieve cold symptoms, treat dry skin, and reduce pain.
-          </li>
-          <li class="color-dgreen">
-            It can help keep your teeth healthy and act as a natural insect repellent.
-          </li>
-        </ul>
+          <!-- SUBTITLE: Gen Info -->
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+              <h2 class="color-dgreen fw-bold">General Information</h2>
+              <ul>
+                <li class="color-dgreen">
+                  Eucalyptus (Eucalyptus globulus), a diverse genus primarily native to Australia with over eight hundred species, 
+                  dominates Australia's tree flora and is a prominent member of the Myrtle family (Myrtaceae).
+                </li>
+                <li class="color-dgreen">
+                  It may relieve cold symptoms, treat dry skin, and reduce pain.
+                </li>
+                <li class="color-dgreen">
+                  It can help keep your teeth healthy and act as a natural insect repellent.
+                </li>
+              </ul>
 
-        <!-- SUBTITLE: Botany -->
-        <h2 class="color-dgreen fw-bold">Botany</h2>
-        <p class="color-dgreen ps-2 pe-3">
-            Eucalyptus is an evergreen tree that can grow over 15 meters tall. 
-            Its grayish bark peels off in long, thin strips, revealing whitish gray underneath. 
-            Young leaves are blue-green and clasp the stem, while mature leaves are dark green, leathery, 
-            and lance-shaped, often over 30 centimeters long. The white flowers, about 1.5 centimeters in diameter,
-            become fragrant as they mature. The fruit is rounded, approximately 8 millimeters in diameter.
-        </p>
+              <!-- SUBTITLE: Botany -->
+              <h2 class="color-dgreen fw-bold">Botany</h2>
+              <p class="color-dgreen ps-2 pe-3">
+                Eucalyptus is an evergreen tree that can grow over 15 meters tall. 
+                Its grayish bark peels off in long, thin strips, revealing whitish gray underneath. 
+                Young leaves are blue-green and clasp the stem, while mature leaves are dark green, leathery, 
+                and lance-shaped, often over 30 centimeters long. The white flowers, about 1.5 centimeters in diameter,
+                become fragrant as they mature. The fruit is rounded, approximately 8 millimeters in diameter.
+              </p>
 
-        <!-- SUBTITLE: Distribution -->
-        <h2 class="color-dgreen fw-bold">Distribution</h2>
-        <ul>
-          <li class="color-dgreen">
-            Native to Australia with over eight hundred species, dominates Australia's tree flora and is a prominent member of the Myrtle family (Myrtaceae).
-          </li>
-          <li class="color-dgreen">
-            While predominantly found in Australia, a few species are also native to adjacent regions like New Guinea and Indonesia, and one species has been introduced to the Philippines.
-          </li>
-          <li class="color-dgreen">Usually planted as a garden plant in Baguio and Manila. Grows vigorously in the Baguio area.</li>
-        </ul>
+              <!-- SUBTITLE: Distribution -->
+              <h2 class="color-dgreen fw-bold">Distribution</h2>
+              <ul>
+                <li class="color-dgreen">
+                  Native to Australia with over eight hundred species, dominates Australia's tree flora and is a prominent member of the Myrtle family (Myrtaceae).
+                </li>
+                <li class="color-dgreen">
+                  While predominantly found in Australia, a few species are also native to adjacent regions like New Guinea and Indonesia, and one species has been introduced to the Philippines.
+                </li>
+                <li class="color-dgreen">Usually planted as a garden plant in Baguio and Manila. Grows vigorously in the Baguio area.</li>
+              </ul>
 
-        <h3 class="color-green fst-italic pb-4">s
-          (c) http://www.stuartxchange.org/Eucalyptus
-        </h3>
+              <h3 class="color-green fst-italic pb-4">
+                (c) http://www.stuartxchange.org/Eucalyptus
+              </h3>
+            </div>
+            <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
+              Uses
+            </div>
+            <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
+              Folklore
+            </div>
+            <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                const tabs = document.querySelectorAll('.nav-link');
+
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function () {
+                        tabs.forEach(otherTab => {
+                            otherTab.style.backgroundColor = '#E6EDED';
+                            otherTab.style.color = 'green';
+                        });
+                        tab.style.backgroundColor = 'green';
+                        tab.style.color = 'white';
+                    });
+                });
+              });
+            </script>
+          </div>
         </div>
-        <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
-          Uses
+        <div class="col-lg-4 col-12 d-flex justify-content-center align-content-center order-lg-2 order-1 mb-3 mb-lg-0"> <!-- Added order-lg-2 order-1 classes -->
+          <img
+            class="w-100 tree-img border-r"
+            src="./static/img/tree-eucalyptus.jpg"
+            alt="Eucalyptus"
+          />
         </div>
-        <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
-          Folklore
-        </div>
-        <script>
-          document.addEventListener('DOMContentLoaded', function () {
-const tabs = document.querySelectorAll('.nav-link');
-
-tabs.forEach(tab => {
-    tab.addEventListener('click', function () {
-        tabs.forEach(otherTab => {
-            otherTab.style.backgroundColor = '#E6EDED';
-            otherTab.style.color = 'green';
-        });
-        tab.style.backgroundColor = 'green';
-        tab.style.color = 'white';
-    });
-});
-});
-        </script>
-      </div>
-      <div
-        class="col-lg-4 col-12 d-flex justify-content-center align-content-center"
-      >
-        <img
-          class="w-100 tree-img border-r"
-          src="./static/img/tree-amugis.jpg"
-          alt="Eucalyptus"
-        />
       </div>
     </div>
   </body>

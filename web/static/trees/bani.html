@@ -39,13 +39,13 @@
     <!-- LINK: Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <style>
-      .display-color{
+      .display-color {
         color: #000;
       }
-      .nav-tabs{
+      .nav-tabs {
         display: flex;
         justify-content: flex-end;
-      } 
+      }
     </style>
   </head>
   <body>
@@ -61,97 +61,92 @@
         <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false" style="color: green;">Folklore</button>
       </li>
     </ul>
-    <div
-      class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in"
-      id="tree"
-    >
-      <div class="col-lg-8 col-12">
-        <!-- TITLE: Mangga -->
-        <h1 class="color-dgreen fw-bold">
-          Bani
-          <i class="fas fa-leaf color-dgreen"></i>
-        </h1>
+    <div class="container bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in" id="tree">
+      <div class="row"> <!-- Added row class -->
+        <div class="col-lg-8 col-12 order-lg-1 order-2"> <!-- Added order-lg-1 order-2 classes -->
+          <!-- TITLE: Bani -->
+          <h1 class="color-dgreen fw-bold">
+            Bani
+            <i class="fas fa-leaf color-dgreen"></i>
+          </h1>
 
-        <!-- SUBTITLE: Other Tagalog names -->
-        <p class="color-dgreen margin-0">
-          <b class="color-dgreen fw-bold">Also known as:</b>
-          Pongam 
-        </p>
+          <!-- SUBTITLE: Other Tagalog names -->
+          <p class="color-dgreen margin-0">
+            <b class="color-dgreen fw-bold">Also known as:</b>
+            Pongam 
+          </p>
 
-        <hr class="color-dgreen me-3" />
+          <hr class="color-dgreen me-3" />
 
-        <!-- SUBTITLE: Gen Info -->
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
-        <h2 class="color-dgreen fw-bold">General Information</h2>
-        <ul>
-          <li class="color-dgreen">
-            Bani is a smooth tree growing 8 to 25 meters tall, with compound leaves and fragrant flowers in shades of purple, pink, or white. 
-            The tree produces woody, oblong pods containing a single seed. It belongs to the species Pongamia pinnata in the pea family, Fabaceae.
-          </li>
-          <li class="color-dgreen">
-            Leaf juice for itches and herpes, stem juice for painful joints, root juice for ulcers, seed oil for soap and candles, and bark for rope.
-          </li>
-          <li class="color-dgreen">
-            Roots and seeds as fish poison, dried leaves as insect repellent, leaves as fodder, twigs for dental hygiene, and wood ash for dyeing.
-          </li>
-        </ul>
+          <!-- SUBTITLE: Gen Info -->
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+              <h2 class="color-dgreen fw-bold">General Information</h2>
+              <ul>
+                <li class="color-dgreen">
+                  Bani is a smooth tree growing 8 to 25 meters tall, with compound leaves and fragrant flowers in shades of purple, pink, or white. The tree produces woody, oblong pods containing a single seed. It belongs to the species Pongamia pinnata in the pea family, Fabaceae.
+                </li>
+                <li class="color-dgreen">
+                  Leaf juice for itches and herpes, stem juice for painful joints, root juice for ulcers, seed oil for soap and candles, and bark for rope.
+                </li>
+                <li class="color-dgreen">
+                  Roots and seeds as fish poison, dried leaves as insect repellent, leaves as fodder, twigs for dental hygiene, and wood ash for dyeing.
+                </li>
+              </ul>
 
-        <!-- SUBTITLE: Botany -->
-        <h2 class="color-dgreen fw-bold">Botany</h2>
-        <p class="color-dgreen ps-2 pe-3">
-            8 to 25 meters tall, with compound leaves and fragrant flowers in shades of purple, pink, or white.
-            It has a large canopy, straight or crooked trunk, and smooth or fissured gray-brown bark. The tree has glossy, 
-            deep green mature leaves and flowers that bloom throughout the year.
-        </p>
+              <!-- SUBTITLE: Botany -->
+              <h2 class="color-dgreen fw-bold">Botany</h2>
+              <p class="color-dgreen ps-2 pe-3">
+                8 to 25 meters tall, with compound leaves and fragrant flowers in shades of purple, pink, or white. It has a large canopy, straight or crooked trunk, and smooth or fissured gray-brown bark. The tree has glossy, deep green mature leaves and flowers that bloom throughout the year.
+              </p>
 
-        <!-- SUBTITLE: Distribution -->
-        <h2 class="color-dgreen fw-bold">Distribution</h2>
-        <ul>
-          <li class="color-dgreen">
-            Native to the Philippines, found along seashores, lakeshores, and some inland areas like Laguna.
-          </li>
-          <li class="color-dgreen">
-            Also native to regions including the Andaman Islands
-          </li>
-          <li class="color-dgreen">Thriving along  India, China, Australia, and others.</li>
-        </ul>
+              <!-- SUBTITLE: Distribution -->
+              <h2 class="color-dgreen fw-bold">Distribution</h2>
+              <ul>
+                <li class="color-dgreen">
+                  Native to the Philippines, found along seashores, lakeshores, and some inland areas like Laguna.
+                </li>
+                <li class="color-dgreen">
+                  Also native to regions including the Andaman Islands.
+                </li>
+                <li class="color-dgreen">Thriving along India, China, Australia, and others.</li>
+              </ul>
 
-        <h3 class="color-green fst-italic pb-4">
-          (c) http://www.stuartxchange.org/Bani
-        </h3>
+              <h3 class="color-green fst-italic pb-4">
+                (c) http://www.stuartxchange.org/Bani
+              </h3>
+            </div>
+            <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
+              Uses
+            </div>
+            <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
+              Folklore
+            </div>
+            <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                const tabs = document.querySelectorAll('.nav-link');
+
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function () {
+                        tabs.forEach(otherTab => {
+                            otherTab.style.backgroundColor = '#E6EDED';
+                            otherTab.style.color = 'green';
+                        });
+                        tab.style.backgroundColor = 'green';
+                        tab.style.color = 'white';
+                    });
+                });
+              });
+            </script>
+          </div>
         </div>
-        <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
-          Uses
+        <div class="col-lg-4 col-12 d-flex justify-content-center align-content-center order-lg-2 order-1 mb-3 mb-lg-0"> <!-- Added order-lg-2 order-1 classes -->
+          <img
+            class="w-100 tree-img border-r"
+            src="./static/img/tree-bani.jpg"
+            alt="Bani"
+          />
         </div>
-        <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
-          Folklore
-        </div>
-        <script>
-          document.addEventListener('DOMContentLoaded', function () {
-const tabs = document.querySelectorAll('.nav-link');
-
-tabs.forEach(tab => {
-    tab.addEventListener('click', function () {
-        tabs.forEach(otherTab => {
-            otherTab.style.backgroundColor = '#E6EDED';
-            otherTab.style.color = 'green';
-        });
-        tab.style.backgroundColor = 'green';
-        tab.style.color = 'white';
-    });
-});
-});
-        </script>
-      </div>
-      <div
-        class="col-lg-4 col-12 d-flex justify-content-center align-content-center"
-      >
-        <img
-          class="w-100 tree-img border-r"
-          src="./static/img/tree-amugis.jpg"
-          alt="Bani"
-        />
       </div>
     </div>
   </body>

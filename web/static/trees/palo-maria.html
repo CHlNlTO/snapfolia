@@ -24,108 +24,163 @@
     <!-- LINK: Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <style>
-      .display-color{
+      .display-color {
         color: #000;
       }
-      .nav-tabs{
+      .nav-tabs {
         display: flex;
         justify-content: flex-end;
-      } 
+      }
     </style>
   </head>
   <body>
     <!-- MAIN: Result -->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true" style="color: green;">Description</button>
+        <button
+          class="nav-link active"
+          id="description-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#description-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="description-tab-pane"
+          aria-selected="true"
+          style="color: green"
+        >
+          Description
+        </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false" style="color: green;">Uses</button>
+        <button
+          class="nav-link"
+          id="uses-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#uses-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="uses-tab-pane"
+          aria-selected="false"
+          style="color: green"
+        >
+          Uses
+        </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false" style="color: green;">Folklore</button>
+        <button
+          class="nav-link"
+          id="folklore-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#folklore-tab-pane"
+          type="button"
+          role="tab"
+          aria-controls="folklore-tab-pane"
+          aria-selected="false"
+          style="color: green"
+        >
+          Folklore
+        </button>
       </li>
     </ul>
-    <div class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in" id="tree">
-      <div class="col-lg-8 col-12">
-        <!-- TITLE: Palo-maria -->
-        <h1 class="color-dgreen fw-bold">
-          Palo-maria
-          <i class="fas fa-leaf color-dgreen"></i>
-        </h1>
+    <div class="container bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in" id="tree">
+      <div class="row">
+        <div class="col-lg-8 col-12 order-lg-1 order-2">
+          <!-- TITLE: Palo-maria -->
+          <h1 class="color-dgreen fw-bold">
+            Palo-maria
+            <i class="fas fa-leaf color-dgreen"></i>
+          </h1>
 
-        <!-- SUBTITLE: Other Tagalog names -->
-        <p class="color-dgreen margin-0">
-          <b class="color-dgreen fw-bold">Also known as:</b>
-          Butalau
-        </p>
+          <!-- SUBTITLE: Other Tagalog names -->
+          <p class="color-dgreen margin-0">
+            <b class="color-dgreen fw-bold">Also known as:</b>
+            Butalau
+          </p>
 
-        <hr class="color-dgreen me-3" />
+          <hr class="color-dgreen me-3" />
 
-        <!-- SUBTITLE: Gen Info -->
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
-        <h2 class="color-dgreen fw-bold">General Information</h2>
-        <ul>
-          <li class="color-dgreen">
-           Palo-Maria is a medium-sized or large tree, reaching a height of 20 meters. 
-          </li>
-          <li class="color-dgreen">
-            Kernels reported to contain 70-75% bitaog oil.
-          </li>
-          <li class="color-dgreen">
-            Seeds contain coumarins: calanolide A and B.
-          </li>
-        </ul>
+          <!-- SUBTITLE: Gen Info -->
+          <div class="tab-content" id="myTabContent">
+            <div
+              class="tab-pane fade show active display-color"
+              id="description-tab-pane"
+              role="tabpanel"
+              aria-labelledby="description-tab"
+              tabindex="0"
+            >
+              <h2 class="color-dgreen fw-bold">General Information</h2>
+              <ul>
+                <li class="color-dgreen">
+                  Palo-Maria is a medium-sized or large tree, reaching a height of 20 meters.
+                </li>
+                <li class="color-dgreen">
+                  Kernels reported to contain 70-75% bitaog oil.
+                </li>
+                <li class="color-dgreen">
+                  Seeds contain coumarins: calanolide A and B.
+                </li>
+              </ul>
 
-        <!-- SUBTITLE: Botany -->
-        <h2 class="color-dgreen fw-bold">Botany</h2>
-        <p class="color-dgreen ps-2 pe-3">
-          Palo-maria is a medium-sized or large tree, reaching a height of 20 meters. Leaves are leathery, shiny, elliptic to obovate-elliptic, 9 to 18 centimeters long, narrowed to a pointed base and somewhat rounded tip. Flowers are fragrant, white, 2 to 2.5 centimeters diameter, borne on axillary racemes 5 to 10 centimeters long. Fruit is round, yellow, smooth, pulpy, 3 to 4 centimeters in diameter.
-        </p>
+              <!-- SUBTITLE: Botany -->
+              <h2 class="color-dgreen fw-bold">Botany</h2>
+              <p class="color-dgreen ps-2 pe-3">
+                Palo-maria is a medium-sized or large tree, reaching a height of 20 meters. Leaves are leathery, shiny, elliptic to obovate-elliptic, 9 to 18 centimeters long, narrowed to a pointed base and somewhat rounded tip. Flowers are fragrant, white, 2 to 2.5 centimeters diameter, borne on axillary racemes 5 to 10 centimeters long. Fruit is round, yellow, smooth, pulpy, 3 to 4 centimeters in diameter.
+              </p>
 
-        <!-- SUBTITLE: Distribution -->
-        <h2 class="color-dgreen fw-bold">Distribution</h2>
-        <ul>
-            <li class="color-dgreen">Native to the Philippines.</li>
-            <li class="color-dgreen">Throughout the Philippines, along the seashore, where it forms a characteristic strand.</li>
-            <li class="color-dgreen">Cultivated in Manila and large towns, used as shade tree on lawns, avenues and boulevards, particularly along the beach.</li>
-            <li class="color-dgreen">Also native to Andaman Is., Bangladesh, Bismark Archipelago, Borneo, Cambodia, Caroline Is.,  Fiji, Hainan, Hawaii, India, Jawa, Laos, Malaya, Myanmar, Nansei-shoto, New Guinea, Queensland,  Samoa, Sri Lanka, Sulawesi, Taiwan, Thaiiland, Vietnam, etc. </li>
-            <li class="color-dgreen">Grows primarily in wet tropical biome.</li>
-        </ul>
+              <!-- SUBTITLE: Distribution -->
+              <h2 class="color-dgreen fw-bold">Distribution</h2>
+              <ul>
+                <li class="color-dgreen">Native to the Philippines.</li>
+                <li class="color-dgreen">Throughout the Philippines, along the seashore, where it forms a characteristic strand.</li>
+                <li class="color-dgreen">Cultivated in Manila and large towns, used as shade tree on lawns, avenues and boulevards, particularly along the beach.</li>
+                <li class="color-dgreen">Also native to Andaman Is., Bangladesh, Bismark Archipelago, Borneo, Cambodia, Caroline Is., Fiji, Hainan, Hawaii, India, Jawa, Laos, Malaya, Myanmar, Nansei-shoto, New Guinea, Queensland, Samoa, Sri Lanka, Sulawesi, Taiwan, Thailand, Vietnam, etc.</li>
+                <li class="color-dgreen">Grows primarily in wet tropical biome.</li>
+              </ul>
 
-        <h3 class="color-green fst-italic pb-4">(c) http://www.stuartxchange.org/PaloMaria</h3>
+              <h3 class="color-green fst-italic pb-4">
+                (c) http://www.stuartxchange.org/PaloMaria
+              </h3>
+            </div>
+            <div
+              class="tab-pane fade display-color"
+              id="uses-tab-pane"
+              role="tabpanel"
+              aria-labelledby="uses-tab"
+              tabindex="0"
+            >
+              Uses
+            </div>
+            <div
+              class="tab-pane fade display-color"
+              id="folklore-tab-pane"
+              role="tabpanel"
+              aria-labelledby="folklore-tab"
+              tabindex="0"
+            >
+              Folklore
+            </div>
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const tabs = document.querySelectorAll(".nav-link");
+
+                tabs.forEach((tab) => {
+                  tab.addEventListener("click", function () {
+                    tabs.forEach((otherTab) => {
+                      otherTab.style.backgroundColor = "#E6EDED";
+                      otherTab.style.color = "green";
+                    });
+                    tab.style.backgroundColor = "green";
+                    tab.style.color = "white";
+                  });
+                });
+              });
+            </script>
+          </div>
         </div>
-        <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
-          Uses
+        <div class="col-lg-4 col-12 d-flex justify-content-center align-content-center order-lg-2 order-1 mb-3 mb-lg-0">
+          <img class="w-100 tree-img border-r" src="./static/img/tree-palomaria.jpg" alt="Palo-Maria" />
         </div>
-        <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
-          Folklore
-        </div>
-        <script>
-          document.addEventListener('DOMContentLoaded', function () {
-const tabs = document.querySelectorAll('.nav-link');
-
-tabs.forEach(tab => {
-    tab.addEventListener('click', function () {
-        tabs.forEach(otherTab => {
-            otherTab.style.backgroundColor = '#E6EDED';
-            otherTab.style.color = 'green';
-        });
-        tab.style.backgroundColor = 'green';
-        tab.style.color = 'white';
-    });
-});
-});
-        </script>
+      </div>
     </div>
-    <div class="col-lg-4 col-12 d-flex justify-content-center align-content-center">
-      <img 
-        class="w-100 tree-img border-r"
-        src="./static/img/tree-narra.jpg" 
-        alt="Palo-Maria"
-      >
-    </div>
-</div>
-</body>
+  </body>
 </html>

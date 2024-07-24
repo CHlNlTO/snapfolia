@@ -62,100 +62,103 @@
       </li>
     </ul>
     <div
-      class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in"
+      class="container bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in"
       id="tree"
     >
-      <div class="col-lg-8 col-12">
-        <!-- TITLE: Alibangbang -->
-        <h1 class="color-dgreen fw-bold">
-          Alibangbang
-          <i class="fas fa-leaf color-dgreen"></i>
-        </h1>
+      <div class="row">
+        <div class="col-lg-8 col-12 order-lg-1 order-2">
+          <!-- TITLE: Alibangbang -->
+          <h1 class="color-dgreen fw-bold">
+            Alibangbang
+            <i class="fas fa-leaf color-dgreen"></i>
+          </h1>
 
-        <!-- SUBTITLE: Other Tagalog names -->
-        <p class="color-dgreen margin-0">
-          <b class="color-dgreen fw-bold">Also known as:</b>
-          Butterfly Tree
-        </p>
+          <!-- SUBTITLE: Other Tagalog names -->
+          <p class="color-dgreen margin-0">
+            <b class="color-dgreen fw-bold">Also known as:</b>
+            Butterfly Tree
+          </p>
 
-        <hr class="color-dgreen me-3" />
+          <hr class="color-dgreen me-3" />
 
-        <!-- SUBTITLE: Gen Info -->
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
-        <h2 class="color-dgreen fw-bold">General Information</h2>
-        <ul>
-          <li class="color-dgreen">
-            Alibangbang (Bauhinia malabarica) is a small tree in the family
-            Fabaceae.
-          </li>
-          <li class="color-dgreen">
-            It is known for its distinctive butterfly-shaped leaves and
-            attractive flowers.
-          </li>
-          <li class="color-dgreen">
-            The leaves are often used in traditional medicine and as food
-            wrappers.
-          </li>
-        </ul>
+          <!-- SUBTITLE: Gen Info -->
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+              <h2 class="color-dgreen fw-bold">General Information</h2>
+              <ul>
+                <li class="color-dgreen">
+                  Alibangbang (Bauhinia malabarica) is a small tree in the family
+                  Fabaceae.
+                </li>
+                <li class="color-dgreen">
+                  It is known for its distinctive butterfly-shaped leaves and
+                  attractive flowers.
+                </li>
+                <li class="color-dgreen">
+                  The leaves are often used in traditional medicine and as food
+                  wrappers.
+                </li>
+              </ul>
 
-        <!-- SUBTITLE: Botany -->
-        <h2 class="color-dgreen fw-bold">Botany</h2>
-        <p class="color-dgreen ps-2 pe-3">
-          Alibangbang has bilobed leaves resembling butterfly wings. The flowers
-          are typically white or pink and are fragrant. The fruit is a pod that
-          contains several seeds.
-        </p>
+              <!-- SUBTITLE: Botany -->
+              <h2 class="color-dgreen fw-bold">Botany</h2>
+              <p class="color-dgreen ps-2 pe-3">
+                Alibangbang has bilobed leaves resembling butterfly wings. The flowers
+                are typically white or pink and are fragrant. The fruit is a pod that
+                contains several seeds.
+              </p>
 
-        <!-- SUBTITLE: Distribution -->
-        <h2 class="color-dgreen fw-bold">Distribution</h2>
-        <ul>
-          <li class="color-dgreen">
-            Found in tropical and subtropical regions of Asia.
-          </li>
-          <li class="color-dgreen">
-            Common in the Philippines, India, and Southeast Asia.
-          </li>
-          <li class="color-dgreen">
-            Grows in a variety of habitats, including forests and open areas.
-          </li>
-        </ul>
+              <!-- SUBTITLE: Distribution -->
+              <h2 class="color-dgreen fw-bold">Distribution</h2>
+              <ul>
+                <li class="color-dgreen">
+                  Found in tropical and subtropical regions of Asia.
+                </li>
+                <li class="color-dgreen">
+                  Common in the Philippines, India, and Southeast Asia.
+                </li>
+                <li class="color-dgreen">
+                  Grows in a variety of habitats, including forests and open areas.
+                </li>
+              </ul>
 
-        <h3 class="color-green fst-italic pb-4">
-          (c) http://www.stuartxchange.org/Alibangbang
-        </h3>
+              <h3 class="color-green fst-italic pb-4">
+                (c) http://www.stuartxchange.org/Alibangbang
+              </h3>
+            </div>
+            <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
+              Uses
+            </div>
+            <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
+              Folklore
+            </div>
+            <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                const tabs = document.querySelectorAll('.nav-link');
+
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function () {
+                        tabs.forEach(otherTab => {
+                            otherTab.style.backgroundColor = '#E6EDED';
+                            otherTab.style.color = 'green';
+                        });
+                        tab.style.backgroundColor = 'green';
+                        tab.style.color = 'white';
+                    });
+                });
+              });
+            </script>
           </div>
-          <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
-            Uses
-          </div>
-          <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
-            Folklore
-          </div>
-          <script>
-            document.addEventListener('DOMContentLoaded', function () {
-  const tabs = document.querySelectorAll('.nav-link');
-  
-  tabs.forEach(tab => {
-      tab.addEventListener('click', function () {
-          tabs.forEach(otherTab => {
-              otherTab.style.backgroundColor = '#E6EDED';
-              otherTab.style.color = 'green';
-          });
-          tab.style.backgroundColor = 'green';
-          tab.style.color = 'white';
-      });
-  });
-  });
-          </script>
-      </div>
-      <div
-        class="col-lg-4 col-12 d-flex justify-content-center align-content-center"
-      >
-        <img
-          class="w-100 tree-img border-r"
-          src="./static/img/tree-alibangbang.jpg"
-          alt="Alibangbang"
-        />
+        </div>
+        <div
+          class="col-lg-4 col-12 d-flex justify-content-center align-content-center order-lg-2 order-1 mb-3 mb-lg-0"
+        >
+          <img
+            class="w-100 tree-img border-r"
+            src="./static/img/tree-alibangbang.jpg"
+            alt="Alibangbang"
+          />
+        </div>
       </div>
     </div>
   </body>

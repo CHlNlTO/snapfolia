@@ -39,13 +39,13 @@
     <!-- LINK: Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <style>
-      .display-color{
+      .display-color {
         color: #000;
       }
-      .nav-tabs{
+      .nav-tabs {
         display: flex;
         justify-content: flex-end;
-      } 
+      }
     </style>
   </head>
   <body>
@@ -61,107 +61,102 @@
         <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false" style="color: green;">Folklore</button>
       </li>
     </ul>
-    <div
-      class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in"
-      id="tree"
-    >
-      <div class="col-lg-8 col-12">
-        <!-- TITLE: Mangga -->
-        <h1 class="color-dgreen fw-bold">
-          Duhat
-          <i class="fas fa-leaf color-dgreen"></i>
-        </h1>
+    <div class="container bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in" id="tree">
+      <div class="row"> <!-- Added row class -->
+        <div class="col-lg-8 col-12 order-lg-1 order-2"> <!-- Added order-lg-1 order-2 classes -->
+          <!-- TITLE: Duhat -->
+          <h1 class="color-dgreen fw-bold">
+            Duhat
+            <i class="fas fa-leaf color-dgreen"></i>
+          </h1>
 
-        <!-- SUBTITLE: Other Tagalog names -->
-        <p class="color-dgreen margin-0">
-          <b class="color-dgreen fw-bold">Also known as:</b>
-          Malabar Plum
-        </p>
+          <!-- SUBTITLE: Other Tagalog names -->
+          <p class="color-dgreen margin-0">
+            <b class="color-dgreen fw-bold">Also known as:</b>
+            Malabar Plum
+          </p>
 
-        <hr class="color-dgreen me-3" />
+          <hr class="color-dgreen me-3" />
 
-        <!-- SUBTITLE: Gen Info -->
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
-        <h2 class="color-dgreen fw-bold">General Information</h2>
-        <ul>
-          <li class="color-dgreen">
-            Duhat (Syzygium cumini) The duhat tree is small to medium-sized, growing up to 30 meters tall, 
-            with dense foliage and shiny, oval-shaped leaves.
+          <!-- SUBTITLE: Gen Info -->
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+              <h2 class="color-dgreen fw-bold">General Information</h2>
+              <ul>
+                <li class="color-dgreen">
+                  Duhat (Syzygium cumini) The duhat tree is small to medium-sized, growing up to 30 meters tall, 
+                  with dense foliage and shiny, oval-shaped leaves.
+                </li>
+                <li class="color-dgreen">
+                  Duhat is incredibly versatile in the culinary world. It can be enjoyed fresh, eaten as is or added to fruit salads for an exotic twist.
+                </li>
+                <li class="color-dgreen">
+                  The tree is a rich source of vitamin A and C and is used as a preventive medication against diabetes, liver, heart and gout, blood pressure, and sinusitis problems.
+                </li>
+              </ul>
 
-          </li>
-          <li class="color-dgreen">
-            Duhat is incredibly versatile in the culinary world. It can be enjoyed fresh, eaten as is or added to fruit salads for an exotic twist.
+              <!-- SUBTITLE: Botany -->
+              <h2 class="color-dgreen fw-bold">Botany</h2>
+              <p class="color-dgreen ps-2 pe-3">
+                Duhat is a smooth tree, about 8 to 15 meters high with white branchlets and reddish young shoots. 
+                Leaves are opposite, shiny and leathery, oblong-ovate to elliptic or obovate-elliptic, 6 to 12 
+                centimeters long, the tip being broad and shortly pointed. Panicles are borne mostly from the 
+                branchlets below the leaves, often being axillary or terminal, about 4 to 6 centimeters long. 
+                Flowers are small, numerous, scented, pink or nearly white, in clusters, without stalks, borne 
+                in crowded fascicles on the ends of the branchlets. Calyx is funnel-shaped, about 4 millimeters 
+                long, and 4-toothed. Petals cohere and fall all together as a small disk. Stamens are numerous 
+                and about as long as the calyx. Fruit is oval to elliptic, 1.5 to 3.5 centimeters long, dark purple 
+                or nearly black, luscious, fleshy and edible with a sweet astringent taste; containing a single large seed.
+              </p>
 
-          </li>
-          <li class="color-dgreen">
-            The tree is a rich source of vitamin A and C and is used as a preventive medication against diabetes, liver, heart and gout, blood pressure, and sinusitis problems.
-          </li>
-        </ul>
+              <!-- SUBTITLE: Distribution -->
+              <h2 class="color-dgreen fw-bold">Distribution</h2>
+              <ul>
+                <li class="color-dgreen">
+                  Is native in the Philippines, India, Burma, Ceylon, and the Andaman Islands.
+                </li>
+                <li class="color-dgreen">
+                  In southern Asia, the tree is venerated by Buddhists, and it is commonly planted near Hindu temples because it is considered sacred to Krishna. 
+                </li>
+                <li class="color-dgreen">Found throughout the Philippines, planted, and in many regions spontaneous.
+                </li>
+              </ul>
 
-        <!-- SUBTITLE: Botany -->
-        <h2 class="color-dgreen fw-bold">Botany</h2>
-        <p class="color-dgreen ps-2 pe-3">
-          Duhat is a smooth tree, about 8 to 15 meters high with white branchlets and reddish young shoots. 
-          Leaves are opposite, shiny and leathery, oblong-ovate to elliptic or obovate-elliptic, 6 to 12 
-          centimeters long, the tip being broad and shortly pointed. Panicles are borne mostly from the 
-          branchlets below the leaves, often being axillary or terminal, about 4 to 6 centimeters long. 
-          Flowers are small, numerous, scented, pink or nearly white, in clusters, without stalks, borne 
-          in crowded fascicles on the ends of the branchlets. Calyx is funnel-shaped, about 4 millimeters 
-          long, and 4-toothed. Petals cohere and fall all together as a small disk. Stamens are numerous 
-          and about as long as the calyx. Fruit is oval to elliptic, 1.5 to 3.5 centimeters long, dark purple 
-          or nearly black, luscious, fleshy and edible with a sweet astringent taste; containing a single large seed.
-        </p>
+              <h3 class="color-green fst-italic pb-4">
+                (c) http://www.stuartxchange.org/Duhat
+              </h3>
+            </div>
+            <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
+              Uses
+            </div>
+            <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
+              Folklore
+            </div>
+            <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                const tabs = document.querySelectorAll('.nav-link');
 
-        <!-- SUBTITLE: Distribution -->
-        <h2 class="color-dgreen fw-bold">Distribution</h2>
-        <ul>
-          <li class="color-dgreen">
-            Is native in the Philippines, India, Burma, Ceylon, and the Andaman Islands.
-
-          </li>
-          <li class="color-dgreen">
-            In southern Asia, the tree is venerated by Buddhists, and it is commonly planted near Hindu temples because it is considered sacred to Krishna. 
-          </li>
-          <li class="color-dgreen">Found throughout the Philippines, planted, and in many regions spontaneous.
-          </li>
-        </ul>
-
-        <h3 class="color-green fst-italic pb-4">s
-          (c) http://www.stuartxchange.org/Duhat
-        </h3>
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function () {
+                        tabs.forEach(otherTab => {
+                            otherTab.style.backgroundColor = '#E6EDED';
+                            otherTab.style.color = 'green';
+                        });
+                        tab.style.backgroundColor = 'green';
+                        tab.style.color = 'white';
+                    });
+                });
+              });
+            </script>
+          </div>
         </div>
-        <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
-          Uses
+        <div class="col-lg-4 col-12 d-flex justify-content-center align-content-center order-lg-2 order-1 mb-3 mb-lg-0"> <!-- Added order-lg-2 order-1 classes -->
+          <img
+            class="w-100 tree-img border-r"
+            src="./static/img/tree-duhat.jpg"
+            alt="Duhat"
+          />
         </div>
-        <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
-          Folklore
-        </div>
-        <script>
-          document.addEventListener('DOMContentLoaded', function () {
-const tabs = document.querySelectorAll('.nav-link');
-
-tabs.forEach(tab => {
-    tab.addEventListener('click', function () {
-        tabs.forEach(otherTab => {
-            otherTab.style.backgroundColor = '#E6EDED';
-            otherTab.style.color = 'green';
-        });
-        tab.style.backgroundColor = 'green';
-        tab.style.color = 'white';
-    });
-});
-});
-        </script>
-      </div>
-      <div
-        class="col-lg-4 col-12 d-flex justify-content-center align-content-center"
-      >
-        <img
-          class="w-100 tree-img border-r"
-          src="./static/img/tree-amugis.jpg"
-          alt="Duhat"
-        />
       </div>
     </div>
   </body>
