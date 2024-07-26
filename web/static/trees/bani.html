@@ -48,9 +48,10 @@
       }
       .nav-link {
         color: #1E5434;
+        font-weight: bold;
       } 
       .nav-link:hover {
-        color: green 
+        color: green; 
       } 
     </style>
   </head>
@@ -127,12 +128,31 @@
           (c) http://www.stuartxchange.org/Bani
         </h3>
         </div>
+
         <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
-          Uses
+          <h2 class="color-dgreen fw-bold">Uses</h2>
+          <ul>
+            <li class="color-dgreen">
+              Leaf juice for itches and herpes
+            </li>
+            <li class="color-dgreen">
+              Dried leaves as insect repellent
+            </li>
+            <li class="color-dgreen">
+              Bark for creating rope
+            </li>
+          </ul>
         </div>
+
         <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
-          Folklore
+          <h2 class="color-dgreen fw-bold">Folklore</h2>
+          <ul>
+            <p class="color-dgreen ps-2 pe-3">
+             In Philippines, it is used for leaf decoctions for bronchitis, cough, gastric issues, and as a bath for rheumatic joints; bark used as an abortifacient.
+            </p>
+          </ul>
         </div>
+
         <script>
           document.addEventListener('DOMContentLoaded', function () {
 const tabs = document.querySelectorAll('.nav-link');
