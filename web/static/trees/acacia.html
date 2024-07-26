@@ -46,19 +46,26 @@
         display: flex;
         justify-content: flex-end;
       } 
+      .nav-link {
+        color: #1E5434;
+        font-weight: bold;
+      } 
+      .nav-link:hover {
+        color: green; 
+      }
     </style>
   </head>
   <body>
     <!-- MAIN: Result -->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true" style="color: green;">Description</button>
+        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Description</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false" style="color: green;">Uses</button>
+        <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false">Uses</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false" style="color: green;">Folklore</button>
+        <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false">Folklore</button>
       </li>
     </ul>
     <div
@@ -132,12 +139,37 @@
           (c) http://www.stuartxchange.org/Acacia
         </h3>
         </div>
+
         <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
-          Uses
+          <h2 class="color-dgreen fw-bold">Uses</h2>
+        <ul>
+          <li class="color-dgreen">
+            (Wala pa)
+          </li>
+          <li class="color-dgreen">
+            (Wala pa)
+          </li>
+          <li class="color-dgreen">
+           (Wala pa)
+          </li>
+        </ul>
         </div>
+
         <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
-          Folklore
+          <h2 class="color-dgreen fw-bold">Folklore</h2>
+          <ul>
+            <li class="color-dgreen">
+              (Wala pa)
+            </li>
+            <li class="color-dgreen">
+              (Wala pa)
+            </li>
+            <li class="color-dgreen">
+             (Wala pa)
+            </li>
+          </ul>
         </div>
+        
         <script>
           document.addEventListener('DOMContentLoaded', function () {
 const tabs = document.querySelectorAll('.nav-link');

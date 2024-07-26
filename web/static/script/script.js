@@ -323,6 +323,7 @@ function scan() {
 }
 
 function scan_again() {
+  console.log("scan_again function called");
   // Image Div
   imgBox.style.display = null;
   imgBox.style.backgroundImage = null;
@@ -631,6 +632,7 @@ function devOptionsClose() {
 
 // Cancel/Remove Image
 function cancelUpload() {
+  console.log("cancelUpload function called");
   // Hide the image box and reset its background
   imgBox.style.display = "none";
   imgBox.style.backgroundImage = "none";
@@ -685,5 +687,10 @@ function showSnackbar() {
     x.className = x.className.replace("show", "");
   }, 3000);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('btn-cancel').addEventListener('click', cancelUpload);
+  document.getElementById('btn-scan-again').addEventListener('click', scan_again);
+});
 
 // ----------------------------------------------------------------------------------------------------------
