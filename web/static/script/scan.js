@@ -128,3 +128,68 @@ function scan() {
     }
   };
 }
+
+function scan_again() {
+  // Reset upload progress bar
+  const progressBar = document.getElementById("upload-progress");
+  progressBar.value = 0;
+  progressBar.classList.add("d-none");
+
+  // Show 'Scan Leaf' button and hide 'Scan Again' button
+  const btn_scan = document.getElementById("btn-scan");
+  const btn_scan_again = document.getElementById("btn-scan-again");
+  const btn_cancel = document.getElementById("btn-cancel");
+  btn_scan.style.display = "block";
+  btn_scan_again.style.display = "none";
+  btn_cancel.style.display = "none";
+
+  // Clear any displayed results
+  document.getElementById("filipino-name").innerHTML = "Filipino Name";
+  document.getElementById("english-name").innerHTML = "English Name";
+  document.getElementById("scientific-name").innerHTML = "Scientific Name";
+  document.getElementById("scan-time").innerHTML = "Scan Time: Not Yet Scanned";
+  document.getElementById("probability").innerHTML = "Probability";
+
+  // Clear any displayed image or iframe content
+  var imgBox = document.getElementById("imgBox");
+  var btn_upload = document.getElementById("btn-upload");
+  var fa_image = document.getElementById("fa-image");
+  imgBox.style.display = null;
+  imgBox.style.backgroundImage = null;
+  btn_upload.style.display = "block";
+  fa_image.style.display = "block";
+
+  fetch("./static/trees/tree_div.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("tree-div").innerHTML = data;
+    });
+
+  // Remove fade-in animation classes
+  document
+    .getElementById("filipino-name")
+    .classList.remove("animate-fade-in-result");
+  document
+    .getElementById("english-name")
+    .classList.remove("animate-fade-in-result");
+  document
+    .getElementById("scientific-name")
+    .classList.remove("animate-fade-in-result");
+  document
+    .getElementById("scan-time")
+    .classList.remove("animate-fade-in-result");
+  document
+    .getElementById("probability")
+    .classList.remove("animate-fade-in-result");
+
+  // Reset file input element
+  const fileInput = document.getElementById("file");
+  fileInput.value = ""; // Clear selected file
+
+  // Reset capture input element
+  const captureInput = document.getElementById("capture");
+  captureInput.value = ""; // Clear selected capture file
+
+  // Scroll to top of page
+  window.scrollTo(0, 0);
+}

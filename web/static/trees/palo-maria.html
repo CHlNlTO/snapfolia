@@ -30,6 +30,12 @@
       .nav-tabs{
         display: flex;
         justify-content: flex-end;
+      }
+      .nav-link {
+        color: #1E5434;
+      } 
+      .nav-link:hover {
+        color: green 
       } 
     </style>
   </head>
@@ -37,13 +43,13 @@
     <!-- MAIN: Result -->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true" style="color: green;">Description</button>
+        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Description</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false" style="color: green;">Uses</button>
+        <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false">Uses</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false" style="color: green;">Folklore</button>
+        <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false">Folklore</button>
       </li>
     </ul>
     <div class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in" id="tree">
