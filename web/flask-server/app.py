@@ -7,6 +7,7 @@ from transformers import AutoProcessor, AutoModelForZeroShotObjectDetection
 from ultralytics import YOLO
 import dill  # Explicitly import dill
 import numpy as np
+import sys
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = '../uploads'
@@ -23,6 +24,8 @@ def load_object_detection_model(model_id):
     print("Initializing object detection model...")
     if torch.cuda.is_available():
         print("cuda is available")
+        print(f"CUDA version: {torch.version.cuda}")
+        print(f"Python version: {sys.version}")
     else:
         print("cuda is not available")
         

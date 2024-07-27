@@ -108,7 +108,7 @@
         class="container-fluid flex-container d-flex align-items-center flex-grow-1"
       >
         <!-- MAIN: SCAN -->
-        <section class="col-lg-5 col-12 container-fluid mx-auto">
+        <section class="col-lg-5 col-12 container-fluid mx-auto mt-320">
           <div class="row">
             <!-- SCAN: Image Upload -->
             <div
@@ -261,88 +261,15 @@
           >
             <div id="tree-div"></div>
             <div class="container">
-              <!-- Map section -->
-              <div id="map" class="map"></div>
             </div>
           </div>
         </section>
       </section>
 
       <footer class="d-flex justify-content-end">
-        <p class="btn m-0 color-dgreen copyright" onclick="devOptionsOpen()">
+        <p class="btn m-0 color-dgreen copyright">
           © BSCS Batch 2024
         </p>
-
-        <section
-          class="bg-lblue p-3 border-r form-popup"
-          style="display: none"
-          id="dev-tools-popup"
-        >
-          <!-- DEV TOOLS -->
-          <div class="col-12 d-flex justify-content-end">
-            <button
-              type="button"
-              class="btn-close p p-2 mb-2"
-              onclick="devOptionsClose()"
-            ></button>
-          </div>
-          <div class="d-flex flex-row">
-            <select
-              name="modelOptions"
-              id="modelDropdown"
-              onchange="modelDropdown()"
-            >
-              <option value="vgg16" id="vgg16">VGG16</option>
-              <option value="vgg16_square" id="vgg16_square">
-                VGG16_Square
-              </option>
-              <option value="resnet50" id="resnet50">ResNet50</option>
-              <option value="inception" id="inception">Inception</option>
-              <option value="xception" id="xception">Xception</option>
-              <option value="sequential" id="sequential">Sequential</option>
-            </select>
-
-            <!-- Button Capture -->
-            <button
-              class="btn bg-blue fs-responsive ms-3"
-              style="display: none"
-              id="btn-model-scan-capture"
-              onclick="modelScanAgainCapture()"
-            >
-              Scan
-            </button>
-
-            <!-- Button Upload -->
-            <button
-              class="btn btn-success fs-responsive ms-3"
-              id="btn-model-scan"
-              onclick="modelScanAgain()"
-            >
-              Scan
-            </button>
-          </div>
-
-          <div>
-            <select
-              name="urlOptions"
-              id="serverDropdown"
-              onchange="serverDropdown()"
-            >
-              <option value="http://58.71.56.23:5000/classify" id="publicFaith">
-                Public FAITH Server
-              </option>
-              <option
-                value="http://172.16.101.123:5000/classify"
-                id="privateFaith"
-              >
-                Private FAITH Server
-              </option>
-              <option value="http://127.0.0.1:5000/classify" id="local">
-                Local Server
-              </option>
-            </select>
-          </div>
-        </section>
       </footer>
     </section>
 
@@ -362,7 +289,7 @@
       let map;
       let markers = [];
 
-      // Fetch GeoJSON data
+        // Fetch GeoJSON data
       fetch(
         "https://api.maptiler.com/data/c38a252b-0830-4793-afac-67265acd5836/features.json?key=Bnn1u1MtPCYvvZs3JJmV"
       )

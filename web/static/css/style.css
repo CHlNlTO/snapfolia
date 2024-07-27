@@ -271,7 +271,7 @@ p, li, .dev-fname {
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
 }
 
@@ -297,6 +297,13 @@ p, li, .dev-fname {
     height: 100%;
     max-width: 20rem;
 }
+
+@media screen and (max-width: 992px) {
+    .mt-320 {
+      margin-top: 320px;
+    }
+  }
+  
 
 /* TREE SCROLLBAR */
 #tree {
