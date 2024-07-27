@@ -10,7 +10,7 @@ Welcome to the Snapfolia repository! Snapfolia is a leaf classifier web applicat
   - JavaScript
 
 - **Backend:**
-  - Python
+  - Python 3.9.12
 
 ## Collaborator Roles and Branch Permissions
 

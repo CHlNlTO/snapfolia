@@ -14,7 +14,7 @@ node_modules/
 .env
 .env.local
 .env.*.local
-venv/
+venv_yolov8/
 
 # Ignore log files
 *.log
@@ -26,3 +26,6 @@ dist/
 # Ignore dependency lock files
 yarn.lock
 package-lock.json
+
+# Ignore model_files 
+model_files/

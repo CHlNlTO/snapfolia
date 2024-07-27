@@ -53,8 +53,6 @@ Werkzeug==3.0.3
 
 # PyTorch with CUDA 12.1
 torch==2.3.1+cu121
-torchvision==0.18.1+cu121
-torchaudio==2.3.1+cu121
 
 # Use the extra index URL to find the packages
 --extra-index-url https://download.pytorch.org/whl/cu121

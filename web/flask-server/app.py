@@ -128,8 +128,13 @@ def upload_file():
     yolov8_model = load_yolov8_model(yolov8_model_path)
     
     print("Loading Grounding Dino model...")
-    object_detection_model_id = 'IDEA-Research/grounding-dino-tiny'
-    object_detection_model, processor, device = load_object_detection_model(object_detection_model_id)
+    
+    # Use this if you don't have model_files
+    # object_detection_model_id = 'IDEA-Research/grounding-dino-tiny'
+    # object_detection_model, processor, device = load_object_detection_model(object_detection_model_id)
+    
+    MODEL_PATH = "./model_files"
+    object_detection_model, processor, device = load_object_detection_model(MODEL_PATH)
     
     # Process image
     result = process_image(file_path, object_detection_model, processor, yolov8_model, device)
