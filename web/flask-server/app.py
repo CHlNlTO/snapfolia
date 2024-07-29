@@ -93,7 +93,7 @@ def process_image(image_path, object_detection_model, processor, yolov8_model, d
         }
         
     else:
-        return {"leaf_detected": False}
+        return {"leaf_detected": False} 
 
 # Route for checking server status
 @app.route('/')
@@ -129,11 +129,11 @@ def upload_file():
     
     print("Loading Grounding Dino model...")
     
-    # Use this if you don't have model_files
+    # Use this if you don't have grounding-dino-tiny
     # object_detection_model_id = 'IDEA-Research/grounding-dino-tiny'
     # object_detection_model, processor, device = load_object_detection_model(object_detection_model_id)
     
-    MODEL_PATH = "./model_files"
+    MODEL_PATH = "./grounding-dino-tiny"
     object_detection_model, processor, device = load_object_detection_model(MODEL_PATH)
     
     # Process image

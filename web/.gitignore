@@ -10,7 +10,7 @@ node_modules/
 *.jar
 *.war
 
-# Ignore environment-specific files
+# Ignore environment-specific files1
 .env
 .env.local
 .env.*.local
@@ -29,3 +29,4 @@ package-lock.json
 
 # Ignore model_files 
 model_files/
+grounding-dino-tiny/
