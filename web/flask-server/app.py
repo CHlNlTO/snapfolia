@@ -10,14 +10,14 @@ import numpy as np
 import sys
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = '../uploads'
+# app.config['UPLOAD_FOLDER'] = '../uploads'
 
 # Enable CORS
 CORS(app)
 
-# Ensure the upload folder exists
-if not os.path.exists(app.config['UPLOAD_FOLDER']):
-    os.makedirs(app.config['UPLOAD_FOLDER'])
+# # Ensure the upload folder exists
+# if not os.path.exists(app.config['UPLOAD_FOLDER']):
+#     os.makedirs(app.config['UPLOAD_FOLDER'])
 
 # Load the object detection model (Grounding Dino)
 def load_object_detection_model(model_id):
@@ -118,9 +118,9 @@ def upload_file():
     # Log file information
     print(f"File received: {file.filename}")
     
-    # Save uploaded file
-    file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-    file.save(file_path)
+    # # Save uploaded file
+    # file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+    # file.save(file_path)
     
     # Load models
     print("Loading YOLOv8 model...")
@@ -137,7 +137,7 @@ def upload_file():
     object_detection_model, processor, device = load_object_detection_model(MODEL_PATH)
     
     # Process image
-    result = process_image(file_path, object_detection_model, processor, yolov8_model, device)
+    result = process_image(file, object_detection_model, processor, yolov8_model, device)
     
     return jsonify(result)
 
