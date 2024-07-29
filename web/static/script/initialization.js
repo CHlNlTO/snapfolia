@@ -19,6 +19,8 @@ function setDefaultModel() {
   console.log(model);
 }
 
+
+
 function serverDropdown() {
   const selectedOption = dropdown.options[dropdown.selectedIndex];
   const selectedValue = selectedOption.value;

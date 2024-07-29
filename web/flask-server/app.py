@@ -10,14 +10,9 @@ import numpy as np
 import sys
 
 app = Flask(__name__)
-# app.config['UPLOAD_FOLDER'] = '../uploads'
 
 # Enable CORS
 CORS(app)
-
-# # Ensure the upload folder exists
-# if not os.path.exists(app.config['UPLOAD_FOLDER']):
-#     os.makedirs(app.config['UPLOAD_FOLDER'])
 
 # Load the object detection model (Grounding Dino)
 def load_object_detection_model(model_id):
@@ -71,8 +66,12 @@ def classify_leaf(image_path, yolov8_model):
     names_dict = predict[0].names
     probs = predict[0].probs.data.tolist()
 
-    print(names_dict)
-    print(probs)
+    # Convert to key-value pairs and limit to two decimal places
+    results = {names_dict[i]: round(probs[i], 2) for i in range(len(probs))}
+    
+    # Print the first 5 items-------
+    for name, prob in list(results.items())[:5]:
+        print(f"{name}:\t{prob}")
 
     predicted_class = names_dict[np.argmax(probs)]
     confidence = max(probs)
@@ -118,10 +117,6 @@ def upload_file():
     # Log file information
     print(f"File received: {file.filename}")
     
-    # # Save uploaded file
-    # file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-    # file.save(file_path)
-    
     # Load models
     print("Loading YOLOv8 model...")
     yolov8_model_path = 'yolo_v8_v2.pt'
@@ -142,4 +137,4 @@ def upload_file():
     return jsonify(result)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)

@@ -299,8 +299,8 @@ p, li, .dev-fname {
 }
 
 @media screen and (max-width: 992px) {
-    .mt-320 {
-      margin-top: 320px;
+    .mt-500 {
+      margin-top: 500px;
     }
   }
   
