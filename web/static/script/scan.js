@@ -81,8 +81,7 @@ function scan() {
         getEnglishName(classResult);
       document.getElementById("scientific-name").innerHTML =
         getScientificName(classResult);
-      document.getElementById("scan-time").innerHTML = `Scan Time: ${timeSpent.toFixed(2)} seconds`
-        getScientificName(classResult);
+      document.getElementById("scan-time").innerHTML = `Scan Time: ${timeSpent.toFixed(2)} seconds`;
       document.getElementById("probability").innerHTML = probability;
 
       document
@@ -100,8 +99,6 @@ function scan() {
       document
         .getElementById("probability")
         .classList.add("animate-fade-in-result");
-
-      filterMarkers(classResult.toLowerCase());
 
       const treeUrl = "./static/trees/" + getURL(classResult) + ".html";
 

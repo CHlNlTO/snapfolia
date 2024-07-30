@@ -143,11 +143,11 @@ def upload_file():
     print("Loading Grounding Dino model...")
     
     # Use this if you don't have grounding-dino-tiny
-    # object_detection_model_id = 'IDEA-Research/grounding-dino-tiny'
-    # object_detection_model, processor, device = load_object_detection_model(object_detection_model_id)
+    object_detection_model_id = 'IDEA-Research/grounding-dino-tiny'
+    object_detection_model, processor, device = load_object_detection_model(object_detection_model_id)
     
-    MODEL_PATH = "./grounding-dino-tiny"
-    object_detection_model, processor, device = load_object_detection_model(MODEL_PATH)
+    #MODEL_PATH = "./grounding-dino-tiny"
+    #object_detection_model, processor, device = load_object_detection_model(MODEL_PATH)
     
     # Process image
     result = process_image(file, object_detection_model, processor, yolov8_model, device, user_ip)
