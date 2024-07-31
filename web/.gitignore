@@ -30,3 +30,7 @@ package-lock.json
 # Ignore model_files 
 model_files/
 grounding-dino-tiny/
+
+venv/
+flask-server/venv/
+venv/*
