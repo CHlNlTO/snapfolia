@@ -14,7 +14,6 @@ app = Flask(__name__)
 # Enable CORS
 CORS(app)
 REQUEST_COUNTER = 0
-IP_STATUS = {}
 
 # Load the object detection model (Grounding Dino)
 def load_object_detection_model(model_id):
@@ -79,13 +78,6 @@ def classify_leaf(image_path, yolov8_model, user_ip):
 
     predicted_class = names_dict[np.argmax(probs)]
     confidence = max(probs)
-    
-    # Update the status for this IP address
-    IP_STATUS[user_ip] = {
-        "completed": True,
-        "predicted_class": predicted_class,
-        "confidence": confidence
-    }
     
     return predicted_class, confidence
 
@@ -153,15 +145,6 @@ def upload_file():
     result = process_image(file, object_detection_model, processor, yolov8_model, device, user_ip)
     
     return jsonify(result)
-
-# Route to check the classification status for an IP address
-@app.route('/snapfolia/status', methods=['GET'])
-def get_status():
-    user_ip = request.remote_addr
-    status = IP_STATUS.get(user_ip, {"completed": False})
-    print(f"Status for IP {user_ip}: {status}")
-    return jsonify(status)
-
 
 
 if __name__ == '__main__':

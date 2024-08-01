@@ -68,7 +68,7 @@ function scan() {
       const classResult = result.label;
       const probability = (result.confidence.toFixed(2) * 100).toString() + "%";
 
-      if (result.confidence <= .5) {
+      if (result.confidence <= .7) {
         console.log("Image quality is low. Please take a photo again.");
         alert("Image quality is low. Please take a photo again.");
         return;
