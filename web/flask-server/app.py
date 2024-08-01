@@ -8,6 +8,8 @@ from ultralytics import YOLO
 import dill  # Explicitly import dill
 import numpy as np
 import sys
+import platform
+
 
 app = Flask(__name__)
 
@@ -15,13 +17,25 @@ app = Flask(__name__)
 CORS(app)
 REQUEST_COUNTER = 0
 
+# Initialize models and processor
+def initialize_models():
+    global yolov8_model, object_detection_model, processor, device
+    yolov8_model_path = 'yolo_v8_v2.pt'
+    print("Loading YOLOv8 model...")
+    yolov8_model = load_yolov8_model(yolov8_model_path)
+
+    object_detection_model_id = 'IDEA-Research/grounding-dino-tiny'
+    print("Loading Grounding Dino model...")
+    object_detection_model, processor, device = load_object_detection_model(object_detection_model_id)
+    print("--- Models Ready ---")
+
 # Load the object detection model (Grounding Dino)
 def load_object_detection_model(model_id):
     print("Initializing object detection model...")
     if torch.cuda.is_available():
         print("cuda is available")
         print(f"CUDA version: {torch.version.cuda}")
-        print(f"Python version: {sys.version}")
+        print(f"Python version: {platform.python_version()}")
     else:
         print("cuda is not available")
         
@@ -73,7 +87,7 @@ def classify_leaf(image_path, yolov8_model, user_ip):
     results = {names_dict[i]: round(probs[i], 2) for i in range(len(probs))}
     
     # Print the first 5 items
-    for name, prob in list(results.items())[:5]:
+    for name, prob in list(results.items())[:2]:
         print(f"{name}:\t{prob}")
 
     predicted_class = names_dict[np.argmax(probs)]
@@ -95,7 +109,6 @@ def process_image(image_path, object_detection_model, processor, yolov8_model, d
         }
         
     else:
-        IP_STATUS[user_ip] = {"completed": False}
         return {"leaf_detected": False}
      
 
@@ -127,20 +140,6 @@ def upload_file():
     # Log file information
     print(f"File received: {file.filename}")
     
-    # Load models
-    print("Loading YOLOv8 model...")
-    yolov8_model_path = 'yolo_v8_v2.pt'
-    yolov8_model = load_yolov8_model(yolov8_model_path)
-    
-    print("Loading Grounding Dino model...")
-    
-    # Use this if you don't have grounding-dino-tiny
-    object_detection_model_id = 'IDEA-Research/grounding-dino-tiny'
-    object_detection_model, processor, device = load_object_detection_model(object_detection_model_id)
-    
-    #MODEL_PATH = "./grounding-dino-tiny"
-    #object_detection_model, processor, device = load_object_detection_model(MODEL_PATH)
-    
     # Process image
     result = process_image(file, object_detection_model, processor, yolov8_model, device, user_ip)
     
@@ -148,4 +147,5 @@ def upload_file():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    initialize_models()
+    app.run(host='0.0.0.0', port=5000, debug=False)
