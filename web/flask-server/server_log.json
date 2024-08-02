@@ -1,0 +1,282 @@
+[
+  {
+    "timestamp": "2024-08-02T16:37:01.045617",
+    "level": "info",
+    "message": "Loading YOLOv8 model..."
+  },
+  {
+    "timestamp": "2024-08-02T16:37:01.061628",
+    "level": "info",
+    "message": "Model is Ready..."
+  },
+  {
+    "timestamp": "2024-08-02T16:37:01.061628",
+    "level": "info",
+    "message": "Loading Grounding Dino model..."
+  },
+  {
+    "timestamp": "2024-08-02T16:37:01.061628",
+    "level": "info",
+    "message": "CUDA is available"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:01.061628",
+    "level": "info",
+    "message": "CUDA version: 12.1"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:01.077258",
+    "level": "info",
+    "message": "Python version: 3.9.12"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:43.361809",
+    "level": "info",
+    "message": "Opening image..."
+  },
+  {
+    "timestamp": "2024-08-02T16:37:43.548361",
+    "level": "info",
+    "message": "Running object detection..."
+  },
+  {
+    "timestamp": "2024-08-02T16:37:44.642648",
+    "level": "info",
+    "message": "Post-processing object detection..."
+  },
+  {
+    "timestamp": "2024-08-02T16:37:44.691782",
+    "level": "info",
+    "message": "<------------------------------------------------>"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:45.235373",
+    "level": "info",
+    "message": "Acacia:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:45.235373",
+    "level": "info",
+    "message": "Alibangbang:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:45.250588",
+    "level": "info",
+    "message": "Amugis:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:45.250588",
+    "level": "info",
+    "message": "Apitong:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:45.250588",
+    "level": "info",
+    "message": "Asis:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:45.267313",
+    "level": "info",
+    "message": "-->REQUEST COUNTER: 1<--"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:45.267313",
+    "level": "info",
+    "message": "Opening image..."
+  },
+  {
+    "timestamp": "2024-08-02T16:37:45.334845",
+    "level": "info",
+    "message": "Running object detection..."
+  },
+  {
+    "timestamp": "2024-08-02T16:37:45.634447",
+    "level": "info",
+    "message": "Post-processing object detection..."
+  },
+  {
+    "timestamp": "2024-08-02T16:37:45.692852",
+    "level": "info",
+    "message": "<------------------------------------------------>"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:45.798613",
+    "level": "info",
+    "message": "Acacia:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:45.807418",
+    "level": "info",
+    "message": "Alibangbang:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:45.815905",
+    "level": "info",
+    "message": "Amugis:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:45.822638",
+    "level": "info",
+    "message": "Apitong:\t0.01"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:45.825574",
+    "level": "info",
+    "message": "Asis:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:45.840103",
+    "level": "info",
+    "message": "-->REQUEST COUNTER: 2<--"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:45.846603",
+    "level": "info",
+    "message": "Opening image..."
+  },
+  {
+    "timestamp": "2024-08-02T16:37:45.906202",
+    "level": "info",
+    "message": "Running object detection..."
+  },
+  {
+    "timestamp": "2024-08-02T16:37:46.225438",
+    "level": "info",
+    "message": "Post-processing object detection..."
+  },
+  {
+    "timestamp": "2024-08-02T16:37:46.281746",
+    "level": "info",
+    "message": "<------------------------------------------------>"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:46.377152",
+    "level": "info",
+    "message": "Acacia:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:46.388940",
+    "level": "info",
+    "message": "Alibangbang:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:46.394710",
+    "level": "info",
+    "message": "Amugis:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:46.401403",
+    "level": "info",
+    "message": "Apitong:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:46.401897",
+    "level": "info",
+    "message": "Asis:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:37:46.414377",
+    "level": "info",
+    "message": "-->REQUEST COUNTER: 3<--"
+  },
+  {
+    "timestamp": "2024-08-02T16:38:15.588899",
+    "level": "info",
+    "message": "Opening image..."
+  },
+  {
+    "timestamp": "2024-08-02T16:38:15.674470",
+    "level": "info",
+    "message": "Running object detection..."
+  },
+  {
+    "timestamp": "2024-08-02T16:38:16.246051",
+    "level": "info",
+    "message": "Post-processing object detection..."
+  },
+  {
+    "timestamp": "2024-08-02T16:38:16.325043",
+    "level": "info",
+    "message": "<------------------------------------------------>"
+  },
+  {
+    "timestamp": "2024-08-02T16:38:16.485531",
+    "level": "info",
+    "message": "Acacia:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:38:16.485531",
+    "level": "info",
+    "message": "Alibangbang:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:38:16.495115",
+    "level": "info",
+    "message": "Amugis:\t0.09"
+  },
+  {
+    "timestamp": "2024-08-02T16:38:16.508735",
+    "level": "info",
+    "message": "Apitong:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:38:16.517482",
+    "level": "info",
+    "message": "Asis:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:38:16.520189",
+    "level": "info",
+    "message": "-->REQUEST COUNTER: 4<--"
+  },
+  {
+    "timestamp": "2024-08-02T16:38:16.533652",
+    "level": "info",
+    "message": "Opening image..."
+  },
+  {
+    "timestamp": "2024-08-02T16:38:16.610850",
+    "level": "info",
+    "message": "Running object detection..."
+  },
+  {
+    "timestamp": "2024-08-02T16:38:16.941799",
+    "level": "info",
+    "message": "Post-processing object detection..."
+  },
+  {
+    "timestamp": "2024-08-02T16:38:16.985282",
+    "level": "info",
+    "message": "<------------------------------------------------>"
+  },
+  {
+    "timestamp": "2024-08-02T16:38:17.081494",
+    "level": "info",
+    "message": "Acacia:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:38:17.090968",
+    "level": "info",
+    "message": "Alibangbang:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:38:17.093013",
+    "level": "info",
+    "message": "Amugis:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:38:17.099155",
+    "level": "info",
+    "message": "Apitong:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:38:17.107263",
+    "level": "info",
+    "message": "Asis:\t0.0"
+  },
+  {
+    "timestamp": "2024-08-02T16:38:17.114500",
+    "level": "info",
+    "message": "-->REQUEST COUNTER: 5<--"
+  }
+]
