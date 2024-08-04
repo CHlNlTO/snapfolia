@@ -15,6 +15,7 @@ import os
 import json
 from datetime import datetime
 
+
 app = Flask(__name__)
 CORS(app)
 
@@ -59,6 +60,7 @@ def log_to_json(message, level='info'):
         with open(LOG_FILE, 'w') as file:
             json.dump([log_entry], file, indent=2)
 
+# Initialize models and processor
 def initialize_models():
     global yolov8_model, object_detection_model, processor, device
     yolov8_model_path = 'yolo_v8_v2.pt'
@@ -69,6 +71,9 @@ def initialize_models():
     print("Loading Grounding Dino model...")
     object_detection_model, processor, device = load_object_detection_model(object_detection_model_id)
 
+    print("--- Models Ready ---")
+
+# Load the object detection model (Grounding Dino)
 def load_object_detection_model(model_id):
     if torch.cuda.is_available():
         print("CUDA is available")
@@ -108,6 +113,9 @@ def classify_leaf(image_path, yolov8_model):
     probs = predict[0].probs.data.tolist()
     results = {names_dict[i]: round(probs[i], 2) for i in range(len(probs))}
     for name, prob in list(results.items())[:5]:
+    
+    # Print the first 5 items
+    for name, prob in list(results.items())[:2]:
         print(f"{name}:\t{prob}")
     predicted_class = names_dict[np.argmax(probs)]
     confidence = max(probs)
@@ -146,6 +154,9 @@ def process_request():
         for file_path, _ in batch:
             os.remove(file_path)
             os.rmdir(os.path.dirname(file_path))
+        
+    else:
+        return {"leaf_detected": False}
 
 @app.route('/')
 def index():
@@ -161,13 +172,18 @@ def upload_file():
     if file.filename == '':
         print("No selected file", level='error')
         return jsonify({'error': 'No selected file'}), 400
-    
+      
     temp_dir = tempfile.mkdtemp()
     temp_file_path = os.path.join(temp_dir, file.filename)
     file.save(temp_file_path)
     
     request_id = str(time.time())
     request_queue.put((temp_file_path, request_id))
+    # Log file information
+    print(f"File received: {file.filename}")
+    
+    # Process image
+    result = process_image(file, object_detection_model, processor, yolov8_model, device, user_ip)
     
     while request_id not in results:
         time.sleep(0.1)
@@ -179,4 +195,5 @@ if __name__ == '__main__':
     processing_thread = Thread(target=process_request)
     processing_thread.daemon = True
     processing_thread.start()
+    app.run(host='0.0.0.0', port=5000, debug=False)
     app.run(host='0.0.0.0', port=5000, debug=False)
