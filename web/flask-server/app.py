@@ -32,6 +32,10 @@ device = None
 # Log file path
 LOG_FILE = 'server_log.json'
 
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    
 def log_to_json(message, level='info'):
     log_entry = {
         'timestamp': datetime.now().isoformat(),
@@ -58,20 +62,20 @@ def log_to_json(message, level='info'):
 def initialize_models():
     global yolov8_model, object_detection_model, processor, device
     yolov8_model_path = 'yolo_v8_v2.pt'
-    log_to_json("Loading YOLOv8 model...")
+    print("Loading YOLOv8 model...")
     yolov8_model = load_yolov8_model(yolov8_model_path)
 
     object_detection_model_id = 'IDEA-Research/grounding-dino-tiny'
-    log_to_json("Loading Grounding Dino model...")
+    print("Loading Grounding Dino model...")
     object_detection_model, processor, device = load_object_detection_model(object_detection_model_id)
 
 def load_object_detection_model(model_id):
     if torch.cuda.is_available():
-        log_to_json("CUDA is available")
-        log_to_json(f"CUDA version: {torch.version.cuda}")
-        log_to_json(f"Python version: {platform.python_version()}")
+        print("CUDA is available")
+        print(f"CUDA version: {torch.version.cuda}")
+        print(f"Python version: {platform.python_version()}")
     else:
-        log_to_json("CUDA is not available")
+        print("CUDA is not available")
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     processor = AutoProcessor.from_pretrained(model_id)
     model = AutoModelForZeroShotObjectDetection.from_pretrained(model_id).to(device)
@@ -80,17 +84,17 @@ def load_object_detection_model(model_id):
 
 def load_yolov8_model(model_path):
     model = YOLO(model_path)
-    log_to_json("Model is Ready...")
+    print("Model is Ready...")
     return model
 
 def detect_objects(image_path, object_detection_model, processor, device):
-    log_to_json("Opening image...")
+    print("Opening image...")
     image = Image.open(image_path).convert('RGB')
-    log_to_json("Running object detection...")
+    print("Running object detection...")
     inputs = processor(images=image, text="a leaf. leaves.", return_tensors="pt").to(device)
     with torch.no_grad():
         outputs = object_detection_model(**inputs)
-    log_to_json("Post-processing object detection...")
+    print("Post-processing object detection...")
     results = processor.post_process_grounded_object_detection(
         outputs, inputs.input_ids, box_threshold=0.4, text_threshold=0.3, target_sizes=[image.size[::-1]]
     )
@@ -98,13 +102,13 @@ def detect_objects(image_path, object_detection_model, processor, device):
 
 def classify_leaf(image_path, yolov8_model):
     image = Image.open(image_path).convert('RGB')
-    log_to_json("<------------------------------------------------>")
+    print("<------------------------------------------------>")
     predict = yolov8_model(image)
     names_dict = predict[0].names
     probs = predict[0].probs.data.tolist()
     results = {names_dict[i]: round(probs[i], 2) for i in range(len(probs))}
     for name, prob in list(results.items())[:5]:
-        log_to_json(f"{name}:\t{prob}")
+        print(f"{name}:\t{prob}")
     predicted_class = names_dict[np.argmax(probs)]
     confidence = max(probs)
     return predicted_class, confidence
@@ -136,7 +140,7 @@ def process_request():
             result = process_image(file_path, object_detection_model, processor, yolov8_model, device)
             results[request_id] = result
             REQUEST_COUNTER += 1
-            log_to_json(f"-->REQUEST COUNTER: {REQUEST_COUNTER}<--")
+            print(f"-->REQUEST COUNTER: {REQUEST_COUNTER}<--")
         for _ in range(len(batch)):
             request_queue.task_done()
         for file_path, _ in batch:
@@ -145,17 +149,17 @@ def process_request():
 
 @app.route('/')
 def index():
-    log_to_json("Server is running...")
+    print("Server is running...")
     return jsonify({'message': 'Server is running'})
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
-        log_to_json("No file part in request", level='error')
+        print("No file part in request", level='error')
         return jsonify({'error': 'No file part'}), 400
     file = request.files['file']
     if file.filename == '':
-        log_to_json("No selected file", level='error')
+        print("No selected file", level='error')
         return jsonify({'error': 'No selected file'}), 400
     
     temp_dir = tempfile.mkdtemp()
