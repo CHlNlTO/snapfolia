@@ -77,48 +77,32 @@ const devs = [
   ]
 
 // Loop
-  function generate_devs() {
-    const container = document.getElementById("devs-div");
-  
-    // Loop through the array of people
-    devs.forEach(dev => {
-      // Create HTML elements for each person
-      const devHTML = `
-        <div class="col-lg-3 col-md-6 col-sm-12">
-          <div class="d-flex flex-column justify-content-center align-items-center m-3">
-              <div class="d-flex flex-row">
-                  <!-- Image -->
-                  <img src="./static/img/img-${dev.id}.png" class="img-profile rounded-circle border border-3 border-green" alt="${dev.first_name} ${dev.last_name}">
-                  <div class="d-flex flex-column justify-content-evenly">
-                      <!-- GMAIL -->
-                      <button class="btn border border-1 border-green rounded-circle p-0 social-size d-flex align-items-center" onclick="handleCopyEmail('${dev.gmail}')">
-                          <img src="./static/img/logo-gmail.png" class="h-100 w-100 p-05" alt="GMail">
-                      </button>
-  
-                      <!-- LINKEDIN -->
-                      <button class="btn border border-1 border-green rounded-circle p-0 social-size d-flex align-items-center ms-2" onclick="openLink('https://www.linkedin.com/in/${dev.linkedin}/')">
-                          <img src="./static/img/logo-linkedin.png" class="h-100 w-100 p-05" alt="LinkedIn">
-                      </button>
-  
-                      <!-- GITHUB -->
-                      <button class="btn border border-1 border-green rounded-circle p-0 social-size d-flex align-items-center" onclick="openLink('https://github.com/${dev.github}/')">
-                          <img src="./static/img/logo-github.png" class="h-100 w-100 p-05" alt="GitHub">
-                      </button>
-                  </div>
-              </div>
-              <div class="me-4 text-center">
-                <h3 class="color-dgreen m-0 mt-1 dev-fname" style="font-weight: 600;">${dev.first_name}</h3>
-                <h3 class="color-dgreen m-0 dev-fname" style="font-weight: 600;">${dev.last_name}</h3>
-                <h4 class="color-dgreen">${dev.position}</h4>
-              </div>
-          </div>
+function generate_devs() {
+  const container = document.getElementById("devs-div");
+
+  // Loop through the array of people
+  devs.forEach(dev => {
+    // Create HTML elements for each person
+    const devHTML = `
+      <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="d-flex flex-column justify-content-center align-items-center m-3">
+            <div class="d-flex flex-row image-container"> <!-- Add 'image-container' class -->
+                <!-- Image -->
+                <img src="./static/img/img-${dev.id}.png" class="img-profile rounded-circle border border-3 border-green" alt="${dev.first_name} ${dev.last_name}">
+            </div>
+            <div class="me-4 text-center">
+              <h3 class="color-dgreen m-0 mt-1 dev-fname" style="font-weight: 600;">${dev.first_name}</h3>
+              <h3 class="color-dgreen m-0 dev-fname" style="font-weight: 600;">${dev.last_name}</h3>
+              <h4 class="color-dgreen">${dev.position}</h4>
+            </div>
         </div>
-      `;
-  
-      // Append the generated HTML to the container
-      container.innerHTML += devHTML;
-    });
-  }
+      </div>
+    `;
+
+    // Append the generated HTML to the container
+    container.innerHTML += devHTML;
+  });
+}
 
 // Snackbar
 let showNotification = false;
@@ -144,9 +128,6 @@ function notifComponent() {
     div.innerHTML = '&#x2713; Email Copied';
     return div;
 }
-
-
-
     
   
   // Function to handle copying email to clipboard

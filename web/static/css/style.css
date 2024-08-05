@@ -502,6 +502,67 @@ option {
     padding: 1px;
   }
 
+  .image.container{
+    margin-left: -20px; /* Adjust the value as needed */
+  }
+
+  .img-profile {
+    margin-left: -20px; /* Adjust the value as needed */
+  }
+  
+  .role-labels {
+    margin-top: 30px;
+    font-size: 22px;
+  }
+
+  /* Container for individual developer items */
+  .dev-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Circular container above developer names */
+  .dev-circle {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    background-color: #ffffff; /* Example background color */
+    margin-bottom: 10px;
+    border: 3px solid #40A067;
+    overflow: hidden; /* Ensure the image fits within the circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .dev-circle img {
+    width: 100%; /* Ensure the image covers the circle area */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  /* Role containers and their alignment */
+.role-container {
+    margin-bottom: 20px;
+  }
+  
+  /* Developer container styling */
+  .dev-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Gap between each dev-item */
+    flex-wrap: wrap; /* Wrap the containers in case of overflow */
+  }
+
+  .dev-item .dev-name h3{
+    color: #1E5434;
+    font-weight: 600;
+  }
+
+  .role{
+    font-size: 0.55rem;
+  }
+
 /* ---------------------- END of DEVELOPERS ---------------------- */
 
 
