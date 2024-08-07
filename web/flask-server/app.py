@@ -105,18 +105,18 @@ def detect_objects(image_path, object_detection_model, processor, device):
     )
     return results
 
+# Classification using YOLOv8
 def classify_leaf(image_path, yolov8_model):
     image = Image.open(image_path).convert('RGB')
     print("<------------------------------------------------>")
     predict = yolov8_model(image)
     names_dict = predict[0].names
     probs = predict[0].probs.data.tolist()
+    
     results = {names_dict[i]: round(probs[i], 2) for i in range(len(probs))}
     for name, prob in list(results.items())[:5]:
-    
-    # Print the first 5 items
-    for name, prob in list(results.items())[:2]:
         print(f"{name}:\t{prob}")
+        
     predicted_class = names_dict[np.argmax(probs)]
     confidence = max(probs)
     return predicted_class, confidence
@@ -133,67 +133,63 @@ def process_image(image_path, object_detection_model, processor, yolov8_model, d
     return {"leaf_detected": False}
 
 def process_request():
-    global results, REQUEST_COUNTER
+    global results
     while True:
         batch = []
+        
+        # Collect a batch of requests
         for _ in range(BATCH_SIZE):
             if not request_queue.empty():
                 batch.append(request_queue.get())
             else:
                 break
+                
         if not batch:
-            time.sleep(1)
+            time.sleep(1)  # Wait if queue is empty
             continue
-        for file_path, request_id in batch:
-            result = process_image(file_path, object_detection_model, processor, yolov8_model, device)
+            
+        # Process the batch
+        for file, request_id in batch:
+            result = process_image(file, object_detection_model, processor, yolov8_model, device)
             results[request_id] = result
-            REQUEST_COUNTER += 1
-            print(f"-->REQUEST COUNTER: {REQUEST_COUNTER}<--")
+            
+        # Signal that batch processing is complete
         for _ in range(len(batch)):
             request_queue.task_done()
-        for file_path, _ in batch:
-            os.remove(file_path)
-            os.rmdir(os.path.dirname(file_path))
-        
-    else:
-        return {"leaf_detected": False}
 
 @app.route('/')
 def index():
     print("Server is running...")
     return jsonify({'message': 'Server is running'})
 
+# Route for uploading image and processing
 @app.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
-        print("No file part in request", level='error')
+        print("No file part in request")
         return jsonify({'error': 'No file part'}), 400
+        
     file = request.files['file']
     if file.filename == '':
-        print("No selected file", level='error')
+        print("No selected file")
         return jsonify({'error': 'No selected file'}), 400
-      
-    temp_dir = tempfile.mkdtemp()
-    temp_file_path = os.path.join(temp_dir, file.filename)
-    file.save(temp_file_path)
+        
+    request_id = str(time.time())  # Use timestamp as a unique identifier
+    request_queue.put((file, request_id))
     
-    request_id = str(time.time())
-    request_queue.put((temp_file_path, request_id))
-    # Log file information
-    print(f"File received: {file.filename}")
-    
-    # Process image
-    result = process_image(file, object_detection_model, processor, yolov8_model, device, user_ip)
-    
+    # Wait for the result
     while request_id not in results:
         time.sleep(0.1)
+        
     result = results.pop(request_id)
     return jsonify(result)
 
 if __name__ == '__main__':
     initialize_models()
+    
+    # Start the processing thread
     processing_thread = Thread(target=process_request)
     processing_thread.daemon = True
     processing_thread.start()
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    
     app.run(host='0.0.0.0', port=5000, debug=False)

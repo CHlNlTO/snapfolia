@@ -10,7 +10,7 @@ var btn_scan_again = document.getElementById("btn-scan-again");
 var progressBar = document.getElementById("upload-progress");
 
 // Initialize default values
-let url = "http://127.0.0.1:5000/upload";
+let url = "http://treesbe.firstasia.edu.ph:5000/upload";
 let model;
 
 function setDefaultModel() {
