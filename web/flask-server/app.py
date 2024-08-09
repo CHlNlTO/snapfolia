@@ -5,14 +5,11 @@ from PIL import Image
 from transformers import AutoProcessor, AutoModelForZeroShotObjectDetection
 from ultralytics import YOLO
 import numpy as np
-import sys
 import platform
 import time
 from queue import Queue
 from threading import Thread
-import tempfile
 import os
-import json
 from datetime import datetime
 import csv
 
@@ -30,25 +27,31 @@ object_detection_model = None
 processor = None
 device = None
 
-def logs(predicted_class, confidence, log_file='logs.csv'):
+# Global variables for logs
+predicted_class = None
+confidence = 0 
+
+def logs(predicted_class, confidence, scan_time, log_file='logs.csv'):
     now = datetime.now()
     log_entry = {
         'date': now.strftime('%Y/%m/%d'),
         'time': now.strftime('%H:%M:%S'),
         'predicted_class': predicted_class,
         'confidence': confidence,
+        'scan_time': scan_time
     }
     
     file_exists = os.path.isfile(log_file)
 
     with open(log_file, mode='a', newline='') as file:
-        fieldnames = ['date', 'time', '', 'predicted_class', 'confidence']
+        fieldnames = ['date', 'time', 'predicted_class', 'confidence', 'scan_time']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         
         if not file_exists:
             writer.writeheader()
         
         writer.writerow(log_entry)
+
 
 # Initialize models and processor
 def initialize_models():
@@ -98,6 +101,8 @@ def detect_objects(image_path, object_detection_model, processor, device):
 
 # Classification using YOLOv8
 def classify_leaf(image_path, yolov8_model):    
+    global predicted_class, confidence
+    
     image = Image.open(image_path).convert('RGB')
     print("<------------------------------------------------>")
     print("CLASSIFYING LEAF...")
@@ -108,7 +113,6 @@ def classify_leaf(image_path, yolov8_model):
     predicted_class = names_dict[np.argmax(probs)]
     confidence = round(max(probs), 2)  
 
-    logs(predicted_class, confidence)
     return predicted_class, confidence
 
 def process_image(image_path, object_detection_model, processor, yolov8_model, device):
@@ -155,10 +159,8 @@ def index():
     print("Server is running...")
     return jsonify({'message': 'Server is running'})
 
-# Route for uploading image and processing
 @app.route('/upload', methods=['POST'])
 def upload_file():
-    
     if 'file' not in request.files:
         print("No file part in request")
         return jsonify({'error': 'No file part'}), 400
@@ -168,14 +170,6 @@ def upload_file():
         print("No selected file")
         return jsonify({'error': 'No selected file'}), 400
     
-    scan_time = request.form.get('scan_time')
-    if scan_time:
-        try:
-            scan_time = float(scan_time) 
-            print(f"Scan time received: {scan_time} seconds")
-        except ValueError:
-            print("Invalid scan_time value received")
-        
     request_id = str(time.time()) 
     request_queue.put((file, request_id))
     
@@ -186,6 +180,21 @@ def upload_file():
     result = results.pop(request_id)
     return jsonify(result)
 
+@app.route('/scan-time', methods=['POST'])
+def getScanTime():    
+    global predicted_class, confidence
+    
+    scan_time = request.form.get('time')
+    if scan_time:
+        try:
+            scan_time = float(scan_time)
+            print(f"Scan time received: {scan_time} seconds")
+            logs(predicted_class, confidence, scan_time)
+            
+        except ValueError:
+            print("Invalid scan_time value received")
+    return jsonify({'success': 'Time Received'}), 200
+    
 
 if __name__ == '__main__':
     initialize_models()
