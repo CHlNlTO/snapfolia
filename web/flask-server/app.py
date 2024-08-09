@@ -14,6 +14,7 @@ import tempfile
 import os
 import json
 from datetime import datetime
+import csv
 
 app = Flask(__name__)
 CORS(app)
@@ -29,31 +30,26 @@ object_detection_model = None
 processor = None
 device = None
 
-def log_to_json(predicted_class, confidence, client_ip, request_counter, log_file='server_log.json'):
+def logs(predicted_class, confidence, client_ip, log_file='logs.csv'):
+    now = datetime.now()
     log_entry = {
-        'request_counter': request_counter,
-        'timestamp': datetime.now().strftime('%Y/%m/%d %H:%M:%S'),
+        'date': now.strftime('%Y/%m/%d'),
+        'time': now.strftime('%H:%M:%S'),
         'client_ip': client_ip,
         'predicted_class': predicted_class,
         'confidence': confidence,
     }
     
-    try:
-        with open(log_file, 'r+') as file:
-            try:
-                logs = json.load(file)
-            except json.JSONDecodeError:
-                logs = []
-            
-            logs.append(log_entry)
-            
-            file.seek(0)
-            json.dump(logs, file, indent=2)
-            file.truncate()
-            
-    except FileNotFoundError:
-        with open(log_file, 'w') as file:
-            json.dump([log_entry], file, indent=2)
+    file_exists = os.path.isfile(log_file)
+
+    with open(log_file, mode='a', newline='') as file:
+        fieldnames = ['date', 'time', 'client_ip', 'predicted_class', 'confidence']
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+        
+        if not file_exists:
+            writer.writeheader()
+        
+        writer.writerow(log_entry)
 
 # Initialize models and processor
 def initialize_models():
@@ -102,7 +98,7 @@ def detect_objects(image_path, object_detection_model, processor, device):
     return results
 
 # Classification using YOLOv8
-def classify_leaf(image_path, yolov8_model, client_ip, request_counter):    
+def classify_leaf(image_path, yolov8_model, client_ip, ):    
     image = Image.open(image_path).convert('RGB')
     print("<------------------------------------------------>")
     print("CLASSIFYING LEAF...")
@@ -113,14 +109,14 @@ def classify_leaf(image_path, yolov8_model, client_ip, request_counter):
     predicted_class = names_dict[np.argmax(probs)]
     confidence = round(max(probs), 2)  
 
-    log_to_json(predicted_class, confidence, client_ip, request_counter)
+    logs(predicted_class, confidence, client_ip, )
     return predicted_class, confidence
 
-def process_image(image_path, object_detection_model, processor, yolov8_model, device, client_ip, request_counter):
+def process_image(image_path, object_detection_model, processor, yolov8_model, device, client_ip, ):
     
     results = detect_objects(image_path, object_detection_model, processor, device)
     if results and "boxes" in results[0] and results[0]["boxes"].shape[0] > 0:
-        predicted_class, confidence = classify_leaf(image_path, yolov8_model, client_ip, request_counter)
+        predicted_class, confidence = classify_leaf(image_path, yolov8_model, client_ip, )
 
         return {
             "leaf_detected": True,
@@ -147,8 +143,8 @@ def process_request():
             continue
             
         # Process the batch
-        for file, request_id, client_ip, request_counter in batch:
-            result = process_image(file, object_detection_model, processor, yolov8_model, device, client_ip, request_counter)
+        for file, request_id, client_ip,  in batch:
+            result = process_image(file, object_detection_model, processor, yolov8_model, device, client_ip, )
             results[request_id] = result
             
         # Signal that batch processing is complete
@@ -163,10 +159,8 @@ def index():
 # Route for uploading image and processing
 @app.route('/upload', methods=['POST'])
 def upload_file():
-    request_counter = 0
     client_ip = request.remote_addr
-    request_counter += 1
-
+    
     if 'file' not in request.files:
         print("No file part in request")
         return jsonify({'error': 'No file part'}), 400
@@ -185,7 +179,7 @@ def upload_file():
             print("Invalid scan_time value received")
         
     request_id = str(time.time()) 
-    request_queue.put((file, request_id, client_ip, request_counter))
+    request_queue.put((file, request_id, client_ip, ))
     
     # Wait for the result
     while request_id not in results:
