@@ -37,7 +37,9 @@ function scan() {
     }
   };
 
-  xhr.open("POST", url, true);
+  const uploadUrl = url + "/upload"
+
+  xhr.open("POST", uploadUrl, true);
 
   // Start time
   const startTime = performance.now();
@@ -110,6 +112,11 @@ function scan() {
     } else {
       console.log("Error:", xhr.statusText);
     }
+
+    console.log("Start Test");
+
+    sendScanTime(timeSpent);
+
   };
 
   xhr.send(formData);
@@ -126,6 +133,32 @@ function scan() {
       btn_scan_again.style.display = "block";
     }
   };
+}
+
+function sendScanTime(time){
+  console.log("Testing");
+  const xhr = new XMLHttpRequest();
+  const timeUrl = url + "/scan-time"
+
+  xhr.open("POST", timeUrl, true);
+  
+  const formData = new FormData();
+  
+  const scanTime = time.toFixed(2);
+  formData.append("time", scanTime);
+
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      let result = xhr.responseText;
+
+      result = JSON.parse(result);
+      console.log(result);
+    }
+  }
+
+  xhr.send(formData);
+  
+  console.log("Testing done");
 }
 
 function scan_again() {
