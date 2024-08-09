@@ -36,5 +36,4 @@ flask-server/venv/
 venv/*
 
 # Ignore logs
-flask-server/logs.csv
-
+web/flask-server/logs.csv
