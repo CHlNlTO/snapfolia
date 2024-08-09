@@ -34,3 +34,7 @@ grounding-dino-tiny/
 venv/
 flask-server/venv/
 venv/*
+
+# Ignore logs
+flask-server/logs.csv
+
