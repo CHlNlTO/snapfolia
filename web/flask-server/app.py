@@ -30,12 +30,11 @@ object_detection_model = None
 processor = None
 device = None
 
-def logs(predicted_class, confidence, client_ip, log_file='logs.csv'):
+def logs(predicted_class, confidence, log_file='logs.csv'):
     now = datetime.now()
     log_entry = {
         'date': now.strftime('%Y/%m/%d'),
         'time': now.strftime('%H:%M:%S'),
-        'client_ip': client_ip,
         'predicted_class': predicted_class,
         'confidence': confidence,
     }
@@ -43,7 +42,7 @@ def logs(predicted_class, confidence, client_ip, log_file='logs.csv'):
     file_exists = os.path.isfile(log_file)
 
     with open(log_file, mode='a', newline='') as file:
-        fieldnames = ['date', 'time', 'client_ip', 'predicted_class', 'confidence']
+        fieldnames = ['date', 'time', '', 'predicted_class', 'confidence']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         
         if not file_exists:
@@ -98,7 +97,7 @@ def detect_objects(image_path, object_detection_model, processor, device):
     return results
 
 # Classification using YOLOv8
-def classify_leaf(image_path, yolov8_model, client_ip, ):    
+def classify_leaf(image_path, yolov8_model):    
     image = Image.open(image_path).convert('RGB')
     print("<------------------------------------------------>")
     print("CLASSIFYING LEAF...")
@@ -109,14 +108,14 @@ def classify_leaf(image_path, yolov8_model, client_ip, ):
     predicted_class = names_dict[np.argmax(probs)]
     confidence = round(max(probs), 2)  
 
-    logs(predicted_class, confidence, client_ip, )
+    logs(predicted_class, confidence)
     return predicted_class, confidence
 
-def process_image(image_path, object_detection_model, processor, yolov8_model, device, client_ip, ):
+def process_image(image_path, object_detection_model, processor, yolov8_model, device):
     
     results = detect_objects(image_path, object_detection_model, processor, device)
     if results and "boxes" in results[0] and results[0]["boxes"].shape[0] > 0:
-        predicted_class, confidence = classify_leaf(image_path, yolov8_model, client_ip, )
+        predicted_class, confidence = classify_leaf(image_path, yolov8_model)
 
         return {
             "leaf_detected": True,
@@ -143,8 +142,8 @@ def process_request():
             continue
             
         # Process the batch
-        for file, request_id, client_ip,  in batch:
-            result = process_image(file, object_detection_model, processor, yolov8_model, device, client_ip, )
+        for file, request_id in batch:
+            result = process_image(file, object_detection_model, processor, yolov8_model, device)
             results[request_id] = result
             
         # Signal that batch processing is complete
@@ -159,7 +158,6 @@ def index():
 # Route for uploading image and processing
 @app.route('/upload', methods=['POST'])
 def upload_file():
-    client_ip = request.remote_addr
     
     if 'file' not in request.files:
         print("No file part in request")
@@ -179,7 +177,7 @@ def upload_file():
             print("Invalid scan_time value received")
         
     request_id = str(time.time()) 
-    request_queue.put((file, request_id, client_ip, ))
+    request_queue.put((file, request_id))
     
     # Wait for the result
     while request_id not in results:
