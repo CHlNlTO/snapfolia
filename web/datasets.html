@@ -49,9 +49,27 @@
     <!-- MAIN: Datasets-->
     <section class="container-fluid d-flex flex-column justify-content-center align-items-center p-3 pt-5 mt-5 animate-fade-in">
       <h1 class="d-flex justify-content-center fw-bold py-3 color-dgreen">Leaf Datasets</h1>
-
+      
+      <!-- New search box -->
+      <div class="input-group mb-3" style="max-width: 300px;">
+        <input type="text" id="search-input" class="form-control" placeholder="Search leaves...">
+        <div class="input-group-append">
+            <button id="search-button" class="btn btn-outline-secondary" type="button">Search</button>
+        </div>
+    </div>
+    
+    <!-- New search box -->
+    <div class="input-group mb-3" style="max-width: 300px;">
+      <select id="location-filter" class="form-select">
+        <option value="all">All</option>
+        <option value="faith-colleges">FAITH Colleges</option>
+        <option value="batangas-lakelands">Batangas Lakelands</option>
+        <option value="marian-orchard">Marian Orchard</option>
+      </select>
+    </div>
+    
       <!-- LEAVES -->
-      <div class="d-flex flex-lg-row flex-column justify-content-center align-items-center">
+      <div id="leaves-container" class="d-flex flex-lg-row flex-column justify-content-center align-items-center">
         <!-- Left -->
         <div class="col-lg-7 col-12 me-3">
 
@@ -2826,5 +2844,7 @@ class="d-flex flex-column justify-content-center align-items-center pb-2"
   <script src="./static/script/scan.js"></script>
   <script src="./static/script/drag_drop.js"></script>
   <script src="./static/script/snackbar.js"></script>
+  <script src="./static/script/search.js"></script>
+  <script src="./static/script/filter.js"></script>
 </body>
 </html>
