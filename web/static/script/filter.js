@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const locationFilter = document.getElementById('location-filter');
     const leavesContainer = document.getElementById('leaves-container');
-    const leafDivs = leavesContainer.querySelectorAll('> div');
+    const leafDivs = leavesContainer.querySelectorAll('.flex.flex-column.justify-content-center.align-items-center.pb-2.min-w-412');
 
     const locations = {
         'faith-colleges': ['apitong', 'balayong', 'betis', 'duhat', 'ilang-ilang', 'ipil', 'kalios', 'kamagong', 'mahogany', 'mulawin', 'narra', 'palo-maria', 'scramble-egg', 'sintores', 'yakal'],
@@ -23,14 +23,20 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("Leaf name:", leafName);
 
             if (selectedLocation === 'all' || locations[selectedLocation].includes(leafName)) {
-                div.style.display = '';
+                div.style.display = 'flex'; // Show the matching div
+                div.classList.add('visible'); // Add a class to indicate it's visible
                 console.log("Showing:", leafName);
             } else {
-                div.style.display = 'none';
+                div.style.display = 'none'; // Hide the non-matching div
+                div.classList.remove('visible'); // Remove the class if not visible
                 console.log("Hiding:", leafName);
             }
         });
+
+        // Initial search with the updated visible elements
+        performSearch();
     }
+
 
     locationFilter.addEventListener('change', filterLeaves);
 

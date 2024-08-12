@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-button');
     const leavesContainer = document.getElementById('leaves-container');
-    
+
     // Select all the leaf divs containing the buttons
-    const leafDivs = leavesContainer.querySelectorAll('.d-flex.flex-column.justify-content-center.align-items-center.pb-2');
+    const leafDivs = leavesContainer.querySelectorAll('.flex.flex-column.justify-content-center.align-items-center.pb-2.min-w-412');
 
     function performSearch() {
         const searchTerm = searchInput.value.toLowerCase().trim();
@@ -13,8 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
         let matchFound = false;
 
         leafDivs.forEach(div => {
+            if (div.style.display === 'none') {
+                return; // Skip hidden elements
+            }
+
             const button = div.querySelector('button');
             if (!button) return;
+
+            console.log(`Button text: ${div.querySelector('h1').textContent}`);
 
             const leafName = button.querySelector('h1').textContent.toLowerCase().trim();
             const leafEnglishName = button.querySelector('h3').textContent.toLowerCase().trim();

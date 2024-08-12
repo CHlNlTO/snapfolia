@@ -1,11 +1,11 @@
-/* 
+/*
 
-LEAFLET COLOR PALETTE: 
+LEAFLET COLOR PALETTE:
 
 #F1FFF5: greenish white, background
 #DCFFE6: light green, navbar
-#57BC90: green, main color 
-#CDEBDE: grayish green, image upload 
+#57BC90: green, main color
+#CDEBDE: grayish green, image upload
 #87CAAD: dark grayish green, image upload icon
 #015249: forest green, main color
 #77C9D4: grayish blue, main color
@@ -13,9 +13,9 @@ LEAFLET COLOR PALETTE:
 
 */
 
-/* 
+/*
 
-SNAPFOLIA COLOR PALETTE: 
+SNAPFOLIA COLOR PALETTE:
 
 #FFFFFF: white, one of main colors
 #E6EDED: light pale green, background
@@ -51,7 +51,7 @@ SNAPFOLIA COLOR PALETTE:
       transform: translateY(0);
     }
   }
-  
+
   .animate-slide-in {
     animation: slideIn 0.5s ease-in-out;
   }
@@ -73,7 +73,7 @@ SNAPFOLIA COLOR PALETTE:
     width:100%; /* Adjust the width as needed */
     height: 100%; /* Adjust the height as needed */
   }
-  
+
 #dropArea.dragover {
     background-color: #f2f2f2;
   }
@@ -181,6 +181,14 @@ SNAPFOLIA COLOR PALETTE:
 
 .nav-item {
     font-size: 0.8rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.min-w-412 {
+    min-width: 412px;
 }
 
 .nav-item {
@@ -303,26 +311,26 @@ p, li, .dev-fname {
       margin-top: 500px;
     }
   }
-  
+
 
 /* TREE SCROLLBAR */
 #tree {
     overflow-y: scroll; /* Enable vertical scrollbar */
     scrollbar-color: transparent transparent; /* For Firefox */
 }
-  
+
 #tree::-webkit-scrollbar {
     width: 10px;
 }
-  
+
 #tree::-webkit-scrollbar-thumb {
     background-color: transparent;
 }
-  
+
 #tree::-webkit-scrollbar-track {
     background-color: transparent;
 }
-  
+
 #tree:hover::-webkit-scrollbar-thumb {
     background-color: #C3C9C3; /* Show scrollbar thumb on hover */
 }
@@ -351,7 +359,7 @@ progress#upload-progress {
 }
 
 progress#upload-progress::-webkit-progress-value {
-    background-color: #55a375; 
+    background-color: #55a375;
     border-radius: 4px;
     transition: width 0.3s ease-in-out;
 }
@@ -421,19 +429,19 @@ option {
     overflow-x: scroll; /* Enable horizontal scrollbar */
     scrollbar-color: transparent transparent; /* For Firefox */
 }
-  
+
 #leaves::-webkit-scrollbar {
     height: 10px;
 }
-  
+
 #leaves::-webkit-scrollbar-thumb {
     background-color: transparent;
 }
-  
+
 #leaves::-webkit-scrollbar-track {
     background-color: transparent;
 }
-  
+
 #leaves:hover::-webkit-scrollbar-thumb {
     background-color: #C3C9C3; /* Show scrollbar thumb on hover */
 }
@@ -456,29 +464,29 @@ option {
     bottom: 2rem;
     font-size: 1rem;
   }
-  
+
   #snackbar.show {
     visibility: visible;
     /* this animation can be used when results are showing in scan */
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
   }
-  
+
   @-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;} 
+    from {bottom: 0; opacity: 0;}
     to {bottom: 30px; opacity: 1;}
   }
-  
+
   @keyframes fadein {
     from {bottom: 0; opacity: 0;}
     to {bottom: 30px; opacity: 1;}
   }
-  
+
   @-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;} 
+    from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
   }
-  
+
   @keyframes fadeout {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
@@ -509,7 +517,7 @@ option {
   .img-profile {
     margin-left: -20px; /* Adjust the value as needed */
   }
-  
+
   .role-labels {
     margin-top: 30px;
     font-size: 22px;
@@ -522,7 +530,7 @@ option {
     align-items: center;
     text-align: center;
   }
-  
+
   /* Circular container above developer names */
   .dev-circle {
     width: 8rem;
@@ -545,7 +553,7 @@ option {
 .role-container {
     margin-bottom: 20px;
   }
-  
+
   /* Developer container styling */
   .dev-container {
     display: flex;
@@ -576,5 +584,4 @@ option {
     height: 17rem;
 }
 
-/* ---------------------- END of USER GUIDE ---------------------- */ 
-  
+/* ---------------------- END of USER GUIDE ---------------------- */
