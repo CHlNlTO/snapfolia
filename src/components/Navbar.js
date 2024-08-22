@@ -1,9 +1,9 @@
-import React from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import snapfoliaLogo from '../assets/img/snapfolia_logo.png';
-import faithLogo from '../assets/img/faith_logo.png';
-import '../styles/Navbar.css';
+import React from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import snapfoliaLogo from "../assets/img/snapfolia_logo.png";
+import faithLogo from "../assets/img/faith_logo.png";
+import "../styles/Navbar.css";
 
 function NavBar() {
   return (
@@ -21,13 +21,25 @@ function NavBar() {
         </Navbar.Toggle>
         <Navbar.Collapse id="navbarOptions" className="justify-content-center">
           <Nav className="fs-responsive navbar-options">
-            <Nav.Link as={Link} to="/" className="ms-3 color-dgreen fw-bold nav-item">
+            <Nav.Link
+              as={Link}
+              to="/"
+              className="ms-3 color-dgreen fw-bold nav-item"
+            >
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/datasets" className="ms-3 color-dgreen fw-bold nav-item">
+            <Nav.Link
+              as={Link}
+              to="/datasets"
+              className="ms-3 color-dgreen fw-bold nav-item"
+            >
               Datasets
             </Nav.Link>
-            <Nav.Link as={Link} to="/developers" className="ms-3 color-dgreen fw-bold nav-item">
+            <Nav.Link
+              as={Link}
+              to="/developers"
+              className="ms-3 color-dgreen fw-bold nav-item"
+            >
               Developers
             </Nav.Link>
           </Nav>
