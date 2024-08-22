@@ -1,0 +1,25 @@
+#navbar_main {
+  background-color: #FFFFFF;
+}
+
+.logo-size {
+  height: 2rem;
+}
+
+.navbar-options .nav-item {
+  font-size: 0.8rem;
+}
+
+.color-green {
+  color: #40A067;
+}
+
+.color-dgreen {
+  color: #1E5434;
+}
+
+@media (max-width: 767px) {
+  .faith-logo {
+    display: none;
+  }
+}
