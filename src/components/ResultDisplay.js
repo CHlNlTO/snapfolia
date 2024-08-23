@@ -9,8 +9,8 @@ function ResultDisplay({ result }) {
           otherTab.style.backgroundColor = "#E6EDED";
           otherTab.style.color = "green";
         });
-        tab.style.backgroundColor = "green";
-        tab.style.color = "white";
+        tab.style.backgroundColor = "white";
+        tab.style.color = "green";
       });
     });
   }, []);
@@ -94,8 +94,10 @@ function ResultDisplay({ result }) {
 
               <h2 className="color-dgreen fw-bold">Distribution</h2>
               <ul>
-                {result.distribution?.map((dist) => (
-                  <li className="color-dgreen">{dist}</li>
+                {result.distribution?.map((dist, key) => (
+                  <li key={key} className="color-dgreen">
+                    {dist}
+                  </li>
                 ))}
               </ul>
 
@@ -113,8 +115,10 @@ function ResultDisplay({ result }) {
             >
               <h2 className="color-dgreen fw-bold">Uses</h2>
               <ul>
-                {result.uses?.map((use) => (
-                  <li className="color-dgreen">{use}</li>
+                {result.uses?.map((use, key) => (
+                  <li key={key} className="color-dgreen">
+                    {use}
+                  </li>
                 ))}
               </ul>
             </div>

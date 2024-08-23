@@ -100,14 +100,8 @@ function Home() {
   };
 
   // Function to handle the case when no leaf is detected
-  const handleNoLeafDetected = (scanTime) => {
-    return {
-      filipinoName: "No leaf detected",
-      englishName: "N/A",
-      scientificName: "N/A",
-      scanTime: `${scanTime} seconds`,
-      probability: "N/A",
-    };
+  const handleFailedLeafDetection = (string) => {
+    alert(string);
   };
 
   // Main handleScan function
@@ -127,6 +121,18 @@ function Home() {
 
       await sendScanTime(parseFloat(scanTime));
 
+      if (result.leaf_detected === false) {
+        handleFailedLeafDetection("No leaf detected. Please try again.");
+        setIsUploading(false);
+        return handleScanAgain();
+      } else if (result.confidence < 0.7) {
+        handleFailedLeafDetection(
+          "Image quality is low. Please take a photo again."
+        );
+        setIsUploading(false);
+        return handleScanAgain();
+      }
+
       let scanResult;
       if (result.leaf_detected) {
         const matchingLeaf = findMatchingLeaf(result.label);
@@ -135,8 +141,6 @@ function Home() {
           result.confidence,
           scanTime
         );
-      } else {
-        scanResult = handleNoLeafDetected(scanTime);
       }
 
       setScanResult(scanResult);
@@ -192,7 +196,10 @@ function Home() {
                           className="btn text-light fs-responsive mb-2 hide-btn show-btn"
                           htmlFor="capture"
                           id="btn-capture"
-                          style={{ backgroundColor: "#55a375" }}
+                          style={{
+                            backgroundColor: "#55a375",
+                            fontSize: "0.70rem",
+                          }}
                         >
                           <i className="fas fa-plus me-1"></i>
                           Take a photo
@@ -210,7 +217,10 @@ function Home() {
                           className="btn text-light fs-responsive"
                           htmlFor="file"
                           id="btn-upload"
-                          style={{ backgroundColor: "#55a375" }}
+                          style={{
+                            backgroundColor: "#55a375",
+                            fontSize: "0.70rem",
+                          }}
                         >
                           <i className="fas fa-plus me-1"></i>
                           Upload an image
@@ -239,6 +249,7 @@ function Home() {
                   display: isScanned ? "none" : "block",
                   cursor:
                     isUploading || !selectedFile ? "not-allowed" : "pointer",
+                  fontSize: "0.70rem",
                 }}
               >
                 {isUploading ? "Scanning..." : "Scan Leaf"}
@@ -249,8 +260,9 @@ function Home() {
                 id="btn-cancel"
                 onClick={handleScanAgain}
                 style={{
-                  display: selectedFile && !isScanned ? "block" : "none",
                   backgroundColor: "#1E5434",
+                  display: selectedFile && !isScanned ? "block" : "none",
+                  fontSize: "0.70rem",
                 }}
               >
                 Cancel
@@ -261,8 +273,9 @@ function Home() {
                 id="btn-scan-again"
                 onClick={handleScanAgain}
                 style={{
-                  display: isScanned ? "block" : "none",
                   backgroundColor: "#1E5434",
+                  display: isScanned ? "block" : "none",
+                  fontSize: "0.70rem",
                 }}
               >
                 Scan Again
