@@ -1,0 +1,14 @@
+.tree-information {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+  }
+  
+  .tree-information h2 {
+    color: #1E5434;
+  }
+  
+  .tree-information p {
+    margin-bottom: 0.5rem;
+  }

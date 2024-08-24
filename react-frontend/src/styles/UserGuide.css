@@ -1,0 +1,62 @@
+.user-guide {
+  background-color: #E6EDED;
+  border-radius: 8px;
+  color: #1E5434;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.guide-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.guide-title i {
+  margin-right: 0.5rem;
+}
+
+.guide-steps {
+  padding-left: 1.5rem;
+}
+
+.guide-steps > li {
+  margin-bottom: 1rem;
+}
+
+.guide-steps b {
+  font-weight: 600;
+}
+
+.image-grid {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.image-item {
+  text-align: center;
+  width: 30%;
+}
+
+.image-item img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.image-item p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .image-grid {
+    flex-direction: column;
+  }
+
+  .image-item {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
