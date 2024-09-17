@@ -12,12 +12,14 @@ from threading import Thread
 import os
 from datetime import datetime
 import csv
+import io
+import pillow_heif
 
 app = Flask(__name__)
 CORS(app)
 
 # Global variables for queueing
-BATCH_SIZE = 8
+BATCH_SIZE = 50
 request_queue = Queue()
 results = {}
 
@@ -84,9 +86,9 @@ def load_yolov8_model(model_path):
     print("YOLOV8 Ready...")
     return model
 
-def detect_objects(image_path, object_detection_model, processor, device):
+def detect_objects(image_bytes, object_detection_model, processor, device):
     print("Opening image...")
-    image = Image.open(image_path).convert('RGB')
+    image = Image.open(io.BytesIO(image_bytes)).convert('RGB')
     print("Running object detection...")
     inputs = processor(images=image, text="a leaf. leaves.", return_tensors="pt").to(device)
     
@@ -98,11 +100,11 @@ def detect_objects(image_path, object_detection_model, processor, device):
     )
     return results
 
+
 # Classification using YOLOv8
-def classify_leaf(image_path, yolov8_model):    
+def classify_leaf(image, yolov8_model):    
     global predicted_class, confidence
     
-    image = Image.open(image_path).convert('RGB')
     print("<------------------------------------------------>")
     print("CLASSIFYING LEAF...")
     predict = yolov8_model(image)
@@ -114,11 +116,52 @@ def classify_leaf(image_path, yolov8_model):
 
     return predicted_class, confidence
 
-def process_image(image_path, object_detection_model, processor, yolov8_model, device):
+def convert_to_jpg(file):
+    try:
+        # Read the file content
+        file_content = file.read()
+        file.seek(0)  # Reset file pointer to the beginning
+
+        # Check if it's a HEIC file
+        if file.filename.lower().endswith('.heic'):
+            # Use pillow_heif to read HEIC file
+            heif_file = pillow_heif.read_heif(io.BytesIO(file_content))
+            image = Image.frombytes(
+                heif_file.mode, 
+                heif_file.size, 
+                heif_file.data,
+                "raw",
+                heif_file.mode,
+                heif_file.stride,
+            )
+        else:
+            # For other formats, use PIL directly
+            image = Image.open(io.BytesIO(file_content))
+
+        # Convert to RGB mode if it's not already (this handles RGBA images)
+        if image.mode != 'RGB':
+            image = image.convert('RGB')
+        
+        print(f"Converted {file.filename} to JPG")
+        return image
+    except Exception as e:
+        print(f"Error converting {file.filename} to JPG: {str(e)}")
+        raise
+
+
+
+def process_image(file, object_detection_model, processor, yolov8_model, device):
+    # Convert the image to JPG
+    jpg_image = convert_to_jpg(file)
     
-    results = detect_objects(image_path, object_detection_model, processor, device)
+    # Create a byte stream for the image
+    img_byte_arr = io.BytesIO()
+    jpg_image.save(img_byte_arr, format='JPEG')
+    img_byte_arr = img_byte_arr.getvalue()
+
+    results = detect_objects(img_byte_arr, object_detection_model, processor, device)
     if results and "boxes" in results[0] and results[0]["boxes"].shape[0] > 0:
-        predicted_class, confidence = classify_leaf(image_path, yolov8_model)
+        predicted_class, confidence = classify_leaf(jpg_image, yolov8_model)
 
         return {
             "leaf_detected": True,
