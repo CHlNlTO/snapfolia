@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaflet: Barako</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./static/img/leaflet-favicon.png"
+    />
+
+    <!-- LINK: Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <!-- LINK: Local CSS -->
+    <link rel="stylesheet" href="./static/css/style.css" />
+
+    <!-- LINK: Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- LINK: Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <!-- LINK: Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <style>
+      .display-color{
+        color: #000;
+      }
+      .nav-tabs{
+        display: flex;
+        justify-content: flex-end;
+      }
+      .nav-link {
+        color: #1E5434;
+        font-weight: bold;
+      } 
+      .nav-link:hover {
+        color: green; 
+      } 
+    </style>
+  </head>
+  <body>
+    <!-- MAIN: Result -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Description</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false">Uses</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false">Folklore</button>
+      </li>
+    </ul>
+    <div
+      class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in"
+      id="tree"
+    >
+      <div class="col-lg-8 col-12">
+        <!-- TITLE: Mangga -->
+        <h1 class="color-dgreen fw-bold">
+          Barako
+          <i class="fas fa-leaf color-dgreen"></i>
+        </h1>
+
+        <!-- SUBTITLE: Other Tagalog names -->
+        <p class="color-dgreen margin-0">
+          <b class="color-dgreen fw-bold">Also known as:</b>
+          Liberica Coffee 
+        </p>
+
+        <hr class="color-dgreen me-3" />
+
+        <!-- SUBTITLE: Gen Info -->
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+        <h2 class="color-dgreen fw-bold">General Information</h2>
+          <p class="color-dgreen ps-2 pe-3">
+            Barako coffee, introduced to the Philippines in the 1740s by Spanish friars, found its roots in
+            the lowlands of Lipa, Batangas, and gradually spread throughout the province, 
+            solidifying Batangas as a local coffee powerhouse.Beyond its role as a beverage, barako coffee has diverse 
+            applications: Spa Treatment: Used as a body scrub.
+            Employed as a flavorful alternative to soup in rice dishes like tapa or other dry/fried dishes.
+          </p>
+      
+        <!-- SUBTITLE: Botany -->
+        <h2 class="color-dgreen fw-bold">Botany</h2>
+        <p class="color-dgreen ps-2 pe-3">
+            Barako coffee trees, towering up to 20 meters, continued to produce large cherries, beans, and 
+            leaves that are among the largest of all coffee varieties. Known for its robust flavor and strong 
+            fragrance reminiscent of aniseed, barako is favored over Robusta by many Philippine coffee drinkers. 
+        </p>
+
+        <!-- SUBTITLE: Distribution -->
+        <h2 class="color-dgreen fw-bold">Distribution</h2>
+        <ul>
+          <li class="color-dgreen">
+            Introduced to the Philippines in the 1740s by Spanish friars, found its roots in the lowlands of Lipa, Batangas.
+          </li>
+          <li class="color-dgreen">
+            Being exported to San Francisco and Europe where it fetched prices five times higher than other Asian coffee beans. 
+          </li>
+          <li class="color-dgreen">However, the coffee industry faced a significant setback in the late 19th century when coffee rust devastated plantations nationwide,
+             leading to a shift away from coffee cultivation.</li>
+        </ul>
+
+        <h3 class="color-green fst-italic pb-4">
+          (c) https://www.fondazioneslowfood.com/en/ark-of-taste-slow-food/barako-coffee/
+        </h3>
+        </div>
+
+        <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
+          <h2 class="color-dgreen fw-bold">Uses</h2>
+        <ul>
+          <li class="color-dgreen">
+            Rich in antioxidants which help fight off free radicals that damage cells and cause diseases.
+          </li>
+          <li class="color-dgreen">
+            Contains caffeine which increases mental alertness and helps improve mood and memory.
+          </li>
+          <li class="color-dgreen">
+            Used as an alternative to soup (sabaw) as part of a local rice dish.
+          </li>
+        </ul>
+        </div>
+
+        <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
+          <h2 class="color-dgreen fw-bold">Folklore</h2>
+          <ul>
+            <li class="color-dgreen">
+              Evil Spirits and Supernatural Beings:
+In many rural communities in the Philippines, it is believed that certain trees have the power to repel evil spirits and supernatural beings. The Barako tree, with its strong presence and robust nature, is often considered one of these protective trees. Folklore suggests that the tree's energy and essence can create a barrier against malevolent forces.
+            </li>
+            <li class="color-dgreen">
+              Good Fortune and Prosperity:
+Planting a Barako tree near one's home is also associated with attracting good fortune and prosperity. The tree is seen as a guardian that not only protects but also brings positive energy and blessings to the household. This belief is tied to the tree's hardy nature and its ability to thrive in various conditions, symbolizing resilience and continuous growth.
+            </li>
+            <li class="color-dgreen">
+              Rituals and Offerings:
+In some traditions, specific rituals and offerings are made to the Barako tree to enhance its protective qualities. These might include placing small tokens or talismans at the base of the tree or conducting ceremonies to invoke its protective spirit. Such practices are often passed down through generations and are an integral part of community customs.
+            </li>
+            <li class="color-dgreen">
+              Mythical Stories and Legends:
+Stories and legends surrounding the Barako tree often highlight its role as a guardian. For example, there are tales of families who planted Barako trees and experienced protection from misfortunes and supernatural disturbances. These stories reinforce the belief in the tree's protective power and its importance in community life.
+            </li>
+          </ul>
+        </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+const tabs = document.querySelectorAll('.nav-link');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', function () {
+        tabs.forEach(otherTab => {
+            otherTab.style.backgroundColor = '#E6EDED';
+            otherTab.style.color = 'green';
+        });
+        tab.style.backgroundColor = 'green';
+        tab.style.color = 'white';
+    });
+});
+});
+        </script>
+      </div>
+    </div>
+    <div
+      class="col-lg-4 col-12 d-flex justify-content-center align-content-center"
+    >
+      <img
+        class="w-100 tree-img border-r"
+        src="./static/img/tree-barako.jpg"
+        alt="Barako"
+      />
+    </div>
+  </body>
+</html>

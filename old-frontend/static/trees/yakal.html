@@ -1,0 +1,163 @@
+<html lang="en">
+  <!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaflet: Yakal</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./static/img/leaflet-favicon.png"
+    />
+
+    <!-- LINK: Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <!-- LINK: Local CSS -->
+    <link rel="stylesheet" href="./static/css/style.css" />
+
+    <!-- LINK: Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- LINK: Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <!-- LINK: Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <style>
+      .display-color{
+        color: #000;
+      }
+      .nav-tabs{
+        display: flex;
+        justify-content: flex-end;
+      }
+      .nav-link {
+        color: #1E5434;
+        font-weight: bold;
+      } 
+      .nav-link:hover {
+        color: green; 
+      } 
+    </style>
+  </head>
+  <body>
+        <!-- MAIN: Result -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Description</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false">Uses</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false">Folklore</button>
+          </li>
+        </ul>
+        <div class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in" id="tree">
+            <div class="col-lg-8 col-12">
+                <!-- TITLE: Yakal -->
+                <h1 class="color-dgreen fw-bold">
+                  Yakal
+                  <i class="fas fa-leaf color-dgreen"></i>
+                </h1>
+
+                <!-- SUBTITLE: Other Tagalog names -->
+                <p class="color-dgreen margin-0">
+                <b class="color-dgreen fw-bold"></b>
+                </p>
+
+                <hr class="color-dgreen me-3" />
+
+                  <!-- SUBTITLE: Gen Info -->
+                  <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+                  <h2 class="color-dgreen fw-bold">General Information</h2>
+                  <p class="color-dgreen ps-2 pe-3">
+                    Shorea astylosa is a species of plant in the family Dipterocarpaceae. It is endemic to the Philippines, where it is known as yakal in the Filipino language.
+                  </p>
+
+                <!-- SUBTITLE: Botany -->
+                <h2 class="color-dgreen fw-bold">Botany</h2>
+                <p class="color-dgreen ps-2 pe-3">
+                  Yakal is a medium to large tree about 25 to 30 meters tall. Its wood is hard and dark brownish-yellow, its branchlets slender, 
+                  blackish, and slightly hairy. Its leaves are coriaceous, ovate to lanceolate, or oblong-lanceolate or apex acuminate. The base 
+                  are rounded to cuneate, glabrous above and slightly hairy underneath. Its blade is 6.5-nine centimeters long and two-4.5 centimeters 
+                  wide, with its petiole slender, 10-23 millimeters long, and dark. Its inflorescence are axillary, paniculate, and up to about six 
+                  centimeters long, with its flowers yellow, very short-stalked, and about 12 millimeters long. The flowers' petals are narrowly oblong 
+                  or oblong-lanceolate, more or less twisted in bud, rounded at apex, 18 millimeters long, and reticulate.
+                </p>
+
+                <!-- SUBTITLE: Distribution -->
+                <h2 class="color-dgreen fw-bold">Distribution</h2>
+                <ul>
+                    <li class="color-dgreen">Commonly found in Luzon island, particularly in the Quezon and Camarines areas.</li>
+                    <li class="color-dgreen">Can also be seen in the islands of Samar, Negros, and Mindanao (particularly in the island's Zamboanga, Agusan, and Davao regions).</li>
+                    <li class="color-dgreen">It can also be found in primary forests at low altitudes.</li>
+                </ul>
+
+                <h3 class="color-green fst-italic pb-4">(c) https://en.wikipedia.org/wiki/Shorea_astylosa</h3>
+                </div>
+
+                <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
+                  <h2 class="color-dgreen fw-bold">Uses</h2>
+                  <ul>
+                    <li class="color-dgreen">
+                      Traditional wood extractions of yakal are due to the wood's being tumor-inhibiting.
+                    </li>
+                    <li class="color-dgreen">
+                      Contemporary harvests of yakal are for high-grade construction, bridges and wharves, mine timber, and other installations requiring high strength and durability.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
+                  <h2 class="color-dgreen fw-bold">Folklore</h2>
+                  <ul>
+                    <li class="color-dgreen">
+                      There are no folklore or folkloric medicinal uses for Yakal.
+                    </li>
+                  </ul>
+                </div>
+
+                <script>
+                  document.addEventListener('DOMContentLoaded', function () {
+        const tabs = document.querySelectorAll('.nav-link');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function () {
+                tabs.forEach(otherTab => {
+                    otherTab.style.backgroundColor = '#E6EDED';
+                    otherTab.style.color = 'green';
+                });
+                tab.style.backgroundColor = 'green';
+                tab.style.color = 'white';
+            });
+        });
+        });
+                </script>
+            </div>
+          </div>
+          <div class="col-lg-4 col-12 d-flex justify-content-center align-content-center">
+            <img 
+              class="w-100 tree-img border-r"
+              src="./static/img/tree-yakal.jpg" 
+              alt="Yakal"
+            > 
+          </div>
+  </body>
+</html>

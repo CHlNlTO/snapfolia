@@ -10,17 +10,17 @@ Welcome to the Snapfolia repository! Snapfolia is a leaf classifier web applicat
   - JavaScript
 
 - **Backend:**
-  - Python
+  - Python 3.9.12
 
 ## Collaborator Roles and Branch Permissions
 
 ### Branches Overview
 
-- **main**: Production-ready code base.
-- **staging**: Development stage for testing new features.
-- **develop**: Ongoing development branch.
-- **web**: Branch for web application development.
 - **model**: Branch for machine-learning model development.
+- **web**: Branch for web application development.
+- **develop**: Merging branch of web and model branches.
+- **staging**: Testing stage of the compiled develop branch.
+- **main**: Production-ready code base.
 
 ### Collaborator Roles and Permissions
 
@@ -30,17 +30,21 @@ Each collaborator has specific roles assigned for contributing to the Snapfolia 
 
 - **Model Branch Collaborators**:
   - Responsible for the `model` folder within the `model` branch.
-  - Only authorized to edit, push, and make changes to the `model` folder.
+  - Must create sub-branch such as `model/<action>` for the `model` branch to make changes.
+  - Only authorized to add, delete, edit, and make updates to the `model` folder
+  - Only authorized to edit, push, and make changes to the `model/<action>` sub-branch.
   - All changes related to the machine-learning model should be made within this branch.
 
 - **Web Branch Collaborators**:
   - Responsible for the `web` branch.
-  - Only authorized to push and make changes to the web application.
-  - Tasks include frontend, backend, and integration tasks specific to the web interface.
+  - Must create sub-branch such as `web/<action>` for the `web` branch to make changes.
+  - Only authorized to add, delete, edit, and make updates to the `web` folder
+  - Only authorized to edit, push, and make changes to the `web/<action>` sub-branch.
+  - Tasks include frontend, backend, database, and integration tasks specific to the web interface.
 
 ### Collaborator Responsibilities
 
-- **Pull Requests**: Create pull requests from your assigned branch (`model`, `web`) to the respective target branch (`main`, `staging`, `develop`) for code review and merging.
+- **Pull Requests**: Create pull requests from your assigned branch (`model/<action>`, `web/<action>`) to the respective target branch (`model`, `web`) for code review and merging.
 - **Review Process**: All changes must undergo review by at least one other collaborator before merging.
 - **Code Quality**: Ensure code quality, documentation, and adherence to coding standards before submitting pull requests.
 
@@ -63,11 +67,7 @@ To contribute to Snapfolia, follow these steps:
 5. Push changes to your assigned branch:
    ```bash
    git push origin <branch-name>
-6. Create a pull request:
-- Navigate to the repository on GitHub.
-- Select your branch and click "Compare & pull request".
-- Provide a brief summary of your changes and submit the pull request for review.
-7. Collaborate and iterate: Discuss and address feedback received during the review process. Once approved, changes will be merged into the target branch (**main**, **staging**, **develop**).
+Once approved, changes will be merged into the target branch (develop, staging, main).
 
 ## Inquiries
 - For any questions or assistance, contact the project lead or fellow collaborators.

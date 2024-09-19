@@ -1,0 +1,65 @@
+.bg {
+  background: #fff;
+}
+
+.bg-lgreen {
+  background-color: #E6EDED;
+}
+
+.bg-green {
+  background-color: #55a375;
+}
+
+.bg-dgreen {
+  background-color: #1E5434;
+}
+
+.color-dgreen {
+  color: #1E5434;
+}
+
+.color-img-upload {
+  color: #a8d3b9;
+}
+
+.img-upload {
+  height: 15rem;
+  width: 15rem;
+}
+
+.img-icon {
+  font-size: 4.5em;
+}
+
+.border-r {
+  border-radius: 1rem;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.animate-fade-in {
+  animation: fadein 0.75s ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Adjusted bullet size */
+.fa-square {
+  font-size: 11.2px;
+}

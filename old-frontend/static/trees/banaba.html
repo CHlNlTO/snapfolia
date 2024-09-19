@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaflet: Banaba</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./static/img/leaflet-favicon.png"
+    />
+
+    <!-- LINK: Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <!-- LINK: Local CSS -->
+    <link rel="stylesheet" href="./static/css/style.css" />
+
+    <!-- LINK: Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- LINK: Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <!-- LINK: Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <style>
+      .display-color{
+        color: #000;
+      }
+      .nav-tabs{
+        display: flex;
+        justify-content: flex-end;
+      }
+      .nav-link {
+        color: #1E5434;
+        font-weight: bold;
+      } 
+      .nav-link:hover {
+        color: green; 
+      } 
+    </style>
+  </head>
+  <body>
+    <!-- MAIN: Result -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Description</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false">Uses</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false">Folklore</button>
+      </li>
+    </ul>
+    <div
+      class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in"
+      id="tree"
+    >
+      <div class="col-lg-8 col-12">
+        <!-- TITLE: Mangga -->
+        <h1 class="color-dgreen fw-bold">
+          Banaba
+          <i class="fas fa-leaf color-dgreen"></i>
+        </h1>
+
+        <!-- SUBTITLE: Other Tagalog names -->
+        <p class="color-dgreen margin-0">
+          <b class="color-dgreen fw-bold">Also known as:</b>
+          Queen's Crape Myrtle
+        </p>
+
+        <hr class="color-dgreen me-3" />
+
+        <!-- SUBTITLE: Gen Info -->
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+        <h2 class="color-dgreen fw-bold">General Information</h2>
+          <p class="color-dgreen ps-2 pe-3">
+            Banaba(Lagerstroemia speciosa) is a medium-sized tree growing up to 
+            30 meters tall and 40 centimeters in diameter, with rounded leaf bases and acute or obtuse apices.
+            Banaba is a popular medicinal plant. Boiled Leaves: Clear obstructions in natural ducts, induce urination.
+          </p>
+          
+        <!-- SUBTITLE: Botany -->
+        <h2 class="color-dgreen fw-bold">Botany</h2>
+        <p class="color-dgreen ps-2 pe-3">
+            Banaba is a medium-sized tree growing up to 30 meters tall and 40 centimeters in diameter, with rounded leaf bases and acute or obtuse apices.
+            The young leaves are dull reddish brown, turning yellow and reddish before falling. Flowers have six sub-orbicular petals, and the woody, 
+            globose fruits are 2 to 3.5 centimeters long
+        </p>
+
+        <!-- SUBTITLE: Distribution -->
+        <h2 class="color-dgreen fw-bold">Distribution</h2>
+        <ul>
+          <li class="color-dgreen">
+            Banaba is widely distributed in the Philippines
+          </li>
+          <li class="color-dgreen">
+            Batan Islands, Northern Luzon, Palawan, and Mindanao
+          </li>
+          <li class="color-dgreen">Thriving along riverbanks, swamps, and moist forests at low and medium altitudes.</li>
+        </ul>
+
+        <h3 class="color-green fst-italic pb-4">
+          (c) http://www.stuartxchange.org/Banaba
+        </h3>
+        </div>
+
+        <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
+          <h2 class="color-dgreen fw-bold">Uses</h2>
+          <ul>
+            <li class="color-dgreen">
+              Dried Bark and Leaves: Used to make tea for kidney troubles.
+              </li>
+            <li class="color-dgreen">
+              Bark Extract: Induces alertness, reduces fever, cures abdominal pains.
+            </li>
+            <li class="color-dgreen">
+              Soaked Bark: Stops diarrhea.
+            </li>
+            <li class="color-dgreen">
+              Bark, Leaves, Flowers: Induce bowel movements.
+            <li class="color-dgreen">
+              Old Leaves and Dried Fruit: Reduce blood sugar.
+            </li>
+            <li class="color-dgreen">
+              Boiled Leaves: Clear obstructions in natural ducts, induce urination.
+            </li>
+            <li class="color-dgreen">
+              Root Extracts: Treat small mouth ulcers.
+            </li>
+            <li class="color-dgreen">
+              Leaf Poultice: Relieves malarial fever and cracked feet.
+            </li>
+          </ul>
+        </div>
+
+        <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
+          <h2 class="color-dgreen fw-bold">Folklore</h2>
+            <p class="color-dgreen ps-2 pe-3">
+              There are many references to myrtles in mythology and the Bible. The plant is associated with Aphrodite and Venus and the scent has been considered an aphrodisiac. In Ancient mythology the Myrtle tree is sacred, especially to Aphrodite, Greek goddess of love and beauty. Myrtle trees were planted in Aphrodite's temple gardens and she is often depicted with a Myrtle crown or wreath. In Judaism, it is one of the four sacred plants, spreading fragrance and good works.
+            </p>
+        </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+const tabs = document.querySelectorAll('.nav-link');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', function () {
+        tabs.forEach(otherTab => {
+            otherTab.style.backgroundColor = '#E6EDED';
+            otherTab.style.color = 'green';
+        });
+        tab.style.backgroundColor = 'green';
+        tab.style.color = 'white';
+    });
+});
+});
+        </script>
+      </div>
+    </div>
+    <div
+      class="col-lg-4 col-12 d-flex justify-content-center align-content-center"
+    >
+      <img
+        class="w-100 tree-img border-r"
+        src="./static/img/tree-banaba.jpg"
+        alt="Banaba"
+      />
+    </div>
+  </body>
+</html>

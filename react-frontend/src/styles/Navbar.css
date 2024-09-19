@@ -1,0 +1,41 @@
+#navbar_main {
+  background-color: #ffffff;
+}
+
+#navbarBurger{
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-top: 1lvh;
+  margin-right: 2lvw;
+}
+
+.logo-size {
+  height: 2rem;
+}
+
+.navbar-options .nav-item {
+  font-size: 0.8rem;
+}
+
+.color-green {
+  color: #40a067;
+}
+
+.color-dgreen {
+  color: #1e5434;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #1e5434;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #40a067;
+}
+
+@media (max-width: 767px) {
+  .faith-logo {
+    display: none;
+  }
+}

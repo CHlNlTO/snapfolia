@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snapfolia App</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./static/img/snapfolia_favicon.png"
+    />
+
+    <!-- LINK: Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    
+    <!-- LINK: Local CSS -->
+    <link rel="stylesheet" href="./static/css/style.css" />
+
+    <!-- LINK: Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- LINK: Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <!-- LINK: Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        background-color: #ffffff;
+        color: #000;
+        width: 800px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      .header {
+        padding: 20px;
+        background-color: #f3f3f3;
+        border-bottom: 1px solid #ddd;
+      }
+      .header h2 {
+        margin: 0;
+        font-size: 18px;
+      }
+      .footer {
+        padding: 10px 20px;
+        background-color: #f3f3f3;
+        border-top: 1px solid #ddd;
+        text-align: center;
+      }
+      .footer p {
+        margin: 0;
+      }
+      .footer .active {
+        color: #00ff00;
+      }
+      .footer .inactive {
+        color: #ff0000;
+      }
+    </style>
+  </head>
+
+  <body class="bg">
+    <!-- NAVBAR -->
+    <div id="navbar"></div>
+
+    <!-- MAIN -->
+    <section class="d-flex flex-column min-vh-100">
+      <section
+        class="container-fluid flex-container d-flex align-items-center flex-grow-1"
+      >
+        <!-- MAIN: SCAN -->
+        <section class="col-lg-5 col-12 container-fluid mx-auto mt-500">
+          <div class="row">
+            <!-- SCAN: Image Upload -->
+            <div
+              class="d-flex flex-column align-items-center mt-lg-0 pt-lg-0 mt-5 pt-5"
+            >
+              <div
+                class="bg-lgreen img-upload border-r d-flex justify-content-center mt-xl-5 mt-sm-3"
+              >
+                <div
+                  class="d-flex flex-column justify-content-center align-items-center border-r"
+                  id="dropArea"
+                >
+                  <i
+                    class="fas fa-image color-img-upload img-icon mt-4 mb-2"
+                    id="fa-image"
+                  ></i>
+
+                  <div class="d-flex flex-column justify-content-center">
+                    <!-- BUTTON: Take a photo -->
+                    <label
+                      class="btn bg-green text-light fs-responsive mb-2 hide-btn show-btn"
+                      for="capture"
+                      id="btn-capture"
+                    >
+                      <i class="fas fa-plus me-1"></i>
+                      Take a photo
+                    </label>
+                    <input
+                      style="display: none"
+                      type="file"
+                      accept="image/*"
+                      name="image"
+                      id="capture"
+                      capture="user"
+                      onclick="showBtnCap()"
+                      onchange="loadImg(event)"
+                    />
+
+                    <!-- BUTTON: Upload an image -->
+                    <label
+                      class="btn bg-green text-light fs-responsive"
+                      for="file"
+                      id="btn-upload"
+                    >
+                      <i class="fas fa-plus me-1"></i>
+                      Upload an image
+                    </label>
+                    <input
+                      style="display: none"
+                      type="file"
+                      accept="image/*"
+                      name="image"
+                      id="file"
+                      onclick="showBtnScan()"
+                      onchange="loadImg(event)"
+                    />
+                  </div>
+                </div>
+                <div class="border-r img-uploaded" id="imgBox"></div>
+              </div>
+
+              <progress
+                class="my-4 d-none"
+                id="upload-progress"
+                value="0"
+                max="100"
+              ></progress>
+
+              <button
+                class="btn bg-dgreen text-light my-3 fs-responsive show-scan-capture"
+                id="btn-scan-capture"
+                onclick="scan_capture()"
+              >
+                Scan Leaf
+              </button>
+
+              <button
+                class="btn bg-dgreen text-light my-3 fs-responsive"
+                id="btn-scan"
+                onclick="scan()"
+              >
+                Scan Leaf
+              </button>
+
+              <button
+                class="btn bg-dgreen text-light my-3 fs-responsive"
+                id="btn-cancel"
+                onclick="scan_again()"
+              >
+                Cancel
+              </button>
+
+              <button
+                class="btn bg-green text-light my-3 fs-responsive"
+                id="btn-scan-again"
+                onclick="scan_again()"
+              >
+                Scan Again
+              </button>
+            </div>
+
+            <!-- SCAN: Name -->
+            <div class="my-auto text-center pb-3">
+              <!-- FILIPINO NAME -->
+              <h1
+                class="color-dgreen fw-bold animate-slide-in"
+                id="filipino-name"
+              >
+                Filipino Name
+              </h1>
+
+              <!-- ENGLISH AND SCIENTIFIC NAME -->
+              <h2 class="color-dgreen animate-slide-in" id="english-name">
+                English Name
+              </h2>
+              <h2
+                class="color-dgreen fst-italic animate-slide-in"
+                id="scientific-name"
+              >
+                Scientific Name
+              </h2>
+              <!-- SCAN TIME -->
+              <h2 class="color-dgreen animate-slide-in" id="scan-time">
+               Scan Time: Not Yet Scanned
+              </h2>
+              
+              <!-- PERCENTAGE -->
+              <div class="row ps-3">
+                <!-- Probability -->
+                <div
+                  class="d-flex flex-row justify-content-center animate-slide-in"
+                >
+                  <h3><i class="fas fa-square color-dgreen me-1"></i></h3>
+                  <h3 class="color-dgreen col-4 fw-bold" id="probability">
+                    Probability
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MAIN: Result -->
+        <section
+          class="container-fluid d-flex justify-content-center col-lg-7 col-12 mt-lg-5 mt-2 pt-lg-4 pt-2 animate-fade-in"
+        >
+          <div
+            class="col-11 bg-lgreen border-r tree-div mb-4 shadow-sm"
+            id="tree"
+          >
+            <div id="tree-div"></div>
+            <div class="container">
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <footer class="d-flex justify-content-end">
+        <p class="btn m-0 color-dgreen copyright">
+          © BSCS Batch 2025
+        </p>
+      </footer>
+    </section>
+
+    <!-- LINK: Local Script -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./static/script/trees_information.js"></script>
+    <script src="./static/script/navbar.js"></script>
+    <script src="./static/script/tree_div.js"></script>
+    <script src="./static/script/initialization.js"></script>
+    <script src="./static/script/scan.js"></script>
+    <script src="./static/script/drag_drop.js"></script>
+    <script src="./static/script/snackbar.js"></script>
+  </body>
+</html>
