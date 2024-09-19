@@ -2,6 +2,14 @@
   background-color: #ffffff;
 }
 
+#navbarBurger{
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-top: 1lvh;
+  margin-right: 2lvw;
+}
+
 .logo-size {
   height: 2rem;
 }
