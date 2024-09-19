@@ -25,6 +25,8 @@ results = {}
 yolov8_model = None
 object_detection_model = None
 processor = None
+
+
 device = None
 
 # Global variables for logs
