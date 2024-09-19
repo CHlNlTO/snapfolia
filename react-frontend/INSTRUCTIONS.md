@@ -36,6 +36,15 @@ This guide provides step-by-step instructions to deploy a React application on a
 
 1. Use PuTTY to navigate to the directory where you uploaded your React app using WinSCP:
 
+    ```
+    [root@trees /]# cd var
+    [root@trees var]# cd www
+    [root@trees www]# cd html
+    [root@trees html]# cd client
+    [root@trees client]# cd snapfolia_v3
+    [root@trees snapfolia_v3]# serve -s build
+    ```
+
     ```bash
     cd /path/to/your/react-app
     ```
