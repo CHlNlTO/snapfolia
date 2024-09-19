@@ -144,6 +144,7 @@ def convert_to_jpg(file):
         
         print(f"Converted {file.filename} to JPG")
         return image
+    
     except Exception as e:
         print(f"Error converting {file.filename} to JPG: {str(e)}")
         raise
