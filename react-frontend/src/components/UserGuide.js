@@ -16,12 +16,12 @@ const UserGuide = () => {
         <hr className="color-dgreen" />
 
         <div className="d-flex flex-column align-items-center">
-          <ol className="px-3">
+          <ol className="px-3 compact-list">
             <li className="color-dgreen">
               Tap <b className="color-dgreen">'Take a photo'</b> or{" "}
               <b className="color-dgreen">'Upload an image'</b> button.
-              <ul className="ps-3">
-                <li className="color-dgreen">
+              <ul className="ps-3 compact-list">
+              <li className="color-dgreen" style={{ marginRight: '50px' }}>
                   Take/upload an image of a leaf, preferably following{" "}
                   <b className="color-dgreen">this format</b>:
                 </li>
@@ -65,8 +65,8 @@ const UserGuide = () => {
                   </Carousel.Caption>
                 </Carousel.Item>
               </Carousel>
-              <ul className="ps-3">
-                <li className="color-dgreen">
+              <ul className="ps-3 compact-list">
+                <li className="color-dgreen" style={{ marginRight: '60px' }}>
                   Users should <b className="color-dgreen">avoid</b> taking
                   image of the subject like ones below:
                 </li>
@@ -112,7 +112,7 @@ const UserGuide = () => {
                   </Carousel.Caption>
                 </Carousel.Item>
               </Carousel>
-              <ul className="ps-3">
+              <ul className="ps-3 compact-list">
                 <li className="color-dgreen pb-3">
                   <b className="color-dgreen">Note: </b>This app is limited to
                   classifying <b className="color-dgreen">trees only</b>.

@@ -61,7 +61,7 @@ def initialize_models():
     print("Loading YOLOv8 model...")
     yolov8_model = load_yolov8_model(yolov8_model_path)
 
-    object_detection_model_id = 'grounding-dino-tiny'
+    object_detection_model_id = 'IDEA-Research/grounding-dino-tiny'
     print("Loading Grounding Dino model...")
     object_detection_model, processor, device = load_object_detection_model(object_detection_model_id)
 

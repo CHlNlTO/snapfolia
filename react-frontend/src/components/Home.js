@@ -4,6 +4,7 @@ import "../styles/Home.css";
 import { uploadImage, sendScanTime } from "../services/api";
 import leaves from "../data/leaves";
 import ResultDisplay from "./ResultDisplay";
+import heic2any from 'heic2any';
 
 function Home() {
   const initialScanResult = {
@@ -19,12 +20,31 @@ function Home() {
   const [isUploading, setIsUploading] = useState(false);
   const [showScanCapture, setShowScanCapture] = useState(false);
   const [isScanned, setIsScanned] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [scanProgress, setScanProgress] = useState(0);
 
-  const handleFileChange = (event) => {
+  const handleFileChange = async (event) => {
     const file = event.target.files[0];
-    setSelectedFile(file);
-    showScanButton();
-    displayImage(file);
+    if (file) {
+      if (file.type === 'image/heic' || file.name.toLowerCase().endsWith('.heic')) {
+        try {
+          const jpegBlob = await heic2any({
+            blob: file,
+            toType: 'image/jpeg',
+            quality: 0.8
+          });
+          displayImage(jpegBlob);
+          setSelectedFile(new File([jpegBlob], file.name.replace('.heic', '.jpg'), { type: 'image/jpeg' }));
+        } catch (error) {
+          console.error('Error converting HEIC to JPEG:', error);
+          // Handle the error (e.g., show a message to the user)
+        }
+      } else {
+        displayImage(file);
+        setSelectedFile(file);
+      }
+      showScanButton();
+    }
   };
 
   const handleCapture = (event) => {
@@ -50,25 +70,21 @@ function Home() {
     setShowScanCapture(false);
   };
 
-  // Utility function to start the timer
   const startTimer = () => {
     return Date.now();
   };
 
-  // Utility function to stop the timer and calculate duration
   const stopTimer = (startTime) => {
     const endTime = Date.now();
     return ((endTime - startTime) / 1000).toFixed(2);
   };
 
-  // Function to find a matching leaf in the database
   const findMatchingLeaf = (label) => {
     return leaves.find(
       (leaf) => leaf.name.toLowerCase() === label.toLowerCase()
     );
   };
 
-  // Function to format the scan result
   const formatScanResult = (matchingLeaf, confidence, scanTime) => {
     if (matchingLeaf) {
       return {
@@ -99,12 +115,10 @@ function Home() {
     }
   };
 
-  // Function to handle the case when no leaf is detected
   const handleFailedLeafDetection = (string) => {
     alert(string);
   };
 
-  // Main handleScan function
   const handleScan = async () => {
     if (!selectedFile) {
       alert("Please select a file first");
@@ -112,24 +126,42 @@ function Home() {
     }
     setIsUploading(true);
     setIsScanned(false);
+    setIsLoading(true);
+    setScanProgress(0);
 
     const startTime = startTimer();
 
     try {
+      // Simulate progress
+      const progressInterval = setInterval(() => {
+        setScanProgress(prevProgress => {
+          if (prevProgress >= 90) {
+            clearInterval(progressInterval);
+            return 90;
+          }
+          return prevProgress + 10;
+        });
+      }, 300);
+
       const result = await uploadImage(selectedFile);
       const scanTime = stopTimer(startTime);
+
+      clearInterval(progressInterval);
+      setScanProgress(100);
 
       await sendScanTime(parseFloat(scanTime));
 
       if (result.leaf_detected === false) {
         handleFailedLeafDetection("No leaf detected. Please try again.");
         setIsUploading(false);
+        setIsLoading(false);
         return handleScanAgain();
       } else if (result.confidence < 0.7) {
         handleFailedLeafDetection(
           "Image quality is low. Please take a photo again."
         );
         setIsUploading(false);
+        setIsLoading(false);
         return handleScanAgain();
       }
 
@@ -156,6 +188,8 @@ function Home() {
       });
     } finally {
       setIsUploading(false);
+      setIsLoading(false);
+      setScanProgress(0);
     }
   };
 
@@ -245,22 +279,38 @@ function Home() {
                 onClick={handleScan}
                 disabled={isUploading || !selectedFile}
                 style={{
-                  backgroundColor: "#1E5434",
+                  backgroundColor: "rgb(30, 84, 52)",
                   display: isScanned ? "none" : "block",
                   cursor:
                     isUploading || !selectedFile ? "not-allowed" : "pointer",
                   fontSize: "0.70rem",
+                  opacity: isUploading ? 0.7 : 1,
                 }}
               >
                 {isUploading ? "Scanning..." : "Scan Leaf"}
               </button>
+
+              {isLoading && (
+                <div style={{ width: '90%', maxWidth: '300px', margin: '0 auto', marginBottom: '1rem' }}>
+                  <div className="progress" style={{ height: '10px' }}>
+                    <div
+                      className="progress-bar"
+                      role="progressbar"
+                      aria-valuenow={scanProgress}
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      style={{ width: `${scanProgress}%`, backgroundColor: 'rgb(85, 163, 117)' }}
+                    ></div>
+                  </div>
+                </div>
+              )}
 
               <button
                 className="btn bg-dgreen text-light my-3 fs-responsive"
                 id="btn-cancel"
                 onClick={handleScanAgain}
                 style={{
-                  backgroundColor: "#1E5434",
+                  backgroundColor: "rgb(30, 84, 52)",
                   display: selectedFile && !isScanned ? "block" : "none",
                   fontSize: "0.70rem",
                 }}
@@ -273,7 +323,7 @@ function Home() {
                 id="btn-scan-again"
                 onClick={handleScanAgain}
                 style={{
-                  backgroundColor: "#1E5434",
+                  backgroundColor: "rgb(30, 84, 52)",
                   display: isScanned ? "block" : "none",
                   fontSize: "0.70rem",
                 }}

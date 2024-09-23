@@ -2,7 +2,7 @@ const leaves = [
   {
     id: 1,
     name: "Acacia",
-    englishName: "Acacia",
+    englishName: " Acacia",
     scientificName: "Acacia propinqua",
     image: "assets/img/leaf-acacia.jpg",
     treeImage: "assets/img/tree-acacia.jpg",
@@ -29,10 +29,37 @@ const leaves = [
       "Acacia is a large umbraculiform tree growing to a height of 20 to 25 meters. Bark is rough and furrowed. Branches are widespread. Leaves are evenly bipinnate and hairy underneath. Pinnae are 8 to 12 and 15 centimeters long or less. Leaflets are 12 to 16 in the upper pinnae, 6 to 10 in the lower ones, decreasing in size downward, hairy beneath, with the mid-nerve diagonal, and oblong-rhomboid, 1.5 to 4 centimeters long. Flowers are pink, borne in dense, peduncled, axillary, solitary, fascicled heads. Fruits are pods, straight, somewhat fleshy, indehiscent, 15 to 20 centimeters long, 2 centimeters wide, with a pulpy sweet mesocarp.",
     location: "faith-colleges",
   },
+
   {
     id: 2,
+    name: "Alagao",
+    englishName: " Alagaw tree",
+    scientificName: "Premna odorata",
+    image: "assets/img/leaf-alagao.jpg",
+    treeImage: "assets/img/tree-alagao.jpg",
+    generalInfo:
+      "The Alagaw tree (or Alagao), scientifically known as Premna odorata, is a tropical plant species that belongs to the Lamiaceae family. It’s commonly found in Southeast Asia and the Philippines, locally called “Alagau” or “Malatibig.” It is called “adgao” or “adgaw” in Hiligaynon/Ilonnggo-speaking provinces.",
+    botany:
+      "This evergreen tree can grow up to 20 meters tall and has a trunk diameter of about 50 cm. Its bark is grayish-brown and develops deep furrows as it ages. The leaves are arranged oppositely on the branches and range from dark green to yellow-green.",
+    distribution: [
+      "Often found in lowland rainforests or secondary forests alongside other native flora.",
+    ],
+    reference: "(c) https://www.agraryo.com/agroforestry/alagaw-tree-description-uses-and-benefits/",
+    uses: [
+      "The Alagaw plant has a long history of use in traditional medicine. Its leaves, bark, and roots are used to treat a variety of health conditions.",
+      "The leaves can be used to make a bath that can be taken to relieve muscle pain and stress.",
+      "A study published in the Journal of Ethnopharmacology, found that alagaw extract has antibacterial activity against various bacteria, including Staphylococcus aureus, Escherichia coli, and Pseudomonas aeruginosa. ",
+    ],
+    folklore: "There are no folklore or folkloric medicinal uses for Alagao.",
+    description:
+      "The Alagaw tree (or Alagao), scientifically known as Premna odorata, is a tropical plant species that belongs to the Lamiaceae family. It’s commonly found in Southeast Asia and the Philippines, locally called “Alagau” or “Malatibig.” It is called “adgao” or “adgaw” in Hiligaynon/Ilonnggo-speaking provinces.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 3,
     name: "Alibangbang",
-    englishName: "Butterfly Tree",
+    englishName: " Butterfly Tree",
     scientificName: "Bauhinia malabarica",
     image: "assets/img/leaf-alibangbang.JPG",
     treeImage: "assets/img/tree-alibangbang.jpg",
@@ -59,9 +86,9 @@ const leaves = [
     location: "batangas-lakelands",
   },
   {
-    id: 3,
+    id: 4,
     name: "Amugis",
-    englishName: "Amugis",
+    englishName: " Amugis",
     scientificName: "Koordersiodendron pinnatum",
     image: "assets/img/leaf-amugis.jpg",
     treeImage: "assets/img/tree-amugis.jpg",
@@ -86,10 +113,38 @@ const leaves = [
       "Amugis is a large evergreen tree growing to a height of 25 to 40 m. Bole is cylindrical, bole 80 cm or more in diameter, branchless up to 20 meters or more. Bark is dark brown or black, shallowly or deeply fissured. Leaves are spirally arranged, crowded at the end of twigs, with 6 to 16 pairs of leaflets. Leaflets are oblong with equilateral obtuse base and acuminate ape, 9 to 20 cm by 2 to 2.5 cm. Inflorescence are in axillary panicles, up to 50 cm long, with white to yellow green flowers. Fruits are 2.5 to 4 cm long containing one seed. Seed is ellipsoid and compressed, about 2.5 by 1.5 cm.",
     location: "batangas-lakelands",
   },
+
   {
-    id: 4,
+    id: 5,
+    name: "Antipolo",
+    englishName: " Antipolo Tree",
+    scientificName: "Artocarpus blancoi",
+    image: "assets/img/leaf-antipolo1.jpg",
+    treeImage: "assets/img/tree-antipolo.jpg",
+    generalInfo:
+      "Artocarpus blancoi, commonly known as the Antipolo tree, is a remarkable species belonging to the Moraceae family. The Antipolo tree thrives in tropical climates, often found in secondary forests and open areas. However, its natural habitat is increasingly threatened by urbanization and deforestation, raising concerns about the survival of this native species.",
+    botany:
+      "This medium to large tree can reach heights of up to 20 meters, characterized by its broad, dense crown and thick, leathery leaves that are dark green and can measure 10-25 cm in length. It produces round or oblong-shaped fruits which are yellowish green in color when ripe. ",
+    distribution: [
+      "An endemic species",
+      "Found throughout the Philippines, in thickets and forests, at low and medium altitudes.",
+    ],
+    reference: "(c) http://www.stuartxchange.org/Antipolo",
+    uses: [
+      "Antipolo wood is in light construction, where it can be used to make frames, flooring, and wall panels.",
+      "Antipolo wood can also be processed into pulp for paper, providing economic opportunities for local communities and promoting sustainable forestry.",
+      "In Filipino cuisine, Antipolo fruits are often used as an ingredient in traditional dishes such as sinigang (sour soup), adobo (marinated meat dish), and buko salad (young coconut dessert).",
+    ],
+    folklore: "There are no folklore or folkloric medicinal uses for Antipolo.",
+    description:
+      "Artocarpus blancoi, commonly known as the Antipolo tree, is a remarkable species belonging to the Moraceae family. The Antipolo tree thrives in tropical climates, often found in secondary forests and open areas. However, its natural habitat is increasingly threatened by urbanization and deforestation, raising concerns about the survival of this native species.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 6,
     name: "Apitong",
-    englishName: "Apitong",
+    englishName: " Apitong",
     scientificName: "Dipterocarpus grandiflorus",
     image: "assets/img/leaf-apitong.jpg",
     treeImage: "assets/img/tree-apitong.jpg",
@@ -117,9 +172,9 @@ const leaves = [
     location: "faith-colleges",
   },
   {
-    id: 5,
+    id: 7,
     name: "Asis",
-    englishName: "Asis Tree",
+    englishName: " Asis Tree",
     scientificName: "Leucocnide alba",
     image: "assets/img/leaf-asis.jpeg",
     treeImage: "assets/img/tree-asis.jpg",
@@ -145,9 +200,9 @@ const leaves = [
     location: "marian-orchard",
   },
   {
-    id: 6,
+    id: 8,
     name: "Balayong",
-    englishName: "Palawan Cherry",
+    englishName: " Palawan Cherry",
     scientificName: "Cassia nodosa",
     image: "assets/img/leaf-balayong.jpg",
     treeImage: "assets/img/tree-balayong.jpg",
@@ -171,9 +226,9 @@ const leaves = [
     location: "faith-colleges",
   },
   {
-    id: 7,
+    id: 9,
     name: "Balete",
-    englishName: "Rubber Fig",
+    englishName: " Rubber Fig",
     scientificName: "Ficus clusiifolia Summerh.",
     image: "assets/img/leaf-balete.jpg",
     treeImage: "assets/img/tree-balete.jpg",
@@ -198,9 +253,9 @@ const leaves = [
     location: "marian-orchard",
   },
   {
-    id: 8,
+    id: 10,
     name: "Banaba",
-    englishName: "Queen's Crape Myrtle",
+    englishName: " Queen's Crape Myrtle",
     scientificName: "Lagerstroemia speciosa",
     image: "assets/img/leaf-banaba.jpg",
     treeImage: "assets/img/tree-banaba.jpg",
@@ -231,9 +286,9 @@ const leaves = [
     location: "batangas-lakelands",
   },
   {
-    id: 9,
+    id: 11,
     name: "Bani",
-    englishName: "Pongam",
+    englishName: " Pongam",
     scientificName: "Pongamia pinnata",
     image: "assets/img/leaf-bani.jpg",
     treeImage: "assets/img/tree-bani.jpg",
@@ -258,9 +313,9 @@ const leaves = [
     location: "batangas-lakelands",
   },
   {
-    id: 10,
+    id: 12,
     name: "Barako",
-    englishName: "Liberica Coffee",
+    englishName: " Liberica Coffee",
     scientificName: "Coffea liberica",
     image: "assets/img/leaf-barako.jpg",
     treeImage: "assets/img/tree-barako.jpg",
@@ -287,9 +342,9 @@ const leaves = [
     location: "batangas-lakelands",
   },
   {
-    id: 11,
+    id: 13,
     name: "Bayabas",
-    englishName: "Guava",
+    englishName: " Guava",
     scientificName: "Psidium guajava",
     image: "assets/img/leaf-bayabas.png",
     treeImage: "assets/img/tree-bayabas.jpg",
@@ -316,9 +371,9 @@ const leaves = [
     location: "marian-orchard",
   },
   {
-    id: 12,
+    id: 14,
     name: "Betis",
-    englishName: "Madhuca betis",
+    englishName: " Madhuca betis",
     scientificName: "Azaola betis Blanco",
     image: "assets/img/leaf-betis.jpg",
     treeImage: "assets/img/tree-betis.jpg",
@@ -344,9 +399,9 @@ const leaves = [
     location: "faith-colleges",
   },
   {
-    id: 13,
+    id: 15,
     name: "Binunga",
-    englishName: "Parasol",
+    englishName: " Parasol",
     scientificName: "Macaranga tanarius",
     image: "assets/img/leaf-binunga.jpg",
     treeImage: "assets/img/tree-binunga.jpg",
@@ -372,9 +427,9 @@ const leaves = [
     location: "batangas-lakelands",
   },
   {
-    id: 14,
+    id: 16,
     name: "Dao",
-    englishName: "Bilimbi",
+    englishName: " Bilimbi",
     scientificName: "Averrhoa bilimbi",
     image: "assets/img/leaf-dao.jpg",
     treeImage: "assets/img/tree-dao.jpg",
@@ -402,9 +457,9 @@ const leaves = [
     location: "marian-orchard",
   },
   {
-    id: 15,
+    id: 17,
     name: "Dita",
-    englishName: "Blackboard",
+    englishName: " Blackboard",
     scientificName: "Alstonia scholaris",
     image: "assets/img/leaf-dita.jpg",
     treeImage: "assets/img/tree-dita.jpg",
@@ -430,9 +485,9 @@ const leaves = [
     location: "marian-orchard",
   },
   {
-    id: 16,
+    id: 18,
     name: "Duhat",
-    englishName: "Malabar Plum",
+    englishName: " Malabar Plum",
     scientificName: "Syzygium cuminia",
     image: "assets/img/leaf-duhat.jpg",
     treeImage: "assets/img/tree-duhat.jpg",
@@ -457,9 +512,9 @@ const leaves = [
     location: "faith-colleges",
   },
   {
-    id: 17,
+    id: 19,
     name: "Eucalyptus",
-    englishName: "Eucalyptus",
+    englishName: " Eucalyptus",
     scientificName: "Eucalyptus globulus",
     image: "assets/img/leaf-eucalyptus.jpg",
     treeImage: "assets/img/tree-eucalyptus.jpg",
@@ -485,9 +540,9 @@ const leaves = [
     location: "batangas-lakelands",
   },
   {
-    id: 18,
+    id: 20,
     name: "Guyabano",
-    englishName: "Soursop",
+    englishName: " Soursop",
     scientificName: "Annona muricata",
     image: "assets/img/leaf-guyabano.jpg",
     treeImage: "assets/img/tree-guyabano.jpg",
@@ -513,12 +568,12 @@ const leaves = [
     location: "marian-orchard",
   },
   {
-    id: 19,
+    id: 21,
     name: "Hinadyong",
-    englishName: "Oriental trema",
+    englishName: " Oriental trema",
     scientificName: "Trema orientalis",
     image: "assets/img/leaf-hinadyong.jpg",
-    treeImage: "assets/img/tree-hinadyong.jpg",
+    treeImage: "assets/img/tree-hinadyong.jpeg",
     generalInfo:
       "Hinadyong (Trema orientalis) characterized by elongated branches and oblong-ovate to lanceolate leaves that are 8 to 15 centimeters long. It is commonly found in deserted clearings, thickets, and second-growth forests throughout the Philippines at low to medium altitudes, and occasionally up to 2,000 meters. Leaves and fruit are reportedly eaten in African countries, with young leaves consumed as spinach by the Zulus. The seeds yield a dark green fixed oil. Bast from the tree is used for making string or rope. The soft wood is used for making wooden shoes and fruit boxes. The leaves yield a coffee-colored dye, while the bark yields a dark brown to black dye.",
     botany:
@@ -541,9 +596,9 @@ const leaves = [
     location: "batangas-lakelands",
   },
   {
-    id: 20,
-    name: "Ilang-ilang",
-    englishName: "Ylang-ylang",
+    id: 22,
+    name: "Ilang Ilang",
+    englishName: " Ylang-ylang",
     scientificName: "Cananga odorata",
     image: "assets/img/leaf-ilangilang.jpg",
     treeImage: "assets/img/tree-ilangilang.jpg",
@@ -568,10 +623,39 @@ const leaves = [
       "The compound evergreen leaves are pinnate, smooth and glossy, and 13 to 21 cm long. Leaflets are oval, pointed and with wavy margins. These leaves commonly has a wavy characteristic, and when healthy, commonly comes in dark and light shades of green.",
     location: "faith-colleges",
   },
+
   {
-    id: 21,
+    id: 23,
+    name: "Inyam",
+    englishName: " Black Currant Tree",
+    scientificName: "Antidesma ghaesembilla",
+    image: "assets/img/leaf-inyam.jpg",
+    treeImage: "assets/img/tree-inyam.jpg",
+    generalInfo:
+      "Also known as the Black Currant Tree, this species belongs to the Phyllanthaceae family. It’s a tropical plant with a thick trunk and simple, alternate leaves. The fruit is a cluster of small, greenish-yellow drupes. This tree is usually harvested from the wild for local use as food and medicine.",
+    botany:
+      "Binayuyo is a small deciduous tree up to 16 meters tall, with light grey bark and simple, alternate leaves that are broadly elliptic or orbicular obovate, measuring 6 to 11 centimeters long, with entire, pubescent margins and a rounded base. The tree produces small drupes, about 4.5 millimeters in diameter, that ripen to dark purple and have a pleasantly acidic taste.",
+    distribution: [
+      "This specie is native to the Philippines and various regions across Asia and Oceania",
+      "Primarily in wet tropical biomes",
+  
+    ],
+    reference: "(c) http://www.stuartxchange.org/Binayuyo",
+    uses: [
+      "This tree’s fully ripe fruit can be eaten raw, cooked, pickled, or made into jams and jellies.",
+      "In East Kalimantan, the resin (nyatang) from the tree is burnt to make a black dye for sunhats.",
+    ],
+    folklore: "In various countries, the plant serves diverse medicinal purposes: in Thailand, leaf decoctions nourish the blood and flowers treat herpes simplex; in Vietnam, leaves and bark alleviate cough and rheumatism; in China, stems address menstrual disorders; in Bangladesh, leaves enhance breast milk production; and in Cambodia, the plant is used for stomachaches.",
+  
+    description:
+      "Also known as the Black Currant Tree, this species belongs to the Phyllanthaceae family. It’s a tropical plant with a thick trunk and simple, alternate leaves. The fruit is a cluster of small, greenish-yellow drupes. This tree is usually harvested from the wild for local use as food and medicine.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 24,
     name: "Ipil",
-    englishName: "Ironwood",
+    englishName: " Ironwood",
     scientificName: "Intsia bijuga",
     image: "assets/img/leaf-ipil.jpg",
     treeImage: "assets/img/tree-ipil.jpg",
@@ -596,9 +680,9 @@ const leaves = [
     location: "faith-colleges",
   },
   {
-    id: 22,
+    id: 25,
     name: "Kalios",
-    englishName: "Sandpaper",
+    englishName: " Sandpaper",
     scientificName: "Streblus asper",
     image: "assets/img/leaf-kalios.jpg",
     treeImage: "assets/img/tree-kalios.jpg",
@@ -623,9 +707,9 @@ const leaves = [
     location: "faith-colleges",
   },
   {
-    id: 23,
+    id: 26,
     name: "Kamagong",
-    englishName: "Mountain Persimmon",
+    englishName: " Mountain Persimmon",
     scientificName: "Diospyros montana",
     image: "assets/img/leaf-kamagong.jpg",
     treeImage: "assets/img/tree-kamagong.jpg",
@@ -650,9 +734,9 @@ const leaves = [
     location: "faith-colleges",
   },
   {
-    id: 24,
+    id: 27,
     name: "Langka",
-    englishName: "Jackfruit",
+    englishName: " Jackfruit",
     scientificName: "Artocarpus brasiliensis",
     image: "assets/img/leaf-langka.jpg",
     treeImage: "assets/img/tree-langka.jpg",
@@ -678,9 +762,9 @@ const leaves = [
     location: "marian-orchard",
   },
   {
-    id: 25,
+    id: 28,
     name: "Lansones",
-    englishName: "Langsat",
+    englishName: " Langsat",
     scientificName: "Lansium domesticum",
     image: "assets/img/leaf-lansones.jpg",
     treeImage: "assets/img/tree-lansones.jpg",
@@ -706,9 +790,9 @@ const leaves = [
     location: "batangas-lakelands",
   },
   {
-    id: 26,
+    id: 29,
     name: "Madre Cacao",
-    englishName: "Gliricidia",
+    englishName: " Gliricidia",
     scientificName: "Gliricidia Sepium",
     image: "assets/img/leaf-madrecacao.JPG",
     treeImage: "assets/img/tree-madrecacao.jpg",
@@ -736,9 +820,9 @@ const leaves = [
     location: "batangas-lakelands",
   },
   {
-    id: 27,
+    id: 30,
     name: "Mahogany",
-    englishName: "Mahogany",
+    englishName: " Mahogany",
     scientificName: "Swietenia macrophylla",
     image: "assets/img/leaf-mahogany.jpg",
     treeImage: "assets/img/tree-mahogany.jpg",
@@ -763,9 +847,9 @@ const leaves = [
     location: "faith-colleges",
   },
   {
-    id: 28,
+    id: 31,
     name: "Mangga",
-    englishName: "Mango",
+    englishName: " Mango",
     scientificName: "Mangifera indica",
     image: "assets/img/leaf-mangga.JPG",
     treeImage: "assets/img/tree-mangga.jpg",
@@ -790,9 +874,9 @@ const leaves = [
     location: "faith-colleges",
   },
   {
-    id: 29,
+    id: 32,
     name: "Mulawin",
-    englishName: "Small-flower Chaste",
+    englishName: " Small-flower Chaste",
     scientificName: "Vitex parviflora",
     image: "assets/img/leaf-mulawin.jpg",
     treeImage: "assets/img/tree-mulawin.jpg",
@@ -819,9 +903,9 @@ const leaves = [
     location: "faith-colleges",
   },
   {
-    id: 30,
+    id: 33,
     name: "Narra",
-    englishName: "Rosewood",
+    englishName: " Rosewood",
     scientificName: "Pterocarpus indicus",
     image: "assets/img/leaf-narra.jpg",
     treeImage: "assets/img/tree-narra.jpg",
@@ -849,9 +933,9 @@ const leaves = [
     location: "faith-colleges",
   },
   {
-    id: 31,
-    name: "Palo-Maria",
-    englishName: "Palo-Maria",
+    id: 34,
+    name: "Palo Maria",
+    englishName: " Palo-Maria",
     scientificName: "Balsamaria inophyllum",
     image: "assets/img/leaf-palomaria.JPG",
     treeImage: "assets/img/tree-palo-maria.jpg",
@@ -879,9 +963,9 @@ const leaves = [
     location: "faith-colleges",
   },
   {
-    id: 32,
+    id: 35,
     name: "Scramble Egg",
-    englishName: "Scrambled Egg",
+    englishName: " Scrambled Egg",
     scientificName: "Senna surattensis",
     image: "assets/img/leaf-scrambleegg.JPG",
     treeImage: "assets/img/tree-scrambleegg.JPG",
@@ -908,9 +992,9 @@ const leaves = [
     location: "faith-colleges",
   },
   {
-    id: 33,
+    id: 36,
     name: "Sintores",
-    englishName: "Mandarin Orange",
+    englishName: " Mandarin Orange",
     scientificName: "Citrus reticulata Blanco",
     image: "assets/img/leaf-sintores.jpg",
     treeImage: "assets/img/tree-sintores.jpg",
@@ -937,9 +1021,9 @@ const leaves = [
     location: "faith-colleges",
   },
   {
-    id: 34,
-    name: "Talisay",
-    englishName: "Indian-Almond",
+    id: 37,
+    name: "Native Talisay",
+    englishName: " Indian-Almond",
     scientificName: "Terminalia Catappa",
     image: "assets/img/leaf-talisay.jpg",
     treeImage: "assets/img/tree-nativetalisay.jpg",
@@ -964,10 +1048,38 @@ const leaves = [
       "Talisay is a large deciduous tree native to the Philippines, known for reaching heights of 20 to 25 meters with smooth branches that are horizontally whorled. Its leaves are shiny, obovate, and measure 10 to 25 centimeters long, tapering to a narrow, heart-shaped base with an expanded rounded apex.",
     location: "batangas-lakelands",
   },
+
   {
-    id: 35,
+    id: 38,
+    name: "Santol",
+    englishName: "  Wild Mangosteen",
+    scientificName: "Sandoricum koetjape ",
+    image: "assets/img/leaf-santol.jpg",
+    treeImage: "assets/img/tree-santol.jpg",
+    generalInfo:
+      "The Santol tree belongs to the Meliaceae family and can grow up to 30 meters tall in favorable conditions. Santol produces a round, yellowish-green fruit that has a thick, fleshy rind and a sweet-to-sour pulp surrounding the seeds.",
+    botany:
+      "The Santol tree is a large tropical tree, reaching up to 30 meters in height, with broad trifoliate leaves. It bears round, thick-skinned fruits that turn yellowish-brown when ripe, containing cottony, sweet or sour flesh surrounding large seeds. The tree’s extensive root system helps it thrive in different soil types, providing stability and nutrient uptake ",
+    distribution: [
+      "Native to Southeast Asia and grows predominantly in the Philippines, Thailand, Malaysia, and Indonesia.",
+      "In some regions, Santol has spread to tropical areas like Hawaii and the Caribbean.",
+    ],
+
+    reference: "(c) http://www.stuartxchange.org/Santol",
+    uses: [
+      "The Santol fruit is eaten fresh or used in various dishes, including jams, jellies, and desserts.",
+      "The bark, leaves, and roots have been used in traditional medicine. They are believed to have anti-inflammatory, astringent, and tonic properties.",
+    ],
+    folklore: "There are no folklore or folkloric medicinal uses for Santol.",
+    description:
+      "The Santol tree belongs to the Meliaceae family and can grow up to 30 meters tall in favorable conditions. Santol produces a round, yellowish-green fruit that has a thick, fleshy rind and a sweet-to-sour pulp surrounding the seeds.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 39,
     name: "Tibig",
-    englishName: "Sacking Tree",
+    englishName: " Sacking Tree",
     scientificName: "Ficus nota",
     image: "assets/img/leaf-tibig.jpg",
     treeImage: "assets/img/tree-tibig.jpg",
@@ -993,9 +1105,9 @@ const leaves = [
     location: "batangas-lakelands",
   },
   {
-    id: 36,
+    id: 40,
     name: "Yakal",
-    englishName: "Philippine Teak",
+    englishName: " Philippine Teak",
     scientificName: "Shorea astylosa",
     image: "assets/img/leaf-yakal.jpg",
     treeImage: "assets/img/tree-yakal.jpg",
@@ -1018,6 +1130,7 @@ const leaves = [
       "Yakal is a medium to large tree about 25 to 30 meters tall. Its wood is hard and dark brownish-yellow, its branchlets slender, blackish, and slightly hairy. Its leaves are coriaceous, ovate to lanceolate, or oblong-lanceolate or apex acuminate. The base are rounded to cuneate, glabrous above and slightly hairy underneath. Its blade is 6.5-nine centimeters long and two-4.5 centimeters wide, with its petiole slender, 10-23 millimeters long, and dark. Its inflorescence are axillary, paniculate, and up to about six centimeters long, with its flowers yellow, very short-stalked, and about 12 millimeters long. The flowers' petals are narrowly oblong or oblong-lanceolate, more or less twisted in bud, rounded at apex, 18 millimeters long, and reticulate.",
     location: "faith-colleges",
   },
+
 ];
 
 export default leaves;

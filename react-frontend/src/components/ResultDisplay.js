@@ -103,10 +103,6 @@ function ResultDisplay({ result }) {
                   </li>
                 ))}
               </ul>
-
-              <h3 className="color-green fst-italic pb-4">
-                Scientific Name: {result.scientificName}
-              </h3>
             </div>
 
             <div
