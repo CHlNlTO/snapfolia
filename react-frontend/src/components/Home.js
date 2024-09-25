@@ -59,7 +59,7 @@ function Home() {
     reader.onload = (e) => {
       const dropArea = document.getElementById("dropArea");
       dropArea.style.backgroundImage = `url(${e.target.result})`;
-      dropArea.style.backgroundSize = "contain";
+      dropArea.style.backgroundSize = "cover";
       dropArea.style.backgroundRepeat = "no-repeat";
       dropArea.style.backgroundPosition = "center";
     };
@@ -398,7 +398,7 @@ function Home() {
         </section>
       </section>
       <footer className="d-flex justify-content-end">
-        <p className="btn m-0 color-dgreen copyright">© BSCS Batch 2025</p>
+        <p className="btn m-0 color-dgreen copyright">© BSCS Batch 2025.</p>
       </footer>
     </section>
   );

@@ -16,7 +16,7 @@ function NavBar() {
             alt="Snapfolia"
           />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarOptions">
+        <Navbar.Toggle aria-controls="navbarOptions" className="navButton">
           <span className="fas fa-bars color-green"></span>
         </Navbar.Toggle>
         <Navbar.Collapse id="navbarOptions" className="justify-content-center">

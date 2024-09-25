@@ -149,8 +149,6 @@ def convert_to_jpg(file):
         print(f"Error converting {file.filename} to JPG: {str(e)}")
         raise
 
-
-
 def process_image(file, object_detection_model, processor, yolov8_model, device):
     # Convert the image to JPG
     jpg_image = convert_to_jpg(file)
@@ -237,14 +235,45 @@ def getScanTime():
         except ValueError:
             print("Invalid scan_time value received")
     return jsonify({'success': 'Time Received'}), 200
+
+# if __name__ == '__main__':
+#     initialize_models()
     
+#     # Start the processing thread
+#     processing_thread = Thread(target=process_request)
+#     processing_thread.daemon = True
+#     processing_thread.start()
+
+    
+
+# if __name__ == '__main__':
+#     initialize_models()
+    
+#     # Start the processing thread
+#     processing_thread = Thread(target=process_request)
+#     processing_thread.daemon = True
+#     processing_thread.start()
+    
+#     # Run the app with SSL
+#     app.run(
+#         host='0.0.0.0',
+#         port=5000,
+#         ssl_context=("C:\\certificates\\treesbe.firstasia.edu.ph-crt.pem", "C:\\certificates\\treesbe.firstasia.edu.ph-key.pem"),
+#         debug=False
+#     )
+
 
 if __name__ == '__main__':
     initialize_models()
-    
+
     # Start the processing thread
     processing_thread = Thread(target=process_request)
     processing_thread.daemon = True
     processing_thread.start()
-    
-    app.run(host='0.0.0.0', port=5000, debug=False)
+
+    # Run the app without SSL (handled by Nginx)
+    app.run(
+        host='0.0.0.0',
+        port=5000,  # Use the internal port
+        debug=False
+    )
