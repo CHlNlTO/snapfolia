@@ -15,7 +15,6 @@ import csv
 import io
 import pillow_heif
 
-
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "https://trees.firstasia.edu.ph", "supports_credentials": True}})
 
@@ -91,6 +90,7 @@ def detect_and_classify_leaf(image, yolov8_model):
         box = results[0].boxes[0]  # Get the first detected box
         predicted_class = results[0].names[int(box.cls)]
         confidence = round(float(box.conf), 2)
+        print(f"Confidence Level: {confidence}")
         
         return {
             "leaf_detected": True,
