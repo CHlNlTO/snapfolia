@@ -34,10 +34,10 @@ function ImageUpload({ onScanComplete }) {
         <div id="dropArea" className="d-flex flex-column justify-content-center align-items-center border-r">
           <i className="fas fa-image color-img-upload img-icon mt-4 mb-2" id="fa-image"></i>
           <div className="d-flex flex-column justify-content-center">
-            <label className="btn bg-green text-light fs-responsive mb-2 hide-btn show-btn" htmlFor="capture">
+            {/* <label className="btn bg-green text-light fs-responsive mb-2 hide-btn show-btn" htmlFor="capture">
               <i className="fas fa-plus me-1"></i>
               Take a photo
-            </label>
+            </label> */}
             <input
               style={{ display: 'none' }}
               type="file"

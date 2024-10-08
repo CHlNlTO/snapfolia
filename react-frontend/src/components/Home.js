@@ -156,10 +156,13 @@ function Home() {
         setIsUploading(false);
         setIsLoading(false);
         return handleScanAgain();
-      } else if (result.confidence < 0.7) {
+      } 
+      
+      else if (result.confidence < 0.9) {
         handleFailedLeafDetection(
           "Image quality is low. Please take a photo again."
         );
+
         setIsUploading(false);
         setIsLoading(false);
         return handleScanAgain();
@@ -233,6 +236,7 @@ function Home() {
                           style={{
                             backgroundColor: "#55a375",
                             fontSize: "0.70rem",
+                            display: "none",
                           }}
                         >
                           <i className="fas fa-plus me-1"></i>
@@ -398,7 +402,7 @@ function Home() {
         </section>
       </section>
       <footer className="d-flex justify-content-end">
-        <p className="btn m-0 color-dgreen copyright">© BSCS Batch 2025.</p>
+        <p className="btn m-0 color-dgreen copyright">© BSCS Batch 2025</p>
       </footer>
     </section>
   );
