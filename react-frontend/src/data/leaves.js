@@ -597,7 +597,7 @@ const leaves = [
   },
   {
     id: 22,
-    name: "Ilang Ilang",
+    name: "Ilang-Ilang",
     englishName: " Ylang-ylang",
     scientificName: "Cananga odorata",
     image: "assets/img/leaf-ilangilang.jpg",
@@ -791,7 +791,7 @@ const leaves = [
   },
   {
     id: 29,
-    name: "Madre Cacao",
+    name: "Madre-Cacao",
     englishName: " Gliricidia",
     scientificName: "Gliricidia Sepium",
     image: "assets/img/leaf-madrecacao.JPG",
@@ -934,7 +934,7 @@ const leaves = [
   },
   {
     id: 34,
-    name: "Palo Maria",
+    name: "Palo-Maria",
     englishName: " Palo-Maria",
     scientificName: "Balsamaria inophyllum",
     image: "assets/img/leaf-palomaria.JPG",
@@ -964,7 +964,7 @@ const leaves = [
   },
   {
     id: 35,
-    name: "Scramble Egg",
+    name: "Scramble-Egg",
     englishName: " Scrambled Egg",
     scientificName: "Senna surattensis",
     image: "assets/img/leaf-scrambleegg.JPG",
@@ -1022,7 +1022,7 @@ const leaves = [
   },
   {
     id: 37,
-    name: "Native Talisay",
+    name: "Talisay",
     englishName: " Indian-Almond",
     scientificName: "Terminalia Catappa",
     image: "assets/img/leaf-talisay.jpg",
