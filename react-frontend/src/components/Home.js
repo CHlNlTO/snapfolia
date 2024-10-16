@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import UserGuide from "./UserGuide";
 import "../styles/Home.css";
 import { uploadImage, sendScanTime } from "../services/api";
 import leaves from "../data/leaves";
 import ResultDisplay from "./ResultDisplay";
 import heic2any from 'heic2any';
+import ErrorAlertDialog from "./ErrorAlertDialog";
 
 function Home() {
   const initialScanResult = {
@@ -22,6 +23,12 @@ function Home() {
   const [isScanned, setIsScanned] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [scanProgress, setScanProgress] = useState(0);
+  const [isErrorDialogOpen, setIsErrorDialogOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    console.log('ErrorDialog state changed:', { isErrorDialogOpen, errorMessage });
+  }, [isErrorDialogOpen, errorMessage]);
 
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
@@ -37,7 +44,7 @@ function Home() {
           setSelectedFile(new File([jpegBlob], file.name.replace('.heic', '.jpg'), { type: 'image/jpeg' }));
         } catch (error) {
           console.error('Error converting HEIC to JPEG:', error);
-          // Handle the error (e.g., show a message to the user)
+          handleFailedLeafDetection('Error processing the image. Please try a different file.');
         }
       } else {
         displayImage(file);
@@ -115,13 +122,17 @@ function Home() {
     }
   };
 
-  const handleFailedLeafDetection = (string) => {
-    alert(string);
-  };
+  const handleFailedLeafDetection = (message) => {
+    console.log('handleFailedLeafDetection called', message);
+    setErrorMessage(message);
+    setIsErrorDialogOpen(true);
+    console.log('State updated', { errorMessage: message, isErrorDialogOpen: true 
+    });
+};
 
   const handleScan = async () => {
     if (!selectedFile) {
-      alert("Please select a file first");
+      handleFailedLeafDetection("Please select a file first");
       return;
     }
     setIsUploading(true);
@@ -144,28 +155,24 @@ function Home() {
       }, 300);
 
       const result = await uploadImage(selectedFile);
+      console.log('Scan result:', result);
       const scanTime = stopTimer(startTime);
-
+  
       clearInterval(progressInterval);
       setScanProgress(100);
-
+  
       await sendScanTime(parseFloat(scanTime));
-
+  
       if (result.leaf_detected === false) {
+        console.log('No leaf detected');
         handleFailedLeafDetection("No leaf detected. Please try again.");
-        setIsUploading(false);
-        setIsLoading(false);
-        return handleScanAgain();
+        return;
       } 
       
       else if (result.confidence < 0.9) {
-        handleFailedLeafDetection(
-          "Image quality is low. Please take a photo again."
-        );
-
-        setIsUploading(false);
-        setIsLoading(false);
-        return handleScanAgain();
+        console.log('Low confidence:', result.confidence);
+        handleFailedLeafDetection("Image quality is low. Please take a photo again.");
+        return;
       }
 
       let scanResult;
@@ -181,19 +188,13 @@ function Home() {
       setScanResult(scanResult);
       setIsScanned(true);
     } catch (error) {
-      console.error("Error during scan:", error);
-      setScanResult({
-        filipinoName: "Error occurred",
-        englishName: "N/A",
-        scientificName: "N/A",
-        scanTime: "N/A",
-        probability: "N/A",
-      });
-    } finally {
-      setIsUploading(false);
-      setIsLoading(false);
-      setScanProgress(0);
-    }
+    console.error("Error during scan:", error);
+    handleFailedLeafDetection("An error occurred during the scan. Please try again.");
+  } finally {
+    setIsUploading(false);
+    setIsLoading(false);
+    setScanProgress(0);
+  }
   };
 
   const handleScanAgain = () => {
@@ -205,6 +206,8 @@ function Home() {
     const dropArea = document.getElementById("dropArea");
     dropArea.style.backgroundImage = "none";
   };
+
+  console.log('Render - ErrorDialog state:', { isErrorDialogOpen, errorMessage });
 
   return (
     <section className="d-flex flex-column min-vh-100">
@@ -404,6 +407,15 @@ function Home() {
       <footer className="d-flex justify-content-end">
         <p className="btn m-0 color-dgreen copyright">© BSCS Batch 2025</p>
       </footer>
+
+      <ErrorAlertDialog
+      isOpen={isErrorDialogOpen}
+      onClose={() => {
+        console.log('Closing dialog');
+        setIsErrorDialogOpen(false);
+  }}
+      errorMessage={errorMessage}
+/>
     </section>
   );
 }
