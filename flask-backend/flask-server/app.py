@@ -14,6 +14,7 @@ from datetime import datetime
 import csv
 import io
 import pillow_heif
+import logging
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "https://trees.firstasia.edu.ph", "supports_credentials": True}})
@@ -31,44 +32,39 @@ device = None
 predicted_class = None
 confidence = 0 
 
-def logs(predicted_class, confidence, scan_time, log_file='logs.csv'):
-    now = datetime.now()
-    log_entry = {
-        'date': now.strftime('%Y/%m/%d'),
-        'time': now.strftime('%H:%M:%S'),
-        'predicted_class': predicted_class,
-        'confidence': confidence,
-        'scan_time': scan_time
-    }
-    
-    file_exists = os.path.isfile(log_file)
+# Set up logging configuration
+logging.basicConfig(
+    filename='logs.csv',
+    level=logging.INFO,
+    format='%(asctime)s,%(levelname)s,%(message)s',
+    datefmt='%Y/%m/%d %H:%M:%S'
+)
 
-    with open(log_file, mode='a', newline='') as file:
-        fieldnames = ['date', 'time', 'predicted_class', 'confidence', 'scan_time']
-        writer = csv.DictWriter(file, fieldnames=fieldnames)
-        
-        if not file_exists:
-            writer.writeheader()
-        
-        writer.writerow(log_entry)
+def logs(predicted_class, confidence, scan_time):
+    log_message = f"{predicted_class},{confidence},{scan_time}"
+    logging.info(log_message)
+    print(f"Logged: {log_message}")
 
-# Initialize model
 def initialize_model():
     global yolov8_model, device
     yolov8_model_path = 'best36_class.pt'
-    print("Loading YOLOv8 model...")
-    yolov8_model = load_yolov8_model(yolov8_model_path)
+    try:
+        print("Loading YOLOv8 model...")
+        yolov8_model = load_yolov8_model(yolov8_model_path)
 
-    if torch.cuda.is_available():
-        print("CUDA is available")
-        print(f"CUDA version: {torch.version.cuda}")
-        print(f"Python version: {platform.python_version()}")
-        device = torch.device('cuda')
-    else:
-        print("CUDA is not available")
-        device = torch.device('cpu')
+        if torch.cuda.is_available():
+            print("CUDA is available")
+            print(f"CUDA version: {torch.version.cuda}")
+            print(f"Python version: {platform.python_version()}")
+            device = torch.device('cuda')
+        else:
+            print("CUDA is not available")
+            device = torch.device('cpu')
 
-    print("--- Model Ready ---")
+        print("--- Model Ready ---")
+    except Exception as e:
+        print(f"Error initializing model: {str(e)}")
+        raise
 
 
 def load_yolov8_model(model_path):
@@ -135,13 +131,17 @@ def convert_to_jpg(file):
         raise
 
 def process_image(file, yolov8_model):
-    # Convert the image to JPG
-    jpg_image = convert_to_jpg(file)
+    try:
+        # Convert the image to JPG
+        jpg_image = convert_to_jpg(file)
+        
+        # Perform detection and classification
+        result = detect_and_classify_leaf(jpg_image, yolov8_model)
+        return result
     
-    # Perform detection and classification
-    result = detect_and_classify_leaf(jpg_image, yolov8_model)
-    
-    return result
+    except Exception as e:
+        print(f"Error in process_image: {str(e)}")
+        raise
 
 def process_request():
     global results
@@ -161,8 +161,13 @@ def process_request():
             
         # Process the batch
         for file, request_id in batch:
-            result = process_image(file, yolov8_model)
-            results[request_id] = result
+            try:
+                result = process_image(file, yolov8_model)
+                results[request_id] = result
+            
+            except Exception as e:
+                print(f"Error processing file in batch: {str(e)}")
+                results[request_id] = {'error': 'Failed to process file'}
             
         # Signal that batch processing is complete
         for _ in range(len(batch)):
@@ -170,8 +175,13 @@ def process_request():
 
 @app.route('/')
 def index():
-    print("Server is running...")
-    return jsonify({'message': 'Server is running'})
+    try:
+        print("Server is running...")
+        return jsonify({'message': 'Server is running'})
+    
+    except Exception as e:
+        print(f"Error in index route: {str(e)}")
+        return jsonify({'error': 'Internal server error'}), 500
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -185,14 +195,19 @@ def upload_file():
         return jsonify({'error': 'No selected file'}), 400
     
     request_id = str(time.time()) 
-    request_queue.put((file, request_id))
-    
-    # Wait for the result
-    while request_id not in results:
-        time.sleep(0.1)
+    try:
+        request_queue.put((file, request_id))
         
-    result = results.pop(request_id)
-    return jsonify(result)
+        # Wait for the result
+        while request_id not in results:
+            time.sleep(0.1)
+        
+        result = results.pop(request_id)
+        return jsonify(result)
+    
+    except Exception as e:
+        print(f"Error processing request: {str(e)}")
+        return jsonify({'error': 'Internal server error'}), 500
 
 @app.route('/scan-time', methods=['POST'])
 def getScanTime():    
