@@ -165,13 +165,13 @@ function Home() {
   
       if (result.leaf_detected === false) {
         console.log('No leaf detected');
-        handleFailedLeafDetection("No leaf detected. Please try again.");
+        handleFailedLeafDetection("Unable to detect a leaf in the image. Please ensure the photo includes a clear leaf.");
         return;
       } 
       
-      else if (result.confidence < 0.9) {
+      else if (result.confidence < 0.8) {
         console.log('Low confidence:', result.confidence);
-        handleFailedLeafDetection("Image quality is low. Please take a photo again.");
+        handleFailedLeafDetection("The leaf could not be identified. It might not be in our dataset or the image lacks clarity.");
         return;
       }
 
@@ -189,7 +189,8 @@ function Home() {
       setIsScanned(true);
     } catch (error) {
     console.error("Error during scan:", error);
-    handleFailedLeafDetection("An error occurred during the scan. Please try again.");
+    handleFailedLeafDetection("We're having trouble connecting right now. Please refresh the page or try again later.");
+
   } finally {
     setIsUploading(false);
     setIsLoading(false);
