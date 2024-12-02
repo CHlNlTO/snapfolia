@@ -99,7 +99,7 @@ class ImageProcessor:
         return {"leaf_detected": False}
 
     def process_image(self, file):
-        print("\nProcessing Image...")
+        print(f"\nProcessing Image: {file.filename}")
         image = self.convert_to_jpg(file)
 
         dino_results = self.detect_objects_with_dino(image)
