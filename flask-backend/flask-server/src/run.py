@@ -3,7 +3,7 @@ from app import LeafDetectionApp
 def main():
     snapfolia = LeafDetectionApp()
 
-    snapfolia.run(
+    snapfolia.app.run(
         host='0.0.0.0',
         port=5000,
         ssl_context=(

@@ -3,8 +3,6 @@ from transformers import AutoProcessor, AutoModelForZeroShotObjectDetection
 from ultralytics import YOLO
 
 class ModelLoader:
-    """Handles loading and managing machine learning models. """
-
     def __init__(self, config):
         """
         Initialize model loader with configuration.

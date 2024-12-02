@@ -39,11 +39,6 @@ class LeafDetectionApp:
         self._setup_routes()
     
     def _initiaize_models(self):
-        """
-        Load and return models.
-        
-        :return: Object with loaded models
-        """
         class Models:
             def __init__(self, yolo, dino_model, dino_processor, device):
                 self.yolov8_model = yolo
@@ -53,22 +48,20 @@ class LeafDetectionApp:
         
         yolo = self.model_loader.load_yolov8()
         dino_model, dino_processor, device = self.model_loader.load_grounding_dino()
+        print("Models Sucessfully Loaded")
         
         return Models(yolo, dino_model, dino_processor, device)
     
     def _setup_routes(self):
-        """Set up Flask routes."""
         self.app.route('/')(self.index)
         self.app.route('/upload', methods=['POST'])(self.upload_file)
         self.app.route('/scan-time', methods=['POST'])(self.get_scan_time)
 
     def index(self):
-        """Root endpoint."""
         print("Server is running...")
         return jsonify({'message': 'Server is running'})
 
     def upload_file(self):
-        """Handle file upload and processing."""
         if 'file' not in request.files:
             print("No file part in request")
             return jsonify({'error': 'No file part'}), 400
@@ -104,18 +97,11 @@ class LeafDetectionApp:
         return jsonify(result)
 
     def get_scan_time(self):
-        """Handle scan time logging."""
         scan_time = request.form.get('time')
         if scan_time:
             try:
                 scan_time = float(scan_time)
                 print(f"Scan time received: {scan_time} seconds")
-                
-                # For this demo, using dummy values since global variables are gone
-                predicted_class = "Unknown"
-                confidence = 0.0
-                
-                self.logger.log_detection(predicted_class, confidence, scan_time)
                 print("--------------------------------------------")
                 
             except ValueError:
@@ -123,11 +109,9 @@ class LeafDetectionApp:
         return jsonify({'success': 'Time Received'}), 200
 
     def process_request(self):
-        """Background thread for processing requests."""
         while True:
             batch = []
             
-            # Collect a batch of requests
             for _ in range(self.config.BATCH_SIZE):
                 if not self.request_queue.empty():
                     batch.append(self.request_queue.get())
@@ -135,20 +119,16 @@ class LeafDetectionApp:
                     break
                     
             if not batch:
-                time.sleep(1)  # Wait if queue is empty
+                time.sleep(1) 
                 continue
                 
-            # Process the batch
             for file, request_id in batch:
                 self.results[request_id] = self.image_processor.process_image(file)
                 
-            # Signal that batch processing is complete
             for _ in range(len(batch)):
                 self.request_queue.task_done()
 
     def run(self):
-        """Start the application."""
-        # Start the processing thread
         processing_thread = Thread(target=self.process_request)
         processing_thread.daemon = True
         processing_thread.start()

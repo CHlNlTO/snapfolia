@@ -1,10 +1,6 @@
 import os 
 
 class Config:
-    """
-    Configuration settings for the application
-    """
-    
     UPLOAD_FOLDER = 'uploads'
     CUSTOM_CACHE_DIR = os.path.join(os.getcwd(), 'cache')
 

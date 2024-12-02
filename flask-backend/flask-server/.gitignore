@@ -1,3 +1,5 @@
 venv/
 uploads/
 cache/
+__pycache__/
+app.log

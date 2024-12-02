@@ -6,7 +6,6 @@ class LeafLogger:
         self._setup_logging()
 
     def _setup_logging(self):
-        """Configure logging settings."""
         logging.basicConfig(
             filename=self.config.LOG_FILE, 
             level=logging.INFO,

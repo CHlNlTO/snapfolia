@@ -51,12 +51,7 @@ class ImageProcessor:
             return None
 
     def detect_objects_with_dino(self, image):
-        """
-        Detect objects using Grounding DINO.
-        
-        :param image: PIL Image to process
-        :return: Detection results
-        """
+        print("Running Grounding Dino...")
         inputs = self.grounding_dino_processor(
             images=image,
             text=" a leaf. leaves. ",
@@ -77,13 +72,6 @@ class ImageProcessor:
         return results
 
     def detect_and_classify_leaf(self, image):
-        """
-        Detect and classify leaf using YOLOv8.
-        
-        :param image: PIL Image to process
-        :return: Detection results
-        """
-        
         print("Detecting & Classifying Leaf...")
         results = self.yolov8_model(image)
         
@@ -111,13 +99,6 @@ class ImageProcessor:
         return {"leaf_detected": False}
 
     def process_image(self, file):
-        """
-        Full image processing pipeline.
-        
-        :param file: File object to process
-        :return: Processing results
-        """
-        
         print("\nProcessing Image...")
         image = self.convert_to_jpg(file)
 
