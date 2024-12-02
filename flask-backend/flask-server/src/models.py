@@ -9,7 +9,7 @@ class ModelLoader:
         """
         Initialize model loader with configuration.
         """
-        
+
         self.config = config
         self.device = None
         self.yolov8_model = None
