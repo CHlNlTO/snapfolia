@@ -19,7 +19,7 @@ class Config:
     BATCH_SIZE = 10 
     
     # Logging
-    LOG_FILE = 'logs.csv'
+    LOG_FILE = 'app.log'
 
     @classmethod
     def initialize_directories(cls):
