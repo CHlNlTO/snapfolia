@@ -81,16 +81,36 @@ export function FileDropzone() {
             ? "border-green-300 bg-green-300/5"
             : " border-green-500 bg-green-500/5 hover:border-green-400 dark:border-green-700 dark:hover:border-green-500"
         }`}
-        initial={{ scale: 1.01, boxShadow: "0px 0px 0px 0px #229956" }}
-        animate={{ scale: 1, boxShadow: "10px 10px 0px 0px #229956" }}
+        initial={{
+          scale: 1.01,
+          boxShadow: "0px 0px 0px 0px #229956",
+          WebkitBoxShadow: "0px 0px 0px 0px #229956",
+          MozBoxShadow: "0px 0px 0px 0px #229956",
+        }}
+        animate={{
+          scale: 1,
+          boxShadow: "10px 10px 0px 0px #229956",
+          WebkitBoxShadow: "10px 10px 0px 0px 0px #229956",
+          MozBoxShadow: "10px 10px 0px 0px #229956",
+        }}
         transition={{ duration: 0.2, ease: "easeInOut" }}
         onClick={handleButtonClick}
         onDragEnter={handleDragEnter}
         onDragLeave={handleDragLeave}
         onDragOver={handleDragOver}
         onDrop={handleDrop}
-        whileHover={{ scale: 1.01, boxShadow: "0px 0px 0px 0px #229956" }}
-        whileTap={{ scale: 0.98, boxShadow: "0px 0px 0px 0px #229956" }}
+        whileHover={{
+          scale: 1.01,
+          boxShadow: "0px 0px 0px 0px #229956",
+          WebkitBoxShadow: "0px 0px 0px 0px #229956",
+          MozBoxShadow: "0px 0px 0px 0px #229956",
+        }}
+        whileTap={{
+          scale: 0.98,
+          boxShadow: "0px 0px 0px 0px #229956",
+          WebkitBoxShadow: "0px 0px 0px 0px #229956",
+          MozBoxShadow: "0px 0px 0px 0px #229956",
+        }}
         style={{
           boxShadow: "10px 10px 0px 0px #229956",
           WebkitBoxShadow: "10px 10px 0px 0px #229956",
