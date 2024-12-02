@@ -9,7 +9,10 @@ class Config:
     CUSTOM_CACHE_DIR = os.path.join(os.getcwd(), 'cache')
 
     # Model Paths
-    YOLOV8_MODEL_PATH = './model/best36_class.pt'
+    YOLOV8_MODEL_PATH = '../best36_class.pt'
+    if not os.path.exists(YOLOV8_MODEL_PATH):
+        print(f"Error: YOLOv8 model file not found at {YOLOV8_MODEL_PATH}")
+        
     GROUNDING_DINO_MODEL_ID = 'IDEA-Research/grounding-dino-tiny'
 
     # Batch Processing
