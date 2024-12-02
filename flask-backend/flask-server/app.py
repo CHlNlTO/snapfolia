@@ -1,21 +1,29 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import torch
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
+import imageio.v3 as iio 
 from transformers import AutoProcessor, AutoModelForZeroShotObjectDetection
 from ultralytics import YOLO
-import numpy as np
-import platform
 import time
 from queue import Queue
 from threading import Thread
-from datetime import datetime
 import io
-import pillow_heif
+from pillow_heif import read_heif 
 import logging
+import os
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://trees.firstasia.edu.ph", "supports_credentials": True}})
+CORS(app)
+
+# Directory to save uploaded images
+UPLOAD_FOLDER = 'uploads'
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+CUSTOM_CACHE_DIR = os.path.join(os.getcwd(), 'cache')
+os.makedirs(CUSTOM_CACHE_DIR, exist_ok=True)
+os.environ['TRANSFORMERS_CACHE'] = CUSTOM_CACHE_DIR
 
 # Global variables for queueing
 BATCH_SIZE = 10
@@ -24,6 +32,8 @@ results = {}
 
 # Global variables for models
 yolov8_model = None
+grounding_dino_model = None
+grounding_dino_processor = None
 device = None
 
 # Global variables for logs
@@ -40,101 +50,140 @@ logging.basicConfig(
 
 def logs(predicted_class, confidence, scan_time):
     log_message = f"{predicted_class},{confidence},{scan_time}"
+    # Log the message
     logging.info(log_message)
-    print(f"Logged: {log_message}")
+    
+    # Create a formatter to generate the log message in the same format as the file
+    formatter = logging.Formatter('%(asctime)s,%(levelname)s,%(message)s', datefmt='%Y/%m/%d %H:%M:%S')
+    log_record = logging.makeLogRecord({
+        'levelno': logging.INFO,
+        'levelname': 'INFO',
+        'msg': log_message,
+        'asctime': formatter.formatTime(logging.makeLogRecord({}), '%Y/%m/%d %H:%M:%S')
+    })
+    # Print the formatted log message
+    print(formatter.format(log_record))
 
-# Initialize model
-def initialize_model():
-    global yolov8_model, device
-    yolov8_model_path = 'best36_class.pt'
-    print("Loading YOLOv8 model...")
-    yolov8_model = load_yolov8_model(yolov8_model_path)
+def initialize_models():
+    global yolov8_model, grounding_dino_model, grounding_dino_processor, device
+    print("Initializing models...")
 
     if torch.cuda.is_available():
-        print("CUDA is available")
-        print(f"CUDA version: {torch.version.cuda}")
-        print(f"Python version: {platform.python_version()}")
         device = torch.device('cuda')
+        print(f"Using CUDA: {torch.version.cuda}")
     else:
-        print("CUDA is not available")
         device = torch.device('cpu')
+        print("CUDA not available, using CPU.")
+        
+    # YOLOv8 model
+    yolov8_model_path = 'best36_class.pt'
+    yolov8_model = YOLO(yolov8_model_path)
+    print("YOLOv8 model loaded.")
 
-    print("--- Model Ready ---")
-
-
-def load_yolov8_model(model_path):
-    model = YOLO(model_path)
-    print("YOLOV8 Ready...")
-    return model
-
-
-# Combined detection and classification using YOLOv8
-def detect_and_classify_leaf(image, yolov8_model):    
-    global predicted_class, confidence
+    # Grounding DINO model
+    print("Loading Grounding Dino.")
+    grounding_dino_model_id = 'IDEA-Research/grounding-dino-tiny'
+    grounding_dino_processor = AutoProcessor.from_pretrained(grounding_dino_model_id, cache_dir=CUSTOM_CACHE_DIR)
+    grounding_dino_model = AutoModelForZeroShotObjectDetection.from_pretrained(
+        grounding_dino_model_id, cache_dir=CUSTOM_CACHE_DIR
+    ).to(device)
+    grounding_dino_model.eval()
     
-    print("<------------------------------------------------>")
-    print("DETECTING AND CLASSIFYING LEAF...")
+    print(f"Grounding DINO model loaded with cache at {CUSTOM_CACHE_DIR}.")
+
+
+    print("Models initialized successfully.")
+
+def detect_objects_with_dino(image, model, processor):
+    inputs = processor(
+        images=image,
+        text=" a leaf. leaves. ",
+        return_tensors="pt"
+    ).to(device) 
+
+    with torch.no_grad():
+        outputs = model(**inputs)
+    
+    results = processor.post_process_grounded_object_detection(
+        outputs,
+        inputs.input_ids,
+        box_threshold=0.4,
+        text_threshold=0.3,
+        target_sizes=[image.size[::-1]]
+    )
+    
+    return results
+
+        
+def detect_and_classify_leaf(image, yolov8_model):
+    print("Detecting & Classifying Leaf...")
     results = yolov8_model(image)
-    
     if len(results) > 0 and len(results[0].boxes) > 0:
-        # Leaf detected
-        box = results[0].boxes[0]  # Get the first detected box
+        box = results[0].boxes[0]
         predicted_class = results[0].names[int(box.cls)]
         confidence = round(float(box.conf), 2)
-        print(f"Confidence Level: {confidence}")
-        
         return {
             "leaf_detected": True,
             "label": predicted_class,
             "confidence": confidence,
         }
-    else:
-        # No leaf detected
-        return {"leaf_detected": False}
-
+    return {"leaf_detected": False}
+        
+    
 def convert_to_jpg(file):
     try:
         # Read the file content
         file_content = file.read()
         file.seek(0)  # Reset file pointer to the beginning
 
-        # Check if it's a HEIC file
+        # Check for HEIC format
         if file.filename.lower().endswith('.heic'):
-            # Use pillow_heif to read HEIC file
-            heif_file = pillow_heif.read_heif(io.BytesIO(file_content))
+            heif_file = read_heif(io.BytesIO(file_content))
             image = Image.frombytes(
                 heif_file.mode, 
                 heif_file.size, 
-                heif_file.data,
-                "raw",
-                heif_file.mode,
-                heif_file.stride,
+                heif_file.data, 
+                "raw", 
+                heif_file.mode, 
+                heif_file.stride
             )
+        # Check for AVIF format
+        elif file.filename.lower().endswith('.avif'):
+            # Use imageio to read AVIF and convert to a PIL Image
+            avif_image = iio.imread(io.BytesIO(file_content))
+            image = Image.fromarray(avif_image)
         else:
             # For other formats, use PIL directly
             image = Image.open(io.BytesIO(file_content))
 
-        # Convert to RGB mode if it's not already (this handles RGBA images)
+        # Convert to RGB mode if necessary
         if image.mode != 'RGB':
             image = image.convert('RGB')
         
         print(f"Converted {file.filename} to JPG")
         return image
-    
-    except Exception as e:
-        print(f"Error converting {file.filename} to JPG: {str(e)}")
-        raise
 
-def process_image(file, yolov8_model):
-    # Convert the image to JPG
-    jpg_image = convert_to_jpg(file)
-    
-    # Perform detection and classification
-    result = detect_and_classify_leaf(jpg_image, yolov8_model)
-    
-    return result
+    except UnidentifiedImageError as e:
+        print(f"Error: Cannot identify image file {file.filename} - {e}")
+        return None
+    except Exception as e:
+        print(f"Error converting {file.filename} to JPG: {e}")
+        return None
+
+def process_image(file):
+    print("Processing Image...")
+    image = convert_to_jpg(file)
+
+    dino_results = detect_objects_with_dino(image, grounding_dino_model, grounding_dino_processor)
+    if not dino_results or "boxes" not in dino_results[0] or dino_results[0]["boxes"].shape[0] == 0:
+        return {"leaf_detected": False}
+
+    yolov8_results = detect_and_classify_leaf(image, yolov8_model)
+    return yolov8_results
 
 def process_request():
+    print("Processing Request...")
+    
     global results
     while True:
         batch = []
@@ -152,8 +201,7 @@ def process_request():
             
         # Process the batch
         for file, request_id in batch:
-            result = process_image(file, yolov8_model)
-            results[request_id] = result
+            results[request_id] = process_image(file)
             
         # Signal that batch processing is complete
         for _ in range(len(batch)):
@@ -169,21 +217,37 @@ def upload_file():
     if 'file' not in request.files:
         print("No file part in request")
         return jsonify({'error': 'No file part'}), 400
-        
+
     file = request.files['file']
     if file.filename == '':
         print("No selected file")
         return jsonify({'error': 'No selected file'}), 400
-    
-    request_id = str(time.time()) 
+
+    # Add file to the processing queue
+    request_id = str(time.time())
     request_queue.put((file, request_id))
-    
+
     # Wait for the result
     while request_id not in results:
         time.sleep(0.1)
-        
+
+    # Retrieve the processing result
     result = results.pop(request_id)
+
+    if result.get("leaf_detected"):
+        confidence = result.get("confidence", 0)
+        if confidence < 0.9:  # Save only if confidence is less than 90%
+            file_path = os.path.join('uploads', secure_filename(file.filename))
+            file.seek(0)  # Reset the file pointer before saving
+            file.save(file_path)
+            print(f"Leaf image saved to {file_path}")
+        else:
+            print(f"Image not saved as confidence is {confidence * 100:.2f}%")
+    else:
+        print("No leaf detected. Image not saved.")
+
     return jsonify(result)
+
 
 @app.route('/scan-time', methods=['POST'])
 def getScanTime():    
@@ -195,6 +259,7 @@ def getScanTime():
             scan_time = float(scan_time)
             print(f"Scan time received: {scan_time} seconds")
             logs(predicted_class, confidence, scan_time)
+            print("--------------------------------------------")
             
         except ValueError:
             print("Invalid scan_time value received")
@@ -202,8 +267,9 @@ def getScanTime():
 
 
 if __name__ == '__main__':
-    initialize_model()
 
+    initialize_models()
+    
     # Start the processing thread
     processing_thread = Thread(target=process_request)
     processing_thread.daemon = True
