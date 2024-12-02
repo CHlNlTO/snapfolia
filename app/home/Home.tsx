@@ -1,4 +1,4 @@
-import FileDropzone from "@/components/component/fileDropZone";
+import FileDropzone from "@/components/component/fileDropzone";
 import { MarqueeDemo } from "@/components/component/MarqueeDemo";
 
 export default function Home() {
