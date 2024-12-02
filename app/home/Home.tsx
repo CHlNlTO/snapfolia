@@ -9,7 +9,6 @@ export default function Home() {
         alt="Branch Background"
         layout="fill"
         className="absolute object-cover "
-        priority
       /> */}
       <section className="flex flex-col-reverse sm:flex-row items-center justify-center gap-0 sm:gap-28 mt-12 sm:mt-20">
         <FileDropzone />
