@@ -118,21 +118,29 @@ def detect_objects_with_dino(image, model, processor):
 def detect_and_classify_leaf(image, yolov8_model):
     print("Detecting & Classifying Leaf...")
     results = yolov8_model(image)
+    
     if len(results) > 0 and len(results[0].boxes) > 0:
-        box = results[0].boxes[0]
-        predicted_class = results[0].names[int(box.cls)]
-        confidence = round(float(box.conf), 2)
+        predictions = []
+        for box in results[0].boxes:
+            predicted_class = results[0].names[int(box.cls)]
+            confidence = round(float(box.conf), 2)
+            predictions.append((predicted_class, confidence))
         
+        predictions.sort(key=lambda x: x[1], reverse=True)
+
         print()
-        print(f"Predicted Class: {predicted_class}")
-        print(f"Confidence: {confidence} ")
+        print("\nTop 3 Predictions:")
+        for i in range(min(3, len(predictions))):
+            predicted_class, confidence = predictions[i]
+            print(f"{i+1}. {predicted_class} - Confidence: {confidence}")
         print()
-        
+
         return {
             "leaf_detected": True,
             "label": predicted_class,
             "confidence": confidence,
         }
+        
     return {"leaf_detected": False}
         
     

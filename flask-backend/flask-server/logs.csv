@@ -1284,3 +1284,22 @@ FileNotFoundError: [Errno 2] No such file or directory: '../uploads\\IMG_4611.jp
 2024/12/02 16:40:26,INFO,172.16.146.116 - - [02/Dec/2024 16:40:26] "POST /upload HTTP/1.1" 200 -
 2024/12/02 16:40:26,INFO,None,0,3.57
 2024/12/02 16:40:26,INFO,172.16.146.116 - - [02/Dec/2024 16:40:26] "POST /scan-time HTTP/1.1" 200 -
+2024/12/02 16:43:50,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/02 16:43:50,INFO,[33mPress CTRL+C to quit[0m
+2024/12/02 16:44:16,INFO,172.16.146.116 - - [02/Dec/2024 16:44:16] "POST /upload HTTP/1.1" 200 -
+2024/12/02 16:44:16,INFO,None,0,2.92
+2024/12/02 16:44:16,INFO,172.16.146.116 - - [02/Dec/2024 16:44:16] "POST /scan-time HTTP/1.1" 200 -
+2024/12/02 16:44:55,INFO,172.16.146.116 - - [02/Dec/2024 16:44:55] "POST /upload HTTP/1.1" 200 -
+2024/12/02 16:44:55,INFO,None,0,2.02
+2024/12/02 16:44:55,INFO,172.16.146.116 - - [02/Dec/2024 16:44:55] "POST /scan-time HTTP/1.1" 200 -
+2024/12/02 16:48:49,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/02 16:48:49,INFO,[33mPress CTRL+C to quit[0m
+2024/12/02 16:49:00,INFO,172.16.146.116 - - [02/Dec/2024 16:49:00] "POST /upload HTTP/1.1" 200 -
+2024/12/02 16:49:00,INFO,None,0,2.38
+2024/12/02 16:49:00,INFO,172.16.146.116 - - [02/Dec/2024 16:49:00] "POST /scan-time HTTP/1.1" 200 -
