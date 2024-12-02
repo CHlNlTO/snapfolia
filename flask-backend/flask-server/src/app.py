@@ -40,7 +40,7 @@ class LeafDetectionApp:
         
         # Setup routes
         self._setup_routes()
-
+    
     def _initialize_models(self):
         """
         Load and return models.
@@ -81,17 +81,15 @@ class LeafDetectionApp:
         request_id = str(time.time())
         self.request_queue.put((file, request_id))
 
-        # Wait until the result is processed
         while request_id not in self.results:
             time.sleep(0.1)
 
         result = self.results.pop(request_id)
 
-        # Handle saving the file if a leaf is detected
         if result.get("leaf_detected"):
             confidence = result.get("confidence", 0)
             if confidence < 0.9:
-                # Save the image with a confidence-based filename
+                # Use the confidence score to create the file name
                 file_name = f"{confidence:.2f}_{secure_filename(file.filename)}"
                 file_path = os.path.join(self.config.UPLOAD_FOLDER, file_name)
                 file.seek(0)
@@ -109,16 +107,16 @@ class LeafDetectionApp:
                 scan_time = float(scan_time)
                 print(f"Scan time received: {scan_time} seconds")
                 print("--------------------------------------------")
+                
             except ValueError:
                 print("Invalid scan_time value received")
         return jsonify({'success': 'Time Received'}), 200
     
     def process_request(self):
-        """Process requests in batches using a background thread."""
         while True:
             batch = []
             
-            # Collect a batch of requests up to BATCH_SIZE
+            # Collect a batch of requests
             for _ in range(self.config.BATCH_SIZE):
                 if not self.request_queue.empty():
                     batch.append(self.request_queue.get())
@@ -129,9 +127,8 @@ class LeafDetectionApp:
                 time.sleep(1)  # Wait if queue is empty
                 continue
                 
-            # Process each request in the batch
+            # Process the batch
             for file, request_id in batch:
-                print(f"Processing request {request_id}...")  # Debug print to track requests
                 self.results[request_id] = self.image_processor.process_image(file)
                 
             # Signal that batch processing is complete
@@ -139,11 +136,6 @@ class LeafDetectionApp:
                 self.request_queue.task_done()
     
     def run(self):
-        """Run the Flask app and start the background thread for processing."""
-        # Start the background thread for request processing
         processing_thread = Thread(target=self.process_request)
         processing_thread.daemon = True
         processing_thread.start()
-
-        # Start the Flask app
-        self.app.run(debug=True)
