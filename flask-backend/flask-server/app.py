@@ -122,6 +122,12 @@ def detect_and_classify_leaf(image, yolov8_model):
         box = results[0].boxes[0]
         predicted_class = results[0].names[int(box.cls)]
         confidence = round(float(box.conf), 2)
+        
+        print()
+        print(f"Predicted Class: {predicted_class}")
+        print(f"Confidence: {confidence} ")
+        print()
+        
         return {
             "leaf_detected": True,
             "label": predicted_class,
