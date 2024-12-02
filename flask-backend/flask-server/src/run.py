@@ -1,5 +1,5 @@
-from app import LeafDetectionApp
 import os
+from app import leaf_app  # Import leaf_app, which is an instance of LeafDetectionApp
 
 def main():
     # Check if SSL certificate and key exist
@@ -9,9 +9,6 @@ def main():
     if not os.path.exists(cert_path) or not os.path.exists(key_path):
         print("SSL certificate or key file not found.")
         return
-    
-    # Create the Flask application instance
-    leaf_app = LeafDetectionApp()
     
     try:
         # Run the application with SSL context

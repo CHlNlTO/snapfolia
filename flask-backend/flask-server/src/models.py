@@ -30,6 +30,7 @@ class ModelLoader:
         return self.yolov8_model
     
     def load_grounding_dino(self):
+        print("Loading Grounding Dino...")
         device = self._setup_device()
 
         self.grounding_dino_processor = AutoProcessor.from_pretrained(

@@ -11,6 +11,10 @@ from models import ModelLoader
 from logger import LeafLogger
 from image_processor import ImageProcessor
 
+# Flask setup
+app = Flask(__name__)
+CORS(app)
+
 class LeafDetectionApp:
     """Main Flask application for leaf detection."""
     
@@ -19,10 +23,6 @@ class LeafDetectionApp:
         # Configuration
         self.config = Config
         self.config.initialize_directories()
-        
-        # Flask setup
-        self.app = Flask(__name__)
-        CORS(self.app)
         
         # Model and processing setup
         self.model_loader = ModelLoader(self.config)
@@ -64,10 +64,12 @@ class LeafDetectionApp:
         self.app.add_url_rule('/upload', 'upload_file', self.upload_file, methods=['POST'])
         self.app.add_url_rule('/scan-time', 'get_scan_time', self.get_scan_time, methods=['POST'])
     
+    @app.route('/')
     def index(self):
         print("Server is running...")
         return jsonify({'message': 'Server is running'})
     
+    @app.route('/upload', methods=['POST'])
     def upload_file(self):
         if 'file' not in request.files:
             print("No file part in request")
@@ -100,6 +102,7 @@ class LeafDetectionApp:
 
         return jsonify(result)
     
+    @app.route('/scan-time', methods=['POST'])
     def get_scan_time(self):
         scan_time = request.form.get('time')
         if scan_time:

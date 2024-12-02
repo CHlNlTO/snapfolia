@@ -2,7 +2,7 @@ import os
 
 class Config:
     UPLOAD_FOLDER = 'uploads'
-    CUSTOM_CACHE_DIR = os.path.join(os.getcwd(), 'cache')
+    CUSTOM_CACHE_DIR = os.path.join(os.getcwd(), './cache')
 
     # Model Paths
     YOLOV8_MODEL_PATH = '../best36_class.pt'
