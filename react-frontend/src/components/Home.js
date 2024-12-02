@@ -168,6 +168,7 @@ function Home() {
         handleFailedLeafDetection("The leaf could not be identified. It might not be in our dataset or the image lacks clarity.");
         // handleFailedLeafDetection("Unable to detect a leaf in the image. Please ensure the photo includes a clear leaf.");
         return;
+        
       } else if (result.confidence < 0.5) {
         console.log('Low confidence:', result.confidence);
         handleFailedLeafDetection("The leaf could not be identified. It might not be in our dataset or the image lacks clarity.");

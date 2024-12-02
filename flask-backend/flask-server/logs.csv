@@ -1320,3 +1320,26 @@ FileNotFoundError: [Errno 2] No such file or directory: '../uploads\\IMG_4611.jp
 2024/12/02 16:51:53,INFO,172.16.101.124 - - [02/Dec/2024 16:51:53] "POST /upload HTTP/1.1" 200 -
 2024/12/02 16:51:53,INFO,None,0,1.44
 2024/12/02 16:51:53,INFO,172.16.101.124 - - [02/Dec/2024 16:51:53] "POST /scan-time HTTP/1.1" 200 -
+2024/12/02 17:10:05,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/02 17:10:05,INFO,[33mPress CTRL+C to quit[0m
+2024/12/02 17:10:34,INFO,172.16.146.116 - - [02/Dec/2024 17:10:34] "POST /upload HTTP/1.1" 200 -
+2024/12/02 17:10:34,INFO,None,0,1.13
+2024/12/02 17:10:34,INFO,172.16.146.116 - - [02/Dec/2024 17:10:34] "POST /scan-time HTTP/1.1" 200 -
+2024/12/02 17:10:46,INFO,172.16.146.116 - - [02/Dec/2024 17:10:46] "POST /upload HTTP/1.1" 200 -
+2024/12/02 17:10:46,INFO,None,0,2.42
+2024/12/02 17:10:46,INFO,172.16.146.116 - - [02/Dec/2024 17:10:46] "POST /scan-time HTTP/1.1" 200 -
+2024/12/02 17:15:49,INFO,172.16.146.116 - - [02/Dec/2024 17:15:49] "POST /upload HTTP/1.1" 200 -
+2024/12/02 17:15:49,INFO,None,0,16.61
+2024/12/02 17:15:49,INFO,172.16.146.116 - - [02/Dec/2024 17:15:49] "POST /scan-time HTTP/1.1" 200 -
+2024/12/02 20:27:15,INFO,167.94.138.45 - - [02/Dec/2024 20:27:15] "GET / HTTP/1.1" 200 -
+2024/12/02 20:27:16,INFO,167.94.138.45 - - [02/Dec/2024 20:27:16] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024/12/02 20:27:17,ERROR,167.94.138.45 - - [02/Dec/2024 20:27:17] code 505, message Invalid HTTP version (2.0)
+2024/12/02 20:27:17,INFO,167.94.138.45 - - [02/Dec/2024 20:27:17] "[35m[1mPRI * HTTP/2.0[0m" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+2024/12/02 23:10:44,ERROR,149.62.45.25 - - [02/Dec/2024 23:10:44] code 400, message Bad request version ('*\x04(NTLMSSP\x00\x01\x00\x00\x00·\x82\x08â\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+2024/12/02 23:10:44,INFO,149.62.45.25 - - [02/Dec/2024 23:10:44] "[35m[1m07 \x03\x02\x01`¡00.0, *\x04(NTLMSSP\x00\x01\x00\x00\x00·\x82\x08â\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00[0m" HTTPStatus.BAD_REQUEST -
+2024/12/02 23:10:44,ERROR,149.62.45.25 - - [02/Dec/2024 23:10:44] code 400, message Bad request syntax ('*1')
+2024/12/02 23:10:44,INFO,149.62.45.25 - - [02/Dec/2024 23:10:44] "[35m[1m*1[0m" HTTPStatus.BAD_REQUEST -
+2024/12/02 23:32:51,INFO,147.185.132.38 - - [02/Dec/2024 23:32:51] "GET / HTTP/1.1" 200 -

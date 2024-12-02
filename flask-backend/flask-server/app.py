@@ -91,7 +91,6 @@ def initialize_models():
     
     print(f"Grounding DINO model loaded with cache at {CUSTOM_CACHE_DIR}.")
 
-
     print("Models initialized successfully.")
 
 def detect_objects_with_dino(image, model, processor):
