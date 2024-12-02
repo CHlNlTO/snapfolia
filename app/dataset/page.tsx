@@ -1,9 +1,9 @@
-import Home from "./home/Home";
+import Dataset from "./Dataset";
 
 export default function Page() {
   return (
     <main>
-      <Home />
+      <Dataset />
     </main>
   );
 }

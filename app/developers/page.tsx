@@ -1,9 +1,9 @@
-import Home from "./home/Home";
+import Developers from "./Developers";
 
 export default function Page() {
   return (
     <main>
-      <Home />
+      <Developers />
     </main>
   );
 }
