@@ -171,6 +171,7 @@ def convert_to_jpg(file):
         return None
 
 def process_image(file):
+    print()
     print("Processing Image...")
     image = convert_to_jpg(file)
 
@@ -182,7 +183,6 @@ def process_image(file):
     return yolov8_results
 
 def process_request():
-    print("Processing Request...")
     
     global results
     while True:

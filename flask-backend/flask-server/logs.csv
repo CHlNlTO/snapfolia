@@ -1265,3 +1265,11 @@ FileNotFoundError: [Errno 2] No such file or directory: '../uploads\\IMG_4611.jp
 2024/12/02 15:50:21,INFO,172.16.146.116 - - [02/Dec/2024 15:50:21] "POST /upload HTTP/1.1" 200 -
 2024/12/02 15:50:21,INFO,None,0,1.69
 2024/12/02 15:50:21,INFO,172.16.146.116 - - [02/Dec/2024 15:50:21] "POST /scan-time HTTP/1.1" 200 -
+2024/12/02 16:20:46,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/02 16:20:46,INFO,[33mPress CTRL+C to quit[0m
+2024/12/02 16:21:09,INFO,172.16.101.124 - - [02/Dec/2024 16:21:09] "POST /upload HTTP/1.1" 200 -
+2024/12/02 16:21:09,INFO,None,0,3.81
+2024/12/02 16:21:09,INFO,172.16.101.124 - - [02/Dec/2024 16:21:09] "POST /scan-time HTTP/1.1" 200 -

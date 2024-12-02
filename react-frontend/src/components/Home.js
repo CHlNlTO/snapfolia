@@ -361,14 +361,15 @@ function Home() {
               >
                 {scanResult.scientificName}
               </h2>
-              {/* <h2
+              { <h2
                 className="color-dgreen animate-slide-in"
                 id="scan-time"
                 style={{ fontSize: "19.2px" }}
               >
                 Scan Time: {scanResult.scanTime}
-              </h2> */}
-              {/* <div className="row ps-3">
+              </h2>}
+
+              {<div className="row ps-3">
                 <div className="d-flex flex-row justify-content-center align-items-center animate-slide-in">
                   <h3 style={{ fontSize: "11.2px" }}>
                     <i
@@ -384,7 +385,8 @@ function Home() {
                     {scanResult.probability}
                   </h3>
                 </div>
-              </div> */}
+              </div>}
+              
             </div>
           </div>
         </section>
