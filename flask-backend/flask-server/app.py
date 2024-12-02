@@ -250,13 +250,13 @@ def upload_file():
 
     if result.get("leaf_detected"):
         confidence = result.get("confidence", 0)
-        if confidence < 0.9:  # Save only if confidence is less than 90%
-            file_path = os.path.join('uploads', secure_filename(file.filename))
-            file.seek(0)  # Reset the file pointer before saving
+        if confidence < 0.9:
+            # Use the confidence score to create the file name
+            file_name = f"{confidence:.2f}_{secure_filename(file.filename)}"
+            file_path = os.path.join('uploads', file_name)
+            file.seek(0)
             file.save(file_path)
             print(f"Leaf image saved to {file_path}")
-        else:
-            print(f"Image not saved as confidence is {confidence * 100:.2f}%")
     else:
         print("No leaf detected. Image not saved.")
 
