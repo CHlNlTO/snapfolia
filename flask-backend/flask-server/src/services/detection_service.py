@@ -21,6 +21,7 @@ class DetectionService:
             print("Image conversion failed.")
             return {"leaf_detected": False}
         
+        print(image)
         dino_results = self.object_detector.detect_object_with_dino(image)
         print(f"Dino results: {dino_results}")
 

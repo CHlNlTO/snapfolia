@@ -27,12 +27,14 @@ class ImageProcessor:
                 )
             # Check for AVIF format
             elif file.filename.lower().endswith('.avif'):
+                # Use imageio to read AVIF and convert to a PIL Image
                 avif_image = iio.imread(io.BytesIO(file_content))
                 image = Image.fromarray(avif_image)
-                
             else:
+                # For other formats, use PIL directly
                 image = Image.open(io.BytesIO(file_content))
 
+            # Convert to RGB mode if necessary
             if image.mode != 'RGB':
                 image = image.convert('RGB')
             
@@ -48,13 +50,6 @@ class ImageProcessor:
 
     @staticmethod
     def save_image(file, confidence):
-        """
-        Save image to uploads folder.
-        
-        :param file: File object
-        :param confidence: Confidence score
-        :return: Path of saved file
-        """
         # Use the confidence score to create the file name
         file_name = f"{confidence:.2f}_{secure_filename(file.filename)}"
         file_path = os.path.join(Config.UPLOAD_FOLDER, file_name)

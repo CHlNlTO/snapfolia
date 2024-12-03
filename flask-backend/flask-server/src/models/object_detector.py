@@ -38,13 +38,13 @@ class ObjectDetector:
         print(f"Grounding DINO model loaded with cache at {Config.CUSTOM_CACHE_DIR}.")
     
     def detect_object_with_dino(self,image):
-        print("DETECTING WITH OBJECT DINO")
+        print(image)
         inputs = self.grounding_dino_processor(
             images=image,
-            text=" a leaf. leaves.",
+            text=" a leaf. leaves. ",
             return_tensors="pt"
-        ).to(self.device)
-        
+        ).to(self.device) 
+
         with torch.no_grad():
             outputs = self.grounding_dino_model(**inputs)
         
