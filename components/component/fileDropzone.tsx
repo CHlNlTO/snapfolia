@@ -74,9 +74,9 @@ export function FileDropzone() {
   };
 
   return (
-    <div className="h-60 w-96 p-8 rounded-2xl mt-20">
+    <div className="h-60 w-96 sm:h-96 sm:w-[32rem] p-0 sm:p-8 rounded-2xl mt-20">
       <motion.div
-        className={`group relative size-full cursor-pointer rounded-xl shadow-green-900 shadow-lg border-2 border-dashed p-12 text-center transition-colors ${
+        className={`group relative flex justify-center items-center size-full cursor-pointer rounded-xl shadow-green-900 shadow-lg border-2 border-dashed p-12 text-center transition-colors ${
           isDragActive
             ? "border-green-300 bg-green-300/5"
             : " border-green-500 bg-green-500/5 hover:border-green-400 dark:border-green-700 dark:hover:border-green-500"

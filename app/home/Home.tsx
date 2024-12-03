@@ -10,14 +10,14 @@ export default function Home() {
         layout="fill"
         className="absolute object-cover "
       /> */}
-      <section className="flex flex-col-reverse sm:flex-row items-center justify-center gap-0 sm:gap-28 mt-12 sm:mt-20">
+      <section className="flex flex-col-reverse sm:flex-row items-center justify-center gap-0 sm:gap-28 mt-2 sm:mt-20">
         <FileDropzone />
         <div className="px-6 sm:px-0">
-          <h1 className="text-7xl font-bold mt-10 text-green-900 max-w-[36rem]">
-            Explore The World Of Trees
+          <h1 className="text-6xl sm:text-7xl font-bold mt-10 text-green-900 max-w-[36rem]">
+            Explore The Trees of Batangas
           </h1>
-          <h3 className="text-2xl font-bold mt-2 text-green-900 opacity-75">
-            Trees Are The Lungs Of The World
+          <h3 className="text-2xl font-bold mt-2 text-green-900/50 opacity-75">
+            Upload a photo of a tree to identify it
           </h3>
         </div>
       </section>
