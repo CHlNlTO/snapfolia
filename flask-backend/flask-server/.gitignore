@@ -3,3 +3,4 @@ uploads/
 cache/
 __pycache__/
 app.log
+logs.csv
