@@ -3,10 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { instructions } from "@/lib/data";
 import { AnimatePresence, motion } from "framer-motion";
-import { File, Trash2, Image as ImageIcon, Plus, Leaf } from "lucide-react";
+import { File, Trash2, Plus, Leaf } from "lucide-react";
 import Image from "next/image";
 import type React from "react";
 import { type DragEvent, useRef, useState } from "react";
+import ImageIcon from "./ImageIcon";
 
 interface FileWithPreview extends File {
   preview: string;
@@ -134,7 +135,7 @@ export function FileDropzone() {
               initial={{ opacity: 0, y: 10 }}
               transition={{ duration: 0.2 }}
             >
-              <ImageIcon className="mx-auto text-green-500 opacity-80 dark:text-neutral-500 w-12 h-12" />
+              <ImageIcon className="mx-auto text-green-500 opacity-80 w-12 h-12" />
               <Button className="font-medium bg-green-500 text-white text-sm dark:text-neutral-500 opacity-80">
                 <span>
                   <Plus className="text-white fill-current" />

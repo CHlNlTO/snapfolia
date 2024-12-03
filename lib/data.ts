@@ -26,7 +26,7 @@ export const externalLinks = {
 };
 
 export const instructions = {
-  fileUpload: "Upload a leaf image",
+  fileUpload: "Upload or Take a photo of a leaf image",
 };
 
 export const leaves = [
@@ -1074,8 +1074,7 @@ export const leaves = [
       "There are no folklore or folkloric medicinal uses for the Scrambled Egg tree.",
     description:
       "Is a shrub or small erect evergreen tree, 5-8 m tall, with brown-greyish smooth bark, tending to fissure slightly with the age, and dense and rounded top. The leaves, on a 2-3 cm long petiole, are alternate, paripinnate, 10-15 cm long, with pubescent rachis, linear stipules, 0,5-1 cm long, and 7-9 couples of opposite leaflets, oblong-elliptic with rounded apex, 2,5-5 cm long and 1-1,6 cm broad, of intense green colour and glabrous above, glaucous and slightly pubescent below. A gland, about 1 mm long, is present at the base of the pedicel of the first 2-3 couples of leaflets.",
-    shortDescription:
-      "Is a shrub or small erect evergreen tree, 5-8 m tall, with brown-greyish smooth bark, and dense and rounded top.",
+    shortDescription: "Is a shrub or small erect evergreen tree, 5-8 m tall.",
     location: "faith-colleges",
   },
   {

@@ -3,11 +3,20 @@ import Image from "next/image";
 import Link from "next/link";
 import snapfoliaLogo from "@/app/assets/snapfolia_logo.png";
 import faithLogo from "@/app/assets/faith_logo.png";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "../ui/sheet";
+import { Menu } from "lucide-react";
 
 export default function Navbar() {
   return (
-    <header>
-      <section className="px-4 lg:px-6 h-14 flex justify-between items-center border-b-[.1px] border-gray-100 border-opacity-1">
+    <header className="top-0 z-50 absolute w-screen">
+      <section className="px-4 lg:px-6 h-14 flex justify-between items-center bg-white-50/0 backdrop-blur-3xl">
         <Link
           className="text-sm font-extrabold flex items-center justify-center gap-4"
           href="/"
@@ -25,13 +34,43 @@ export default function Navbar() {
             </Link>
           ))}
         </nav>
-        <Link
-          className="text-sm font-extrabold hidden sm:flex items-center justify-center gap-4"
-          href={externalLinks.faith.url}
-          target="_blank"
-        >
-          <Image src={faithLogo} alt="FAITH Colleges" width={115} />
-        </Link>
+        <div className="flex justify-between items-center">
+          <Link
+            className="text-sm font-extrabold hidden sm:flex items-center justify-center gap-4"
+            href={externalLinks.faith.url}
+            target="_blank"
+          >
+            <Image src={faithLogo} alt="FAITH Colleges" width={115} />
+          </Link>
+          <Sheet>
+            <SheetTrigger>
+              <Menu className="w-6 h-6 text-green-700 flex sm:hidden" />
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle className="mb-4">
+                  <Link
+                    className="text-sm font-extrabold flex items-center justify-center"
+                    href="/"
+                  >
+                    <Image src={snapfoliaLogo} alt="Snapfolia" width={120} />
+                  </Link>
+                </SheetTitle>
+                <nav className="flex sm:hidden flex-col gap-4 sm:gap-8 items-center justify-center">
+                  {links.map((link) => (
+                    <Link
+                      key={link.href}
+                      className="text-sm hover:underline underline-offset-4 text-green-900 font-bold"
+                      href={link.href}
+                    >
+                      <SheetClose>{link.name}</SheetClose>
+                    </Link>
+                  ))}
+                </nav>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+        </div>
       </section>
     </header>
   );
