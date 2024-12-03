@@ -4,6 +4,7 @@ from threading import Thread
 
 from models.object_detector import ObjectDetector
 from models.image_processor import ImageProcessor
+from services.logging_service import LoggingService
 from config import Config
 
 class DetectionService:
@@ -12,53 +13,61 @@ class DetectionService:
         self.image_processor = ImageProcessor()
         self.request_queue = Queue()
         self.results = {}
+        self.processing_thread = None
 
     def process_image(self, file):
-        print("Processing Image...")
+        print("\nProcessing Image...")
         image = self.image_processor.convert_to_jpg(file)
-        
-        if image is None:
-            print("Image conversion failed.")
-            return {"leaf_detected": False}
-        
-        print(image)
-        dino_results = self.object_detector.detect_object_with_dino(image)
-        print(f"Dino results: {dino_results}")
 
+        if image is None:
+            return {"leaf_detected": False}
+
+        dino_results = self.object_detector.detect_objects_with_dino(image)
         if not dino_results or "boxes" not in dino_results[0] or dino_results[0]["boxes"].shape[0] == 0:
-            print("No objects detected with Dino.")
             return {"leaf_detected": False}
 
         yolov8_results = self.object_detector.detect_and_classify_leaf(image)
-        print(f"YOLOv8 results: {yolov8_results}")
+        
+        # Save image if leaf detected and confidence is low
+        if yolov8_results.get("leaf_detected"):
+            confidence = yolov8_results.get("confidence", 0)
+            if confidence < 0.9:
+                self.image_processor.save_image(file, confidence)
+
         return yolov8_results
 
-
     def start_processing_thread(self):
-        print("START PROCESSING THREAD")
-        processing_thread = Thread(target=self._process_request_queue)
-        processing_thread.daemon = True
-        processing_thread.start()
-        print("Processing thread started.")
+        self.processing_thread = Thread(target=self._process_request_queue)
+        self.processing_thread.daemon = True
+        self.processing_thread.start()
 
     def _process_request_queue(self):
         while True:
-            if self.request_queue.qsize() > 0:
-                file, request_id = self.request_queue.get()
-                print(f"Processing request {request_id}...")
+            batch = []
+            
+            # Collect a batch of requests
+            for _ in range(Config.BATCH_SIZE):
+                if not self.request_queue.empty():
+                    batch.append(self.request_queue.get())
+                else:
+                    break
+                    
+            if not batch:
+                time.sleep(1)  # Wait if queue is empty
+                continue
+                
+            # Process the batch
+            for file, request_id in batch:
                 self.results[request_id] = self.process_image(file)
+                
+            # Signal that batch processing is complete
+            for _ in range(len(batch)):
                 self.request_queue.task_done()
-            else:
-                print("No requests to process, waiting...")
-                time.sleep(0.1)
 
     def add_request(self, file):
         request_id = str(time.time())
         self.request_queue.put((file, request_id))
-        print(f"REQUEST ADDED: {request_id}")
-        print(f"Queue size: {self.request_queue.qsize()}")  
         return request_id
-
 
     def get_result(self, request_id):
         while request_id not in self.results:

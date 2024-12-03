@@ -5,45 +5,58 @@ from config import Config
 
 class ObjectDetector:
     def __init__(self):
+        self.device = self._get_device()
         self.yolov8_model = None
         self.grounding_dino_model = None
         self.grounding_dino_processor = None
-        self.device = None
+        self._initialize_models()
 
     def _get_device(self):
+        """
+        Determine the appropriate device for running models.
+        
+        :return: torch.device
+        """
         if torch.cuda.is_available():
             print(f"Using CUDA: {torch.version.cuda}")
             return torch.device('cuda')
-
         print("CUDA not available, using CPU.")
         return torch.device('cpu')
 
-    def initialize_models(self):
-        self.device = self._get_device()
-        
+    def _initialize_models(self):
+        """
+        Initialize YOLOv8 and Grounding DINO models.
+        """
+        # YOLOv8 model
         self.yolov8_model = YOLO(Config.YOLOV8_MODEL_PATH)
-        print("YOLOv8 Loaded...")
+        print("YOLOv8 model loaded.")
 
+        # Grounding DINO model
         print("Loading Grounding Dino.")
         self.grounding_dino_processor = AutoProcessor.from_pretrained(
-            Config.GROUNDING_DINO_MODEL_ID,
+            Config.GROUNDING_DINO_MODEL_ID, 
             cache_dir=Config.CUSTOM_CACHE_DIR
         )
-        
         self.grounding_dino_model = AutoModelForZeroShotObjectDetection.from_pretrained(
-            Config.GROUNDING_DINO_MODEL_ID,
+            Config.GROUNDING_DINO_MODEL_ID, 
             cache_dir=Config.CUSTOM_CACHE_DIR
-        )
+        ).to(self.device)
+        self.grounding_dino_model.eval()
         
         print(f"Grounding DINO model loaded with cache at {Config.CUSTOM_CACHE_DIR}.")
-    
-    def detect_object_with_dino(self,image):
-        print(image)
+
+    def detect_objects_with_dino(self, image):
+        """
+        Detect objects using Grounding DINO model.
+        
+        :param image: PIL Image
+        :return: Detection results
+        """
         inputs = self.grounding_dino_processor(
             images=image,
             text=" a leaf. leaves. ",
             return_tensors="pt"
-        ).to(self.device) 
+        ).to(self.device)
 
         with torch.no_grad():
             outputs = self.grounding_dino_model(**inputs)
@@ -57,11 +70,17 @@ class ObjectDetector:
         )
         
         return results
-    
-    def detect_and_clasifiy_leaf(self,image):
-        print("Detecting & Classifiyng Leaf...")
+
+    def detect_and_classify_leaf(self, image):
+        """
+        Detect and classify leaf using YOLOv8 model.
         
+        :param image: PIL Image
+        :return: Detection results dictionary
+        """
+        print("Detecting & Classifying Leaf...")
         results = self.yolov8_model(image)
+        
         if len(results) > 0 and len(results[0].boxes) > 0:
             predictions = []
             for box in results[0].boxes:
