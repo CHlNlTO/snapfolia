@@ -1,19 +1,30 @@
-# src/__init__.py
-# This file can be left empty or used for package-level imports and configurations
+from flask import Flask
+from flask_cors import CORS
 from .config import Config
-from .models import ModelLoader
-from .logger import LeafLogger
-from .image_processor import ImageProcessor
-from .app import LeafDetectionApp
 
-__version__ = "1.1"
-__author__ = "BSCS2024"
-__description__ = "Snapfolia2024"
 
-__all__ = [
-    'Config', 
-    'ModelLoader', 
-    'LeafLogger', 
-    'ImageProcessor', 
-    'LeafDetectionApp'
-]
+def create_app():
+    """
+    Application factory function to create and configure the Flask application.
+    
+    This approach allows for:
+    - Easier testing
+    - Multiple app instances
+    - Modular configuration
+    
+    :return: Configured Flask application
+    """
+    # Initialize directories
+    Config.initialize_directories()
+    
+    # Create Flask app instance
+    app = Flask(__name__)
+    
+    # Enable Cross-Origin Resource Sharing
+    CORS(app)
+    
+    # Register blueprints
+    from routes.routes import upload_bp
+    app.register_blueprint(upload_bp)
+    
+    return app

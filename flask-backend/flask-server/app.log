@@ -70,3 +70,259 @@
 2024-09-25 21:03:37,124 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
 2024-09-25 21:03:37,124 - INFO - [33mPress CTRL+C to quit[0m
+2024/12/03 12:27:10,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 12:27:10,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 12:31:00,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 12:31:00,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 12:34:34,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 12:34:34,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 12:37:19,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 12:37:19,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 12:37:31,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 12:37:31,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 12:38:26,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 12:38:26,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 12:38:50,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 12:38:50,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 12:44:02,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 12:44:02,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 12:45:45,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 12:45:45,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 12:46:13,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 12:46:13,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 12:46:55,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 12:46:55,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 12:48:20,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 12:48:20,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 12:49:04,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 12:49:04,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 12:49:58,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 12:49:58,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 12:51:04,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 12:51:04,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 12:52:21,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 12:52:21,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 12:57:36,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 12:57:36,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 12:59:59,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 12:59:59,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 13:01:27,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 13:01:27,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 13:03:54,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 13:03:54,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 13:10:14,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 13:10:14,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 13:13:12,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 13:13:12,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 13:17:00,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 13:17:00,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 13:23:32,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 13:23:32,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 13:25:49,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 13:25:49,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 13:30:35,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 13:30:35,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 13:34:10,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 13:34:10,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 13:36:51,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 13:36:51,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 13:37:24,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 13:37:24,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 13:37:30,ERROR,Exception on /upload [POST]
+Traceback (most recent call last):
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\src\routes\routes.py", line 28, in upload_file
+    detection_service.process_image(file)
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\src\services\detection_service.py", line 23, in process_image
+    dino_results = self.object_detector.detect_objects_with_dino(image)
+AttributeError: 'ObjectDetector' object has no attribute 'detect_objects_with_dino'
+2024/12/03 13:37:30,INFO,136.158.64.30 - - [03/Dec/2024 13:37:30] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2024/12/03 13:37:42,ERROR,Exception on /upload [POST]
+Traceback (most recent call last):
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\src\routes\routes.py", line 28, in upload_file
+    detection_service.process_image(file)
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\src\services\detection_service.py", line 23, in process_image
+    dino_results = self.object_detector.detect_objects_with_dino(image)
+AttributeError: 'ObjectDetector' object has no attribute 'detect_objects_with_dino'
+2024/12/03 13:37:42,INFO,136.158.64.30 - - [03/Dec/2024 13:37:42] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2024/12/03 13:38:54,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 13:38:54,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 13:38:57,ERROR,Exception on /upload [POST]
+Traceback (most recent call last):
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\src\routes\routes.py", line 28, in upload_file
+    detection_service.process_image(file)
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\src\services\detection_service.py", line 23, in process_image
+    dino_results = self.object_detector.detect_object_with_dino(image)
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\src\models\object_detector.py", line 41, in detect_object_with_dino
+    inputs = self.grounding_dino_processor(
+TypeError: 'NoneType' object is not callable
+2024/12/03 13:38:57,INFO,136.158.64.30 - - [03/Dec/2024 13:38:57] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2024/12/03 13:41:49,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 13:41:49,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 13:41:54,ERROR,Exception on /upload [POST]
+Traceback (most recent call last):
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\src\routes\routes.py", line 28, in upload_file
+    detection_service.process_image(file)
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\src\services\detection_service.py", line 24, in process_image
+    dino_results = self.object_detector.detect_object_with_dino(image)
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\src\models\object_detector.py", line 42, in detect_object_with_dino
+    inputs = self.grounding_dino_processor(
+TypeError: 'NoneType' object is not callable
+2024/12/03 13:41:54,INFO,136.158.64.30 - - [03/Dec/2024 13:41:54] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -
+2024/12/03 13:46:10,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 13:46:10,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 13:46:13,ERROR,Exception on /upload [POST]
+Traceback (most recent call last):
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask_cors\extension.py", line 178, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\venv\lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\src\routes\routes.py", line 28, in upload_file
+    detection_service.process_image(file)
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\src\services\detection_service.py", line 24, in process_image
+    dino_results = self.object_detector.detect_object_with_dino(image)
+  File "E:\Snapfolia - CS\snapfolia\flask-backend\flask-server\src\models\object_detector.py", line 42, in detect_object_with_dino
+    inputs = self.grounding_dino_processor(
+TypeError: 'NoneType' object is not callable
+2024/12/03 13:46:13,INFO,136.158.64.30 - - [03/Dec/2024 13:46:13] "[35m[1mPOST /upload HTTP/1.1[0m" 500 -

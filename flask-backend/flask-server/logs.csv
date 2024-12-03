@@ -1,0 +1,9 @@
+2024/12/03 02:26:54,INFO,[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://172.16.101.124:5000
+2024/12/03 02:26:54,INFO,[33mPress CTRL+C to quit[0m
+2024/12/03 10:17:01,INFO,136.158.64.30 - - [03/Dec/2024 10:17:01] "POST /upload HTTP/1.1" 200 -
+2024/12/03 10:17:02,INFO,None,0,4.94
+2024/12/03 10:17:02,INFO,136.158.64.30 - - [03/Dec/2024 10:17:02] "POST /scan-time HTTP/1.1" 200 -
+2024/12/03 11:17:23,INFO,54.176.44.5 - - [03/Dec/2024 11:17:23] "[33mGET /.git/config HTTP/1.1[0m" 404 -

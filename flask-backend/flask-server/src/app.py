@@ -1,144 +1,23 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
-from werkzeug.utils import secure_filename
-import time
+import sys
 import os
-from queue import Queue
-from threading import Thread
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
+from src import create_app
+from .services.detection_service import DetectionService
+from .models.object_detector import ObjectDetector
 
-from config import Config
-from models import ModelLoader
-from logger import LeafLogger
-from image_processor import ImageProcessor
+# Create the Flask application
+app = create_app()
 
-# Flask setup
-app = Flask(__name__)
-CORS(app)
-
-class LeafDetectionApp:
-    """Main Flask application for leaf detection."""
+if __name__ == '__main__':
+    object_detector = ObjectDetector()
+    object_detector.initialize_models()
     
-    def __init__(self):
-        """Initialize the application components."""
-        # Configuration
-        self.config = Config
-        self.config.initialize_directories()
-        
-        # Model and processing setup
-        self.model_loader = ModelLoader(self.config)
-        self.models = self._initialize_models()
-        
-        # Logger
-        self.logger = LeafLogger(self.config)
-        
-        # Image processor
-        self.image_processor = ImageProcessor(self.models)
-        
-        # Request queue
-        self.request_queue = Queue()
-        self.results = {}
-        
-        # Setup routes
-        self._setup_routes()
+    detection_service = DetectionService()
+    # detection_service.start_processing_thread()
     
-    def _initialize_models(self):
-        """
-        Load and return models.
-        
-        :return: Object with loaded models
-        """
-        class Models:
-            def __init__(self, yolo, dino_model, dino_processor, device):
-                self.yolov8_model = yolo
-                self.grounding_dino_model = dino_model
-                self.grounding_dino_processor = dino_processor
-                self.device = device
-        
-        yolo = self.model_loader.load_yolov8()
-        dino_model, dino_processor, device = self.model_loader.load_grounding_dino()
-        
-        return Models(yolo, dino_model, dino_processor, device)
-    
-    def _setup_routes(self):
-        self.app.add_url_rule('/', 'index', self.index)
-        self.app.add_url_rule('/upload', 'upload_file', self.upload_file, methods=['POST'])
-        self.app.add_url_rule('/scan-time', 'get_scan_time', self.get_scan_time, methods=['POST'])
-    
-    @app.route('/')
-    def index(self):
-        print("Server is running...")
-        return jsonify({'message': 'Server is running'})
-    
-    @app.route('/upload', methods=['POST'])
-    def upload_file(self):
-        if 'file' not in request.files:
-            print("No file part in request")
-            return jsonify({'error': 'No file part'}), 400
-
-        file = request.files['file']
-        if file.filename == '':
-            print("No selected file")
-            return jsonify({'error': 'No selected file'}), 400
-
-        request_id = str(time.time())
-        self.request_queue.put((file, request_id))
-
-        while request_id not in self.results:
-            time.sleep(0.1)
-
-        result = self.results.pop(request_id)
-
-        if result.get("leaf_detected"):
-            confidence = result.get("confidence", 0)
-            if confidence < 0.9:
-                # Use the confidence score to create the file name
-                file_name = f"{confidence:.2f}_{secure_filename(file.filename)}"
-                file_path = os.path.join(self.config.UPLOAD_FOLDER, file_name)
-                file.seek(0)
-                file.save(file_path)
-                print(f"Leaf image saved to {file_path}")
-        else:
-            print("No leaf detected. Image not saved.")
-
-        return jsonify(result)
-    
-    @app.route('/scan-time', methods=['POST'])
-    def get_scan_time(self):
-        scan_time = request.form.get('time')
-        if scan_time:
-            try:
-                scan_time = float(scan_time)
-                print(f"Scan time received: {scan_time} seconds")
-                print("--------------------------------------------")
-                
-            except ValueError:
-                print("Invalid scan_time value received")
-        return jsonify({'success': 'Time Received'}), 200
-    
-    def process_request(self):
-        while True:
-            batch = []
-            
-            # Collect a batch of requests
-            for _ in range(self.config.BATCH_SIZE):
-                if not self.request_queue.empty():
-                    batch.append(self.request_queue.get())
-                else:
-                    break
-                    
-            if not batch:
-                time.sleep(1)  # Wait if queue is empty
-                continue
-                
-            # Process the batch
-            for file, request_id in batch:
-                self.results[request_id] = self.image_processor.process_image(file)
-                
-            # Signal that batch processing is complete
-            for _ in range(len(batch)):
-                self.request_queue.task_done()
-    
-    def run(self):
-        processing_thread = Thread(target=self.process_request)
-        processing_thread.daemon = True
-        processing_thread.start()
+    app.run(
+        host='0.0.0.0',
+        port=5000,
+        ssl_context=("C:\\certificates\\treesbe.firstasia.edu.ph-crt.pem", "C:\\certificates\\treesbe.firstasia.edu.ph-key.pem"),
+        debug=False,
+    )

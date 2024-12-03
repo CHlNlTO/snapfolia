@@ -1,11 +1,17 @@
 import logging
+import os 
+from config import Config
 
-class LeafLogger:
+class LoggingService: 
     def __init__(self, config):
-        self.config = config
+        self.config = Config()
         self._setup_logging()
 
     def _setup_logging(self):
+        log_dir = os.path.dirname(self.config.LOG_FILE)
+        os.makedirs(log_dir, exist_ok=True)
+
+        # Configure logging
         logging.basicConfig(
             filename=self.config.LOG_FILE, 
             level=logging.INFO,
@@ -23,3 +29,6 @@ class LeafLogger:
         """
         log_message = f"{predicted_class},{confidence},{scan_time}"
         logging.info(log_message)
+        
+        # Optional: Print to console as well
+        print(log_message)
