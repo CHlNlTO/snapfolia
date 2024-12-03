@@ -16,7 +16,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-5xl sm:text-6xl md:text-7xl font-black mt-20 lg:mt-10 text-green-900 max-w-[36rem] text-center lg:text-left"
           >
-            Explore The Trees of the Batangas
+            Explore The Trees Of Batangas
           </motion.h1>
           <motion.h3
             initial={{ x: 100, opacity: 0 }}

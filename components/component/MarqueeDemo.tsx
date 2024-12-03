@@ -48,7 +48,7 @@ const ReviewCard = ({
 
 export function MarqueeDemo() {
   return (
-    <div className="relative flex h-[200px] sm:h-[300px] w-full flex-col items-center justify-center overflow-x-hidden rounded-lg bg-background md:shadow-xl">
+    <div className="relative flex h-[250px] sm:h-[300px] w-full flex-col items-center justify-center overflow-x-hidden rounded-lg bg-background md:shadow-xl">
       <Marquee
         pauseOnHover={false}
         className="[--duration:70s] overflow-x-hidden"

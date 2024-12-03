@@ -3,12 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { instructions } from "@/lib/data";
 import { AnimatePresence, motion } from "framer-motion";
-import { File, Trash2, Plus, Leaf } from "lucide-react";
+import { File, Plus, Leaf, Trash2 } from "lucide-react";
 import Image from "next/image";
-import type React from "react";
 import { type DragEvent, useRef, useState } from "react";
 import ImageIcon from "./ImageIcon";
 
+// Define types
 interface FileWithPreview extends File {
   preview: string;
 }
@@ -18,33 +18,18 @@ export function FileDropzone() {
   const [isDragActive, setIsDragActive] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleDragEnter = (e: DragEvent<HTMLDivElement>) => {
+  // Consolidated drag event handlers
+  const handleDragEvents = (
+    e: DragEvent<HTMLDivElement>,
+    isActive: boolean
+  ) => {
     e.preventDefault();
     e.stopPropagation();
-    setIsDragActive(true);
+    setIsDragActive(isActive);
   };
 
-  const handleDragLeave = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIsDragActive(false);
-  };
-
-  const handleDragOver = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-  };
-
-  const handleDrop = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIsDragActive(false);
-
-    const droppedFile = e.dataTransfer.files[0];
-    handleFile(droppedFile);
-  };
-
-  const handleFile = (uploadedFile: File) => {
+  // Unified file handling logic
+  const processFile = (uploadedFile: File) => {
     // Revoke previous file preview if exists
     if (file) {
       URL.revokeObjectURL(file.preview);
@@ -57,13 +42,16 @@ export function FileDropzone() {
     setFile(newFile);
   };
 
-  const handleButtonClick = () => {
-    fileInputRef.current?.click();
+  // Event handlers
+  const handleDrop = (e: DragEvent<HTMLDivElement>) => {
+    handleDragEvents(e, false);
+    const droppedFile = e.dataTransfer.files[0];
+    processFile(droppedFile);
   };
 
   const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      handleFile(e.target.files[0]);
+      processFile(e.target.files[0]);
     }
   };
 
@@ -74,149 +62,141 @@ export function FileDropzone() {
     }
   };
 
+  // Shared motion animations
+  const hoverAnimation = {
+    scale: 1.01,
+    boxShadow: "0px 0px 0px 0px #229956",
+    WebkitBoxShadow: "0px 0px 0px 0px #229956",
+    MozBoxShadow: "0px 0px 0px 0px #229956",
+  };
+
+  // Leaf animation
+  const leafAnimation = {
+    animate: { y: [-2, 2] },
+    transition: {
+      duration: 1.5,
+      repeat: Infinity,
+      repeatType: "reverse" as const,
+      ease: "easeInOut",
+    },
+  };
+
   return (
-    <div className="h-60 w-80 sm:h-96 sm:w-[32rem] p-0 sm:p-8 rounded-2xl mt-20 mx-6">
+    <div className="h-60 w-80 sm:h-96 sm:w-[32rem] p-0 sm:p-8 rounded-2xl mt-16 mx-6 space-y-4">
       <motion.div
         className={`group relative flex justify-center items-center size-full cursor-pointer rounded-xl shadow-green-900 shadow-lg border-2 border-dashed p-12 text-center transition-colors ring-green-400 ${
           isDragActive
             ? "border-green-300 bg-green-300/5"
-            : " border-green-500 bg-green-500/5 hover:border-green-400 dark:border-green-700 dark:hover:border-green-500"
+            : "border-green-500 bg-green-500/5 hover:border-green-400 dark:border-green-700 dark:hover:border-green-500"
         }`}
-        initial={{
-          scale: 1.01,
-          boxShadow: "0px 0px 0px 0px #229956",
-          WebkitBoxShadow: "0px 0px 0px 0px #229956",
-          MozBoxShadow: "0px 0px 0px 0px #229956",
-        }}
-        animate={{
-          scale: 1,
-          boxShadow: "10px 10px 0px 0px #229956",
-          WebkitBoxShadow: "10px 10px 0px 0px 0px #229956",
-          MozBoxShadow: "10px 10px 0px 0px #229956",
-        }}
+        initial={hoverAnimation}
+        animate={{ scale: 1, boxShadow: "10px 10px 0px 0px #229956" }}
         transition={{ duration: 0.2, ease: "easeInOut" }}
-        onClick={handleButtonClick}
-        onDragEnter={handleDragEnter}
-        onDragLeave={handleDragLeave}
-        onDragOver={handleDragOver}
+        onClick={() => fileInputRef.current?.click()}
+        onDragEnter={(e) => handleDragEvents(e, true)}
+        onDragLeave={(e) => handleDragEvents(e, false)}
+        onDragOver={(e) => e.preventDefault()}
         onDrop={handleDrop}
-        whileHover={{
-          scale: 1.01,
-          boxShadow: "0px 0px 0px 0px #229956",
-          WebkitBoxShadow: "0px 0px 0px 0px #229956",
-          MozBoxShadow: "0px 0px 0px 0px #229956",
-        }}
-        whileTap={{
-          scale: 0.98,
-          boxShadow: "0px 0px 0px 0px #229956",
-          WebkitBoxShadow: "0px 0px 0px 0px #229956",
-          MozBoxShadow: "0px 0px 0px 0px #229956",
-        }}
-        style={{
-          boxShadow: "10px 10px 0px 0px #229956",
-          WebkitBoxShadow: "10px 10px 0px 0px #229956",
-          MozBoxShadow: "10px 10px 0px 0px #229956",
-        }}
+        whileHover={hoverAnimation}
+        whileTap={hoverAnimation}
       >
-        <Input
-          accept="image/*,application/pdf"
-          className="hidden"
-          multiple={false}
-          onChange={handleFileInputChange}
-          ref={fileInputRef}
-          type="file"
-        />
         <AnimatePresence>
           {isDragActive ? (
             <motion.div
               animate={{ opacity: 1, y: 0 }}
-              className=" pointer-events-none select-none flex flex-col items-center space-y-2"
               exit={{ opacity: 0, y: -10 }}
               initial={{ opacity: 0, y: 10 }}
               transition={{ duration: 0.2 }}
+              className="pointer-events-none select-none flex flex-col items-center space-y-2"
             >
               <ImageIcon className="mx-auto text-green-500 opacity-80 w-12 h-12" />
               <Button className="font-medium bg-green-500 text-white text-sm dark:text-neutral-500 opacity-80">
-                <span>
-                  <Plus className="text-white fill-current" />
-                </span>
+                <Plus className="text-white fill-current" />
                 <span className="text-xs font-normal">
                   {instructions.fileUpload}
                 </span>
               </Button>
             </motion.div>
           ) : (
-            <motion.div
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              initial={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className="flex flex-col items-center space-y-2"
-            >
-              <ImageIcon className="mx-auto text-green-700 opacity-80 dark:text-neutral-500 w-12 h-12" />
-              <Button className="font-medium bg-green-700 text-white text-sm dark:text-neutral-500 opacity-80 rounded-2xl">
-                <span>
-                  <motion.div
-                    animate={{ y: [-2, 2] }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      repeatType: "reverse",
-                      ease: "easeInOut",
-                    }}
-                  >
+            !file && (
+              <motion.div
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="flex flex-col items-center space-y-2"
+              >
+                <ImageIcon className="mx-auto text-green-700 opacity-80 dark:text-neutral-500 w-12 h-12" />
+                <Button className="font-medium bg-green-700 text-white text-sm dark:text-neutral-500 opacity-80 rounded-2xl">
+                  <motion.div {...leafAnimation}>
                     <Leaf className="text-green-200 fill-current" />
                   </motion.div>
-                </span>
-                <span className="text-xs font-normal">
-                  {instructions.fileUpload}
-                </span>
-              </Button>
-            </motion.div>
+                  <span className="text-xs font-normal">
+                    {instructions.fileUpload}
+                  </span>
+                </Button>
+              </motion.div>
+            )
           )}
         </AnimatePresence>
+
+        {file && (
+          <div className="absolute inset-0 -z-10">
+            {file.type.startsWith("image/") ? (
+              <Image
+                alt={file.name}
+                className="w-full h-full rounded object-contain"
+                src={file.preview}
+                fill
+                sizes="100%"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center">
+                <File className="size-10 text-neutral-500" />
+              </div>
+            )}
+          </div>
+        )}
+
+        <Input
+          accept="image/*"
+          className="hidden"
+          multiple={false}
+          onChange={handleFileInputChange}
+          ref={fileInputRef}
+          type="file"
+        />
       </motion.div>
 
-      <AnimatePresence>
-        {file && (
+      {file && (
+        <div className="flex flex-col items-center justify-center">
           <motion.div
-            animate={{ opacity: 1, height: "auto" }}
-            className="mt-4 space-y-2"
-            exit={{ opacity: 0, height: 0 }}
-            initial={{ opacity: 0, height: 0 }}
+            className="flex flex-row items-center justify-center space-x-2"
+            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            key={file.name}
           >
-            <motion.div
-              animate={{ opacity: 1, x: 0 }}
-              className="flex items-center rounded-lg bg-neutral-400/10 p-1"
-              exit={{ opacity: 0, x: 20 }}
-              initial={{ opacity: 0, x: -20 }}
-              key={file.name}
+            <Button className="font-medium bg-green-700 text-white text-sm dark:text-neutral-500 opacity-80 rounded-2xl">
+              <motion.div {...leafAnimation}>
+                <Leaf className="text-green-200 fill-current w-3" />
+              </motion.div>
+              <span className="text-xs font-normal">Scan Leaf</span>
+            </Button>
+            <Button
+              className="font-medium bg-neutral-200 hover:bg-neutral-100 text-white text-sm opacity-80 rounded-2xl"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDeleteFile();
+              }}
             >
-              {file.type.startsWith("image/") ? (
-                <Image
-                  alt={file.name}
-                  className="mr-2 size-10 rounded object-cover"
-                  src={file.preview}
-                  width={40}
-                  height={40}
-                />
-              ) : (
-                <File className="mr-2 size-10 text-neutral-500" />
-              )}
-              <span className="flex-1 truncate text-neutral-600 text-xs tracking-tighter dark:text-neutral-400">
-                {file.name}
-              </span>
-              <Trash2
-                className="mr-2 size-5 cursor-pointer text-red-500 transition-colors hover:text-red-600"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleDeleteFile();
-                }}
-              />
-            </motion.div>
+              <motion.div {...leafAnimation}>
+                <Trash2 className="size-5 cursor-pointer text-red-700 transition-colors hover:text-red-700" />
+              </motion.div>
+              <span className="text-xs font-normal text-red-800">Remove</span>
+            </Button>
           </motion.div>
-        )}
-      </AnimatePresence>
+        </div>
+      )}
     </div>
   );
 }
