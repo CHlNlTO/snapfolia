@@ -26,7 +26,7 @@ export const externalLinks = {
 };
 
 export const instructions = {
-  fileUpload: "Upload or Take a photo of a leaf image",
+  fileUpload: "Snap or Upload a photo of a tree leaf",
 };
 
 export const leaves = [

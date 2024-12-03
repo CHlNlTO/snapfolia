@@ -75,9 +75,9 @@ export function FileDropzone() {
   };
 
   return (
-    <div className="h-60 w-96 sm:h-96 sm:w-[32rem] p-0 sm:p-8 rounded-2xl mt-20">
+    <div className="h-60 w-80 sm:h-96 sm:w-[32rem] p-0 sm:p-8 rounded-2xl mt-20 mx-6">
       <motion.div
-        className={`group relative flex justify-center items-center size-full cursor-pointer rounded-xl shadow-green-900 shadow-lg border-2 border-dashed p-12 text-center transition-colors ${
+        className={`group relative flex justify-center items-center size-full cursor-pointer rounded-xl shadow-green-900 shadow-lg border-2 border-dashed p-12 text-center transition-colors ring-green-400 ${
           isDragActive
             ? "border-green-300 bg-green-300/5"
             : " border-green-500 bg-green-500/5 hover:border-green-400 dark:border-green-700 dark:hover:border-green-500"
@@ -156,7 +156,17 @@ export function FileDropzone() {
               <ImageIcon className="mx-auto text-green-700 opacity-80 dark:text-neutral-500 w-12 h-12" />
               <Button className="font-medium bg-green-700 text-white text-sm dark:text-neutral-500 opacity-80 rounded-2xl">
                 <span>
-                  <Leaf className="text-green-200 fill-current" />
+                  <motion.div
+                    animate={{ y: [-2, 2] }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Leaf className="text-green-200 fill-current" />
+                  </motion.div>
                 </span>
                 <span className="text-xs font-normal">
                   {instructions.fileUpload}
