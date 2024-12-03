@@ -2,3 +2,4 @@ venv/
 uploads/
 cache/
 logs.csv
+src/

@@ -21,7 +21,7 @@ CORS(app)
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-CUSTOM_CACHE_DIR = os.path.join(os.getcwd(), 'cache')
+CUSTOM_CACHE_DIR = os.path.join(os.getcwd(), './cache')
 os.makedirs(CUSTOM_CACHE_DIR, exist_ok=True)
 os.environ['TRANSFORMERS_CACHE'] = CUSTOM_CACHE_DIR
 
