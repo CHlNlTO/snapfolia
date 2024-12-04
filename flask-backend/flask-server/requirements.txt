@@ -7,5 +7,6 @@ transformers==4.42.4
 pillow==10.4.0
 pillow-heif==0.18.0
 waitress==3.0.0
+imageio==2.36.1
 
 --extra-index-url https://download.pytorch.org/whl/cu121
