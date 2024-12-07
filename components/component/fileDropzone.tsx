@@ -7,6 +7,7 @@ import { File, Plus, Leaf, Trash2 } from "lucide-react";
 import Image from "next/image";
 import { type DragEvent, useRef, useState } from "react";
 import ImageIcon from "./ImageIcon";
+import { scanLeafImage } from "@/lib/api";
 
 // Define types
 interface FileWithPreview extends File {
@@ -81,24 +82,46 @@ export function FileDropzone() {
     },
   };
 
+  const handleScan = async () => {
+    console.log("Scanning leaf...");
+    if (file) {
+      try {
+        const result = await scanLeafImage(file);
+        console.log(result);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+
   return (
-    <div className="h-60 w-80 sm:h-96 sm:w-[32rem] p-0 sm:p-8 rounded-2xl mt-16 mx-6 space-y-4">
+    <div className="h-60 w-80 sm:h-96 sm:w-[32rem] p-0 sm:p-8 rounded-2xl mt-16 mx-6 space-y-4 ">
       <motion.div
-        className={`group relative flex justify-center items-center size-full cursor-pointer rounded-xl shadow-green-900 shadow-lg border-2 border-dashed p-12 text-center transition-colors ring-green-400 ${
+        className={`group relative flex justify-center items-center size-full cursor-pointer rounded-xl shadow-green-900 shadow-lg border-2 border-dashed p-12 text-center transition-colors ring-green-600 focus:p-1 outline-green-600  ${
           isDragActive
             ? "border-green-300 bg-green-300/5"
             : "border-green-500 bg-green-500/5 hover:border-green-400 dark:border-green-700 dark:hover:border-green-500"
         }`}
         initial={hoverAnimation}
-        animate={{ scale: 1, boxShadow: "10px 10px 0px 0px #229956" }}
-        transition={{ duration: 0.2, ease: "easeInOut" }}
+        animate={{
+          scale: 1,
+          boxShadow: "10px 10px 0px 0px #229956",
+          WebkitBoxShadow: "10px 10px 0px 0px #229956",
+          MozBoxShadow: "10px 10px 0px 0px #229956",
+        }}
+        transition={{ duration: 0.1, ease: "easeInOut" }}
         onClick={() => fileInputRef.current?.click()}
         onDragEnter={(e) => handleDragEvents(e, true)}
         onDragLeave={(e) => handleDragEvents(e, false)}
         onDragOver={(e) => e.preventDefault()}
         onDrop={handleDrop}
         whileHover={hoverAnimation}
-        whileTap={hoverAnimation}
+        whileTap={{
+          scale: 1.01,
+          boxShadow: "0px 0px 0px 0px #229956",
+          WebkitBoxShadow: "0px 0px 0px 0px #229956",
+          MozBoxShadow: "0px 0px 0px 0px #229956",
+        }}
       >
         <AnimatePresence>
           {isDragActive ? (
@@ -127,7 +150,7 @@ export function FileDropzone() {
                 className="flex flex-col items-center space-y-2"
               >
                 <ImageIcon className="mx-auto text-green-700 opacity-80 dark:text-neutral-500 w-12 h-12" />
-                <Button className="font-medium bg-green-700 text-white text-sm dark:text-neutral-500 opacity-80 rounded-2xl">
+                <Button className="font-medium bg-green-600 text-white text-sm dark:text-neutral-500 rounded-2xl hover:ring-2 hover:ring-green-600 hover:ring-offset-2 hover:ring-offset-white">
                   <motion.div {...leafAnimation}>
                     <Leaf className="text-green-200 fill-current" />
                   </motion.div>
@@ -176,7 +199,10 @@ export function FileDropzone() {
             initial={{ opacity: 0, x: -20 }}
             key={file.name}
           >
-            <Button className="font-medium bg-green-700 text-white text-sm dark:text-neutral-500 opacity-80 rounded-2xl">
+            <Button
+              className="font-medium bg-green-700 text-white text-sm dark:text-neutral-500 opacity-80 rounded-2xl hover:ring-2 hover:ring-green-600 hover:ring-offset-2 hover:ring-offset-white"
+              onClick={() => handleScan()}
+            >
               <motion.div {...leafAnimation}>
                 <Leaf className="text-green-200 fill-current w-3" />
               </motion.div>

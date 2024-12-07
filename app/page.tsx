@@ -1,8 +1,10 @@
+import UserGuideModal from "@/components/component/UserGuideModal";
 import Home from "./home/Home";
 
 export default function Page() {
   return (
     <main>
+      <UserGuideModal />
       <Home />
       <div
         className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-lg sm:top-[-20rem]"

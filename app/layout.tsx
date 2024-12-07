@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import Navbar from "@/components/component/Navbar";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
-
+import { UserGuideProvider } from "@/contexts/UserGuideContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,9 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} overflow-x-hidden`}>
-        <Navbar />
-        {children}
-        <Analytics />
+        <UserGuideProvider>
+          <Navbar />
+          {children}
+          <Analytics />
+        </UserGuideProvider>
       </body>
     </html>
   );

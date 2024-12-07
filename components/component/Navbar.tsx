@@ -18,16 +18,16 @@ export default function Navbar() {
     <header className="top-0 z-50 absolute w-screen">
       <section className="px-4 lg:px-6 h-14 flex justify-between items-center">
         <Link
-          className="text-sm font-extrabold flex items-center justify-center gap-4 ring-green-600 focus:rounded-sm focus:ring-1 focus:outline-none focus:p-1"
+          className="text-sm font-extrabold flex items-center justify-center gap-4 ring-green-600 focus:p-1 outline-green-600"
           href="/"
         >
           <Image src={snapfoliaLogo} alt="Snapfolia" width={120} />
         </Link>
-        <nav className="hidden sm:flex gap-4 sm:gap-8 items-center justify-center">
+        <nav className="hidden md:flex gap-4 sm:gap-8 items-center justify-center">
           {links.map((link) => (
             <Link
               key={link.href}
-              className="text-sm hover:underline underline-offset-4 text-green-900 font-bold ring-green-600 focus:rounded-sm focus:ring-1 focus:outline-none focus:p-1"
+              className="text-sm hover:underline underline-offset-4 text-green-900 font-bold ring-green-600 focus:p-1 outline-green-600"
               href={link.href}
             >
               {link.name}
@@ -36,7 +36,7 @@ export default function Navbar() {
         </nav>
         <div className="flex justify-between items-center">
           <Link
-            className="text-sm font-extrabold hidden sm:flex items-center justify-center gap-4 ring-green-600 focus:rounded-sm focus:ring-1 focus:outline-none focus:p-1"
+            className="text-sm font-extrabold hidden md:flex items-center justify-center gap-4 ring-green-600 focus:p-1 outline-green-600"
             href={externalLinks.faith.url}
             target="_blank"
           >
@@ -44,23 +44,23 @@ export default function Navbar() {
           </Link>
           <Sheet>
             <SheetTrigger>
-              <Menu className="w-6 h-6 text-green-700 flex sm:hidden ring-green-600 focus:rounded-sm focus:ring-1 focus:outline-none focus:p-1" />
+              <Menu className="w-6 h-6 text-green-700 flex md:hidden ring-green-600 focus:p-1 outline-green-600" />
             </SheetTrigger>
             <SheetContent>
               <SheetHeader>
                 <SheetTitle className="mb-4">
                   <Link
-                    className="text-sm font-extrabold flex items-center justify-center ring-green-600 focus:rounded-sm focus:ring-1 focus:outline-none focus:p-1"
+                    className="text-sm font-extrabold flex items-center justify-center ring-green-600 focus:p-1 outline-green-600"
                     href="/"
                   >
                     <Image src={snapfoliaLogo} alt="Snapfolia" width={120} />
                   </Link>
                 </SheetTitle>
-                <nav className="flex sm:hidden flex-col gap-4 sm:gap-8 items-center justify-center ring-green-600 focus:rounded-sm focus:ring-1 focus:outline-none focus:p-1">
+                <nav className="flex sm:hidden flex-col gap-4 sm:gap-8 items-center justify-center ring-green-600 focus:p-1 outline-green-600">
                   {links.map((link) => (
                     <Link
                       key={link.href}
-                      className="text-sm hover:underline underline-offset-4 text-green-900 font-bold ring-green-600 focus:rounded-sm focus:ring-1 focus:outline-none focus:p-1 outline-green-600"
+                      className="text-sm hover:underline underline-offset-4 text-green-900 font-bold ring-green-600 focus:p-1 outline-green-600"
                       href={link.href}
                     >
                       <SheetClose>{link.name}</SheetClose>
