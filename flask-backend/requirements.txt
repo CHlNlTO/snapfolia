@@ -1,0 +1,10 @@
+ultralytics==8.2.57
+flask==3.0.3
+Flask-Cors==4.0.1
+transformers==4.42.4
+pillow==10.4.0
+pillow-heif==0.18.0
+waitress==3.0.0
+imageio==2.36.1
+redis==5.2.0
+celery==5.4.0
