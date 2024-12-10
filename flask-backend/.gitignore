@@ -1,0 +1,8 @@
+venv/
+uploads/
+cache/
+logs.csv
+src/
+*.txt
+app.log
+__pycache__/
