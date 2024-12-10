@@ -18,7 +18,6 @@ def make_celery(app):
         task_always_eager=False
     )
         
-
     class ContextTask(celery.Task):
         def __call__(self, *args, **kwargs):
             with app.app_context():
@@ -33,6 +32,11 @@ detection_service = DetectionService()
 
 @celery.task(name='tasks.process_image')
 def process_image_task(file_path):
+    try:
         result = detection_service.process_image(file_path)
         return result
+    
+    except Exception as e:
+        return {'error': str(e)}  # Catch and return errors
+
     

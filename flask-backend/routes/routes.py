@@ -33,9 +33,13 @@ def upload_file():
     
     file.save(file_path)
 
-    task = process_image_task.apply(file_path)
-    
-    return jsonify(task), 200
+    task = process_image_task.apply(args=[file_path])  
+    result = task.get()
+
+    if "error" in result:
+        return jsonify({'error': result['error']}), 500
+
+    return jsonify(result), 200
 
 @upload_bp.route('/scan-time', methods=['POST'])
 def get_scan_time():

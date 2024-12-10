@@ -2,6 +2,9 @@ import torch
 from ultralytics import YOLO
 from transformers import AutoProcessor, AutoModelForZeroShotObjectDetection
 from configuration.config import Config
+import logging
+
+logger = logging.getLogger(__name__)
 
 class ObjectDetector:
     models_initialized = False  
@@ -18,17 +21,17 @@ class ObjectDetector:
 
     def _get_device(self):
         if torch.cuda.is_available():
-            print(f"Using CUDA: {torch.version.cuda}")
+            logger.info(f"Using CUDA: {torch.version.cuda}")
             return torch.device('cuda')
-        print("CUDA not available, using CPU.")
+        logger.info("CUDA not available, using CPU.")
         return torch.device('cpu')
 
     def _initialize_models(self):
-        print("Initializing models...")
+        logger.info("Initializing models...")
         self.yolov8_model = YOLO(Config.YOLOV8_MODEL_PATH)
-        print("YOLOv8 model loaded.")
+        logger.info("YOLOv8 model loaded.")
 
-        print("Loading Grounding Dino.")
+        logger.info("Loading Grounding Dino.")
         self.grounding_dino_processor = AutoProcessor.from_pretrained(
             Config.GROUNDING_DINO_MODEL_ID, 
             cache_dir=Config.CUSTOM_CACHE_DIR
@@ -39,7 +42,7 @@ class ObjectDetector:
         ).to(self.device)
         self.grounding_dino_model.eval()
 
-        print(f"Grounding DINO model loaded with cache at {Config.CUSTOM_CACHE_DIR}.")
+        logger.info(f"Grounding DINO model loaded with cache at {Config.CUSTOM_CACHE_DIR}.")
 
     def detect_objects_with_dino(self, image):
         inputs = self.grounding_dino_processor(
@@ -61,7 +64,6 @@ class ObjectDetector:
         return results
 
     def detect_and_classify_leaf(self, image):
-        print("Detecting & Classifying Leaf...")
         results = self.yolov8_model(image)
 
         if len(results) > 0 and len(results[0].boxes) > 0:
@@ -73,11 +75,9 @@ class ObjectDetector:
 
             predictions.sort(key=lambda x: x[1], reverse=True)
 
-            print("\nTop 3 Predictions:")
             for i in range(min(3, len(predictions))):
                 predicted_class, confidence = predictions[i]
-                print(f"{i+1}. {predicted_class} - Confidence: {confidence}")
-            print()
+                logger.info(f"{i+1}. {predicted_class} - Confidence: {confidence}")
 
             return {
                 "leaf_detected": True,

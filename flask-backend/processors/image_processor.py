@@ -36,7 +36,6 @@ class ImageProcessor:
             if image.mode != 'RGB':
                 image = image.convert('RGB')
             
-            print(f"Converted {file.filename} to JPG")
             return image
 
         except UnidentifiedImageError as e:
