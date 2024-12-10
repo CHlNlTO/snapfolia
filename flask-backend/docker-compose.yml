@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  flask-backend:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: flask-backend:v1.3
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    volumes:
+      - .:/snap-backend
+
+  celery-worker:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: celery-worker:v1.3
+    command: celery -A celery_worker.celery worker --loglevel=info
+    depends_on:
+      - redis
+      - flask-backend
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    volumes:
+      - .:/snap-backend
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"

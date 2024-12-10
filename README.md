@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Snapfolia
+
+Welcome to the Snapfolia repository! Snapfolia is a leaf classifier web application using a machine-learning model.
+
+## Tech Stack
+
+- **Frontend:**
+  - HTML
+  - CSS
+  - JavaScript
+
+- **Backend:**
+  - Python 3.9.12
+
+## Collaborator Roles and Branch Permissions
+
+### Branches Overview
+
+- **model**: Branch for machine-learning model development.
+- **web**: Branch for web application development.
+- **develop**: Merging branch of web and model branches.
+- **staging**: Testing stage of the compiled develop branch.
+- **main**: Production-ready code base.
+
+### Collaborator Roles and Permissions
+
+Each collaborator has specific roles assigned for contributing to the Snapfolia project. They are restricted to push changes only to their assigned branches to maintain code integrity and project organization.
+
+#### Role Assignments
+
+- **Model Branch Collaborators**:
+  - Responsible for the `model` folder within the `model` branch.
+  - Must create sub-branch such as `model/<action>` for the `model` branch to make changes.
+  - Only authorized to add, delete, edit, and make updates to the `model` folder
+  - Only authorized to edit, push, and make changes to the `model/<action>` sub-branch.
+  - All changes related to the machine-learning model should be made within this branch.
+
+- **Web Branch Collaborators**:
+  - Responsible for the `web` branch.
+  - Must create sub-branch such as `web/<action>` for the `web` branch to make changes.
+  - Only authorized to add, delete, edit, and make updates to the `web` folder
+  - Only authorized to edit, push, and make changes to the `web/<action>` sub-branch.
+  - Tasks include frontend, backend, database, and integration tasks specific to the web interface.
+
+### Collaborator Responsibilities
+
+- **Pull Requests**: Create pull requests from your assigned branch (`model/<action>`, `web/<action>`) to the respective target branch (`model`, `web`) for code review and merging.
+- **Review Process**: All changes must undergo review by at least one other collaborator before merging.
+- **Code Quality**: Ensure code quality, documentation, and adherence to coding standards before submitting pull requests.
 
 ## Getting Started
 
-First, run the development server:
+To contribute to Snapfolia, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the repository to your local machine:
+   ```bash
+   git clone https://github.com/CHlNlTO/snapfolia.git
+   cd snapfolia
+2. Checkout to your assigned branch (model, web):
+   ```bash
+   git checkout <branch-name>
+3. Make changes, add features, or fix bugs within your assigned branch.
+4. Commit your changes:
+   ```bash
+   git add .
+   git commit -m "Brief description of changes"
+5. Push changes to your assigned branch:
+   ```bash
+   git push origin <branch-name>
+Once approved, changes will be merged into the target branch (develop, staging, main).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Inquiries
+- For any questions or assistance, contact the project lead or fellow collaborators.
+- Adhere to project guidelines and coding standards to maintain consistency and quality across Snapfolia.
