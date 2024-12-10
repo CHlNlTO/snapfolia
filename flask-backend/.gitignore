@@ -3,7 +3,8 @@ uploads/
 cache/
 logs.csv
 src/
-*.txt
 app.log
 *.pyc
 __pycache__/
+.env
+certificates/
