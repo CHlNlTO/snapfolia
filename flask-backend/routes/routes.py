@@ -33,7 +33,7 @@ def upload_file():
     
     file.save(file_path)
 
-    task = process_image_task.apply(args=[file_path])  
+    task = process_image_task.apply_async(args=[file_path])  
     result = task.get()
 
     if "error" in result:
