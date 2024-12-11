@@ -8,24 +8,26 @@ from configuration.config import Config
 
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
-logging.basicConfig(level=logging.INFO)
+# Set up logging only once
+if not logging.getLogger().hasHandlers():
+    logging.basicConfig(level=logging.INFO)
+
 logger = logging.getLogger(__name__)
 
 logger.info("Initializing Flask app...")
 app = create_app()
 
-logger.info("Creating Celery Worker...")
+logger.info("Initializing Celery Worker...")
 celery_app = celery
 
-if __name__ == '__main__':
-    
-    obj_detector = ObjectDetector()
-    obj_detector._initialize_models()
+logger.info("Starting Flask app...")
 
-    logger.info("Starting Flask app...")
-    app.run(
-        host='0.0.0.0',
-        port=5000,
-        ssl_context=(Config.SSL_CERT, Config.SSL_KEY),
-        debug=False
-    )
+# Initialize Object Detector
+obj_detector = ObjectDetector()
+obj_detector._initialize_models()
+
+# Gunicorn will bind to the host and port, log them
+host = Config.HOST if hasattr(Config, 'HOST') else '0.0.0.0'
+
+port = Config.PORT if hasattr(Config, 'PORT') else 5000
+logger.info(f"Gunicorn will bind to: {host}:{port}")

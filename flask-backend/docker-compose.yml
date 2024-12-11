@@ -1,25 +1,28 @@
+version: '3.8'
+
 services:
   flask-backend:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
     image: flask-backend:v1.3
     runtime: nvidia
     ports:
-      - "8080:8080"
+      - "5000:5000"
     depends_on:
       - redis
     environment:
-      - FLASK_ENV=development
-      - FLASK_DEBUG=1
+      - FLASK_ENV=production
+      - FLASK_DEBUG=0
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
       - SSL_CERT=/certificates/treesbe.firstasia.edu.ph-crt.pem
       - SSL_KEY=/certificates/treesbe.firstasia.edu.ph-key.pem
-      - NVIDIA_VISIBLE_DEVICES=all  
+      - NVIDIA_VISIBLE_DEVICES=all
     volumes:
       - .:/snap-backend
       - ./configuration/certificates:/certificates
+    command: gunicorn -w 4 -b 0.0.0.0:5000 --certfile=${SSL_CERT} --keyfile=${SSL_KEY} app:app
 
   celery-worker:
     build: 

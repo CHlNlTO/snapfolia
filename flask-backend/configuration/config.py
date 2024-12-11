@@ -33,6 +33,10 @@ class Config:
             logger.error(f"SSL certificate file does not exist: {SSL_CERT}")
         if not os.path.exists(SSL_KEY):
             logger.error(f"SSL key file does not exist: {SSL_KEY}")
+            
+    # For Development Purposes
+    HOST = '172.16.101.124'
+    PORT = 5000
     
     
     @classmethod
