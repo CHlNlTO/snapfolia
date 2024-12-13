@@ -6,3 +6,4 @@ src/
 *.txt
 app.log
 __pycache__/
+grounding-dino-tiny/

@@ -35,13 +35,13 @@ function NavBar() {
             >
               Datasets
             </Nav.Link>
-            <Nav.Link
+            {/* <Nav.Link
               as={Link}
               to="/developers"
               className="ms-3 color-dgreen fw-bold nav-item"
             >
               Developers
-            </Nav.Link>
+            </Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
         <Navbar.Brand href="https://www.firstasia.edu.ph/" target="_blank">

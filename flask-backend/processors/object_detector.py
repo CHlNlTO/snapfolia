@@ -32,17 +32,11 @@ class ObjectDetector:
         logging.info("YOLOv8 model loaded.")
 
         logging.info("Loading Grounding Dino.")
-        self.grounding_dino_processor = AutoProcessor.from_pretrained(
-            Config.GROUNDING_DINO_MODEL_ID, 
-            cache_dir=Config.CUSTOM_CACHE_DIR
-        )
-        self.grounding_dino_model = AutoModelForZeroShotObjectDetection.from_pretrained(
-            Config.GROUNDING_DINO_MODEL_ID, 
-            cache_dir=Config.CUSTOM_CACHE_DIR
-        ).to(self.device)
+        self.grounding_dino_processor = AutoProcessor.from_pretrained(Config.GROUNDING_DINO_MODEL_ID)
+        self.grounding_dino_model = AutoModelForZeroShotObjectDetection.from_pretrained(Config.GROUNDING_DINO_MODEL_ID, ).to(self.device)
         self.grounding_dino_model.eval()
 
-        logging.info(f"Grounding DINO model loaded with cache at {Config.CUSTOM_CACHE_DIR}.")
+        logging.info(f"Grounding DINO model loaded.")
 
     def detect_objects_with_dino(self, image):
         inputs = self.grounding_dino_processor(
@@ -64,7 +58,7 @@ class ObjectDetector:
         return results
 
     def detect_and_classify_leaf(self, image):
-        print("Detecting & Classifying Leaf...")
+        logger.info("Detecting & Classifying Leaf...")
         results = self.yolov8_model(image)
 
         if len(results) > 0 and len(results[0].boxes) > 0:
@@ -76,11 +70,10 @@ class ObjectDetector:
 
             predictions.sort(key=lambda x: x[1], reverse=True)
 
-            print("\nTop 3 Predictions:")
+            logger.info("\nTop 3 Predictions:")
             for i in range(min(3, len(predictions))):
                 predicted_class, confidence = predictions[i]
-                print(f"{i+1}. {predicted_class} - Confidence: {confidence}")
-            print()
+                logger.info(f"{i+1}. {predicted_class} - Confidence: {confidence}")
 
             return {
                 "leaf_detected": True,

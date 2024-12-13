@@ -26,12 +26,6 @@ def upload_file():
     
     result = detection_service.process_image(file)
 
-    # Add file to the processing queue
-    # request_id = detection_service.add_request(file)
-
-    # Retrieve the processing result
-    # result = detection_service.get_result(request_id)
-
     return jsonify(result)
 
 @upload_bp.route('/scan-time', methods=['POST'])
@@ -45,7 +39,6 @@ def get_scan_time():
             scan_time = float(scan_time)
             confidence = float(confidence)
             
-            # Log the scan time and detection details
             logging_service.log_detection(
                 predicted_class, 
                 confidence, 

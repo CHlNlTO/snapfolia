@@ -14,7 +14,9 @@ app = create_app()
 if __name__ == '__main__':
     logger.info("Starting Flask app...")
     app.run(
-        host='0.0.0.0',
-        port=8080,
-        debug=False
-    )
+            host='0.0.0.0',
+            port=5000,
+            ssl_context=("../../certificates/treesbe.firstasia.edu.ph-crt.pem",
+                         "../../certificates/treesbe.firstasia.edu.ph-key.pem"),
+            debug=False
+        )
