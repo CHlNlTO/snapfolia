@@ -3,3 +3,6 @@
 /old-frontend
 
 backup build files/
+
+venv/
+cache/
