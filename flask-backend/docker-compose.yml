@@ -1,0 +1,32 @@
+services:
+  flask-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.flask 
+    container_name: flask-app
+    image: flask-app:v1.2.1 
+    runtime: nvidia
+    ports:
+      - "5000:5000"  
+    volumes:
+      - .:/flask-app
+    networks:
+      - app-network
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx 
+    container_name: nginx
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - flask-app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
