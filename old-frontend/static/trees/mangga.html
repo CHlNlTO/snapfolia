@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaflet: Mangga</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./static/img/leaflet-favicon.png"
+    />
+
+    <!-- LINK: Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <!-- LINK: Local CSS -->
+    <link rel="stylesheet" href="./static/css/style.css" />
+
+    <!-- LINK: Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- LINK: Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <!-- LINK: Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <style>
+      .display-color{
+        color: #000;
+      }
+      .nav-tabs{
+        display: flex;
+        justify-content: flex-end;
+      }
+      .nav-link {
+        color: #1E5434;
+        font-weight: bold;
+      } 
+      .nav-link:hover {
+        color: green; 
+      } 
+    </style>
+  </head>
+  <body>
+    <!-- MAIN: Result -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Description</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false">Uses</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false">Folklore</button>
+      </li>
+    </ul>
+    <div
+      class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in"
+      id="tree"
+    >
+      <div class="col-lg-8 col-12">
+        <!-- TITLE: Mangga -->
+        <h1 class="color-dgreen fw-bold">
+          Mangga
+          <i class="fas fa-leaf color-dgreen"></i>
+        </h1>
+
+        <!-- SUBTITLE: Other Tagalog names -->
+        <p class="color-dgreen margin-0">
+          <b class="color-dgreen fw-bold">Also known as:</b>
+          Mango
+        </p>
+
+        <hr class="color-dgreen me-3" />
+
+        <!-- SUBTITLE: Gen Info -->
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+        <h2 class="color-dgreen fw-bold">General Information</h2>
+    
+          <p class="color-dgreen">
+            Mangga (Mangifera indica) is a tropical tree in the family
+            Anacardiaceae. It is known for its delicious and nutritious fruit, which is enjoyed
+            worldwide. The tree is also valued for its wood, which is used in furniture
+            making.
+          </p>
+          
+        <!-- SUBTITLE: Botany -->
+        <h2 class="color-dgreen fw-bold">Botany</h2>
+        <p class="color-dgreen ps-2 pe-3">
+          Mangga is a large tree with a dense canopy of glossy, dark green
+          leaves. The flowers are small and white, and the fruit is large and
+          fleshy with a sweet, juicy pulp.
+        </p>
+
+        <!-- SUBTITLE: Distribution -->
+        <h2 class="color-dgreen fw-bold">Distribution</h2>
+        <ul>
+          <li class="color-dgreen">
+            Found in tropical and subtropical regions worldwide.
+          </li>
+          <li class="color-dgreen">
+            Common in India, the Philippines, and other parts of Southeast Asia.
+          </li>
+          <li class="color-dgreen">Grows in gardens, orchards, and forests.</li>
+        </ul>
+
+        <h3 class="color-green fst-italic pb-4">
+          (c) http://www.stuartxchange.org/Mangga
+        </h3>
+        </div>
+
+        <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
+          <h2 class="color-dgreen fw-bold">Uses</h2>
+        <ul>
+          <li class="color-dgreen">
+            Bark is astringent, it is used in diphtheria and rheumatism, and it is believed to possess a tonic action on mucus membrane.
+          </li>
+          <li class="color-dgreen">
+            Mango wood is used chiefly for woodworking products like furniture pieces, benches, and tables but some manufacturers also use it to build houses and parts like flooring.
+          </li>
+          <li class="color-dgreen">
+            Mango fruit is not only known for its sweet flavor but it is also a good source of vitamins and nutrients.
+          </li>
+        </ul>
+        </div>
+
+        <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
+          <h2 class="color-dgreen fw-bold">Folklore</h2>
+          <ul>
+            <p class="color-dgreen ps-2 pe-3">
+              The philippine myth starts with pangga, a beautiful daughter of an old couple. Pangga fell for a local poet who was known as a full fledged sweet talker who could promise the sun, moon and stars named manong who also love pangga. Pangga’s parents disagree with their love. But Manong and Pangga sought to stubbornly keep their love vows till their dying day. Then, the Philippine myth says, one day they disappeared in the woods. The Philippine myth ends with a discovery of a new kind of tree. Its fruit was a bit crescent-shaped like the moon, yellow like the sun, and sweet like Manong’s tongue. It was rich in nutrition as Pangga’s multi-faceted genius. In time it was called “Manga,” a mix of their names, and today’s vernacular for mango.
+            </p>
+            <p class="color-dgreen ps-2 pe-3">
+              There was a little boy named juan who has a wonderful heart, he was nurtured well well by his parents maria and pedro and a kind and helpful young lad. One day juan saw an old beggar woman and he took pity on her. Juan decided to invite the old woman to their house and then he cooked food and fed the old woman until she could not eat anymore. Another day while juan was looking for dry branches of woods, he passed by old man who was so hungry. juan took a pity on him and invited the old man in their house to fed the old man. He alse gave clothes to the beggar that his father doesn’t use anymore and juan’s parents was so greatful to have a son with a golden heart.
+              the time came whenn juan suddenly got ill, his parents was dipressed and didnt know what to do. they persisted to have thier son treated but to no avail, juan didnt survive taht cause him to death. and the next day after juan death. a fairy came to juan wake and talk to his parents. fairy asked them to give juan heart to her. they agreed and gave it to her. the fairy flewaway in the mountain she dug bens heart . it then turn into a fruit bearing tree, the fruit was shaped like a heart and taste so sweet. people was amazed upon discovering this fruit and when they tasted it, it gives smile to thier faces beacause of sweetness that fruit gives. and they called it mango.     
+            </p>
+          </ul>
+        </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+const tabs = document.querySelectorAll('.nav-link');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', function () {
+        tabs.forEach(otherTab => {
+            otherTab.style.backgroundColor = '#E6EDED';
+            otherTab.style.color = 'green';
+        });
+        tab.style.backgroundColor = 'green';
+        tab.style.color = 'white';
+    });
+});
+});
+        </script>
+      </div>
+    </div>
+    <div
+      class="col-lg-4 col-12 d-flex justify-content-center align-content-center"
+    >
+      <img
+        class="w-100 tree-img border-r"
+        src="./static/img/tree-mangga.jpg"
+        alt="Mangga"
+      />
+    </div>
+  </body>
+</html>

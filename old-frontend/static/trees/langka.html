@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaflet: Langka</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./static/img/leaflet-favicon.png"
+    />
+
+    <!-- LINK: Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <!-- LINK: Local CSS -->
+    <link rel="stylesheet" href="./static/css/style.css" />
+
+    <!-- LINK: Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- LINK: Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <!-- LINK: Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <style>
+      .display-color{
+        color: #000;
+      }
+      .nav-tabs{
+        display: flex;
+        justify-content: flex-end;
+      }
+      .nav-link {
+        color: #1E5434;
+        font-weight: bold;
+      } 
+      .nav-link:hover {
+        color: green; 
+      } 
+    </style>
+  </head>
+  <body>
+    <!-- MAIN: Result -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Description</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false">Uses</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false">Folklore</button>
+      </li>
+    </ul>
+    <div
+      class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in"
+      id="tree"
+    >
+      <div class="col-lg-8 col-12">
+        <!-- TITLE: Langka -->
+        <h1 class="color-dgreen fw-bold">
+          Langka
+          <i class="fas fa-leaf color-dgreen"></i>
+        </h1>
+
+        <!-- SUBTITLE: Other Tagalog names -->
+        <p class="color-dgreen margin-0">
+          <b class="color-dgreen fw-bold">Also known as:</b>
+          Jackfruit
+        </p>
+
+        <hr class="color-dgreen me-3" />
+
+        <!-- SUBTITLE: Gen Info -->
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+        <h2 class="color-dgreen fw-bold">General Information</h2>
+
+          <p class="color-dgreen ps-2 pe-3">
+            Langka (Artocarpus brasiliensis) is a tropical tree in the family
+            Moraceae. It is known for its large, edible fruit, which is the largest
+            tree-borne fruit in the world. The tree is also valued for its wood, which is used in construction
+            and for making musical instruments.
+          </p>
+
+
+        <!-- SUBTITLE: Botany -->
+        <h2 class="color-dgreen fw-bold">Botany</h2>
+        <p class="color-dgreen ps-2 pe-3">
+          Langka is a medium to large tree with leathery, dark green leaves. The
+          fruit is large, spiky, and green when unripe, turning yellow as it
+          ripens. The flesh is sweet and aromatic.
+        </p>
+
+        <!-- SUBTITLE: Distribution -->
+        <h2 class="color-dgreen fw-bold">Distribution</h2>
+        <ul>
+          <li class="color-dgreen">Found in tropical regions worldwide.</li>
+          <li class="color-dgreen">
+            Common in Southeast Asia, including the Philippines, Indonesia, and
+            Malaysia.
+          </li>
+          <li class="color-dgreen">Grows in forests, gardens, and farms.</li>
+        </ul>
+
+        <h3 class="color-green fst-italic pb-4">
+          (c) http://www.stuartxchange.org/Langka
+        </h3>
+        </div>
+
+        <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
+          <h2 class="color-dgreen fw-bold">Uses</h2>
+          <ul>
+            <li class="color-dgreen">
+              Leaves, culled fruits, and fruit peelings are valuable for livestock feeding.
+            </li>
+            <li class="color-dgreen">
+              Jackfruit seeds are nutritious, containing vitamin A, sulfur, calcium, and phosphorus. They can be eaten as snacks similar to peanuts, boiled like chestnuts, or ground and mixed with wheat flour to make baking flour.
+            </li>
+            <li class="color-dgreen">
+              The abundant latex it produces have different uses: (a) it contains a resin that can be used in varnishes. (b) substitute for rubber. (c) used as a glue for crafting and repairing broken chinaware.
+            </li>
+          </ul>
+        </div>
+
+        <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
+          <h2 class="color-dgreen fw-bold">Folklore</h2>
+          
+            <p class="color-dgreen ps-2 pe-3">
+              In  the Philippines, a charming legend tells of a chieftain who had promised the hand of his lovely daughter, Princess Marang, to the son of another chieftain.  But Princess Marang fell in love with a merchant in the market place and the father, because of his deep love for daughter, reneged on his vow and allowed Princess Marang to marry the man he truly loved.  The chieftain eventually died but a strange tree grew by his grave ‘bearing fruits that were sweet, smelled heavenly, cured the sick, and made the old feel young—because it was the gift of a golden-hearted father’.
+              Additionally, in the Parables of Sivananda; “The Parable of the Jack-Fruit in the Courtyard” beautifully draws an analogy between dealing with the difficulties of getting the exotic flesh of the jackfruit and making difficult choices in a young man’s life.
+            </p>
+
+        </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+const tabs = document.querySelectorAll('.nav-link');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', function () {
+        tabs.forEach(otherTab => {
+            otherTab.style.backgroundColor = '#E6EDED';
+            otherTab.style.color = 'green';
+        });
+        tab.style.backgroundColor = 'green';
+        tab.style.color = 'white';
+    });
+});
+});
+        </script>
+      </div>
+    </div>
+    <div
+      class="col-lg-4 col-12 d-flex justify-content-center align-content-center"
+    >
+      <img
+        class="w-100 tree-img border-r"
+        src="./static/img/tree-langka.jpg"
+        alt="Langka"
+      />
+    </div>
+  </body>
+</html>

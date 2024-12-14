@@ -1,0 +1,36 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore IDE or editor-specific files
+.idea/
+.vscode/
+
+# Ignore compiled files
+*.class
+*.jar
+*.war
+
+# Ignore environment-specific files1
+.env
+.env.local
+.env.*.local
+venv_yolov8/
+
+# Ignore log files
+*.log
+
+# Ignore build artifacts
+build/
+dist/
+
+# Ignore dependency lock files
+yarn.lock
+package-lock.json
+
+# Ignore model_files 
+model_files/
+grounding-dino-tiny/
+
+venv/
+flask-server/venv/
+venv/*

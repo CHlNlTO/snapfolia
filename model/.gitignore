@@ -1,0 +1,53 @@
+# Byte-compiled / optimized Python files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# IDEs and editors
+.idea/
+.vscode/
+
+# Environment
+.env
+.env.*
+venv/
+ENV/
+
+# Compiled Python files
+*.pyc
+*.pyo
+
+# macOS
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# pytest cache
+.cache/
+
+# mypy
+.mypy_cache/
+
+# PyInstaller
+dist/

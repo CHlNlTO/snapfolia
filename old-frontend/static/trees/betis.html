@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaflet: Betis</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./static/img/leaflet-favicon.png"
+    />
+
+    <!-- LINK: Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <!-- LINK: Local CSS -->
+    <link rel="stylesheet" href="./static/css/style.css" />
+
+    <!-- LINK: Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- LINK: Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <!-- LINK: Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <style>
+      .display-color{
+        color: #000;
+      }
+      .nav-tabs{
+        display: flex;
+        justify-content: flex-end;
+      }
+      .nav-link {
+        color: #1E5434;
+        font-weight: bold;
+      } 
+      .nav-link:hover {
+        color: green; 
+      } 
+    </style>
+  </head>
+  <body>
+    <!-- MAIN: Result -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Description</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="uses-tab" data-bs-toggle="tab" data-bs-target="#uses-tab-pane" type="button" role="tab" aria-controls="uses-tab-pane" aria-selected="false">Uses</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="folklore-tab" data-bs-toggle="tab" data-bs-target="#folklore-tab-pane" type="button" role="tab" aria-controls="folklore-tab-pane" aria-selected="false">Folklore</button>
+      </li>
+    </ul>
+    <div
+      class="d-flex flex-lg-row flex-column bg-lgreen border-r tree-div overflow-auto p-4 animate-fade-in"
+      id="tree"
+    >
+      <div class="col-lg-8 col-12">
+        <!-- TITLE: Betis -->
+        <h1 class="color-dgreen fw-bold">
+          Betis
+          <i class="fas fa-leaf color-dgreen"></i>
+        </h1>
+
+                <!-- SUBTITLE: Other Tagalog names -->
+                <p class="color-dgreen margin-0">
+                  <b class="color-dgreen fw-bold">Also known as: </b>
+                  Manlig, Pappagan
+                </p>
+
+        <hr class="color-dgreen me-3" />
+
+         <!-- SUBTITLE: Gen Info -->
+         <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active display-color" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+        <h2 class="color-dgreen fw-bold">General Information</h2>
+          <p class="color-dgreen ps-2 pe-3">
+           Betis is a genus of plants in the family Sapotaceae. 
+           It was first described as a genus in 1791. It consists of more than 110 species.
+           Pale red wood is hard, heavy, and durable. Used for heavy construction like building wharfs,
+           bridges and ships; also as foundation posts of houses, foundation sills, tool handles, etc.
+          </p>
+
+
+        <!-- SUBTITLE: Botany -->
+        <h2 class="color-dgreen fw-bold">Botany</h2>
+        <p class="color-dgreen ps-2 pe-3">
+          Betis is a good-sized tree reaching a height of 30 meters. Bark is
+          brown and ridged. Leaves are clustered at the ends of the branchlets,
+          oblong-obovate, 20 to 25 centimeters long, 7 to 9 centimeters wide,
+          smooth on the upper surface, very hairy beneath, pointed at both ends.
+          Flowers are numerous, hairy, pale white, borne in rounded clusters.
+          Fruit is ellipsoid, brownish, grows upon thickened smooth stalks, 3 to
+          4 centimeters long, with a large and shiny seed.
+        </p>
+
+        <!-- SUBTITLE: Distribution -->
+        <h2 class="color-dgreen fw-bold">Distribution</h2>
+        <ul>
+          <li class="color-dgreen">
+            In the Philippines, in primary forests at low altitudes, in the
+            Luzon provinces of Cagayan, Cavite, Rizal, Quezon, and the
+            Camarines; in Mindoro and Mindanao.
+          </li>
+          <li class="color-dgreen">
+            Also reported in the primary lowland forests of Indonesia and
+            Borneo.
+          </li>
+          <li class="color-dgreen">
+            Threatened by habitat loss. Listed in the 2006 IUCN Red List of
+            Threatened Species.
+          </li>
+        </ul>
+
+        <h3 class="color-green fst-italic pb-4">
+          (c) http://www.stuartxchange.org/Betis
+        </h3>
+        </div>
+
+        <div class="tab-pane fade display-color" id="uses-tab-pane" role="tabpanel" aria-labelledby="uses-tab" tabindex="0">
+          <h2 class="color-dgreen fw-bold">Uses</h2>
+        <ul>
+          <li class="color-dgreen">
+            Bark and leaves of the plant used for stomach pains in children.
+          </li>
+          <li class="color-dgreen">
+            Latex applied to abdomen to expel worms.
+          </li>
+          <li class="color-dgreen">
+            Bark powder provokes sneezing.
+          </li>
+        </ul>
+        </div>
+
+        <div class="tab-pane fade display-color" id="folklore-tab-pane" role="tabpanel" aria-labelledby="folklore-tab" tabindex="0">
+          <h2 class="color-dgreen fw-bold">Folklore</h2>
+        <ul>
+          <li class="color-dgreen">
+            The Myth of the Betis Tree:
+            In the heart of the Philippines, amidst the vibrant landscapes and lush forests, stands the majestic Betis tree. This towering tree, with its rough bark and broad canopy, has been a silent witness to countless stories and legends passed down through generations.
+          </li>
+          <li class="color-dgreen">
+            The Guardian of the Forest:
+According to ancient folklore, the Betis tree is not just any tree but a revered guardian of the forest. It is believed that powerful spirits, known as "diwata," reside within its branches and roots. These diwata are protectors of nature, ensuring the balance and harmony of the forest. Villagers often approach the Betis tree with respect, offering prayers and small gifts to appease the spirits and seek their blessings.
+          </li>
+          <li class="color-dgreen">
+            The Tree of Wisdom:
+Elders tell the tale of a wise and elderly diwata named Lakan, who chose the Betis tree as his dwelling. Lakan was known for his profound knowledge and wisdom. He would often whisper secrets of the forest and guidance to those who sat beneath the tree, listening to the rustling leaves. It is said that if you approach the Betis tree with a pure heart and open mind, Lakan might reveal hidden truths and offer guidance for life's challenges.
+          </li>
+          <li class="color-dgreen">
+            The Healing Powers:
+The Betis tree is also known for its miraculous healing properties. Stories abound of its leaves and bark being used to create potent medicinal concoctions. Healers and shamans often seek the tree's aid to cure ailments and drive away malevolent spirits. One famous legend tells of a young girl named Amihan, who was gravely ill. Her desperate parents prayed to the Betis tree, and Lakan appeared in their dreams, guiding them to brew a potion from the tree's bark. Miraculously, Amihan recovered, and from then on, the tree was revered as a source of healing.
+          </li>
+          <li class="color-dgreen">
+            The Protector of the Innocent:
+Another cherished myth tells of a time when a tyrant threatened a peaceful village near the forest. The villagers, fearing for their lives, sought refuge beneath the Betis tree. As the tyrant's men approached, the tree's branches grew denser and more intertwined, creating an impenetrable barrier. The diwata Lakan, angered by the injustice, summoned a storm that drove the tyrant and his men away, protecting the innocent villagers.
+          </li>
+        </ul>
+        </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+const tabs = document.querySelectorAll('.nav-link');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', function () {
+        tabs.forEach(otherTab => {
+            otherTab.style.backgroundColor = '#E6EDED';
+            otherTab.style.color = 'green';
+        });
+        tab.style.backgroundColor = 'green';
+        tab.style.color = 'white';
+    });
+});
+});
+        </script>
+      </div>
+    </div>
+    <div
+      class="col-lg-4 col-12 d-flex justify-content-center align-content-center"
+    >
+      <img
+        class="w-100 tree-img border-r"
+        src="./static/img/tree-betis.jpg"
+        alt="Betis"
+      />
+    </div>
+  </body>
+</html>

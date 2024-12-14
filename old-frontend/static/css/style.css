@@ -1,0 +1,580 @@
+/* 
+
+LEAFLET COLOR PALETTE: 
+
+#F1FFF5: greenish white, background
+#DCFFE6: light green, navbar
+#57BC90: green, main color 
+#CDEBDE: grayish green, image upload 
+#87CAAD: dark grayish green, image upload icon
+#015249: forest green, main color
+#77C9D4: grayish blue, main color
+#ACE1E9: light blue, wikipedia
+
+*/
+
+/* 
+
+SNAPFOLIA COLOR PALETTE: 
+
+#FFFFFF: white, one of main colors
+#E6EDED: light pale green, background
+#1E5434: dark green, font colors
+#40A067: green, accent color
+
+*/
+
+/* ------------------------- GENERAL -------------------------- */
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    color: #F1FFF5;
+}
+
+.montserrat {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+.border-r {
+    border-radius: 1rem;
+}
+
+@keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-slide-in {
+    animation: slideIn 0.5s ease-in-out;
+  }
+
+  .animate-fade-in {
+    animation: fadein 0.75s ease-in-out;
+  }
+
+  .animate-fade-in-result {
+    animation: fadein 1s ease-in-out;
+  }
+
+
+/* ---------------------- END of GENERAL ---------------------- */
+
+/* ------------------------- DROP AREA -------------------------- */
+#dropArea {
+    border: 2px dashed #aaa;
+    width:100%; /* Adjust the width as needed */
+    height: 100%; /* Adjust the height as needed */
+  }
+  
+#dropArea.dragover {
+    background-color: #f2f2f2;
+  }
+/* ---------------------- END of DROP AREA ---------------------- */
+
+/* ------------------------- BACKGROUNDS -------------------------- */
+
+.bg {
+    background: #FFFFFF;
+}
+
+.bg-lgreen {
+    background-color: #E6EDED;
+}
+
+.bg-green {
+    background-color: #55a375;
+}
+
+.bg-dgreen {
+    background-color: #1E5434;
+}
+
+/* ---------------------- END of BACKGROUNDS ---------------------- */
+
+/* ------------------------- COLORS -------------------------- */
+
+.color-white {
+    color: white;
+}
+
+.color-green {
+    color:#40A067;
+}
+
+.color-dgreen {
+    color:#1E5434;
+}
+
+.color-lgreen {
+    color:#71cd96;
+}
+
+.color-img-upload {
+    color: #a8d3b9;
+}
+
+/* ---------------------- END of COLORS ---------------------- */
+
+/* ------------------------- FONT -------------------------- */
+
+.font-pacifico {
+    font-family: 'Pacifico', serif;
+}
+
+.font-inter {
+    font-family: 'Inter', sans-serif;
+}
+
+/* ---------------------- END of FONT ---------------------- */
+
+/* ------------------------- BREAKPOINTS -------------------------- */
+
+@media screen and (max-width: 767px){
+    /* Shows 'Take a photo' button on mobile */
+    .show-btn {
+        display: block;
+    }
+
+    .modal-dsize {
+        width: auto;
+        max-width: 80%;
+    }
+
+    .faith-logo {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px){
+    /* Hides 'Take a photo' button on web */
+    .hide-btn {
+        display: none;
+    }
+
+    .modal-dsize {
+        width: auto;
+        max-width: 36rem;
+    }
+}
+
+@media screen and (max-width: 992px){
+    .flex-container {
+        flex-direction: column;
+    }
+}
+
+/* ---------------------- END of BREAKPOINTS ---------------------- */
+
+/* ------------------------- NAVBAR -------------------------- */
+
+.logo-size {
+    height: 2rem;
+}
+
+.nav-item {
+    font-size: 0.8rem;
+}
+
+.nav-item {
+    font-size: 0.8rem;
+    position: relative;
+    display: inline-block;
+}
+
+.nav-item:hover {
+    color: #40A067;
+}
+
+.nav-item::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 3px; /* Adjust the position under the text */
+    left: 0;
+    background-color: #40A067;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-item:hover::before {
+    visibility: visible;
+    width: 100%;
+}
+/* ---------------------- END of NAVBAR ---------------------- */
+
+
+/* FONT SIZES */
+
+h1, .h1-rem {
+    font-size: 1.7rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+h3, .copyright {
+    font-size: 0.7rem;
+}
+
+h4 {
+    font-size: 0.55rem;
+}
+
+p, li, .dev-fname {
+    font-size: 0.9rem;
+}
+
+/* CUSTOMIZED MARGIN */
+.margin-0{
+    margin:0;
+}
+
+/* IMAGE */
+.img-upload {
+    height: 15rem;
+    width: 15rem;
+}
+
+.img-devs {
+    height: 17rem;
+}
+
+.img-profile {
+    height: 8rem;
+}
+
+.img-icon {
+    font-size: 4.5em;
+}
+
+.img-leaf {
+    height: 5rem;
+}
+
+.img-upload {
+    position: relative;
+}
+
+.img-uploaded {
+    position: absolute;
+    display: none;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+#btn-cancel {
+    display: none;
+}
+
+
+/* FONT SIZE */
+.fs-responsive {
+    font-size: 0.7rem;
+}
+
+/* TREE-DIV */
+.tree-div {
+    height: 35rem;
+}
+
+.tree-img {
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    height: 100%;
+    max-width: 20rem;
+}
+
+@media screen and (max-width: 992px) {
+    .mt-500 {
+      margin-top: 500px;
+    }
+  }
+  
+
+/* TREE SCROLLBAR */
+#tree {
+    overflow-y: scroll; /* Enable vertical scrollbar */
+    scrollbar-color: transparent transparent; /* For Firefox */
+}
+  
+#tree::-webkit-scrollbar {
+    width: 10px;
+}
+  
+#tree::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+  
+#tree::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+  
+#tree:hover::-webkit-scrollbar-thumb {
+    background-color: #C3C9C3; /* Show scrollbar thumb on hover */
+}
+
+#btn-scan:hover {
+    background-color: #57BC90;
+}
+
+#btn-scan-again {
+    display: none;
+}
+
+#btn-scan-capture {
+    display: none;
+}
+
+.height-100 {
+    height: 97vh;
+}
+
+/* PROGRESS BAR */
+progress#upload-progress {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #FFFFFF; /* Background color of the progress bar */
+}
+
+progress#upload-progress::-webkit-progress-value {
+    background-color: #55a375; 
+    border-radius: 4px;
+    transition: width 0.3s ease-in-out;
+}
+
+progress#upload-progress::-webkit-progress-bar {
+    background-color: #FFFFFF; /* Background color of the progress track */
+    border-radius: 4px;
+}
+
+/* DEV Dropdown */
+select {
+    color: black;
+}
+
+option {
+    color: black;
+}
+
+/* ------------------------- DATASETS -------------------------- */
+
+.vertical-alignment-helper {
+    background-color: transparent;
+    display: table;
+    height: 100%;
+    width: 100%;
+    pointer-events:none; /* This makes sure that we can still click outside of the modal to close it */
+}
+.vertical-align-center {
+    /* To center vertically */
+    background-color: transparent;
+    display: table-cell;
+    vertical-align: middle;
+    pointer-events:none;
+}
+.modal-content {
+    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+    width:inherit;
+    max-width:inherit; /* For Bootstrap 4 - to avoid the modal window stretching full width */
+    height:inherit;
+    /* To center horizontally */
+    margin: 0 auto;
+    pointer-events: all;
+}
+
+.tree-img-modal {
+    width: 15rem;
+    height: auto;
+}
+
+/* ---------------------- END of DATASETS ---------------------- */
+
+.width-responsive {
+    width: 100%;
+}
+
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 10px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+/* LEAVES SCROLLBAR */
+#leaves {
+    overflow-x: scroll; /* Enable horizontal scrollbar */
+    scrollbar-color: transparent transparent; /* For Firefox */
+}
+  
+#leaves::-webkit-scrollbar {
+    height: 10px;
+}
+  
+#leaves::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+  
+#leaves::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+  
+#leaves:hover::-webkit-scrollbar-thumb {
+    background-color: #C3C9C3; /* Show scrollbar thumb on hover */
+}
+
+/* ------------------------- DEVELOPERS -------------------------- */
+
+/* SNACKBAR */
+#snackbar {
+    visibility: hidden;
+    min-width: 15rem;
+    margin-left: -125px;
+    background-color: #57BC90;
+    color: #DCFFE6;
+    text-align: center;
+    border-radius: 1rem;
+    padding: 1rem;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 2rem;
+    font-size: 1rem;
+  }
+  
+  #snackbar.show {
+    visibility: visible;
+    /* this animation can be used when results are showing in scan */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+
+  .developer-logo {
+    height: 3rem;
+    width: auto;
+  }
+
+  .border-green {
+    border-color: #40A067 !important;
+  }
+
+  .social-size {
+    height: 1.4rem;
+    width: 1.4rem;
+  }
+
+  .p-05 {
+    padding: 1px;
+  }
+
+  .image.container{
+    margin-left: -20px; /* Adjust the value as needed */
+  }
+
+  .img-profile {
+    margin-left: -20px; /* Adjust the value as needed */
+  }
+  
+  .role-labels {
+    margin-top: 30px;
+    font-size: 22px;
+  }
+
+  /* Container for individual developer items */
+  .dev-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Circular container above developer names */
+  .dev-circle {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    background-color: #ffffff; /* Example background color */
+    margin-bottom: 10px;
+    border: 3px solid #40A067;
+    overflow: hidden; /* Ensure the image fits within the circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .dev-circle img {
+    width: 100%; /* Ensure the image covers the circle area */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  /* Role containers and their alignment */
+.role-container {
+    margin-bottom: 20px;
+  }
+  
+  /* Developer container styling */
+  .dev-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Gap between each dev-item */
+    flex-wrap: wrap; /* Wrap the containers in case of overflow */
+  }
+
+  .dev-item .dev-name h3{
+    color: #1E5434;
+    font-weight: 600;
+  }
+
+  .role{
+    font-size: 0.55rem;
+  }
+
+/* ---------------------- END of DEVELOPERS ---------------------- */
+
+
+/* ------------------------- USER GUIDE -------------------------- */
+
+.icon-size {
+    width: 7rem;
+}
+
+.guide-size {
+    height: 17rem;
+}
+
+/* ---------------------- END of USER GUIDE ---------------------- */ 
+  
