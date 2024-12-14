@@ -11,7 +11,7 @@ export async function scanLeafImage(
     const formData = new FormData();
     formData.append("file", file);
 
-    const response = await fetch("https://treesbe.firstasia.edu.ph/upload", {
+    const response = await fetch("https://trees.firstasia.edu.ph/upload", {
       method: "POST",
       body: formData,
       credentials: "same-origin",
