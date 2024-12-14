@@ -3,7 +3,7 @@ import Home from "./home/Home";
 
 export default function Page() {
   return (
-    <main>
+    <main className="overflow-hidden">
       <UserGuideModal />
       <Home />
       <div

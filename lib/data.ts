@@ -1,3 +1,7 @@
+import leafCentered from "@/app/assets/leaf-centered.webp";
+import leafBright from "@/app/assets/leaf-bright.webp";
+import leafFocused from "@/app/assets/leaf-focused.webp";
+
 export const snapfolia = {
   name: "Snapfolia",
   description: "A leaf classifier application",
@@ -26,7 +30,24 @@ export const externalLinks = {
 };
 
 export const instructions = {
-  fileUpload: "Snap or Upload a photo of a tree leaf",
+  fileUpload: "Upload an image",
+  guideSteps: [
+    {
+      title: "Centered and Aligned",
+      content: "Place leaf on a flat surface and take a clear photo.",
+      image: leafCentered,
+    },
+    {
+      title: "Clear and Bright",
+      content: "Maintain minimal shadows and highlights.",
+      image: leafBright,
+    },
+    {
+      title: "Focused and Sharp",
+      content: "Ensure the leaf is in focus and sharp.",
+      image: leafFocused,
+    },
+  ],
 };
 
 export const leaves = [

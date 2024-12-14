@@ -21,7 +21,13 @@ export default function Navbar() {
           className="text-sm font-extrabold flex items-center justify-center gap-4 ring-green-600 focus:p-1 outline-green-600"
           href="/"
         >
-          <Image src={snapfoliaLogo} alt="Snapfolia" width={120} />
+          <Image
+            src={snapfoliaLogo}
+            alt="Snapfolia"
+            width={120}
+            quality={100}
+            className="quality-100"
+          />
         </Link>
         <nav className="hidden md:flex gap-4 sm:gap-8 items-center justify-center">
           {links.map((link) => (

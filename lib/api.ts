@@ -11,14 +11,11 @@ export async function scanLeafImage(
     const formData = new FormData();
     formData.append("file", file);
 
-    const response = await fetch(
-      "https://treesbe.firstasia.edu.ph:5000/upload",
-      {
-        method: "POST",
-        body: formData,
-        credentials: "same-origin",
-      }
-    );
+    const response = await fetch("https://treesbe.firstasia.edu.ph/upload", {
+      method: "POST",
+      body: formData,
+      credentials: "same-origin",
+    });
 
     if (!response.ok) {
       throw new Error("Failed to upload image");

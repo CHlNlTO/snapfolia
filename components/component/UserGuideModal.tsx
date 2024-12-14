@@ -18,9 +18,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useUserGuide } from "@/contexts/UserGuideContext";
 import { motion } from "framer-motion";
-import leafCentered from "/app/assets/leaf-centered.webp";
-import leafBright from "/app/assets/leaf-bright.webp";
-import leafFocused from "/app/assets/leaf-focused.webp";
+import { instructions } from "@/lib/data";
 
 const UserGuideModal = () => {
   const { isOpen, setIsOpen } = useUserGuide();
@@ -32,24 +30,6 @@ const UserGuideModal = () => {
   //     localStorage.setItem("hasSeenGuide", "true");
   //   }
   // }, [setIsOpen]);
-
-  const guideSteps = [
-    {
-      title: "Centered and Aligned",
-      content: "Place leaf on a flat surface and take a clear photo.",
-      image: leafCentered,
-    },
-    {
-      title: "Clear and Bright",
-      content: "Maintain minimal shadows and highlights.",
-      image: leafBright,
-    },
-    {
-      title: "Focused and Sharp",
-      content: "Ensure the leaf is in focus and sharp.",
-      image: leafFocused,
-    },
-  ];
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -84,7 +64,7 @@ const UserGuideModal = () => {
         <div className="py-4">
           <Carousel className="w-full">
             <CarouselContent>
-              {guideSteps.map((step, index) => (
+              {instructions.guideSteps.map((step, index) => (
                 <CarouselItem key={index}>
                   <div className="p-1">
                     <div className="flex flex-col items-center space-y-2 sm:space-y-4 w-full">
@@ -117,7 +97,7 @@ const UserGuideModal = () => {
           <Button
             variant="default"
             onClick={() => setIsOpen(false)}
-            className="mt-4 hover:ring-2 hover:ring-green-600 hover:ring-offset-2 hover:ring-offset-white"
+            className="mt-4 hover:ring-2 hover:ring-green-600 hover:ring-offset-2 hover:ring-offset-white bg-gradient-to-r from-green-500 to-green-600 border border-1 border-green-300 ring-1 ring-green-300"
           >
             Close Guide
           </Button>
