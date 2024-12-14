@@ -16,9 +16,6 @@ import guideProgress from "@/app/assets/img/guide-progress.png";
 import guideProgressMobile from "@/app/assets/img/guide-progress-mobile.png";
 
 const UserGuide = () => {
-  const getImageUrl = (imageName: string): string =>
-    `/app/assets/img/${imageName}`;
-
   return (
     <div className="flex flex-row overflow-hidden p-4 animate-fade-in max-h-[600px] mx-4">
       <div className="w-full bg-gray-200/50 rounded-lg font-montserrat text-[#1e5434] overflow-auto p-4">
