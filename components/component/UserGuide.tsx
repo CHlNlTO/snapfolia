@@ -4,16 +4,20 @@ import React from "react";
 import Image from "next/image";
 import { Leaf } from "lucide-react";
 import { Carousel } from "react-bootstrap";
-
-// interface Instruction {
-//   image: string;
-//   title: string;
-//   content: string;
-// }
+import guidePreferred from "@/app/assets/img/guide-preferred.png";
+import guidePreferred1 from "@/app/assets/img/guide-preferred-1.png";
+import guidePreferred2 from "@/app/assets/img/guide-preferred-2.png";
+import guidePreferred3 from "@/app/assets/img/guide-preferred-3.png";
+import guideAvoid from "@/app/assets/img/guide-avoid.png";
+import guideAvoid1 from "@/app/assets/img/guide-avoid-1.png";
+import guideAvoid2 from "@/app/assets/img/guide-avoid-2.png";
+import guideAvoid3 from "@/app/assets/img/guide-avoid-3.png";
+import guideProgress from "@/app/assets/img/guide-progress.png";
+import guideProgressMobile from "@/app/assets/img/guide-progress-mobile.png";
 
 const UserGuide = () => {
   const getImageUrl = (imageName: string): string =>
-    `https://trees.firstasia.edu.ph/assets/Image/${imageName}`;
+    `/app/assets/img/${imageName}`;
 
   return (
     <div className="flex flex-row overflow-hidden p-4 animate-fade-in max-h-[600px] mx-4">
@@ -42,7 +46,9 @@ const UserGuide = () => {
 
               <Image
                 className="hidden md:block mx-auto my-4 rounded-lg"
-                src={getImageUrl("guide-preferred.png")}
+                src={guidePreferred}
+                width={500}
+                height={750}
                 alt="Preferred"
               />
 
@@ -50,7 +56,9 @@ const UserGuide = () => {
                 <Carousel.Item>
                   <Image
                     className="w-full rounded-lg"
-                    src={getImageUrl("guide-preferred-1.png")}
+                    src={guidePreferred1}
+                    width={500}
+                    height={750}
                     alt="Center"
                   />
                   <Carousel.Caption>
@@ -60,7 +68,9 @@ const UserGuide = () => {
                 <Carousel.Item>
                   <Image
                     className="w-full rounded-lg"
-                    src={getImageUrl("guide-preferred-2.png")}
+                    src={guidePreferred2}
+                    width={500}
+                    height={750}
                     alt="Properly lit"
                   />
                   <Carousel.Caption>
@@ -70,7 +80,9 @@ const UserGuide = () => {
                 <Carousel.Item>
                   <Image
                     className="w-full rounded-lg"
-                    src={getImageUrl("guide-preferred-3.png")}
+                    src={guidePreferred3}
+                    width={500}
+                    height={750}
                     alt="Clear"
                   />
                   <Carousel.Caption>
@@ -88,7 +100,9 @@ const UserGuide = () => {
 
               <Image
                 className="hidden md:block mx-auto my-4 rounded-lg"
-                src={getImageUrl("guide-avoid.png")}
+                src={guideAvoid}
+                width={500}
+                height={750}
                 alt="Avoid"
               />
 
@@ -96,7 +110,9 @@ const UserGuide = () => {
                 <Carousel.Item>
                   <Image
                     className="w-full rounded-lg"
-                    src={getImageUrl("guide-avoid-1.png")}
+                    src={guideAvoid1}
+                    width={500}
+                    height={750}
                     alt="Blurred"
                   />
                   <Carousel.Caption>
@@ -106,7 +122,9 @@ const UserGuide = () => {
                 <Carousel.Item>
                   <Image
                     className="w-full rounded-lg"
-                    src={getImageUrl("guide-avoid-2.png")}
+                    src={guideAvoid2}
+                    width={500}
+                    height={750}
                     alt="Contains other elements"
                   />
                   <Carousel.Caption>
@@ -116,7 +134,9 @@ const UserGuide = () => {
                 <Carousel.Item>
                   <Image
                     className="w-full rounded-lg"
-                    src={getImageUrl("guide-avoid-3.png")}
+                    src={guideAvoid3}
+                    width={500}
+                    height={750}
                     alt="Contains other elements"
                   />
                   <Carousel.Caption>
@@ -144,12 +164,16 @@ const UserGuide = () => {
               looking at the progress bar.
               <Image
                 className="hidden md:block mx-auto my-4 rounded-lg"
-                src={getImageUrl("guide-progress.png")}
+                src={guideProgress}
+                width={500}
+                height={750}
                 alt="Track your progress"
               />
               <Image
                 className="md:hidden w-3/4 mx-auto my-4 rounded-lg"
-                src={getImageUrl("guide-progress-mobile.png")}
+                src={guideProgressMobile}
+                width={500}
+                height={750}
                 alt="Track your progress"
               />
             </li>
