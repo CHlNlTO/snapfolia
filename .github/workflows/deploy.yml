@@ -15,22 +15,35 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18"
+          cache: "npm"
 
       - name: Install Dependencies
-        run: npm install
+        run: |
+          npm ci
 
       - name: Build Application
-        run: npm run build
+        run: |
+          npm run build
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy to Server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
+        env:
+          SSH_AUTH_SOCK: /dev/null
+        run: |
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} '
             cd /var/www/snapfolia
-            git pull origin production-web
-            npm install
+            git fetch origin production-web
+            git reset --hard origin/production-web
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            npm ci
+            npm install sharp
             npm run build
-            pm2 restart snapfolia
+            pm2 restart snapfolia || pm2 start npm --name "snapfolia" -- start
+          '

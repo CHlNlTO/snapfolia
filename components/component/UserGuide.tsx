@@ -5,15 +5,15 @@ import Image from "next/image";
 import { Leaf } from "lucide-react";
 import { Carousel } from "react-bootstrap";
 
-interface Instruction {
-  image: string;
-  title: string;
-  content: string;
-}
+// interface Instruction {
+//   image: string;
+//   title: string;
+//   content: string;
+// }
 
 const UserGuide = () => {
   const getImageUrl = (imageName: string): string =>
-    `https://trees.firstasia.edu.ph/assets/img/${imageName}`;
+    `https://trees.firstasia.edu.ph/assets/Image/${imageName}`;
 
   return (
     <div className="flex flex-row overflow-hidden p-4 animate-fade-in max-h-[600px] mx-4">
@@ -40,7 +40,7 @@ const UserGuide = () => {
                 </li>
               </ul>
 
-              <img
+              <Image
                 className="hidden md:block mx-auto my-4 rounded-lg"
                 src={getImageUrl("guide-preferred.png")}
                 alt="Preferred"
@@ -48,7 +48,7 @@ const UserGuide = () => {
 
               <Carousel className="md:hidden mx-auto w-3/4 mb-4">
                 <Carousel.Item>
-                  <img
+                  <Image
                     className="w-full rounded-lg"
                     src={getImageUrl("guide-preferred-1.png")}
                     alt="Center"
@@ -58,7 +58,7 @@ const UserGuide = () => {
                   </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                  <img
+                  <Image
                     className="w-full rounded-lg"
                     src={getImageUrl("guide-preferred-2.png")}
                     alt="Properly lit"
@@ -68,7 +68,7 @@ const UserGuide = () => {
                   </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                  <img
+                  <Image
                     className="w-full rounded-lg"
                     src={getImageUrl("guide-preferred-3.png")}
                     alt="Clear"
@@ -86,7 +86,7 @@ const UserGuide = () => {
                 </li>
               </ul>
 
-              <img
+              <Image
                 className="hidden md:block mx-auto my-4 rounded-lg"
                 src={getImageUrl("guide-avoid.png")}
                 alt="Avoid"
@@ -94,7 +94,7 @@ const UserGuide = () => {
 
               <Carousel className="md:hidden mx-auto w-3/4 mb-4">
                 <Carousel.Item>
-                  <img
+                  <Image
                     className="w-full rounded-lg"
                     src={getImageUrl("guide-avoid-1.png")}
                     alt="Blurred"
@@ -104,7 +104,7 @@ const UserGuide = () => {
                   </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                  <img
+                  <Image
                     className="w-full rounded-lg"
                     src={getImageUrl("guide-avoid-2.png")}
                     alt="Contains other elements"
@@ -114,7 +114,7 @@ const UserGuide = () => {
                   </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                  <img
+                  <Image
                     className="w-full rounded-lg"
                     src={getImageUrl("guide-avoid-3.png")}
                     alt="Contains other elements"
@@ -142,12 +142,12 @@ const UserGuide = () => {
             <li>
               Wait for your results! You can infer the progress of your scan by
               looking at the progress bar.
-              <img
+              <Image
                 className="hidden md:block mx-auto my-4 rounded-lg"
                 src={getImageUrl("guide-progress.png")}
                 alt="Track your progress"
               />
-              <img
+              <Image
                 className="md:hidden w-3/4 mx-auto my-4 rounded-lg"
                 src={getImageUrl("guide-progress-mobile.png")}
                 alt="Track your progress"
