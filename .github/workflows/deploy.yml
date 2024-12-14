@@ -43,7 +43,7 @@ jobs:
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             npm ci
-            npm install sharp
+            npm sharp
             npm run build
             pm2 restart snapfolia || pm2 start npm --name "snapfolia" -- start
           '
