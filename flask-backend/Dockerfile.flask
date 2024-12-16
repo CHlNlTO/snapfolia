@@ -1,22 +1,33 @@
-# docker run -p 8080:8080 flask-backend
+# Use the PyTorch base image with CUDA 12.1
 FROM pytorch/pytorch:2.3.1-cuda12.1-cudnn8-runtime
 
-RUN python --version
+# Set environment variables to prevent Python from writing bytecode files
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
+# Install necessary system dependencies
 RUN apt-get update && apt-get install -y \
     libgl1-mesa-glx \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
+# Set the working directory inside the container
 WORKDIR /snap-backend
 
+# Copy requirements file
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
 
+# Upgrade pip and install dependencies
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir torch==2.3.1+cu121 torchvision==0.18.1 \
+    -f https://download.pytorch.org/whl/cu121/torch_stable.html && \
+    pip install --no-cache-dir -r requirements.txt
+
+# Copy the application code into the container
 COPY . .
 
+# Expose port 5000 for the Flask application
 EXPOSE 5000
 
+# Set the default command to run the Flask application using Gunicorn
 CMD ["gunicorn", "-b", "0.0.0.0:5000", "app:app"]
-
-

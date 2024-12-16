@@ -1,13 +1,69 @@
 services:
-  flask-app:
+  flask-app-1:
     build:
       context: .
       dockerfile: Dockerfile.flask 
-    container_name: flask-app
-    image: flask-app:v1.2.1 
+    container_name: flask-app-1
+    image: flask-app:v1.2.2
     runtime: nvidia
     ports:
-      - "5000:5000"  
+      - "5000:5000"
+    volumes:
+      - .:/flask-app
+    networks:
+      - app-network
+
+  flask-app-2:
+    build:
+      context: .
+      dockerfile: Dockerfile.flask 
+    container_name: flask-app-2
+    image: flask-app:v1.2.2
+    runtime: nvidia
+    ports:
+      - "5001:5000"
+    volumes:
+      - .:/flask-app
+    networks:
+      - app-network
+
+  flask-app-3:
+    build:
+      context: .
+      dockerfile: Dockerfile.flask 
+    container_name: flask-app-3
+    image: flask-app:v1.2.2
+    runtime: nvidia
+    ports:
+      - "5002:5000"
+    volumes:
+      - .:/flask-app
+    networks:
+      - app-network
+
+  flask-app-4:
+    build:
+      context: .
+      dockerfile: Dockerfile.flask 
+    container_name: flask-app-4
+    image: flask-app:v1.2.2
+    runtime: nvidia
+    ports:
+      - "5003:5000"
+    volumes:
+      - .:/flask-app
+    networks:
+      - app-network
+
+  flask-app-5:
+    build:
+      context: .
+      dockerfile: Dockerfile.flask 
+    container_name: flask-app-5
+    image: flask-app:v1.2.2
+    runtime: nvidia
+    ports:
+      - "5004:5000"
     volumes:
       - .:/flask-app
     networks:
@@ -23,7 +79,11 @@ services:
       - "80:80"
       - "443:443"
     depends_on:
-      - flask-app
+      - flask-app-1
+      - flask-app-2
+      - flask-app-3
+      - flask-app-4
+      - flask-app-5
     networks:
       - app-network
 
