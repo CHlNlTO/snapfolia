@@ -28,7 +28,10 @@ export async function scanLeafImage(
     });
 
     if (!response.ok) {
-      throw new Error(`Upload failed: ${response.statusText}`);
+      if (response.statusText === "Bad Gateway") {
+        throw new Error("Server is offline.");
+      }
+      throw new Error(`Slow Internet Connection`); // Catch all other errors
     }
 
     const result: LeafScanResult = await response.json();

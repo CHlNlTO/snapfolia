@@ -7,6 +7,13 @@ export const snapfolia = {
   description: "A leaf classifier application",
 };
 
+export const externalLinks = {
+  faith: {
+    name: "FAITH Colleges",
+    url: "https://firstasia.edu.ph",
+  },
+};
+
 export const links = [
   {
     name: "Home",
@@ -21,13 +28,6 @@ export const links = [
     href: "/developers",
   },
 ];
-
-export const externalLinks = {
-  faith: {
-    name: "FAITH Colleges",
-    url: "https://firstasia.edu.ph",
-  },
-};
 
 export const instructions = {
   fileUpload: "Upload an image",
@@ -49,8 +49,6 @@ export const instructions = {
     },
   ],
 };
-
-// Previous imports and code remain the same...
 
 export const loadingMessages = {
   formal: [

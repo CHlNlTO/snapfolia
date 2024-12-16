@@ -165,3 +165,9 @@ body {
     margin-bottom: 1rem;
   }
 }
+
+/* User Guide */
+
+.carousel-control-prev {
+  display: hidden;
+}

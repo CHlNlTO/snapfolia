@@ -3,7 +3,7 @@ name: Deploy to Production
 on:
   push:
     branches:
-      - production-web
+      - production-frontend
 
 jobs:
   deploy:

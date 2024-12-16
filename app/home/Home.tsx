@@ -7,7 +7,7 @@ import { ScanResult } from "@/components/component/ScanResult";
 import { useFileStore } from "@/store/useFileStore";
 
 export default function Home() {
-  const { file, isScanning, scanResult } = useFileStore();
+  const { file, isScanning, scanResult, error } = useFileStore();
 
   return (
     <main className="relative mx-auto mt-20 lg:mt-10 flex flex-col items-center overflow-hidden space-y-20 min-h-screen my-4">
@@ -19,15 +19,19 @@ export default function Home() {
             file={file}
             messageStyle="casual" // You can change this to "formal" or "scientific"
           />
-          <ScanResult scanResult={scanResult} isScanning={isScanning} />
+          <ScanResult
+            scanResult={scanResult}
+            isScanning={isScanning}
+            error={error}
+          />
         </div>
         <div
           className="flex flex-col items-start justify-center w-full max-w-[800px]"
           style={{ marginTop: "20px" }}
         >
           <UserGuide
-            backgroundColor="bg-green-700/5"
-            maxHeight="max-h-[600px]"
+            backgroundColor="bg-gradient-to-br from-emerald-50 to-emerald-100"
+            maxHeight="max-h-[700px]"
           />
         </div>
       </section>

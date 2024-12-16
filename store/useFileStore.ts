@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { scanLeafImage } from "@/lib/api";
-import { FileState } from "@/lib/types";
+import { FileState, LeafScanResult } from "@/lib/types";
 
 export const useFileStore = create<FileState>((set, get) => ({
   file: null,
@@ -17,11 +17,15 @@ export const useFileStore = create<FileState>((set, get) => ({
     set({ scanResult: null });
   },
   setIsScanning: (isScanning) => set({ isScanning }),
-  setScanResult: (result) => set({ scanResult: result }),
+  setScanResult: (result: LeafScanResult | null) => set({ scanResult: result }),
+  error: null,
+  setError: (error) => set({ error }),
   handleScan: async () => {
-    const { file, setIsScanning, setScanResult } = get();
+    const { file, setIsScanning, setScanResult, setError } = get();
     console.log("Scanning leaf...");
+    setScanResult(null);
     setIsScanning(true);
+    setError(null);
 
     if (file) {
       try {
@@ -33,6 +37,7 @@ export const useFileStore = create<FileState>((set, get) => ({
       } catch (error) {
         console.error(error);
         setScanResult(null);
+        setError("Failed to process the image. Please try again.");
       } finally {
         setIsScanning(false);
       }
@@ -43,7 +48,7 @@ export const useFileStore = create<FileState>((set, get) => ({
     if (file?.preview) {
       URL.revokeObjectURL(file.preview);
     }
-    set({ file: null, scanResult: null });
+    set({ file: null, scanResult: null, error: null });
   },
   resetScan: () => set({ scanResult: null, isScanning: false }),
 }));
