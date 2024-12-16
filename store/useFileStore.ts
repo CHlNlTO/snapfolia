@@ -25,7 +25,9 @@ export const useFileStore = create<FileState>((set, get) => ({
 
     if (file) {
       try {
-        const result = await scanLeafImage(file);
+        const formData = new FormData();
+        formData.append("file", file);
+        const result = await scanLeafImage(formData);
         setScanResult(result);
         console.log("Scan result:", result);
       } catch (error) {

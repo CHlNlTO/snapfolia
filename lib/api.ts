@@ -1,38 +1,58 @@
-import { FileWithPreview, LeafScanResult } from "./types";
+"use server";
+
+import { revalidatePath } from "next/cache";
+import { LeafScanResult } from "./types";
 
 export async function scanLeafImage(
-  file: FileWithPreview
+  formData: FormData
 ): Promise<LeafScanResult> {
-  if (!file) {
-    throw new Error("No file provided");
-  }
-
   try {
-    const formData = new FormData();
-    formData.append("file", file);
+    // Get the file from FormData
+    const file = formData.get("file") as File;
+
+    if (!file) {
+      throw new Error("No file provided");
+    }
+
+    // Validate file type
+    if (!file.type.startsWith("image/")) {
+      throw new Error("File must be an image");
+    }
+
+    // Create a new FormData instance for the external API
+    const apiFormData = new FormData();
+    apiFormData.append("file", file);
 
     const response = await fetch("https://trees.firstasia.edu.ph/api/upload", {
       method: "POST",
-      body: formData,
-      credentials: "same-origin",
+      body: apiFormData,
     });
 
     if (!response.ok) {
-      throw new Error("Failed to upload image");
+      throw new Error(`Upload failed: ${response.statusText}`);
     }
 
     const result: LeafScanResult = await response.json();
 
-    // Handle different scan result scenarios
-    if (result.leaf_detected) {
-      console.log("Result: ", result);
-    } else {
-      console.log("No leaf detected");
-    }
+    // // Optional: Revalidate the path if you're showing results on a page
+    // revalidatePath("/your-page-path");
 
-    return result;
+    console.log("Leaf scan result:", result);
+
+    return {
+      ...result,
+      success: true,
+      message: result.leaf_detected
+        ? "Leaf successfully detected"
+        : "No leaf detected",
+    };
   } catch (error) {
-    console.log("Error: ", error);
-    throw error;
+    console.error("Leaf scan error:", error);
+    return {
+      success: false,
+      message:
+        error instanceof Error ? error.message : "An unknown error occurred",
+      leaf_detected: false,
+    };
   }
 }
