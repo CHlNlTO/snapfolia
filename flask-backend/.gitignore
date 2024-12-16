@@ -1,0 +1,11 @@
+venv/
+uploads/
+cache/
+logs.csv
+src/
+*.txt
+app.log
+__pycache__/
+grounding-dino-tiny/
+certificates/
+nginx.conf

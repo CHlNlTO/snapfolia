@@ -1,0 +1,22 @@
+.leaf-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+  }
+  
+  .leaf-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  h2, h3 {
+    color: #1E5434;
+  }
+  
+  ul {
+    padding-left: 20px;
+  }

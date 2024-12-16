@@ -1,0 +1,103 @@
+.bg-lgreen {
+  background-color: #E6EDED;
+}
+
+.color-dgreen {
+  color: #1E5434;
+}
+
+.color-green {
+  color: #40A067;
+}
+
+.developer-logo {
+  height: 3rem;
+  width: auto;
+}
+
+.border-r {
+  border-radius: 8px;
+}
+
+.animate-fade-in {
+  animation: fadein 0.75s ease-in-out;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.role-container {
+  margin-bottom: 20px;
+}
+
+.role-labels {
+  margin-top: 30px;
+  font-size: 22px;
+}
+
+.dev-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.dev-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 150px;
+}
+
+.dev-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border: 3px solid #40A067;
+}
+
+.dev-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dev-name h3 {
+  margin: 0.5rem 0;
+  font-size: 14px;
+}
+
+.role {
+  font-size: 8.8px;
+  color: #40A067;
+}
+
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadeout {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
