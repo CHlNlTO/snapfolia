@@ -50,6 +50,41 @@ export const instructions = {
   ],
 };
 
+// Previous imports and code remain the same...
+
+export const loadingMessages = {
+  formal: [
+    "Analyzing leaf characteristics...",
+    "Processing image data...",
+    "Identifying leaf patterns...",
+    "Comparing with database...",
+    "Evaluating leaf structure...",
+    "Calculating confidence score...",
+    "Detecting leaf features...",
+    "Validating results...",
+  ],
+  casual: [
+    "Looking for the perfect match! 🌿",
+    "Nature's secrets loading... 🍃",
+    "Leaf me handle this! 🌱",
+    "Branching out for answers... 🌳",
+    "Getting to the root of it... 🪴",
+    "Turning over a new leaf... 🍂",
+    "Pretty sure this is a leaf... or is it? 🤔",
+    "Photosynthesizing your request... ☀️",
+  ],
+  scientific: [
+    "Analyzing morphological features...",
+    "Evaluating venation patterns...",
+    "Assessing leaf margins and apex...",
+    "Processing laminar characteristics...",
+    "Measuring petiole structure...",
+    "Examining taxonomic markers...",
+    "Calculating phylogenetic data...",
+    "Verifying species indicators...",
+  ],
+} as const;
+
 export const leaves = [
   {
     id: 1,

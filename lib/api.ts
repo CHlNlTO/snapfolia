@@ -36,7 +36,13 @@ export async function scanLeafImage(
     // // Optional: Revalidate the path if you're showing results on a page
     // revalidatePath("/your-page-path");
 
-    console.log("Leaf scan result:", result);
+    const userAgent = process;
+    const device = userAgent.platform || "Unknown";
+    console.log("Leaf scan result:", {
+      result,
+      device,
+      userAgent: process.platform,
+    });
 
     return {
       ...result,

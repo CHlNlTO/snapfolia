@@ -15,10 +15,20 @@ import guideAvoid3 from "@/app/assets/img/guide-avoid-3.png";
 import guideProgress from "@/app/assets/img/guide-progress.png";
 import guideProgressMobile from "@/app/assets/img/guide-progress-mobile.png";
 
-const UserGuide = () => {
+const UserGuide = ({
+  backgroundColor,
+  maxHeight,
+}: {
+  backgroundColor: string;
+  maxHeight: string;
+}) => {
   return (
-    <div className="flex flex-row overflow-hidden p-4 animate-fade-in max-h-[600px] mx-4">
-      <div className="w-full bg-gray-200/50 rounded-lg font-montserrat text-[#1e5434] overflow-auto p-4">
+    <div
+      className={`${maxHeight} flex flex-row overflow-hidden animate-fade-in `}
+    >
+      <div
+        className={`${backgroundColor} w-full rounded-lg font-montserrat text-[#1e5434] overflow-auto p-4 mx-0 lg:mx-4`}
+      >
         <h1 className="text-3xl font-black text-center mb-4 flex flex-row gap 2 items-center justify-center">
           <Leaf className="inline-block mr-2 w-7 h-7" fill="#1e5434" />
           User Guide
@@ -30,7 +40,6 @@ const UserGuide = () => {
             <li>
               <p>
                 Tap{" "}
-                <span className="font-semibold">&#39;Take a photo&#39;</span> or{" "}
                 <span className="font-semibold">&#39;Upload an image&#39;</span>{" "}
                 button.
               </p>
@@ -157,7 +166,7 @@ const UserGuide = () => {
             </li>
 
             <li>
-              Wait for your results! You can infer the progress of your scan by
+              Wait for results! You can infer the progress of your scan by
               looking at the progress bar.
               <Image
                 className="hidden md:block mx-auto my-4 rounded-lg"
@@ -176,9 +185,9 @@ const UserGuide = () => {
             </li>
 
             <li className="pb-4">
-              Use this app as many times as you want by tapping
-              <span className="font-semibold">&#39;Scan Again&#39;</span> button
-              and scan another leaf.
+              Use this app as many times as you want by tapping{" "}
+              <span className="font-semibold">&#39;Remove&#39;</span> button and
+              scan another.
             </li>
           </ol>
         </div>

@@ -1,24 +1,26 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
   DialogTitle,
+  // DialogHeader,
+  // DialogTitle,
 } from "@/components/ui/dialog";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+// import {
+//   Carousel,
+//   CarouselContent,
+//   CarouselItem,
+//   CarouselNext,
+//   CarouselPrevious,
+// } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 import { useUserGuide } from "@/contexts/UserGuideContext";
-import { motion } from "framer-motion";
-import { instructions } from "@/lib/data";
+// import { motion } from "framer-motion";
+// import { instructions } from "@/lib/data";
+import UserGuide from "./UserGuide";
 
 const UserGuideModal = () => {
   const { isOpen, setIsOpen } = useUserGuide();
@@ -33,8 +35,10 @@ const UserGuideModal = () => {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-[600px] overflow-hidden">
-        <div className="relative">
+      <DialogContent className="sm:max-w-[600px] overflow-hidden md:mx-0">
+        <DialogTitle></DialogTitle>
+        <UserGuide backgroundColor="bg-white" maxHeight="max-h-[450px]" />
+        {/* <div className="relative">
           <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-lg sm:top-[-20rem]">
             <motion.div
               className="relative right-[75%] -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#80f0ff] to-[#89fc9c] opacity-30 sm:left-[calc(75%-40rem)] sm:w-[72.1875rem]"
@@ -91,7 +95,7 @@ const UserGuideModal = () => {
             <CarouselPrevious className="ml-12 hover:ring-2 hover:ring-green-600 hover:ring-offset-2 hover:ring-offset-white text-green-600 hover:text-green-500" />
             <CarouselNext className="mr-12 hover:ring-2 hover:ring-green-600 hover:ring-offset-2 hover:ring-offset-white text-green-600 hover:text-green-500" />
           </Carousel>
-        </div>
+        </div> */}
 
         <div className="flex justify-end">
           <Button

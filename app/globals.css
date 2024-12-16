@@ -7,6 +7,26 @@ body {
   overflow-x: hidden;
 }
 
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(30, 84, 52, 0.8);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(30, 84, 52, 1);
+  cursor: pointer;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

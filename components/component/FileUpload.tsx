@@ -10,7 +10,7 @@ import ImageIcon from "./ImageIcon";
 import { useFileStore } from "@/store/useFileStore";
 
 export function FileUpload() {
-  const { file, setFile, handleScan, clearFile } = useFileStore();
+  const { file, setFile, handleScan, clearFile, isScanning } = useFileStore();
   const [isDragActive, setIsDragActive] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -75,19 +75,8 @@ export function FileUpload() {
     MozBoxShadow: "0px 0px 0px 0px #229956",
   };
 
-  // Leaf animation
-  // const leafAnimation = {
-  //   animate: { y: [-2, 2] },
-  //   transition: {
-  //     duration: 1.5,
-  //     repeat: Infinity,
-  //     repeatType: "reverse" as const,
-  //     ease: "easeInOut",
-  //   },
-  // };
-
   return (
-    <div className="h-80 w-80 p-8 pb-0 rounded-2xl space-y-4 flex flex-col justify-center items-center">
+    <div className="h-80 w-80 p-8 pb-0 rounded-2xl space-y-4 flex flex-col justify-center items-center mt-0 lg:mt-20">
       <motion.div
         className={`group relative flex justify-center items-center cursor-pointer rounded-xl w-full h-64 shadow-green-900 shadow-lg border-2 border-dashed px-12 py-0 mx-4 text-center transition-colors ring-green-600 focus:p-1 outline-green-600 ${
           isDragActive
@@ -183,6 +172,7 @@ export function FileUpload() {
             <Button
               className="font-medium bg-gradient-to-r from-green-500 to-green-600 border border-1 border-green-300 ring-1 ring-green-300 text-white text-sm dark:text-neutral-500 opacity-80 rounded-2xl hover:ring-2 hover:ring-green-600 hover:ring-offset-2 hover:ring-offset-white"
               onClick={() => handleScan()}
+              disabled={isScanning}
             >
               <div>
                 <Leaf className="text-green-200 fill-current w-3" />
@@ -195,6 +185,7 @@ export function FileUpload() {
                 e.stopPropagation();
                 handleDeleteFile();
               }}
+              disabled={isScanning}
             >
               <div>
                 <Trash2 className="size-5 cursor-pointer text-white transition-colors" />
