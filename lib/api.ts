@@ -1,6 +1,5 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
 import { LeafScanResult } from "./types";
 
 export async function scanLeafImage(
