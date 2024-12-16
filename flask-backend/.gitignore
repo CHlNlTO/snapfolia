@@ -7,3 +7,5 @@ src/
 app.log
 __pycache__/
 grounding-dino-tiny/
+certificates/
+nginx.conf

@@ -4,16 +4,6 @@ from configuration.config import Config
 
 
 def create_app():
-    """
-    Application factory function to create and configure the Flask application.
-    
-    This approach allows for:
-    - Easier testing
-    - Multiple app instances
-    - Modular configuration
-    
-    :return: Configured Flask application
-    """
     # Initialize directories
     Config.initialize_directories()
     
