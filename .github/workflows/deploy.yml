@@ -17,13 +17,27 @@ jobs:
           node-version: "18"
           cache: "npm"
 
+      # Add Next.js Build Cache
+      - name: Cache Next.js Build
+        uses: actions/cache@v3
+        with:
+          path: |
+            .next/cache
+          # Generate a new cache whenever packages or source files change
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+            ${{ runner.os }}-nextjs-
+
       - name: Install Dependencies
-        run: |
-          npm ci
+        run: npm ci
 
       - name: Build Application
-        run: |
-          npm run build
+        run: npm run build
+        env:
+          # Add any required environment variables for your build
+          NEXT_TELEMETRY_DISABLED: 1
 
       - name: Setup SSH
         run: |
@@ -36,14 +50,18 @@ jobs:
         env:
           SSH_AUTH_SOCK: /dev/null
         run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" \
+            --exclude='.git' \
+            --exclude='node_modules' \
+            --exclude='.next/cache' \
+            ./ ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/var/www/snapfolia/
+
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} '
             cd /var/www/snapfolia
-            git fetch origin production-web
-            git reset --hard origin/production-web
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             npm ci
-            npm sharp
             npm run build
             pm2 restart snapfolia || pm2 start npm --name "snapfolia" -- start
           '

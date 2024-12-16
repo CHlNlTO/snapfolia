@@ -3,6 +3,8 @@ export interface LeafScanResult {
   confidence?: number;
   species?: string;
   additional_info?: string;
+  success: boolean;
+  message: string;
 }
 
 export interface FileState {
