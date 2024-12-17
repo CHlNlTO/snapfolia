@@ -23,6 +23,7 @@ class DetectionService:
             return {"leaf_detected": False}
 
         dino_results = self.object_detector.detect_objects_with_dino(image)
+        
         if not dino_results or "boxes" not in dino_results[0] or dino_results[0]["boxes"].shape[0] == 0:
             return {"leaf_detected": False}
 

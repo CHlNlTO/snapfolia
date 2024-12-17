@@ -26,9 +26,7 @@ class ObjectDetector:
         return torch.device('cpu')
 
     def _initialize_models(self):
-        """
-        Initialize YOLOv8 and Grounding DINO models.
-        """
+        
         # YOLOv8 model
         self.yolov8_model = YOLO(Config.YOLOV8_MODEL_PATH)
         print("YOLOv8 model loaded.")
@@ -74,42 +72,32 @@ class ObjectDetector:
         return results
         
     def detect_and_classify_leaf(self, image):
-        print("Detecting & Classifying Leaf...")
-        results = self.yolov8_model(image)  # Run the YOLOv8 model
-        
-        if len(results) > 0 and len(results[0].boxes) > 0:
-            for idx, box in enumerate(results[0].boxes):
-                print(f"\nDetection {idx + 1} Confidence Breakdown:")
-                
-                # Get the detected class and its confidence
-                detected_class_id = int(box.cls.cpu().numpy()[0])
-                detected_class_conf = box.conf.cpu().numpy()[0]
-                detected_class_name = results[0].names[detected_class_id]
-                
-                print(f"Primary Detection: {detected_class_name} - {detected_class_conf * 100:.2f}%")
-                
-                # Attempt to get all class confidences
-                # print("\nConfidence for All Classes:")
-                # for class_id, class_name in results[0].names.items():
-                #     # Note: This might require model-specific implementation
-                #     # The exact method depends on your YOLO model's prediction output
-                #     try:
-                #         # This is a placeholder - you may need to modify based on your specific model
-                #         class_conf = self._get_class_confidence(results, class_id)
-                #         print(f"  {class_name}: {class_conf * 100:.2f}%")
-                #     except Exception as e:
-                #         print(f"  Could not retrieve confidence for {class_name}: {e}")
-            
-            return {"leaf_detected": True}
-        
-        return {"leaf_detected": False}
+        print("Classifying Leaf...")
 
-    def _get_class_confidence(self, results, class_id):
-        primary_result = results[0]
-        
-        # Check if the class matches the detected class
-        if int(primary_result.boxes.cls.cpu().numpy()[0]) == class_id:
-            return primary_result.boxes.conf.cpu().numpy()[0]
-        else:
-            # If not the primary class, return a lower confidence
-            return 0.0
+        # Run the YOLOv8 model for classification
+        results = self.yolov8_model(image)
+
+        if results:
+            # Get the top prediction details
+            top_class = results[0].names[results[0].probs.top1]
+            top_conf = results[0].probs.top1conf.item() * 100
+
+            print("\nLeaf Classification Predictions:")
+            
+            # Get the top 5 predictions
+            top_5_indices = sorted(range(len(results[0].probs.data)), key=lambda i: results[0].probs.data[i], reverse=True)[:5]
+            
+            for index in top_5_indices:
+                class_name = results[0].names[index]
+                prob = results[0].probs.data[index]
+                percentage = prob * 100
+                print(f"{class_name}: {percentage:.2f}%")
+
+            return {
+                "leaf_classified": True, 
+                "class_name": top_class, 
+                "confidence": top_conf
+            }
+
+        print("No leaf detected")
+        return {"leaf_classified": False}

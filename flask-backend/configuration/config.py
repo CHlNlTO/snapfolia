@@ -4,7 +4,7 @@ class Config:
     UPLOAD_FOLDER = 'uploads'
     CUSTOM_CACHE_DIR = os.path.join(os.getcwd(), r'C:\Users\Kraum\PROJECTS\snapfolia\flask-backend\configuration\cache')
 
-    YOLOV8_MODEL_PATH = r"C:\Users\Kraum\PROJECTS\snapfolia\flask-backend\configuration\best36_class.pt"
+    YOLOV8_MODEL_PATH = r"C:\Users\Kraum\PROJECTS\snapfolia\flask-backend\configuration\best.pt"
 
     if not os.path.exists(YOLOV8_MODEL_PATH):
         print(f"Error: YOLOv8 model file not found at {YOLOV8_MODEL_PATH}")
