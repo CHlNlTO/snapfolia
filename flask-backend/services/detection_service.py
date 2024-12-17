@@ -29,10 +29,10 @@ class DetectionService:
         yolov8_results = self.object_detector.detect_and_classify_leaf(image)
         
         # Save image if leaf detected and confidence is low
-        if yolov8_results.get("leaf_detected"):
-            confidence = yolov8_results.get("confidence", 0)
-            if confidence < 0.9:
-                self.image_processor.save_image(file, confidence)
+        # if yolov8_results.get("leaf_detected"):
+        #     confidence = yolov8_results.get("confidence", 0)
+        #     if confidence < 0.9:
+        #         self.image_processor.save_image(file, confidence)
 
         return yolov8_results
 

@@ -89,16 +89,16 @@ class ObjectDetector:
                 print(f"Primary Detection: {detected_class_name} - {detected_class_conf * 100:.2f}%")
                 
                 # Attempt to get all class confidences
-                print("\nConfidence for All Classes:")
-                for class_id, class_name in results[0].names.items():
-                    # Note: This might require model-specific implementation
-                    # The exact method depends on your YOLO model's prediction output
-                    try:
-                        # This is a placeholder - you may need to modify based on your specific model
-                        class_conf = self._get_class_confidence(results, class_id)
-                        print(f"  {class_name}: {class_conf * 100:.2f}%")
-                    except Exception as e:
-                        print(f"  Could not retrieve confidence for {class_name}: {e}")
+                # print("\nConfidence for All Classes:")
+                # for class_id, class_name in results[0].names.items():
+                #     # Note: This might require model-specific implementation
+                #     # The exact method depends on your YOLO model's prediction output
+                #     try:
+                #         # This is a placeholder - you may need to modify based on your specific model
+                #         class_conf = self._get_class_confidence(results, class_id)
+                #         print(f"  {class_name}: {class_conf * 100:.2f}%")
+                #     except Exception as e:
+                #         print(f"  Could not retrieve confidence for {class_name}: {e}")
             
             return {"leaf_detected": True}
         
