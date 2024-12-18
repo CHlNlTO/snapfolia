@@ -1,8 +1,20 @@
+// export interface LeafScanResult {
+//   leaf_detected: boolean;
+//   confidence?: number;
+//   label?: string;
+//   additional_info?: string;
+//   success: boolean;
+//   message: string;
+// }
+
+export interface LeafClass {
+  class: string;
+  confidence: number;
+}
+
 export interface LeafScanResult {
   leaf_detected: boolean;
-  confidence?: number;
-  label?: string;
-  additional_info?: string;
+  classes?: LeafClass[];
   success: boolean;
   message: string;
 }

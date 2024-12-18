@@ -1,9 +1,10 @@
-"use client";
-
-import React from "react";
+import React, { useState } from "react";
 import { LeafScanResult } from "@/lib/types";
-import { getLeafDetails } from "@/utils/leaf-utils";
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, Leaf } from "lucide-react";
+import { LeafResultCard } from "./LeafResultCard";
+import LeafModal from "./LeafModal";
+import { leaves } from "@/lib/data";
+import { motion } from "framer-motion";
 
 interface ScanResultProps {
   scanResult: LeafScanResult | null | undefined;
@@ -12,117 +13,104 @@ interface ScanResultProps {
 }
 
 const ErrorDisplay = ({ message }: { message: string }) => (
-  <div className="space-y-3 flex flex-col items-center justify-center">
-    <div className="space-y-1 flex flex-col items-center justify-center">
+  <div className="flex flex-col items-center justify-center h-full">
+    <div className="bg-red-50/50 p-8 rounded-xl backdrop-blur-sm">
       <div className="flex items-center gap-2 text-red-600">
-        <AlertCircle className="h-5 w-5" />
-        <h1 className="font-bold text-xl">Server Error</h1>
+        <AlertCircle className="h-6 w-6" />
+        <h1 className="font-bold text-xl">Error</h1>
       </div>
-      <p className="text-gray-600 text-sm text-center truncate">{message}</p>
-      <p className="text-gray-600 text-sm text-center">
-        Contact support or try again later.
-      </p>
+      <p className="text-gray-600 text-sm text-center mt-2">{message}</p>
     </div>
   </div>
 );
 
 const InitialState = () => (
-  <div className="space-y-3 flex flex-col items-center justify-center">
-    <div className="space-y-1 flex flex-col items-center justify-center">
-      <h1 className="text-green-900">
-        <span className="font-bold text-3xl">Filipino Name</span>
-      </h1>
-      <h3 className="text-green-900">
-        <span className="font-normal text-lg">English Name</span>
-      </h3>
-      <h3 className="text-green-900">
-        <span className="font-normal text-lg italic">Scientific Name</span>
-      </h3>
-      <h3 className="text-green-900">
-        <span className="font-normal text-lg">Probability</span>
-      </h3>
-    </div>
-  </div>
+  <div className="flex flex-col items-center justify-center h-full"></div>
 );
 
 const NoLeafDetected = () => (
-  <div className="space-y-3 flex flex-col items-center justify-center">
-    <div className="space-y-1 flex flex-col items-center justify-center">
+  <div className="flex flex-col items-center justify-center h-full">
+    <div className="bg-red-50/50 p-8 rounded-xl backdrop-blur-sm">
       <div className="flex items-center gap-2 text-red-600">
-        <AlertCircle className="h-5 w-5" />
+        <AlertCircle className="h-6 w-6" />
         <h1 className="font-bold text-xl">No leaf detected</h1>
       </div>
-      <p className="text-gray-600 text-sm text-center">
+      <p className="text-gray-600 text-sm text-center mt-2">
         Please upload a clear image of a leaf
       </p>
     </div>
   </div>
 );
 
-const LeafResult = ({
-  label,
-  confidence,
-}: {
-  label: string;
-  confidence: number;
-}) => {
-  const { englishName, scientificName } = getLeafDetails(label);
-
-  return (
-    <div className="space-y-3 flex flex-col items-center justify-center">
-      <div className="space-y-1 flex flex-col items-center justify-center">
-        <h1 className="text-green-900">
-          <span className="font-bold text-3xl">{label}</span>
-        </h1>
-        <h3 className="text-green-900">
-          <span className="font-normal text-lg">{englishName}</span>
-        </h3>
-        <h3 className="text-green-900">
-          <span className="font-normal text-lg italic">{scientificName}</span>
-        </h3>
-        <h3 className="text-green-900">
-          <span className="font-normal text-lg">
-            {(confidence * 100).toFixed(1)}%
-          </span>
-        </h3>
-      </div>
-    </div>
-  );
-};
-
 export const ScanResult: React.FC<ScanResultProps> = ({
   scanResult,
   isScanning,
   error,
 }) => {
-  // First check for explicit error prop
-  if (error) {
-    return <ErrorDisplay message={error} />;
-  }
+  const [selectedLeaf, setSelectedLeaf] = useState<string | null>(null);
 
-  // Then check for scan result with success: false
-  if (scanResult && !scanResult.success) {
+  const leafData = selectedLeaf
+    ? leaves.find(
+        (leaf) => leaf.name.toLowerCase() === selectedLeaf.toLowerCase()
+      )
+    : null;
+
+  if (error) return <ErrorDisplay message={error} />;
+  if (scanResult && !scanResult.success)
     return <ErrorDisplay message={scanResult.message} />;
-  }
-
-  // Return null during scanning
-  if (isScanning) {
-    return null;
-  }
-
-  if (!scanResult) {
-    return <InitialState />;
-  }
-
-  if (!scanResult.leaf_detected || !scanResult.label) {
+  if (isScanning) return null;
+  if (!scanResult) return <InitialState />;
+  if (!scanResult.leaf_detected || !scanResult.classes?.length)
     return <NoLeafDetected />;
-  }
 
   return (
-    <LeafResult
-      label={scanResult.label}
-      confidence={scanResult.confidence ?? 0}
-    />
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="w-full h-full bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg p-6 overflow-auto max-w-[594px]"
+    >
+      {/* Header */}
+      <div className="text-center mb-8 w-full">
+        <div className="flex items-center justify-center gap-2">
+          <div className="inline-flex items-center justify-center p-3 bg-emerald-600 rounded-full shadow-md mb-4">
+            <Leaf className="w-8 h-8 text-white" />
+          </div>
+          <h1 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-2">
+            Results
+          </h1>
+        </div>
+        <p className="text-emerald-600">
+          Top {scanResult.classes.length} matches for your leaf
+        </p>
+      </div>
+
+      {/* Results */}
+      <div className="space-y-4 w-full ">
+        {scanResult.classes.map((result, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.1 }}
+          >
+            <LeafResultCard
+              result={result}
+              onClick={() => setSelectedLeaf(result.class)}
+              rank={index + 1}
+            />
+          </motion.div>
+        ))}
+      </div>
+
+      {leafData && (
+        <LeafModal
+          leaf={leafData}
+          show={!!selectedLeaf}
+          onHide={() => setSelectedLeaf(null)}
+        />
+      )}
+    </motion.div>
   );
 };
 
