@@ -45,3 +45,21 @@ export interface FileState {
   clearFile: () => void;
   resetScan: () => void;
 }
+
+export interface Leaf {
+  id: number;
+  name: string;
+  englishName: string;
+  scientificName: string;
+  image: string;
+  treeImage: string;
+  generalInfo: string;
+  botany: string;
+  distribution: string[];
+  reference: string;
+  uses: string[];
+  folklore: string;
+  description: string;
+  shortDescription: string;
+  location: string;
+}

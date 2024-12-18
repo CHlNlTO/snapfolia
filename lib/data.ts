@@ -1,6 +1,4 @@
-import leafCentered from "@/app/assets/leaf-centered.webp";
-import leafBright from "@/app/assets/leaf-bright.webp";
-import leafFocused from "@/app/assets/leaf-focused.webp";
+import { Leaf } from "./types";
 
 export const snapfolia = {
   name: "Snapfolia",
@@ -35,17 +33,17 @@ export const instructions = {
     {
       title: "Centered and Aligned",
       content: "Place leaf on a flat surface and take a clear photo.",
-      image: leafCentered,
+      image: "../../public/assets/img/leaf-centered.webp",
     },
     {
       title: "Clear and Bright",
       content: "Maintain minimal shadows and highlights.",
-      image: leafBright,
+      image: "../../public/assets/img/leaf-bright.webp",
     },
     {
       title: "Focused and Sharp",
       content: "Ensure the leaf is in focus and sharp.",
-      image: leafFocused,
+      image: "../../public/assets/img/leaf-focused.webp",
     },
   ],
 };
@@ -83,14 +81,14 @@ export const loadingMessages = {
   ],
 } as const;
 
-export const leaves = [
+export const leaves: Leaf[] = [
   {
     id: 1,
     name: "Acacia",
     englishName: " Acacia",
     scientificName: "Acacia propinqua",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-acacia.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-acacia.jpg",
+    image: "/assets/img/leaf-acacia.jpg",
+    treeImage: "/assets/img/tree-acacia.jpg",
     generalInfo:
       "Acacia propinqua is a large umbraculiform tree growing to a height of 20 to 25 meters. Bark is rough and furrowed. Branches are widespread. Leaves are evenly bipinnate and hairy underneath. Pinnae are 8 to 12 and 15 centimeters long or less. Leaflets are 12 to 16 in the upper pinnae, 6 to 10 in the lower ones, decreasing in size downward, hairy beneath, with the mid-nerve diagonal, and oblong-rhomboid, 1.5 to 4 centimeters long.",
     botany:
@@ -122,8 +120,8 @@ export const leaves = [
     name: "Alagao",
     englishName: " Alagaw tree",
     scientificName: "Premna odorata",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-alagao.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-alagao.jpg",
+    image: "/assets/img/leaf-alagao.jpg",
+    treeImage: "/assets/img/tree-alagao.jpg",
     generalInfo:
       "The Alagaw tree (or Alagao), scientifically known as Premna odorata, is a tropical plant species that belongs to the Lamiaceae family. It’s commonly found in Southeast Asia and the Philippines, locally called “Alagau” or “Malatibig.” It is called “adgao” or “adgaw” in Hiligaynon/Ilonnggo-speaking provinces.",
     botany:
@@ -151,8 +149,8 @@ export const leaves = [
     name: "Alibangbang",
     englishName: " Butterfly Tree",
     scientificName: "Bauhinia malabarica",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-alibangbang.JPG",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-alibangbang.jpg",
+    image: "/assets/img/leaf-alibangbang.JPG",
+    treeImage: "/assets/img/tree-alibangbang.jpg",
     generalInfo:
       "Alibangbang (Bauhinia malabarica) is a small tree in the family Fabaceae. It is known for its distinctive butterfly-shaped leaves and attractive flowers. The leaves are often used in traditional medicine and as food wrappers.",
     botany:
@@ -181,8 +179,8 @@ export const leaves = [
     name: "Amugis",
     englishName: " Amugis",
     scientificName: "Koordersiodendron pinnatum",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-amugis.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-amugis.jpg",
+    image: "/assets/img/leaf-amugis.jpg",
+    treeImage: "/assets/img/tree-amugis.jpg",
     generalInfo:
       "Amugis is a large evergreen tree growing to a height of 25 to 40 m. Bole is cylindrical, bole 80 cm or more in diameter, branchless up to 20 meters or more.",
     botany:
@@ -211,8 +209,8 @@ export const leaves = [
     name: "Antipolo",
     englishName: " Antipolo Tree",
     scientificName: "Artocarpus blancoi",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-antipolo1.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-antipolo.jpg",
+    image: "/assets/img/leaf-antipolo1.jpg",
+    treeImage: "/assets/img/tree-antipolo.jpg",
     generalInfo:
       "Artocarpus blancoi, commonly known as the Antipolo tree, is a remarkable species belonging to the Moraceae family. The Antipolo tree thrives in tropical climates, often found in secondary forests and open areas. However, its natural habitat is increasingly threatened by urbanization and deforestation, raising concerns about the survival of this native species.",
     botany:
@@ -240,8 +238,8 @@ export const leaves = [
     name: "Apitong",
     englishName: " Apitong",
     scientificName: "Dipterocarpus grandiflorus",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-apitong.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-apitong.jpg",
+    image: "/assets/img/leaf-apitong.jpg",
+    treeImage: "/assets/img/tree-apitong.jpg",
     generalInfo:
       "Apitong (Dipterocarpus grandiflorus) is a large tree in the Dipterocarpaceae family, native to Southeast Asia. The tree produces resin that is used locally as a sealant and for lighting. It is valued for its timber, which is used in construction and for making furniture.",
     botany:
@@ -271,8 +269,8 @@ export const leaves = [
     name: "Asis",
     englishName: " Asis Tree",
     scientificName: "Leucocnide alba",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-asis.jpeg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-asis.jpg",
+    image: "/assets/img/leaf-asis.jpeg",
+    treeImage: "/assets/img/tree-asis.jpg",
     generalInfo:
       "Alagasi is an erect shrub or small tree, reaching a height of 2 to 4 meters. Leaves are papery, oblong or ovate, 10 to 15 centimeters long, 3 to 5 centimeters wide, felty and harsh to touch, gray or chalky white beneath and green on the other side; pointed at the apex, abruptly and broadly rounded, and 3-nerved at the base.",
     botany:
@@ -300,8 +298,8 @@ export const leaves = [
     name: "Balayong",
     englishName: " Palawan Cherry",
     scientificName: "Cassia nodosa",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-balayong.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-balayong.jpg",
+    image: "/assets/img/leaf-balayong.jpg",
+    treeImage: "/assets/img/tree-balayong.jpg",
     generalInfo:
       "Medium to large-sized tree, able to grow up to about 10 to 20 m tall. Green leaves measuring about 15 to 30 cm long, each leaf consists of 5 to 12 pairs of oblong to ovate leaflets about 2 to 5 cm long and 1.2 to 2 cm wide. Pendulous branches, slender and whitish.",
     botany:
@@ -328,8 +326,8 @@ export const leaves = [
     name: "Balete",
     englishName: " Rubber Fig",
     scientificName: "Ficus clusiifolia Summerh.",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-balete.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-balete.jpg",
+    image: "/assets/img/leaf-balete.jpg",
+    treeImage: "/assets/img/tree-balete.jpg",
     generalInfo:
       "Balete (Ficus spp.) is a group of fig trees in the family Moraceae. These trees are known for their unique growth habit, often enveloping other trees. Balete trees play a significant role in local folklore and traditional medicine.",
     botany:
@@ -356,8 +354,8 @@ export const leaves = [
     name: "Banaba",
     englishName: " Queen's Crape Myrtle",
     scientificName: "Lagerstroemia speciosa",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-banaba.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-banaba.jpg",
+    image: "/assets/img/leaf-banaba.jpg",
+    treeImage: "/assets/img/tree-banaba.jpg",
     generalInfo:
       "Banaba(Lagerstroemia speciosa) is a medium-sized tree growing up to 30 meters tall and 40 centimeters in diameter, with rounded leaf bases and acute or obtuse apices. Banaba is a popular medicinal plant. Boiled Leaves: Clear obstructions in natural ducts, induce urination.",
     botany:
@@ -390,8 +388,8 @@ export const leaves = [
     name: "Bani",
     englishName: " Pongam",
     scientificName: "Pongamia pinnata",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-bani.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-bani.jpg",
+    image: "/assets/img/leaf-bani.jpg",
+    treeImage: "/assets/img/tree-bani.jpg",
     generalInfo:
       "Bani is a smooth tree growing 8 to 25 meters tall, with compound leaves and fragrant flowers in shades of purple, pink, or white. The tree produces woody, oblong pods containing a single seed. It belongs to the species Pongamia pinnata in the pea family, Fabaceae.",
     botany:
@@ -418,8 +416,8 @@ export const leaves = [
     name: "Barako",
     englishName: " Liberica Coffee",
     scientificName: "Coffea liberica",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-barako.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-barako.jpg",
+    image: "/assets/img/leaf-barako.jpg",
+    treeImage: "/assets/img/tree-barako.jpg",
     generalInfo:
       "Barako coffee, introduced to the Philippines in the 1740s by Spanish friars, found its roots in the lowlands of Lipa, Batangas, and gradually spread throughout the province, solidifying Batangas as a local coffee powerhouse. Beyond its role as a beverage, barako coffee has diverse applications: Spa Treatment: Used as a body scrub. Employed as a flavorful alternative to soup in rice dishes like tapa or other dry/fried dishes.",
     botany:
@@ -448,8 +446,8 @@ export const leaves = [
     name: "Bayabas",
     englishName: " Guava",
     scientificName: "Psidium guajava",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-bayabas.png",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-bayabas.jpg",
+    image: "/assets/img/leaf-bayabas.png",
+    treeImage: "/assets/img/tree-bayabas.jpg",
     generalInfo:
       "Bayabas is a genus of trees and shrubs in the family Myrtaceae, it is native to warmer parts of the Western Hemisphere (Mexico, Central and South America, the West Indies, Galapagos, and the southern United States). The most commonly cultivated species is the common guava. Genus was first described by Linnaeus in 1739",
     botany:
@@ -479,8 +477,8 @@ export const leaves = [
     name: "Betis",
     englishName: " Madhuca betis",
     scientificName: "Azaola betis Blanco",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-betis.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-betis.jpg",
+    image: "/assets/img/leaf-betis.jpg",
+    treeImage: "/assets/img/tree-betis.jpg",
     generalInfo:
       'The genus Diospytos consists of over 700 species of deciduous and evergreen trees and shrubs. The majority are native to the tropics, with a few species extending into temperate regions. Individual species are valued for their hard, heavy, dark wood, commonly referred to as ebony trees; others are valued for their fruit and known as persimmon trees. The genus name Diospyros derives from Greek words dios and pyros---literally meaning "Zeus wheat" or generally as "divine fruit" or "divine food.',
     botany:
@@ -508,8 +506,8 @@ export const leaves = [
     name: "Binunga",
     englishName: " Parasol",
     scientificName: "Macaranga tanarius",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-binunga.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-binunga.jpg",
+    image: "/assets/img/leaf-binunga.jpg",
+    treeImage: "/assets/img/tree-binunga.jpg",
     generalInfo:
       'Binuñga is a small, dioecious tree reaching heights of 4 to 8 meters, characterized by peltate leaves that are ovate to oblong-ovate, 10 to 25 centimeters long. The fruits are added to palm juice to crystallize and improve sugar quality. Bark and leaves are used in making the fermented drink "basi."',
     botany:
@@ -538,8 +536,8 @@ export const leaves = [
     name: "Dao",
     englishName: " Bilimbi",
     scientificName: "Averrhoa bilimbi",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-dao.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-dao.jpg",
+    image: "/assets/img/leaf-dao.jpg",
+    treeImage: "/assets/img/tree-dao.jpg",
     generalInfo:
       'In the Philippines, the municipality of Dao, Capiz and barangay of Dau in Mabalacat, Pampanga are named after the dao tree. Revered and called "Five Buddhas" in Thailand and in Laos because of the intricate pattern of approximate five-fold symmetry on the seed surface and its rhombic protrusions that reminds of the primitive Buddha image.',
     botany:
@@ -569,8 +567,8 @@ export const leaves = [
     name: "Dita",
     englishName: " Blackboard",
     scientificName: "Alstonia scholaris",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-dita.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-dita.jpg",
+    image: "/assets/img/leaf-dita.jpg",
+    treeImage: "/assets/img/tree-dita.jpg",
     generalInfo:
       "Historically, the plant was named Echites scholaris by Linnaeus. It was renamed Alstonia scholaris by Robert Brown to commemorate of Prof. Charles Alston (1685-1760), who was professor of botany at the University of Edinburg, scientific writer and keeper of King's garden at Holyrood, and one of the few botanists who resisted the Linnaean taxonomic classification when it was introduced. The species epithet scholaris derives from the use of the wood in making blackboards and wooden slates for schools in South East Asia (Arulmozhi et al., 2007c; Baliga, 2010). The name Devil's tree is based on a belief in Western India that the tree is an abode of evil spirits.",
     botany:
@@ -598,8 +596,8 @@ export const leaves = [
     name: "Duhat",
     englishName: " Malabar Plum",
     scientificName: "Syzygium cuminia",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-duhat.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-duhat.jpg",
+    image: "/assets/img/leaf-duhat.jpg",
+    treeImage: "/assets/img/tree-duhat.jpg",
     generalInfo:
       "Duhat (Syzygium cumini) The duhat tree is small to medium-sized, growing up to 30 meters tall, with dense foliage and shiny, oval-shaped leaves. Duhat is incredibly versatile in the culinary world. It can be enjoyed fresh, eaten as is or added to fruit salads for an exotic twist. The tree is a rich source of vitamin A and C and is used as a preventive medication against diabetes, liver, heart and gout, blood pressure, and sinusitis problems.",
     botany:
@@ -626,8 +624,8 @@ export const leaves = [
     name: "Eucalyptus",
     englishName: " Eucalyptus",
     scientificName: "Eucalyptus globulus",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-eucalyptus.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-eucalyptus.jpg",
+    image: "/assets/img/leaf-eucalyptus.jpg",
+    treeImage: "/assets/img/tree-eucalyptus.jpg",
     generalInfo:
       'Eucalyptus (Eucalyptus globulus), a diverse genus primarily native to Australia with over eight hundred species, dominates Australia\'s tree flora and is a prominent member of the Myrtle family (Myrtaceae). Eucalyptus globulus was discovered in the islands of Tasmania in 1792 by French Explorers. Genus Eucalyptus contains about 600 species, and E. globulus is the most widely cultivated in subtropical and Mediterranean regions. The genus name Eucalyptus comes from the Greek word eukalyptos, meaning "well-covered", referring to the flowers, when in bud, are covered with a cup-like membrane that is shed when the flower expands.',
     botany:
@@ -656,8 +654,8 @@ export const leaves = [
     name: "Guyabano",
     englishName: " Soursop",
     scientificName: "Annona muricata",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-guyabano.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-guyabano.jpg",
+    image: "/assets/img/leaf-guyabano.jpg",
+    treeImage: "/assets/img/tree-guyabano.jpg",
     generalInfo:
       "The genus name Annona derives from Latin 'anon', meaning 'yearly produce' or signifying 'the year's harvest', referring to the annual harvest of soursop fruits. Annona muricata was first described by Carl von Linnaeus in Species Plantarum, 1753.",
     botany:
@@ -686,8 +684,8 @@ export const leaves = [
     name: "Hinadyong",
     englishName: " Oriental trema",
     scientificName: "Trema orientalis",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-hinadyong.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-hinadyong.jpeg",
+    image: "/assets/img/leaf-hinadyong.jpg",
+    treeImage: "/assets/img/tree-hinadyong.jpeg",
     generalInfo:
       "Hinadyong (Trema orientalis) characterized by elongated branches and oblong-ovate to lanceolate leaves that are 8 to 15 centimeters long. It is commonly found in deserted clearings, thickets, and second-growth forests throughout the Philippines at low to medium altitudes, and occasionally up to 2,000 meters. Leaves and fruit are reportedly eaten in African countries, with young leaves consumed as spinach by the Zulus. The seeds yield a dark green fixed oil. Bast from the tree is used for making string or rope. The soft wood is used for making wooden shoes and fruit boxes. The leaves yield a coffee-colored dye, while the bark yields a dark brown to black dye.",
     botany:
@@ -716,8 +714,8 @@ export const leaves = [
     name: "Ilang-Ilang",
     englishName: " Ylang-ylang",
     scientificName: "Cananga odorata",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-ilangilang.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-ilangilang.jpg",
+    image: "/assets/img/leaf-ilangilang.jpg",
+    treeImage: "/assets/img/tree-ilangilang.jpg",
     generalInfo:
       'Etymology: Ylang-ylang is the Spanish spelling of its Tagalog name, ilang-ilang, a reduplicative form of the word "ilang", meaning "wilderness", alluding to the tree\'s natural habitat. A common mistranslation is "flower of flowers". Ilang-ilang oil is fractionated in different grades. In Madagascar 4 grades are recognized: Extra, First, Second, and Third. Another grade, Premier, is only produced by special order. Extra and First are used in fine perfumery, Second and Third are used in soap perfumery. Ilang-ilang is one of the most extensively used natural material in the perfume industry, earning it the name "Queen of Perfumes"',
     botany:
@@ -747,8 +745,8 @@ export const leaves = [
     name: "Inyam",
     englishName: " Black Currant Tree",
     scientificName: "Antidesma ghaesembilla",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-inyam.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-inyam.jpg",
+    image: "/assets/img/leaf-inyam.jpg",
+    treeImage: "/assets/img/tree-inyam.jpg",
     generalInfo:
       "Also known as the Black Currant Tree, this species belongs to the Phyllanthaceae family. It’s a tropical plant with a thick trunk and simple, alternate leaves. The fruit is a cluster of small, greenish-yellow drupes. This tree is usually harvested from the wild for local use as food and medicine.",
     botany:
@@ -777,8 +775,8 @@ export const leaves = [
     name: "Ipil",
     englishName: " Ironwood",
     scientificName: "Intsia bijuga",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-ipil.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-ipil.jpg",
+    image: "/assets/img/leaf-ipil.jpg",
+    treeImage: "/assets/img/tree-ipil.jpg",
     generalInfo:
       "Ipil is a common medium-sized, unarmed tree with a spreading crown; it can grow up to 40 metres tall. The bole can be 150 - 200cm in diameter, often with small buttresses 2 - 4 metres high and around 2 metres wide. It is more or less evergreen, though species within this genus tend to shed their leaves annually and remain bare for a few days of the year.",
     botany:
@@ -806,8 +804,8 @@ export const leaves = [
     name: "Kalios",
     englishName: " Sandpaper",
     scientificName: "Streblus asper",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-kalios.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-kalios.jpg",
+    image: "/assets/img/leaf-kalios.jpg",
+    treeImage: "/assets/img/tree-kalios.jpg",
     generalInfo:
       "Evergreen, dioecious or rarely monoecious trees, to 10 m high, bark 10-20 mm thick, light grey, smooth, lenticellate, fibrous; blaze creamy yellow; exudation milky white latex; branches often drooping; branchlets on trunk often arrested and thorny. Leaves simple, alternate, spiral; stipules 2-5 mm long, lateral, lanceolate, adpressedly hairy, cauducous; petiole to 4 mm long, slender, pubescent; lamina 3-10 x 1.2-5 cm, elliptic, elliptic-obovate or rhomboid, base cuneate, acute or obtuse, apex acute or acuminate, margin serrate, or subentire, glabrous, scabrid on both sides; 3-ribbed from base, lateral nerves 4-10 pairs, pinnate, slender, prominent, intercostae reticulate, faint.",
     botany:
@@ -835,8 +833,8 @@ export const leaves = [
     name: "Kamagong",
     englishName: " Mountain Persimmon",
     scientificName: "Diospyros montana",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-kamagong.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-kamagong.jpg",
+    image: "/assets/img/leaf-kamagong.jpg",
+    treeImage: "/assets/img/tree-kamagong.jpg",
     generalInfo:
       'The genus Diospytos consists of over 700 species of deciduous and evergreen trees and shrubs. The majority are native to the tropics, with a few species extending into temperate regions. Individual species are valued for their hard, heavy, dark wood, commonly referred to as ebony trees; others are valued for their fruit and known as persimmon trees. The genus name Diospyros derives from Greek words dios and pyros---literally meaning "divine fruit" or "divine food.',
     botany:
@@ -863,8 +861,8 @@ export const leaves = [
     name: "Langka",
     englishName: " Jackfruit",
     scientificName: "Artocarpus brasiliensis",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-langka.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-langka.jpg",
+    image: "/assets/img/leaf-langka.jpg",
+    treeImage: "/assets/img/tree-langka.jpg",
     generalInfo:
       "Langka (Artocarpus brasiliensis) is a tropical tree in the family Moraceae. It is known for its large, edible fruit, which is the largest tree-borne fruit in the world. The tree is also valued for its wood, which is used in construction and for making musical instruments.",
     botany:
@@ -893,8 +891,8 @@ export const leaves = [
     name: "Lansones",
     englishName: " Langsat",
     scientificName: "Lansium domesticum",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-lansones.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-lansones.jpg",
+    image: "/assets/img/leaf-lansones.jpg",
+    treeImage: "/assets/img/tree-lansones.jpg",
     generalInfo:
       "Lansones is a tree reaching heights of 4 to 15 meters, with alternate leaves composed of 5 to 7 oblong-elliptic leaflets. It produces small, yellow flowers on spikes and yellowish-white fruit with translucent, bitter seeds surrounded by succulent pulp. The fruit pulp is succulent and delicious, eaten fresh out of hand; candied or preserved in syrup. The dried fruit skins when burned emit an aromatic smell which repels mosquitoes. In Java, used as incense in rooms of sick people.",
     botany:
@@ -922,8 +920,8 @@ export const leaves = [
     name: "Madre-Cacao",
     englishName: " Gliricidia",
     scientificName: "Gliricidia Sepium",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-madrecacao.JPG",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-madrecacao.jpg",
+    image: "/assets/img/leaf-madrecacao.JPG",
+    treeImage: "/assets/img/tree-madrecacao.jpg",
     generalInfo:
       "Kakawati or Madre Cacao is a deciduous tree, reaching 3 to 10 meters in height, with smooth bark. The tree blooms profusely with pink flowers in February and March, held in numerous racemes on leafless branches. Hard and durable, used in construction, posts, and firewood. Commonly employed as living fences. Effective against fleas, ticks (for animals), and used as a general pesticide and rodenticide.",
     botany:
@@ -954,8 +952,8 @@ export const leaves = [
     name: "Mahogany",
     englishName: " Mahogany",
     scientificName: "Swietenia macrophylla",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-mahogany.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-mahogany.jpg",
+    image: "/assets/img/leaf-mahogany.jpg",
+    treeImage: "/assets/img/tree-mahogany.jpg",
     generalInfo:
       "Mahogany (Swietenia macrophylla) is a large tropical tree in the family Meliaceae. It is known for its high-quality wood, which is used in furniture making and construction. The tree is also valued for its medicinal properties and is used in traditional medicine.",
     botany:
@@ -983,8 +981,8 @@ export const leaves = [
     name: "Mangga",
     englishName: " Mango",
     scientificName: "Mangifera indica",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-mangga.JPG",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-mangga.jpg",
+    image: "/assets/img/leaf-mangga.JPG",
+    treeImage: "/assets/img/tree-mangga.jpg",
     generalInfo:
       "Mangga (Mangifera indica) is a tropical tree in the family Anacardiaceae. It is known for its delicious and nutritious fruit, which is enjoyed worldwide. The tree is also valued for its wood, which is used in furniture making.",
     botany:
@@ -1012,8 +1010,8 @@ export const leaves = [
     name: "Mulawin",
     englishName: " Small-flower Chaste",
     scientificName: "Vitex parviflora",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-mulawin.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-mulawin.jpg",
+    image: "/assets/img/leaf-mulawin.jpg",
+    treeImage: "/assets/img/tree-mulawin.jpg",
     generalInfo:
       'Vitex parviflora is a species of plant in the family Verbenaceae. The name "molave" is Spanish , derived from \'mulawin\', the Tagalog word for the tree. In the confusing landscape of commom names, "molave" is shared by Vitex parviflora (Mulawin, small-flower chaste tree) and Viitex pinnata (hairy-leafed molave). Both species are native to the Philippines.',
     botany:
@@ -1043,8 +1041,8 @@ export const leaves = [
     name: "Narra",
     englishName: " Rosewood",
     scientificName: "Pterocarpus indicus",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-narra.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-narra.jpg",
+    image: "/assets/img/leaf-narra.jpg",
+    treeImage: "/assets/img/tree-narra.jpg",
     generalInfo:
       "Narra is the Philippine national tree. It was declared the national tree of the Philippines in 1934 by Governor-General Frank Murphy of the Insular Government of the Philippine Islands through Proclamation No. 652.",
     botany:
@@ -1074,8 +1072,8 @@ export const leaves = [
     name: "Palo-Maria",
     englishName: " Palo-Maria",
     scientificName: "Balsamaria inophyllum",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-palomaria.JPG",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-palo-maria.jpg",
+    image: "/assets/img/leaf-palomaria.JPG",
+    treeImage: "/assets/img/tree-palo-maria.jpg",
     generalInfo:
       "Palo-Maria is a medium-sized or large tree, reaching a height of 20 meters. Kernels reported to contain 70-75% bitaog oil. Seeds contain coumarins: calanolide A and B. Calophyllum inophyllum is a large evergreen plant . It was an important source of timber for traditional shipbuilding, and has been spread in prehistoric times by migrations of the Austronesian peoples to the islands of Oceania and Madagascar. It is source of the tamanu oil.",
     botany:
@@ -1106,8 +1104,8 @@ export const leaves = [
     name: "Scramble-Egg",
     englishName: " Scrambled Egg",
     scientificName: "Senna surattensis",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-scrambleegg.JPG",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-scrambleegg.JPG",
+    image: "/assets/img/leaf-scrambleegg.JPG",
+    treeImage: "/assets/img/tree-scrambleegg.JPG",
     generalInfo:
       "The Senna surattensis is a shrub or small erect evergreen tree, 5-8 m tall, with brown-greyish smooth bark, tending to fissure slightly with the age, and dense and rounded top. Hard and durable, used in construction, posts, and firewood. Commonly employed as living fences. Effective against fleas, ticks (for animals), and used as a general pesticide and rodenticide.",
     botany:
@@ -1136,8 +1134,8 @@ export const leaves = [
     name: "Sintores",
     englishName: " Mandarin Orange",
     scientificName: "Citrus reticulata Blanco",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-sintores.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-sintores.jpg",
+    image: "/assets/img/leaf-sintores.jpg",
+    treeImage: "/assets/img/tree-sintores.jpg",
     generalInfo:
       "Sintores is a small citrus tree native to tropical and subtropical regions. It is well-loved for its sweet, juicy, and easy-to-peel fruit, which is often consumed fresh or used in juices and desserts. The tree features simple, aromatic ovate leaves and small, fragrant white flowers that bloom in clusters.",
     botany:
@@ -1166,9 +1164,8 @@ export const leaves = [
     name: "Talisay",
     englishName: " Indian-Almond",
     scientificName: "Terminalia Catappa",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-talisay.jpg",
-    treeImage:
-      "https://trees.firstasia.edu.ph/assets/img/tree-nativetalisay.jpg",
+    image: "/assets/img/leaf-talisay.jpg",
+    treeImage: "/assets/img/tree-nativetalisay.jpg",
     generalInfo:
       "Talisay (Terminalia Catappa) is a large deciduous tree native to the Philippines, known for reaching heights of 20 to 25 meters with smooth branches that are horizontally whorled. The kernels are edible and nutritious, rich in minerals such as potassium, calcium, magnesium, and sodium. The kernel yields a fixed oil known as Indian Almond oil or Talisay oil. Fruits and roots are used for tanning leather and as a source of black dye for cotton and rattan.",
     botany:
@@ -1197,8 +1194,8 @@ export const leaves = [
     name: "Santol",
     englishName: "  Wild Mangosteen",
     scientificName: "Sandoricum koetjape ",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-santol.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-santol.jpg",
+    image: "/assets/img/leaf-santol.jpg",
+    treeImage: "/assets/img/tree-santol.jpg",
     generalInfo:
       "The Santol tree belongs to the Meliaceae family and can grow up to 30 meters tall in favorable conditions. Santol produces a round, yellowish-green fruit that has a thick, fleshy rind and a sweet-to-sour pulp surrounding the seeds.",
     botany:
@@ -1226,8 +1223,8 @@ export const leaves = [
     name: "Tibig",
     englishName: " Sacking Tree",
     scientificName: "Ficus nota",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-tibig.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-tibig.jpg",
+    image: "/assets/img/leaf-tibig.jpg",
+    treeImage: "/assets/img/tree-tibig.jpg",
     generalInfo:
       "Tibig, scientifically known as Ficus nota (Blanco) Merr., is a native tree species found in the Philippines and Borneo. It grows in thickets at low and medium altitudes, as well as in dry woods across the Philippines. The tree produces edible fruits that grow in dense clusters along its branches, measuring 2 to 3.5 cm in diameter. Ripe fruits are consumed with sugar and cream, while young leaves are used as a vegetable. Freshly cut stems yield drinkable water.",
     botany:
@@ -1256,8 +1253,8 @@ export const leaves = [
     name: "Yakal",
     englishName: " Philippine Teak",
     scientificName: "Shorea astylosa",
-    image: "https://trees.firstasia.edu.ph/assets/img/leaf-yakal.jpg",
-    treeImage: "https://trees.firstasia.edu.ph/assets/img/tree-yakal.jpg",
+    image: "/assets/img/leaf-yakal.jpg",
+    treeImage: "/assets/img/tree-yakal.jpg",
     generalInfo:
       "Shorea astylosa is a species of plant in the family Dipterocarpaceae. It is endemic to the Philippines, where it is known as yakal in the Filipino language.",
     botany:

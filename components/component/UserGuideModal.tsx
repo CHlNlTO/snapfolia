@@ -21,6 +21,7 @@ import { useUserGuide } from "@/contexts/UserGuideContext";
 // import { motion } from "framer-motion";
 // import { instructions } from "@/lib/data";
 import UserGuide from "./UserGuide";
+import { GradientBackground } from "./GradientBackground";
 
 const UserGuideModal = () => {
   const { isOpen, setIsOpen } = useUserGuide();
@@ -36,8 +37,9 @@ const UserGuideModal = () => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="sm:max-w-[600px] overflow-hidden md:mx-0">
+        <GradientBackground />
         <DialogTitle></DialogTitle>
-        <UserGuide backgroundColor="bg-white" maxHeight="max-h-[450px]" />
+        <UserGuide backgroundColor="bg-white/0" maxHeight="max-h-[450px]" />
         {/* <div className="relative">
           <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-lg sm:top-[-20rem]">
             <motion.div

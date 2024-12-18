@@ -103,7 +103,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, className }) => (
 );
 
 const StepCard: React.FC<StepCardProps> = ({ number, title, children }) => (
-  <div className="bg-white/50 backdrop-blur-sm p-6 rounded-xl shadow-lg mb-6">
+  <div className="bg-emerald-50 backdrop-blur-sm p-6 rounded-xl shadow-lg mb-6">
     <div className="flex items-start gap-4 mb-4">
       <div className="flex-shrink-0 w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold">
         {number}
@@ -122,7 +122,7 @@ export default function UserGuide({
 }: UserGuideProps) {
   return (
     <div
-      className={`${backgroundColor} p-4 md:p-8 ${maxHeight} overflow-auto rounded-lg mx-4`}
+      className={`${backgroundColor} p-4 md:p-8 ${maxHeight} overflow-auto rounded-lg mx-4 lg:mx-4`}
     >
       <div className="max-w-4xl mx-auto">
         {/* Header */}
