@@ -5,7 +5,6 @@ import { leaves } from "@/lib/data";
 import LeafCard from "@/components/component/LeafCard";
 import SearchBar from "@/components/component/SearchBar";
 import { motion } from "framer-motion";
-import { Leaf, TreePine } from "lucide-react";
 import { GradientBackground } from "@/components/component/GradientBackground";
 
 export default function Dataset() {
@@ -31,7 +30,12 @@ export default function Dataset() {
   return (
     <div className="min-h-screen dark:from-green-950 dark:to-zinc-900">
       {/* Hero Section */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 mt-16">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="w-full py-16 px-4 sm:px-6 lg:px-8 mt-16"
+      >
         <div className="max-w-7xl mx-auto text-center relative">
           <GradientBackground />
 
@@ -45,10 +49,15 @@ export default function Dataset() {
             </p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Search Section */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 mb-8 flex items-center justify-center">
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="w-full px-4 sm:px-6 lg:px-8 mb-8 flex items-center justify-center"
+      >
         <div className="max-w-7xl w-full flex items-center justify-center">
           <SearchBar
             searchTerm={searchTerm}
@@ -57,7 +66,7 @@ export default function Dataset() {
             setLocation={setLocation}
           />
         </div>
-      </section>
+      </motion.section>
 
       {/* Results Section */}
       <section className="w-full px-4 sm:px-6 lg:px-8 pb-16">

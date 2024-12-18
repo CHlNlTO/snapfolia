@@ -1,4 +1,4 @@
-import { Leaf } from "./types";
+import { Developer, Leaf } from "./types";
 
 export const snapfolia = {
   name: "Snapfolia",
@@ -80,6 +80,362 @@ export const loadingMessages = {
     "Verifying species indicators...",
   ],
 } as const;
+
+export const projectManagers: Developer[] = [
+  {
+    image: "img-farofaldane.jpg",
+    firstName: "FAROFALDANE",
+    lastName: "NIKKA YSABEL",
+    role: "PROJECT LEADER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-deanmaricel.JPG",
+    firstName: "DEAN MARICEL",
+    lastName: "GASPAR",
+    role: "PROJECT MANAGER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-sirpaul.png",
+    firstName: "SIR PAUL DOMINIC",
+    lastName: "TRAMBULO",
+    role: "PROJECT COORDINATOR",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+];
+
+export const websiteDevelopers: Developer[] = [
+  {
+    image: "img-fernando.jpg",
+    firstName: "FERNANDO",
+    lastName: "HANS JUSTIN",
+    role: "FULL STACK ENGINEER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-abutal.png",
+    firstName: "ABUTAL",
+    lastName: "CLARK WAYNE",
+    role: "FULL STACK DEVELOPER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-galicia.jpeg",
+    firstName: "GALICIA",
+    lastName: "XANDRA YVONNE",
+    role: "BACK-END DEVELOPER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-castillo.png",
+    firstName: "CASTILLO",
+    lastName: "ANGELO",
+    role: "BACK-END DEVELOPER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-magcawas.jpg",
+    firstName: "MAGCAWAS",
+    lastName: "KURT VINCENT",
+    role: "FRONT-END DEVELOPER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+];
+
+export const aiResearchers: Developer[] = [
+  {
+    image: "img-bagtas.jpg",
+    firstName: "BAGTAS",
+    lastName: "CLOUD NEO",
+    role: "AI LEADER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-laygo.png",
+    firstName: "LAYGO",
+    lastName: "NICKO",
+    role: "DL ENGINEER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-villamor.jpg",
+    firstName: "VILLAMOR",
+    lastName: "FRANCO MIGUEL",
+    role: "DL ENGINEER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-mampusti.jpg",
+    firstName: "MAMPUSTI",
+    lastName: "PRINCE DANIEL",
+    role: "RESEARCH ANALYST",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-gutierrez.jpeg",
+    firstName: "GUTIERREZ",
+    lastName: "BENEDICT",
+    role: "ML ENGINEER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-cruz1.png",
+    firstName: "CRUZ",
+    lastName: "JESTER RAY",
+    role: "ML ENGINEER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+];
+
+export const dataSpecialists: Developer[] = [
+  {
+    image: "img-lat.jpg",
+    firstName: "LAT",
+    lastName: "JIRO",
+    role: "DATA ARCHITECT",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-narvaez.jpg",
+    firstName: "NARVAEZ",
+    lastName: "AIVAN CLARRYNZ",
+    role: "DATA ENGINEER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-unciano.jpg",
+    firstName: "UNCIANO",
+    lastName: "REYMER",
+    role: "DATA ENGINEER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-parducho.jpg",
+    firstName: "PARDUCHO",
+    lastName: "JOHN CARLO",
+    role: "DATA COLLECTOR",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-mercado.jpg",
+    firstName: "MERCADO",
+    lastName: "JOHN DANIEL",
+    role: "DATA COLLECTOR",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-tobias.jpg",
+    firstName: "TOBIAS",
+    lastName: "ALREN",
+    role: "DATA COLLECTOR",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-ongsingco.jpg",
+    firstName: "ONGSINGCO",
+    lastName: "NEIL ANGELO",
+    role: "DATA CLEANER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-mabilangan.jpeg",
+    firstName: "MABILANGAN",
+    lastName: "DHAN ELDRIN",
+    role: "DATA CLEANER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-buquis.png",
+    firstName: "BUQUIS",
+    lastName: "MARVIN",
+    role: "DATA CLEANER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+];
+
+export const batch2023_2024: Developer[] = [
+  {
+    image: "img-cruz.png",
+    firstName: "CIPRIANO",
+    lastName: "CRUZ JR.",
+    role: "FRONT-END DEVELOPER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-redilla.png",
+    firstName: "MARY ROSE",
+    lastName: "REDILLA",
+    role: "PROJECT MANAGER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-mendoza.png",
+    firstName: "ARNALDO JR.",
+    lastName: "MENDOZA",
+    role: "MACHINE LEARNING ENGINEER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-macaso.png",
+    firstName: "JOSH",
+    lastName: "MACASO",
+    role: "DATA ENGINEER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-mendez.png",
+    firstName: "VEN",
+    lastName: "MENDEZ",
+    role: "BACK-END DEVELOPER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-magtibay.png",
+    firstName: "JEAN EILEEN",
+    lastName: "MAGTIBAY",
+    role: "FRONT-END DEVELOPER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-lobaton.png",
+    firstName: "GIO",
+    lastName: "LOBATON",
+    role: "TECHNICAL WRITER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+  {
+    image: "img-moster.png",
+    firstName: "GJ",
+    lastName: "MOSTER",
+    role: "DATA MANAGER",
+    socials: {
+      github: "https://github.com/CHlNlTO",
+      linkedin: "https://www.linkedin.com/in/clark-wayne-abutal-1005001aa",
+      portfolio: "https://clarkwayne.vercel.app",
+    },
+  },
+];
 
 export const leaves: Leaf[] = [
   {

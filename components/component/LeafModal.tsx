@@ -75,9 +75,11 @@ export default function LeafModal({ leaf, show, onHide }: LeafModalProps) {
           {/* Content Section */}
           <div className="p-6 space-y-6">
             {/* Names Section */}
-            <div className="grid gap-4">
-              <div className="flex items-start gap-4 p-4 rounded-lg bg-green-50 dark:bg-green-950">
-                <LeafIcon className="w-5 h-5 mt-1 text-green-600 dark:text-green-400" />
+            <div className="p-5 border rounded-xl border-green-100 dark:border-green-900 bg-green-50/50 dark:bg-green-950/50">
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-green-100 dark:bg-green-900">
+                  <LeafIcon className="w-5 h-5 mt-1 text-green-600 dark:text-green-400" />
+                </div>
                 <div>
                   <h3 className="font-medium text-green-900 dark:text-green-100">
                     {leaf.englishName}
@@ -90,33 +92,51 @@ export default function LeafModal({ leaf, show, onHide }: LeafModalProps) {
             </div>
 
             {/* Description Section */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-2">
-                <TreePine className="w-5 h-5 text-green-700 dark:text-green-400" />
-                <h3 className="font-semibold text-lg text-green-900 dark:text-green-100">
-                  Description
-                </h3>
+            <div className="rounded-xl border border-green-100 dark:border-green-900 bg-white dark:bg-zinc-900 overflow-hidden">
+              <div className="p-5 border-b border-green-100 dark:border-green-900 bg-green-50/50 dark:bg-green-950/50">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-green-100 dark:bg-green-900">
+                    <TreePine className="w-5 h-5 text-green-700 dark:text-green-400" />
+                  </div>
+                  <h3 className="font-semibold text-lg text-green-900 dark:text-green-100">
+                    Description
+                  </h3>
+                </div>
               </div>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                {leaf.description}
-              </p>
+              <div className="p-5">
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                  {leaf.description}
+                </p>
+              </div>
             </div>
 
             {/* Uses Section */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-2">
-                <ScanLine className="w-5 h-5 text-green-700 dark:text-green-400" />
-                <h3 className="font-semibold text-lg text-green-900 dark:text-green-100">
-                  Uses
-                </h3>
+            <div className="rounded-xl border border-green-100 dark:border-green-900 bg-white dark:bg-zinc-900 overflow-hidden">
+              <div className="p-5 border-b border-green-100 dark:border-green-900 bg-green-50/50 dark:bg-green-950/50">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-green-100 dark:bg-green-900">
+                    <ScanLine className="w-5 h-5 text-green-700 dark:text-green-400" />
+                  </div>
+                  <h3 className="font-semibold text-lg text-green-900 dark:text-green-100">
+                    Uses
+                  </h3>
+                </div>
               </div>
-              <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
-                {leaf.uses.map((use, index) => (
-                  <li key={index} className="leading-relaxed">
-                    {use}
-                  </li>
-                ))}
-              </ul>
+              <div className="p-5">
+                <ul className="grid gap-3">
+                  {leaf.uses.map((use, index) => (
+                    <li
+                      key={index}
+                      className="flex items-start gap-3 p-3 rounded-lg hover:bg-green-50 dark:hover:bg-green-950 transition-colors"
+                    >
+                      <div className="w-1.5 h-1.5 rounded-full bg-green-500 dark:bg-green-400 mt-2" />
+                      <span className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        {use}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </DialogContent>
@@ -126,15 +146,17 @@ export default function LeafModal({ leaf, show, onHide }: LeafModalProps) {
       <Dialog open={showFullscreen} onOpenChange={setShowFullscreen}>
         <DialogContent className="max-h-[calc(100vh-10rem)] p-0 bg-white/0 border-0">
           <div className="relative h-full">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute top-4 right-4 z-50 text-white hover:bg-green-600 hover:text-white"
-              onClick={() => setShowFullscreen(false)}
-            >
-              <X className="h-6 w-6" />
-            </Button>
             <div className="w-full h-full flex items-center justify-center p-1 bg-white rounded-lg">
+              <DialogClose>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="absolute top-4 right-4 z-50 bg-green-600 text-white hover:bg-white hover:text-green-600"
+                  onClick={() => setShowFullscreen(false)}
+                >
+                  <X className="h-4 w-4" />
+                </Button>
+              </DialogClose>
               <Image
                 src={leaf.treeImage}
                 alt={`${leaf.name} Tree`}

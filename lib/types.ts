@@ -63,3 +63,17 @@ export interface Leaf {
   shortDescription: string;
   location: string;
 }
+
+export interface SocialLinks {
+  github?: string;
+  linkedin?: string;
+  portfolio?: string;
+}
+
+export interface Developer {
+  image: string;
+  firstName: string;
+  lastName: string;
+  role: string;
+  socials?: SocialLinks;
+}
