@@ -1,4 +1,4 @@
-# Update Notes: Version 1.1.0
+# Update Notes: Version 0.0.0
 
-- **Major Changes:** Refactored codebase to Object-Oriented Programming (OOP) structure.
-- **Focus Areas:** Code maintainability, modularity, and scalability.
+  - **Major Changes:** Use Model Classification.
+
