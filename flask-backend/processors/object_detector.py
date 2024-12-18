@@ -56,29 +56,42 @@ class ObjectDetector:
             target_sizes=[image.size[::-1]]
         )
         return results
-
+    
     def detect_and_classify_leaf(self, image):
-        logger.info("Detecting & Classifying Leaf...")
-        results = self.yolov8_model(image)
-
-        if len(results) > 0 and len(results[0].boxes) > 0:
-            predictions = []
-            for box in results[0].boxes:
-                predicted_class = results[0].names[int(box.cls)]
-                confidence = round(float(box.conf), 2)
-                predictions.append((predicted_class, confidence))
-
-            predictions.sort(key=lambda x: x[1], reverse=True)
-
-            logger.info("\nTop 3 Predictions:")
-            for i in range(min(3, len(predictions))):
-                predicted_class, confidence = predictions[i]
-                logger.info(f"{i+1}. {predicted_class} - Confidence: {confidence}")
-
+            print("Classifying Leaf...")
+            # Run the YOLOv8 model for classification
+            results = self.yolov8_model(image)
+            
+            if results:
+                # Get the top 5 predictions
+                # Convert tensor to numpy array and then to regular Python float
+                probs_data = results[0].probs.data.cpu().numpy()
+                top_5_indices = sorted(range(len(probs_data)), 
+                                    key=lambda i: probs_data[i], 
+                                    reverse=True)[:5]
+                
+                # Build the response structure
+                classes = []
+                for index in top_5_indices:
+                    class_name = results[0].names[index]
+                    # Convert numpy float to Python float for JSON serialization
+                    confidence = float(probs_data[index] * 100)
+                    classes.append({
+                        "class": class_name,
+                        "confidence": confidence
+                    })
+                
+                print("\nLeaf Classification Predictions:")
+                for entry in classes:
+                    print(f"{entry['class']}: {entry['confidence']:.2f}%")
+                    
+                return {
+                    "leaf_detected": True,
+                    "classes": classes
+                }
+            
+            print("No leaf detected")
             return {
-                "leaf_detected": True,
-                "label": predicted_class,
-                "confidence": confidence,
+                "leaf_detected": False,
+                "classes": []
             }
-
-        return {"leaf_detected": False}
