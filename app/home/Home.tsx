@@ -17,7 +17,7 @@ export default function Home() {
           <ScanProgress
             isScanning={isScanning}
             file={file}
-            messageStyle="casual" // You can change this to "formal" or "scientific"
+            messageStyle="casual"
           />
           <ScanResult
             scanResult={scanResult}
