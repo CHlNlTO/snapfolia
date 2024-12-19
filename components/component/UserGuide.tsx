@@ -1,316 +1,236 @@
-"use client";
-
-import React from "react";
-import Image from "next/image";
-import { Leaf, Upload, Scan, RotateCcw, Eye } from "lucide-react";
+import React, { useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import { Card } from "@/components/ui/card";
+import { Leaf, Upload, Scan, RotateCcw, Eye } from "lucide-react";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { images } from "@/lib/data";
+import { StepCardProps } from "@/lib/types";
 
-interface UserGuideProps {
-  backgroundColor?: string;
-  maxHeight?: string;
-}
-
-// Types
-type ImageStep = {
-  src: string;
-  caption: string;
-};
-
-type ImagesConfig = {
-  preferred: {
-    desktop: string;
-    steps: ImageStep[];
-  };
-  avoid: {
-    desktop: string;
-    steps: ImageStep[];
-  };
-  progress: {
-    desktop: string;
-    mobile: string;
-  };
-};
-
-type ImageCarouselProps = {
-  images: ImageStep[];
-  className?: string;
-};
-
-type StepCardProps = {
-  number: string;
-  title: string;
-  children: React.ReactNode;
-};
-
-// Define images with proper public directory paths
-const images: ImagesConfig = {
-  preferred: {
-    desktop: "/assets/img/guide-preferred.png",
-    steps: [
-      {
-        src: "/assets/img/guide-preferred-1.png",
-        caption: "Subject is centered",
-      },
-      {
-        src: "/assets/img/guide-preferred-2.png",
-        caption: "Subject is properly lit",
-      },
-      {
-        src: "/assets/img/guide-preferred-3.png",
-        caption: "Subject is clear",
-      },
-    ],
-  },
-  avoid: {
-    desktop: "/assets/img/guide-avoid.png",
-    steps: [
-      {
-        src: "/assets/img/guide-avoid-1.png",
-        caption: "Subject is blurred",
-      },
-      {
-        src: "/assets/img/guide-avoid-2.png",
-        caption: "Contains other elements",
-      },
-      {
-        src: "/assets/img/guide-avoid-3.png",
-        caption: "Contains other elements",
-      },
-    ],
-  },
-  progress: {
-    desktop: "/assets/img/guide-progress.png",
-    mobile: "/assets/img/guide-progress-mobile.png",
-  },
-};
-
-const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, className }) => (
-  <div
-    className={`mx-auto w-full md:w-3/4 mb-6 shadow-lg rounded-xl ${className}`}
-  >
-    <div className="relative">
-      {images.map((image, index) => (
-        <div key={index} className="relative">
-          <Image
-            className="w-full rounded-xl"
-            src={image.src}
-            width={500}
-            height={750}
-            alt={image.caption}
-            priority
-          />
-          <div className="absolute top-0 left-0 right-0 bg-emerald-700 p-4 rounded-t-xl">
-            <p className="text-white font-medium text-sm md:text-base">
-              {image.caption}
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-);
-
-const StepCard: React.FC<StepCardProps> = ({ number, title, children }) => (
-  <div className="bg-emerald-50 backdrop-blur-sm p-6 rounded-xl shadow-lg mb-6">
-    <div className="flex items-start gap-4 mb-4">
-      <div className="flex-shrink-0 w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold">
-        {number}
+const StepCard = ({ icon: Icon, title, description }: StepCardProps) => (
+  <Card className="p-4 bg-white/50 backdrop-blur border-none shadow-md">
+    <div className="flex items-start gap-3">
+      <div className="p-2 rounded-lg bg-emerald-100">
+        <Icon className="w-5 h-5 text-emerald-600" />
       </div>
-      <h3 className="text-lg md:text-xl font-semibold text-emerald-800">
-        {title}
-      </h3>
+      <div>
+        <h3 className="font-medium text-emerald-800">{title}</h3>
+        <p className="text-sm text-emerald-600 mt-1">{description}</p>
+      </div>
     </div>
-    <div>{children}</div>
-  </div>
+  </Card>
 );
 
-export default function UserGuide({
-  backgroundColor = "bg-white",
-  maxHeight = "max-h-screen",
-}: UserGuideProps) {
+const steps = [
+  {
+    icon: Upload,
+    title: "Upload Your Image",
+    description: "Take or upload a clear photo of a single leaf",
+    content: (
+      <div className="mt-4 space-y-4">
+        <div className="bg-emerald-50 p-4 rounded-lg">
+          <h4 className="font-medium text-emerald-800 mb-2">
+            Recommended Format
+          </h4>
+          <Image
+            src={images.preferred.desktop}
+            alt="Recommended format"
+            width={600}
+            height={400}
+            className="rounded-lg w-full object-cover"
+          />
+        </div>
+      </div>
+    ),
+  },
+  {
+    icon: Eye,
+    title: "What to Avoid",
+    description: "Examples of improper image captures",
+    content: (
+      <div className="mt-4">
+        <div className="bg-red-50 p-4 rounded-lg">
+          <Image
+            src={images.avoid.desktop}
+            alt="Examples to avoid"
+            width={600}
+            height={400}
+            className="rounded-lg w-full object-cover"
+          />
+        </div>
+      </div>
+    ),
+  },
+  {
+    icon: Scan,
+    title: "Scan Your Leaf",
+    description: "Click 'Scan leaf' to begin the analysis process",
+    content: (
+      <div className="mt-4">
+        <Image
+          src={images.progress.desktop}
+          alt="Scanning process"
+          width={600}
+          height={400}
+          className="rounded-lg w-full object-cover"
+        />
+      </div>
+    ),
+  },
+  {
+    icon: RotateCcw,
+    title: "Scan Again",
+    description: "Use 'Scan Again' to analyze another leaf",
+    content: (
+      <div className="mt-4 p-4 bg-emerald-50 rounded-lg">
+        <p className="text-emerald-700 text-sm">
+          You can scan as many leaves as you want. Simply click the &apos;Scan
+          Again&apos; button to start over with a new leaf image.
+        </p>
+      </div>
+    ),
+  },
+];
+
+export default function UserGuide() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "center",
+  });
+
+  const [activeIndex, setActiveIndex] = React.useState(0);
+
+  const [lastInteractionTime, setLastInteractionTime] = React.useState(
+    Date.now()
+  );
+
+  useEffect(() => {
+    if (emblaApi) {
+      // Update active index on scroll
+      const onSelectHandler = () => {
+        setActiveIndex(emblaApi.selectedScrollSnap());
+        setLastInteractionTime(Date.now());
+      };
+
+      // Track user interactions
+      const handleInteraction = () => {
+        setLastInteractionTime(Date.now());
+      };
+
+      // Set up auto-scroll check every 5 seconds
+      const interval = setInterval(() => {
+        const timeSinceLastInteraction = Date.now() - lastInteractionTime;
+        // Only auto-scroll if user hasn't interacted in last 10 seconds
+        if (timeSinceLastInteraction > 10000) {
+          emblaApi.scrollNext();
+        }
+      }, 5000);
+
+      // Add event listeners
+      emblaApi.on("select", onSelectHandler);
+      const rootNode = emblaApi.rootNode();
+      rootNode.addEventListener("click", handleInteraction);
+      rootNode.addEventListener("touchstart", handleInteraction);
+      rootNode.addEventListener("mousemove", handleInteraction);
+
+      return () => {
+        clearInterval(interval);
+        emblaApi.off("select", onSelectHandler);
+        rootNode.removeEventListener("click", handleInteraction);
+        rootNode.removeEventListener("touchstart", handleInteraction);
+        rootNode.removeEventListener("mousemove", handleInteraction);
+      };
+    }
+  }, [emblaApi, lastInteractionTime]);
+
   return (
-    <div
-      className={`${backgroundColor} p-4 md:p-8 ${maxHeight} overflow-auto rounded-lg mx-4 lg:mx-4`}
-    >
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center gap-2">
-            <div className="inline-flex items-center justify-center p-3 bg-emerald-600 rounded-full shadow-md mb-4">
-              <Leaf className="w-8 h-8 text-white" />
-            </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-2">
-              User Guide
-            </h1>
-          </div>
-          <p className="text-emerald-600">
+    <div className="w-full max-h-[80vh] overflow-auto bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg p-6">
+      {/* Compact Header */}
+      <div className="flex items-center gap-3 mb-6 px-4">
+        <div className="p-2 bg-emerald-600 rounded-lg shadow-lg">
+          <Leaf className="w-6 h-6 text-white" />
+        </div>
+        <div>
+          <h1 className="text-2xl font-bold text-emerald-800">User Guide</h1>
+          <p className="text-sm text-emerald-600">
             Follow these steps to identify your tree
           </p>
         </div>
-
-        {/* Steps */}
-        <StepCard number="1" title="Upload Your Image">
-          <div className="space-y-4">
-            <div className="flex items-center gap-2 text-emerald-700">
-              <Upload className="w-5 h-5" />
-              <span>Tap the Upload an image button</span>
-            </div>
-
-            <div className="bg-emerald-50 p-4 rounded-lg mb-6">
-              <h4 className="font-semibold text-emerald-800 mb-2">
-                Recommended Format:
-              </h4>
-              <Image
-                className="hidden md:block mx-auto rounded-lg shadow-md"
-                src={images.preferred.desktop}
-                width={500}
-                height={750}
-                alt="Preferred format example"
-                priority
-              />
-              <ImageCarousel
-                images={images.preferred.steps}
-                className="md:hidden"
-              />
-            </div>
-
-            <div className="bg-red-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-red-800 mb-2">Avoid These:</h4>
-              <Image
-                className="hidden md:block mx-auto rounded-lg shadow-md"
-                src={images.avoid.desktop}
-                width={500}
-                height={750}
-                alt="Examples to avoid"
-                priority
-              />
-              <ImageCarousel
-                images={images.avoid.steps}
-                className="md:hidden"
-              />
-            </div>
-          </div>
-        </StepCard>
-
-        <StepCard number="2" title="Scan Your Leaf">
-          <div className="flex items-center gap-2 text-emerald-700">
-            <Scan className="w-5 h-5" />
-            <span>Click the Scan leaf button to begin processing</span>
-          </div>
-        </StepCard>
-
-        <StepCard number="3" title="Track Progress">
-          <div className="space-y-4">
-            <p className="text-emerald-700">
-              Monitor your scan progress using the progress bar
-            </p>
-            <div className="bg-white p-4 rounded-lg shadow-inner">
-              <Image
-                className="hidden md:block mx-auto rounded-lg"
-                src={images.progress.desktop}
-                width={500}
-                height={750}
-                alt="Desktop progress tracking example"
-                priority
-              />
-              <Image
-                className="md:hidden w-3/4 mx-auto rounded-lg"
-                src={images.progress.mobile}
-                width={500}
-                height={750}
-                alt="Mobile progress tracking example"
-                priority
-              />
-            </div>
-          </div>
-        </StepCard>
-
-        <StepCard number="4" title="Scan Again">
-          <div className="flex items-center gap-2 text-emerald-700">
-            <RotateCcw className="w-5 h-5" />
-            <span>
-              Use the Scan Again button to clear your results and scan another
-              leaf
-            </span>
-          </div>
-        </StepCard>
       </div>
-      {/* Compact Layout to maximize space usage */}
-      <div className="h-full grid grid-cols-1 gap-4  lg:hidden">
-        {/* Left Column - Steps */}
-        <div className="col-span-5 space-y-2">
-          {/* Compact Step Cards */}
-          <Card className="p-3 bg-emerald-50/80">
-            <div className="flex items-start gap-2">
-              <div className="w-5 h-5 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xs font-bold">
-                1
-              </div>
-              <div>
-                <h3 className="text-sm font-semibold text-emerald-800 flex items-center gap-1">
-                  <Upload className="w-4 h-4" />
-                  Upload Image
-                </h3>
-                <p className="text-xs text-emerald-600 mt-1">
-                  Tap &apos;Upload an image&apos; and select a clear photo of a
-                  single leaf
-                </p>
-              </div>
-            </div>
-          </Card>
 
-          <Card className="p-3 bg-emerald-50/80">
-            <div className="flex items-start gap-2">
-              <div className="w-5 h-5 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xs font-bold">
-                2
+      {/* Main Carousel */}
+      <div className="relative">
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex">
+            {steps.map((step, index) => (
+              <div
+                className="flex-[0_0_100%] min-w-0 relative px-4"
+                key={index}
+              >
+                <StepCard
+                  icon={step.icon}
+                  title={step.title}
+                  description={step.description}
+                />
+                {step.content}
               </div>
-              <div>
-                <h3 className="text-sm font-semibold text-emerald-800 flex items-center gap-1">
-                  <Scan className="w-4 h-4" />
-                  Scan Leaf
-                </h3>
-                <p className="text-xs text-emerald-600 mt-1">
-                  Click &apos;Scan leaf&apos; to begin analysis
-                </p>
-              </div>
-            </div>
-          </Card>
-
-          <Card className="p-3 bg-emerald-50/80">
-            <div className="flex items-start gap-2">
-              <div className="w-5 h-5 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xs font-bold">
-                3
-              </div>
-              <div>
-                <h3 className="text-sm font-semibold text-emerald-800 flex items-center gap-1">
-                  <Eye className="w-4 h-4" />
-                  View Results
-                </h3>
-                <p className="text-xs text-emerald-600 mt-1">
-                  Wait for results to appear below the image
-                </p>
-              </div>
-            </div>
-          </Card>
-
-          <Card className="p-3 bg-emerald-50/80">
-            <div className="flex items-start gap-2">
-              <div className="w-5 h-5 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xs font-bold">
-                4
-              </div>
-              <div>
-                <h3 className="text-sm font-semibold text-emerald-800 flex items-center gap-1">
-                  <RotateCcw className="w-4 h-4" />
-                  Scan Again
-                </h3>
-                <p className="text-xs text-emerald-600 mt-1">
-                  Use &apos;Scan Again&apos; to scan another leaf
-                </p>
-              </div>
-            </div>
-          </Card>
+            ))}
+          </div>
         </div>
+
+        {/* Mobile Scroll Indicators */}
+        <div className="flex justify-center gap-2 mt-4">
+          {steps.map((_, index) => (
+            <div
+              key={index}
+              className={cn(
+                "w-2 h-2 rounded-full transition-all duration-300",
+                activeIndex === index ? "bg-emerald-600 w-4" : "bg-emerald-200"
+              )}
+            />
+          ))}
+        </div>
+
+        {/* Navigation Arrows - Visible on all devices */}
+        <button
+          onClick={() => emblaApi?.scrollPrev()}
+          className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg"
+          aria-label="Previous slide"
+        >
+          <svg
+            className="w-6 h-6 text-emerald-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+        <button
+          onClick={() => emblaApi?.scrollNext()}
+          className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg"
+          aria-label="Next slide"
+        >
+          <svg
+            className="w-6 h-6 text-emerald-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
       </div>
-      ;
     </div>
   );
 }

@@ -92,3 +92,9 @@ export interface Developer {
   role: string;
   socials?: SocialLinks;
 }
+
+export interface StepCardProps {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+}

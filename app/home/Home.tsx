@@ -46,10 +46,7 @@ export default function Home() {
               error={error}
             />
           ) : (
-            <UserGuide
-              backgroundColor="bg-gradient-to-br from-emerald-50 to-emerald-100"
-              maxHeight="max-h-[700px]"
-            />
+            <UserGuide />
           )}
         </div>
       </section>

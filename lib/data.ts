@@ -437,6 +437,41 @@ export const batch2023_2024: Developer[] = [
   },
 ];
 
+export const images = {
+  preferred: {
+    desktop: "/assets/img/guide-preferred.png",
+    steps: [
+      {
+        src: "/assets/img/guide-preferred-1.png",
+        caption: "Subject is centered",
+      },
+      {
+        src: "/assets/img/guide-preferred-2.png",
+        caption: "Subject is properly lit",
+      },
+      { src: "/assets/img/guide-preferred-3.png", caption: "Subject is clear" },
+    ],
+  },
+  avoid: {
+    desktop: "/assets/img/guide-avoid.png",
+    steps: [
+      { src: "/assets/img/guide-avoid-1.png", caption: "Subject is blurred" },
+      {
+        src: "/assets/img/guide-avoid-2.png",
+        caption: "Contains other elements",
+      },
+      {
+        src: "/assets/img/guide-avoid-3.png",
+        caption: "Contains other elements",
+      },
+    ],
+  },
+  progress: {
+    desktop: "/assets/img/guide-progress.png",
+    mobile: "/assets/img/guide-progress-mobile.png",
+  },
+};
+
 export const leaves: Leaf[] = [
   {
     id: 1,
@@ -1425,7 +1460,7 @@ export const leaves: Leaf[] = [
   },
   {
     id: 34,
-    name: "Palo-Maria",
+    name: "Palo Maria",
     englishName: " Palo-Maria",
     scientificName: "Balsamaria inophyllum",
     image: "/assets/img/leaf-palomaria.JPG",
@@ -1457,10 +1492,10 @@ export const leaves: Leaf[] = [
   },
   {
     id: 35,
-    name: "Scramble-Egg",
+    name: "Scramble Egg",
     englishName: " Scrambled Egg",
     scientificName: "Senna surattensis",
-    image: "/assets/img/leaf-scrambleegg.JPG",
+    image: "/assets/img/leaf-scrambleegg.jpg",
     treeImage: "/assets/img/tree-scrambleegg.JPG",
     generalInfo:
       "The Senna surattensis is a shrub or small erect evergreen tree, 5-8 m tall, with brown-greyish smooth bark, tending to fissure slightly with the age, and dense and rounded top. Hard and durable, used in construction, posts, and firewood. Commonly employed as living fences. Effective against fleas, ticks (for animals), and used as a general pesticide and rodenticide.",
