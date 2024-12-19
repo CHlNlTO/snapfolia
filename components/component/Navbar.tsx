@@ -68,6 +68,8 @@ export default function Navbar() {
                       src="/assets/snapfolia_logo.png"
                       alt="Snapfolia"
                       width={120}
+                      height={50}
+                      quality={100}
                     />
                   </Link>
                 </SheetTitle>
