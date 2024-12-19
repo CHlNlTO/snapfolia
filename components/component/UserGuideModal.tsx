@@ -19,7 +19,7 @@ const UserGuideModal = () => {
           <Button
             variant="default"
             onClick={() => setIsOpen(false)}
-            className="absolute top-0 right -translate-x-4 -translate-y-[90px] mt-4 hover:ring-2 hover:ring-green-600 hover:ring-offset-2 hover:ring-offset-white bg-gradient-to-r from-green-500 to-green-600 border border-1 border-green-300 ring-1 ring-green-300"
+            className="absolute top-0 -translate-x-4 -translate-y-[90px] mt-4 hover:ring-2 hover:ring-green-600 hover:ring-offset-2 hover:ring-offset-white bg-gradient-to-r from-green-500 to-green-600 border border-1 border-green-300 ring-1 ring-green-300"
           >
             Close
           </Button>

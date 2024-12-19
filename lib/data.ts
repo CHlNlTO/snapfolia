@@ -1308,7 +1308,7 @@ export const leaves: Leaf[] = [
   },
   {
     id: 29,
-    name: "Madre-Cacao",
+    name: "Madre Cacao",
     englishName: " Gliricidia",
     scientificName: "Gliricidia Sepium",
     image: "/assets/img/leaf-madrecacao.JPG",

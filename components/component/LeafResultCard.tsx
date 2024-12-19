@@ -15,19 +15,23 @@ interface LeafResultCardProps {
 const getRankColor = (rank: number) => {
   switch (rank) {
     case 1:
-      return "text-yellow-500";
+      return "text-green-500";
     case 2:
-      return "text-gray-400";
+      return "text-green-600/80";
     case 3:
-      return "text-amber-600";
+      return "text-green-800/50";
     default:
-      return "text-gray-300";
+      return "text-green-800/30";
   }
 };
 
 const getRankIcon = (rank: number) => {
   if (rank <= 3) {
-    return <Medal className={`w-5 h-5 ${getRankColor(rank)}`} />;
+    return (
+      <span className={`text-sm font-medium ${getRankColor(rank)}`}>
+        #{rank}
+      </span>
+    );
   }
   return <span className="text-sm font-medium text-gray-400">#{rank}</span>;
 };
@@ -45,9 +49,9 @@ export const LeafResultCard = ({
   const confidenceColor =
     result.confidence > 80
       ? "bg-green-500"
-      : result.confidence > 60
-      ? "bg-green-400"
-      : "bg-green-300";
+      : result.confidence > 50
+      ? "bg-amber-200"
+      : "bg-red-300";
 
   return (
     <motion.div whileTap={{ scale: 0.98 }} onClick={onClick} className="w-full">
@@ -71,9 +75,14 @@ export const LeafResultCard = ({
           )}
 
           <div className="flex-1 min-w-0">
-            <h3 className="font-semibold text-lg text-green-900 truncate">
-              {result.class}
-            </h3>
+            <div className="flex items-center gap-2">
+              <h3 className="font-semibold text-lg text-green-900 truncate">
+                {result.class}
+              </h3>
+              <p className="text-xs text-gray-500 truncate">
+                {leafData?.scientificName}
+              </p>
+            </div>
             <div className="flex items-center gap-2 mt-2">
               <div className="h-2 bg-green-100 rounded-full flex-1">
                 <motion.div

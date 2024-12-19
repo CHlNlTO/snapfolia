@@ -73,8 +73,8 @@ export const ScanResult: React.FC<ScanResultProps> = ({
       {/* Header */}
       <div className="text-center mb-8 w-full">
         <div className="flex items-center justify-center gap-2">
-          <div className="inline-flex items-center justify-center p-3 bg-emerald-600 rounded-full shadow-md mb-4">
-            <Leaf className="w-8 h-8 text-white" />
+          <div className="flex items-center justify-center p-3 bg-emerald-600 rounded-2xl shadow-md mb-2">
+            <Leaf className="w-4 h-4 text-white" />
           </div>
           <h1 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-2">
             Results
