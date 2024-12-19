@@ -43,7 +43,7 @@ export const SCAN_ERRORS = {
   [ScanErrorType.SERVER]: {
     UNAVAILABLE: {
       type: ScanErrorType.SERVER,
-      message: "Service temporarily unavailable",
+      message: "Server is offline. Contact Support.",
       details: "Our servers are currently down. Please try again later",
     },
     MAINTENANCE: {
