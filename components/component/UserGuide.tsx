@@ -1,44 +1,33 @@
 "use client";
 
 import React from "react";
-import Image, { StaticImageData } from "next/image";
-import { Leaf, Upload, Scan, RotateCcw } from "lucide-react";
-import { Carousel } from "react-bootstrap";
-import guidePreferred from "@/app/assets/img/guide-preferred.png";
-import guidePreferred1 from "@/app/assets/img/guide-preferred-1.png";
-import guidePreferred2 from "@/app/assets/img/guide-preferred-2.png";
-import guidePreferred3 from "@/app/assets/img/guide-preferred-3.png";
-import guideAvoid from "@/app/assets/img/guide-avoid.png";
-import guideAvoid1 from "@/app/assets/img/guide-avoid-1.png";
-import guideAvoid2 from "@/app/assets/img/guide-avoid-2.png";
-import guideAvoid3 from "@/app/assets/img/guide-avoid-3.png";
-import guideProgress from "@/app/assets/img/guide-progress.png";
-import guideProgressMobile from "@/app/assets/img/guide-progress-mobile.png";
+import Image from "next/image";
+import { Leaf, Upload, Scan, RotateCcw, Eye } from "lucide-react";
+import { Card } from "@/components/ui/card";
 
 interface UserGuideProps {
   backgroundColor?: string;
-
   maxHeight?: string;
 }
 
 // Types
 type ImageStep = {
-  src: StaticImageData;
+  src: string;
   caption: string;
 };
 
 type ImagesConfig = {
   preferred: {
-    desktop: StaticImageData;
+    desktop: string;
     steps: ImageStep[];
   };
   avoid: {
-    desktop: StaticImageData;
+    desktop: string;
     steps: ImageStep[];
   };
   progress: {
-    desktop: StaticImageData;
-    mobile: StaticImageData;
+    desktop: string;
+    mobile: string;
   };
 };
 
@@ -53,53 +42,72 @@ type StepCardProps = {
   children: React.ReactNode;
 };
 
-// Import all images using require to ensure proper loading
+// Define images with proper public directory paths
 const images: ImagesConfig = {
   preferred: {
-    desktop: guidePreferred,
+    desktop: "/assets/img/guide-preferred.png",
     steps: [
-      { src: guidePreferred1, caption: "Subject is centered" },
-      { src: guidePreferred2, caption: "Subject is properly lit" },
-      { src: guidePreferred3, caption: "Subject is clear" },
+      {
+        src: "/assets/img/guide-preferred-1.png",
+        caption: "Subject is centered",
+      },
+      {
+        src: "/assets/img/guide-preferred-2.png",
+        caption: "Subject is properly lit",
+      },
+      {
+        src: "/assets/img/guide-preferred-3.png",
+        caption: "Subject is clear",
+      },
     ],
   },
   avoid: {
-    desktop: guideAvoid,
+    desktop: "/assets/img/guide-avoid.png",
     steps: [
-      { src: guideAvoid1, caption: "Subject is blurred" },
-      { src: guideAvoid2, caption: "Contains other elements" },
-      { src: guideAvoid3, caption: "Contains other elements" },
+      {
+        src: "/assets/img/guide-avoid-1.png",
+        caption: "Subject is blurred",
+      },
+      {
+        src: "/assets/img/guide-avoid-2.png",
+        caption: "Contains other elements",
+      },
+      {
+        src: "/assets/img/guide-avoid-3.png",
+        caption: "Contains other elements",
+      },
     ],
   },
   progress: {
-    desktop: guideProgress,
-    mobile: guideProgressMobile,
+    desktop: "/assets/img/guide-progress.png",
+    mobile: "/assets/img/guide-progress-mobile.png",
   },
 };
 
 const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, className }) => (
-  <Carousel
+  <div
     className={`mx-auto w-full md:w-3/4 mb-6 shadow-lg rounded-xl ${className}`}
-    controls={false}
   >
-    {images.map((image, index) => (
-      <Carousel.Item key={index} className="relative">
-        <Image
-          className="w-full rounded-xl"
-          src={image.src}
-          width={500}
-          height={750}
-          alt={image.caption}
-          priority
-        />
-        <div className="absolute top-0 left-0 right-0 bg-emerald-700 p-4 rounded-t-xl">
-          <p className="text-white font-medium text-sm md:text-base">
-            {image.caption}
-          </p>
+    <div className="relative">
+      {images.map((image, index) => (
+        <div key={index} className="relative">
+          <Image
+            className="w-full rounded-xl"
+            src={image.src}
+            width={500}
+            height={750}
+            alt={image.caption}
+            priority
+          />
+          <div className="absolute top-0 left-0 right-0 bg-emerald-700 p-4 rounded-t-xl">
+            <p className="text-white font-medium text-sm md:text-base">
+              {image.caption}
+            </p>
+          </div>
         </div>
-      </Carousel.Item>
-    ))}
-  </Carousel>
+      ))}
+    </div>
+  </div>
 );
 
 const StepCard: React.FC<StepCardProps> = ({ number, title, children }) => (
@@ -112,13 +120,13 @@ const StepCard: React.FC<StepCardProps> = ({ number, title, children }) => (
         {title}
       </h3>
     </div>
-    <div className="">{children}</div>
+    <div>{children}</div>
   </div>
 );
 
 export default function UserGuide({
-  backgroundColor,
-  maxHeight,
+  backgroundColor = "bg-white",
+  maxHeight = "max-h-screen",
 }: UserGuideProps) {
   return (
     <div
@@ -145,7 +153,7 @@ export default function UserGuide({
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-emerald-700">
               <Upload className="w-5 h-5" />
-              <span>Tap the &apos;Upload an image&apos; button</span>
+              <span>Tap the Upload an image button</span>
             </div>
 
             <div className="bg-emerald-50 p-4 rounded-lg mb-6">
@@ -181,22 +189,13 @@ export default function UserGuide({
                 className="md:hidden"
               />
             </div>
-
-            <div className="bg-amber-50 p-4 rounded-lg">
-              <p className="flex items-center gap-2 text-amber-800">
-                <span className="font-semibold">Note:</span>
-                This app is limited to classifying trees only
-              </p>
-            </div>
           </div>
         </StepCard>
 
         <StepCard number="2" title="Scan Your Leaf">
           <div className="flex items-center gap-2 text-emerald-700">
             <Scan className="w-5 h-5" />
-            <span>
-              Click the &apos;Scan leaf&apos; button to begin processing
-            </span>
+            <span>Click the Scan leaf button to begin processing</span>
           </div>
         </StepCard>
 
@@ -230,12 +229,88 @@ export default function UserGuide({
           <div className="flex items-center gap-2 text-emerald-700">
             <RotateCcw className="w-5 h-5" />
             <span>
-              Use the &apos;Remove&apos; button to clear your results and scan
-              another leaf
+              Use the Scan Again button to clear your results and scan another
+              leaf
             </span>
           </div>
         </StepCard>
       </div>
+      {/* Compact Layout to maximize space usage */}
+      <div className="h-full grid grid-cols-1 gap-4  lg:hidden">
+        {/* Left Column - Steps */}
+        <div className="col-span-5 space-y-2">
+          {/* Compact Step Cards */}
+          <Card className="p-3 bg-emerald-50/80">
+            <div className="flex items-start gap-2">
+              <div className="w-5 h-5 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xs font-bold">
+                1
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-emerald-800 flex items-center gap-1">
+                  <Upload className="w-4 h-4" />
+                  Upload Image
+                </h3>
+                <p className="text-xs text-emerald-600 mt-1">
+                  Tap &apos;Upload an image&apos; and select a clear photo of a
+                  single leaf
+                </p>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-3 bg-emerald-50/80">
+            <div className="flex items-start gap-2">
+              <div className="w-5 h-5 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xs font-bold">
+                2
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-emerald-800 flex items-center gap-1">
+                  <Scan className="w-4 h-4" />
+                  Scan Leaf
+                </h3>
+                <p className="text-xs text-emerald-600 mt-1">
+                  Click &apos;Scan leaf&apos; to begin analysis
+                </p>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-3 bg-emerald-50/80">
+            <div className="flex items-start gap-2">
+              <div className="w-5 h-5 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xs font-bold">
+                3
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-emerald-800 flex items-center gap-1">
+                  <Eye className="w-4 h-4" />
+                  View Results
+                </h3>
+                <p className="text-xs text-emerald-600 mt-1">
+                  Wait for results to appear below the image
+                </p>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-3 bg-emerald-50/80">
+            <div className="flex items-start gap-2">
+              <div className="w-5 h-5 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xs font-bold">
+                4
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-emerald-800 flex items-center gap-1">
+                  <RotateCcw className="w-4 h-4" />
+                  Scan Again
+                </h3>
+                <p className="text-xs text-emerald-600 mt-1">
+                  Use &apos;Scan Again&apos; to scan another leaf
+                </p>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </div>
+      ;
     </div>
   );
 }

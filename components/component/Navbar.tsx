@@ -1,8 +1,6 @@
 import { links, externalLinks } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
-import snapfoliaLogo from "@/app/assets/snapfolia_logo.png";
-import faithLogo from "@/app/assets/faith_logo.png";
 import {
   Sheet,
   SheetClose,
@@ -22,9 +20,10 @@ export default function Navbar() {
           href="/"
         >
           <Image
-            src={snapfoliaLogo}
+            src="/assets/snapfolia_logo.png"
             alt="Snapfolia"
             width={120}
+            height={50}
             quality={100}
             className="quality-100"
           />
@@ -46,7 +45,13 @@ export default function Navbar() {
             href={externalLinks.faith.url}
             target="_blank"
           >
-            <Image src={faithLogo} alt="FAITH Colleges" width={115} />
+            <Image
+              src="/assets/faith_logo.png"
+              alt="FAITH Colleges"
+              width={115}
+              height={50}
+              quality={100}
+            />
           </Link>
           <Sheet>
             <SheetTrigger>
@@ -59,7 +64,11 @@ export default function Navbar() {
                     className="text-sm font-extrabold flex items-center justify-center ring-green-600 focus:p-1 outline-green-600"
                     href="/"
                   >
-                    <Image src={snapfoliaLogo} alt="Snapfolia" width={120} />
+                    <Image
+                      src="/assets/snapfolia_logo.png"
+                      alt="Snapfolia"
+                      width={120}
+                    />
                   </Link>
                 </SheetTitle>
                 <nav className="flex sm:hidden flex-col gap-4 sm:gap-8 items-center justify-center ring-green-600 focus:p-1 outline-green-600">

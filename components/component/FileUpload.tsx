@@ -3,14 +3,22 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { instructions } from "@/lib/data";
 import { AnimatePresence, motion } from "framer-motion";
-import { File, Plus, Leaf, Trash2 } from "lucide-react";
+import { File, Plus, Leaf, Trash2, RotateCcw } from "lucide-react";
 import Image from "next/image";
 import { type DragEvent, useRef, useState } from "react";
 import ImageIcon from "./ImageIcon";
 import { useFileStore } from "@/store/useFileStore";
 
 export function FileUpload() {
-  const { file, setFile, handleScan, clearFile, isScanning } = useFileStore();
+  const {
+    file,
+    setFile,
+    handleScan,
+    clearFile,
+    isScanning,
+    scanResult,
+    error,
+  } = useFileStore();
   const [isDragActive, setIsDragActive] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -107,9 +115,11 @@ export function FileUpload() {
               transition={{ duration: 0.2 }}
               className="pointer-events-none select-none flex flex-col items-center space-y-2"
             >
-              <ImageIcon className="mx-auto text-green-500 opacity-80 w-12 h-12" />
-              <Button className="font-medium bg-green-500 text-white text-sm dark:text-neutral-500 opacity-80">
-                <Plus className="text-white fill-current " />
+              <ImageIcon className="mx-auto text-green-600/50 opacity-80 dark:text-neutral-500 w-16 h-16" />
+              <Button className="font-medium bg-gradient-to-r from-green-400 to-green-500 border border-1 border-green-300 ring-1 ring-green-300 text-white text-sm dark:text-neutral-500 rounded-2xl hover:ring-2 hover:ring-green-600 hover:ring-offset-2 hover:ring-offset-white">
+                <div>
+                  <Plus className="text-green-200 fill-current" />
+                </div>
                 <span className="text-xs font-normal">
                   {instructions.fileUpload}
                 </span>
@@ -166,7 +176,25 @@ export function FileUpload() {
         />
       </motion.div>
 
-      {file && (
+      {/* Initial State */}
+      {!file && (
+        <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-row items-center justify-center space-x-2">
+            <Button
+              className="font-medium bg-green-700 text-white text-sm dark:text-neutral-500 opacity-80 rounded-2xl hover:ring-2 hover:ring-green-600 hover:ring-offset-2 hover:ring-offset-white"
+              disabled
+            >
+              <div>
+                <Leaf className="text-green-200 fill-current w-3" />
+              </div>
+              <span className="text-xs font-normal">Scan Leaf</span>
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {/* File Has Content & Before Scan State */}
+      {file && !(scanResult || error) && (
         <div className="flex flex-col items-center justify-center">
           <motion.div className="flex flex-row items-center justify-center space-x-2">
             <Button
@@ -196,19 +224,24 @@ export function FileUpload() {
         </div>
       )}
 
-      {!file && (
+      {/* File Has Content & After Scan State */}
+      {file && (scanResult || error) && (
         <div className="flex flex-col items-center justify-center">
-          <div className="flex flex-row items-center justify-center space-x-2">
+          <motion.div className="flex flex-row items-center justify-center space-x-2">
             <Button
-              className="font-medium bg-green-700 text-white text-sm dark:text-neutral-500 opacity-80 rounded-2xl hover:ring-2 hover:ring-green-600 hover:ring-offset-2 hover:ring-offset-white"
-              disabled
+              className="font-medium bg-gradient-to-r from-green-500 to-green-600 border border-1 border-green-300 ring-1 ring-green-300 text-white text-sm dark:text-neutral-500 opacity-80 rounded-2xl hover:ring-2 hover:ring-green-600 hover:ring-offset-2 hover:ring-offset-white"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDeleteFile();
+              }}
+              disabled={isScanning}
             >
               <div>
-                <Leaf className="text-green-200 fill-current w-3" />
+                <RotateCcw className="size-5 cursor-pointer text-white transition-colors" />
               </div>
-              <span className="text-xs font-normal">Scan Leaf</span>
+              <span className="text-xs font-normal text-white">Scan Again</span>
             </Button>
-          </div>
+          </motion.div>
         </div>
       )}
     </div>

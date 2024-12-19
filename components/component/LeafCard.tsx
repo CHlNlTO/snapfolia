@@ -25,7 +25,14 @@ export default function LeafCard({ leaf }: LeafCardProps) {
             className="object-contain"
             width={80}
             height={80}
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+              e.currentTarget.parentElement
+                ?.querySelector(".fallback")
+                ?.classList.remove("hidden");
+            }}
           />
+          <div className="w-20 h-20 bg-green-200/50 rounded-lg fallback hidden animate-pulse"></div>
         </div>
         <div className="p-4 text-right flex flex-col gap-1 w-full">
           <h2 className="text-3xl font-bold text-green-900">{leaf.name}</h2>
