@@ -7,6 +7,8 @@
 //   message: string;
 // }
 
+import { ScanError } from "./errors";
+
 export interface LeafClass {
   class: string;
   confidence: number;
@@ -17,6 +19,7 @@ export interface LeafScanResult {
   classes?: LeafClass[];
   success: boolean;
   message: string;
+  error: ScanError | null;
 }
 
 export interface FileState {

@@ -63,7 +63,7 @@ export const ScanProgress: React.FC<ScanProgressProps> = ({
   if (!isScanning || !file) return null;
 
   return (
-    <div className="w-[245px] mr-8">
+    <div className="w-[245px]">
       <Progress className="h-3 mt-2" value={progress} />
       <p className="text-sm text-green-800 text-center mt-2">
         {currentMessage}

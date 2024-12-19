@@ -13,11 +13,11 @@ interface ScanResultProps {
 }
 
 const ErrorDisplay = ({ message }: { message: string }) => (
-  <div className="flex flex-col items-center justify-center h-full">
-    <div className="bg-red-50/50 p-8 rounded-xl backdrop-blur-sm">
-      <div className="flex items-center gap-2 text-red-600">
+  <div className="flex flex-col items-center justify-center h-full max-w-[350px] w-full">
+    <div className="bg-red-50/50 p-8 rounded-xl backdrop-blur-sm w-full flex flex-col items-center justify-center">
+      <div className="flex flex-row justify-center items-center gap-2 text-red-600">
         <AlertCircle className="h-6 w-6" />
-        <h1 className="font-bold text-xl">Error</h1>
+        <h1 className="font-bold text-xl text-center">Error</h1>
       </div>
       <p className="text-gray-600 text-sm text-center mt-2">{message}</p>
     </div>
@@ -35,8 +35,8 @@ const NoLeafDetected = () => (
         <AlertCircle className="h-6 w-6" />
         <h1 className="font-bold text-xl">No leaf detected</h1>
       </div>
-      <p className="text-gray-600 text-sm text-center mt-2">
-        Please upload a clear image of a leaf
+      <p className="text-gray-600 text-sm text-center mt-2 block">
+        Upload a clear image of a leaf
       </p>
     </div>
   </div>
