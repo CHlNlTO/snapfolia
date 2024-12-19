@@ -3,7 +3,6 @@ import { leaves } from "@/lib/data";
 import { LeafClass } from "@/lib/types";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Medal } from "lucide-react";
 
 interface LeafResultCardProps {
   result: LeafClass;
