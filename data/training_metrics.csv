@@ -1,0 +1,2 @@
+model_name,model_type,train_start_date,train_start_time,train_end_date,train_end_time,train_duration,epochs,train_dataset,test_dataset
+Yolov8,Object Detection,2024-12-19,19:37:42,2024-12-20,13:00:23,17:22:41,50,"46,000","12,000"
