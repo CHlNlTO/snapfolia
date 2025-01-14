@@ -1,0 +1,46 @@
+train: F:\ds-final-class40\train
+val: F:\ds-final-class40\val
+
+nc: 40
+
+names:
+  - Balete
+  - Bayabas
+  - Dita
+  - Ilang-Ilang
+  - Langka
+  - Mangga
+  - Mahogany
+  - Duhat
+  - Palo-Maria
+  - Narra
+  - Yakal
+  - Alibangbang
+  - Apitong
+  - Kamagong
+  - Kalios
+  - Acacia
+  - Madre-Cacao
+  - Eucalyptus
+  - Scramble-Egg
+  - Alagao
+  - Sintores
+  - Tibig
+  - Amugis
+  - Balayong
+  - Bani
+  - Banaba
+  - Barako
+  - Binunga
+  - Betis
+  - Dao
+  - Asis
+  - Lansones
+  - Talisay
+  - Guyabano
+  - Ipil
+  - Mulawin
+  - Antipolo
+  - Santol
+  - Inyam
+  - Hinadyong
