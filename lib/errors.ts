@@ -31,7 +31,7 @@ export const SCAN_ERRORS = {
   [ScanErrorType.NETWORK]: {
     OFFLINE: {
       type: ScanErrorType.NETWORK,
-      message: "No internet connection detected",
+      message: "No internet connection. Connect to a network.",
       details: "Please check your network connection and try again",
     },
     TIMEOUT: {

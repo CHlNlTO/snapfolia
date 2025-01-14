@@ -19,7 +19,7 @@ export async function scanLeafImage(
     }
 
     // Validate file size (5MB limit)
-    if (file.size > 5 * 1024 * 1024) {
+    if (file.size > 100 * 1024 * 1024) {
       return createErrorResponse(
         SCAN_ERRORS[ScanErrorType.VALIDATION].FILE_TOO_LARGE
       );
