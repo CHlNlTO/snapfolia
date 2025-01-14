@@ -11,9 +11,8 @@ class ObjectDetector:
 
     def __init__(self):
         self.device = self._get_device()
-        self.yolov8_model = None
-        self.grounding_dino_model = None
-        self.grounding_dino_processor = None
+        self.yolo_classification = None 
+        self.yolo_obj_detection = None 
 
         if not ObjectDetector.models_initialized:
             self._initialize_models()
@@ -28,70 +27,72 @@ class ObjectDetector:
 
     def _initialize_models(self):
         logging.info("Initializing models...")
-        self.yolov8_model = YOLO(Config.YOLOV8_MODEL_PATH)
-        logging.info("YOLOv8 model loaded.")
-
-        logging.info("Loading Grounding Dino.")
-        self.grounding_dino_processor = AutoProcessor.from_pretrained(Config.GROUNDING_DINO_MODEL_ID)
-        self.grounding_dino_model = AutoModelForZeroShotObjectDetection.from_pretrained(Config.GROUNDING_DINO_MODEL_ID, ).to(self.device)
-        self.grounding_dino_model.eval()
-
-        logging.info(f"Grounding DINO model loaded.")
-
-    def detect_objects_with_dino(self, image):
-        inputs = self.grounding_dino_processor(
-            images=image,
-            text=" a leaf. leaves. ",
-            return_tensors="pt"
-        ).to(self.device)
-
-        with torch.no_grad():
-            outputs = self.grounding_dino_model(**inputs)
-
-        results = self.grounding_dino_processor.post_process_grounded_object_detection(
-            outputs,
-            inputs.input_ids,
-            box_threshold=0.4,
-            text_threshold=0.3,
-            target_sizes=[image.size[::-1]]
-        )
-        return results
-    
-    def detect_and_classify_leaf(self, image):
-            print("Classifying Leaf...")
-            # Run the YOLOv8 model for classification
-            results = self.yolov8_model(image)
+        self.yolo_classification = YOLO(Config.YOLO_CLASSIFICATION_MODEL)
+        logging.info("YOLO CLASSIFICATION MODEL LOADED.")
+        
+        self.yolo_obj_detection = YOLO(Config.YOLO_OBJECT_DETECTION_MODEL)
+        logging.info("YOLO OBJECT DETECTION MODEL LOADED. ")
+        
+    def predict_object_detection(self, image_path):
+        results = self.yolo_obj_detection(image_path)
+        
+        if len(results) > 0 and len(results[0].boxes) > 0:
+            predictions = []
+            for box in results[0].boxes:
+                predicted_class = results[0].names[int(box.cls)]
+                confidence = round(float(box.conf), 2)
+                predictions.append((predicted_class, confidence))
             
-            if results:
+            predictions.sort(key=lambda x: x[1], reverse=True)
+
+            predicted_class, confidence = predictions[0]
+            return results, predicted_class, confidence
+        else:
+            return None, None, None
+        
+    def detect_and_classify_leaf(self, image):
+        logging.info("Running object detection...")
+        detection_results, detected_class, confidence = self.predict_object_detection(image)
+
+        if detection_results and detected_class:
+            logging.info(f"Object detected: {detected_class} with confidence {confidence:.2f}%")
+            logging.info("Running classification...")
+            
+            # Run the YOLO classification model
+            classification_results = self.yolo_classification(image)
+            
+            if classification_results:
                 # Get the top 5 predictions
-                # Convert tensor to numpy array and then to regular Python float
-                probs_data = results[0].probs.data.cpu().numpy()
+                probs_data = classification_results[0].probs.data.cpu().numpy()
                 top_5_indices = sorted(range(len(probs_data)), 
-                                    key=lambda i: probs_data[i], 
-                                    reverse=True)[:5]
+                                       key=lambda i: probs_data[i], 
+                                       reverse=True)[:5]
                 
                 # Build the response structure
                 classes = []
                 for index in top_5_indices:
-                    class_name = results[0].names[index]
-                    # Convert numpy float to Python float for JSON serialization
+                    class_name = classification_results[0].names[index]
                     confidence = float(probs_data[index] * 100)
                     classes.append({
                         "class": class_name,
                         "confidence": confidence
                     })
                 
-                print("\nLeaf Classification Predictions:")
+                logging.info("\nLeaf Classification Predictions:")
                 for entry in classes:
-                    print(f"{entry['class']}: {entry['confidence']:.2f}%")
+                    logging.info(f"{entry['class']}: {entry['confidence']:.2f}%")
                     
                 return {
                     "leaf_detected": True,
+                    "detected_class": detected_class,
+                    "detection_confidence": confidence,
                     "classes": classes
                 }
-            
-            print("No leaf detected")
-            return {
-                "leaf_detected": False,
-                "classes": []
-            }
+        
+        logging.info("No leaf detected or classification failed.")
+        return {
+            "leaf_detected": False,
+            "detected_class": None,
+            "detection_confidence": None,
+            "classes": []
+        }
