@@ -1460,7 +1460,7 @@ export const leaves: Leaf[] = [
   },
   {
     id: 34,
-    name: "Palo Maria",
+    name: "Palo-Maria",
     englishName: " Palo-Maria",
     scientificName: "Balsamaria inophyllum",
     image: "/assets/img/leaf-palomaria.JPG",
@@ -1492,8 +1492,8 @@ export const leaves: Leaf[] = [
   },
   {
     id: 35,
-    name: "Scramble Egg",
-    englishName: " Scrambled Egg",
+    name: "Scramble-Egg",
+    englishName: " Scrambled-Egg",
     scientificName: "Senna surattensis",
     image: "/assets/img/leaf-scrambleegg.jpg",
     treeImage: "/assets/img/tree-scrambleegg.JPG",
