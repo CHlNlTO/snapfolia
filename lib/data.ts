@@ -1495,7 +1495,7 @@ export const leaves: Leaf[] = [
     name: "Scramble-Egg",
     englishName: " Scrambled-Egg",
     scientificName: "Senna surattensis",
-    image: "/assets/img/leaf-scrambleegg.jpg",
+    image: "/assets/img/leaf-scrambleegg.JPG",
     treeImage: "/assets/img/tree-scrambleegg.JPG",
     generalInfo:
       "The Senna surattensis is a shrub or small erect evergreen tree, 5-8 m tall, with brown-greyish smooth bark, tending to fissure slightly with the age, and dense and rounded top. Hard and durable, used in construction, posts, and firewood. Commonly employed as living fences. Effective against fleas, ticks (for animals), and used as a general pesticide and rodenticide.",
