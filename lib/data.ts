@@ -600,7 +600,7 @@ export const leaves: Leaf[] = [
     name: "Antipolo",
     englishName: " Antipolo Tree",
     scientificName: "Artocarpus blancoi",
-    image: "/assets/img/leaf-antipolo1.jpg",
+    image: "/assets/img/leaf-antipolo.jpg",
     treeImage: "/assets/img/tree-antipolo.jpg",
     generalInfo:
       "Artocarpus blancoi, commonly known as the Antipolo tree, is a remarkable species belonging to the Moraceae family. The Antipolo tree thrives in tropical climates, often found in secondary forests and open areas. However, its natural habitat is increasingly threatened by urbanization and deforestation, raising concerns about the survival of this native species.",
