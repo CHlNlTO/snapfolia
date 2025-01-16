@@ -1,8 +1,8 @@
-# Changelog v2.0.0
+# Update Notes
+## Version v2.3.0
+### Key Features and Changes
 
-## New Features and Updates
-
-- **Increased File Size:** Enhanced support for larger file uploads.
-- **Multi-Port Support:** Backend now utilizes 5 ports for instance management.
-- **Gunicorn Integration:** Adopted Gunicorn as the WSGI server for better performance and scalability.
-- **Nginx Support:** Configured Nginx as a reverse proxy to improve load balancing and security.
+- **Modified Files**:
+  - `configuration`: Add file paths of the new classificaiton and object detection model
+  - `processors`: Configure model process
+  - `services`: replace functions

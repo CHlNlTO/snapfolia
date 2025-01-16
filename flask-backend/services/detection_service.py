@@ -13,15 +13,8 @@ class DetectionService:
         logger.info("Processing Image...")
         image = self.image_processor.convert_to_jpg(file)
 
-        if image is None:
-            return {"leaf_detected": False}
-
-        dino_results = self.object_detector.detect_objects_with_dino(image)
-        if not dino_results or "boxes" not in dino_results[0] or dino_results[0]["boxes"].shape[0] == 0:
-            return {"leaf_detected": False}
-
         yolov8_results = self.object_detector.detect_and_classify_leaf(image)
-        
+    
         if yolov8_results.get("leaf_detected"):
             confidence = yolov8_results.get("confidence", 0)
             if confidence < 0.9:
