@@ -66,7 +66,7 @@ export default function LeafModal({ leaf, show, onHide }: LeafModalProps) {
               <div className="flex items-center gap-2 mt-2">
                 <MapPin className="w-4 h-4 text-white/80" />
                 <p className="text-sm text-white/80 capitalize">
-                  {leaf.location.replace("-", " ")}
+                  {leaf.location.replace("-", " ").toUpperCase()}
                 </p>
               </div>
             </DialogHeader>

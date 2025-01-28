@@ -1,11 +1,17 @@
 import React, { useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Leaf, Upload, Scan, RotateCcw, Eye } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { images } from "@/lib/data";
 import { StepCardProps } from "@/lib/types";
+
+interface UserGuideProps {
+  onClose: () => void;
+  isModal?: boolean;
+}
 
 const StepCard = ({ icon: Icon, title, description }: StepCardProps) => (
   <Card className="p-4 bg-white/50 backdrop-blur border-none shadow-md">
@@ -92,41 +98,36 @@ const steps = [
   },
 ];
 
-export default function UserGuide() {
+export default function UserGuide({ onClose, isModal = false }: UserGuideProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
+    loop: false,
     align: "center",
+    dragFree: false,
   });
 
   const [activeIndex, setActiveIndex] = React.useState(0);
-
   const [lastInteractionTime, setLastInteractionTime] = React.useState(
     Date.now()
   );
 
   useEffect(() => {
     if (emblaApi) {
-      // Update active index on scroll
       const onSelectHandler = () => {
         setActiveIndex(emblaApi.selectedScrollSnap());
         setLastInteractionTime(Date.now());
       };
 
-      // Track user interactions
       const handleInteraction = () => {
         setLastInteractionTime(Date.now());
       };
 
-      // Set up auto-scroll check every 5 seconds
       const interval = setInterval(() => {
         const timeSinceLastInteraction = Date.now() - lastInteractionTime;
-        // Only auto-scroll if user hasn't interacted in last 10 seconds
         if (timeSinceLastInteraction > 10000) {
           emblaApi.scrollNext();
         }
       }, 5000);
 
-      // Add event listeners
       emblaApi.on("select", onSelectHandler);
       const rootNode = emblaApi.rootNode();
       rootNode.addEventListener("click", handleInteraction);
@@ -143,9 +144,11 @@ export default function UserGuide() {
     }
   }, [emblaApi, lastInteractionTime]);
 
+  const isLastStep = activeIndex === steps.length - 1;
+  const showCloseButton = isModal && isLastStep;
+
   return (
     <div className="w-full max-h-[80vh] overflow-auto bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg p-6">
-      {/* Compact Header */}
       <div className="flex items-center gap-3 mb-6 px-4">
         <div className="p-2 bg-emerald-600 rounded-lg shadow-lg">
           <Leaf className="w-6 h-6 text-white" />
@@ -158,7 +161,6 @@ export default function UserGuide() {
         </div>
       </div>
 
-      {/* Main Carousel */}
       <div className="relative">
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex">
@@ -178,7 +180,6 @@ export default function UserGuide() {
           </div>
         </div>
 
-        {/* Mobile Scroll Indicators */}
         <div className="flex justify-center gap-2 mt-4">
           {steps.map((_, index) => (
             <div
@@ -191,10 +192,13 @@ export default function UserGuide() {
           ))}
         </div>
 
-        {/* Navigation Arrows - Visible on all devices */}
+        {/* Navigation Arrows */}
         <button
           onClick={() => emblaApi?.scrollPrev()}
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg"
+          className={cn(
+            "absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg",
+            activeIndex === 0 ? "hidden" : ""
+          )}
           aria-label="Previous slide"
         >
           <svg
@@ -213,7 +217,10 @@ export default function UserGuide() {
         </button>
         <button
           onClick={() => emblaApi?.scrollNext()}
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg"
+          className={cn(
+            "absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg",
+            isLastStep ? "hidden" : ""
+          )}
           aria-label="Next slide"
         >
           <svg
@@ -231,6 +238,19 @@ export default function UserGuide() {
           </svg>
         </button>
       </div>
+
+      {/* Close button - only shown in modal and on last step */}
+      {showCloseButton && (
+        <div className="flex justify-end -mt-6">
+          <Button
+            variant="default"
+            onClick={onClose}
+            className="hover:ring-2 hover:ring-green-600 hover:ring-offset-2 hover:ring-offset-white bg-gradient-to-r from-green-500 to-green-600 border border-1 border-green-300 ring-1 ring-green-300"
+          >
+            Close
+          </Button>
+        </div>
+      )}
     </div>
   );
 }
