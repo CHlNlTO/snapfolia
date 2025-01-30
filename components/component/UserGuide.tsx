@@ -151,7 +151,7 @@ export default function UserGuide({
         rootNode.removeEventListener("mousemove", handleInteraction);
       };
     }
-  }, [emblaApi, lastInteractionTime, isModal, steps.length]);
+  }, [emblaApi, lastInteractionTime, isModal]);
 
   const isLastStep = activeIndex === steps.length - 1;
   const showCloseButton = isModal && isLastStep;
