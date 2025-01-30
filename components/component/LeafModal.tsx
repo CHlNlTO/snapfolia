@@ -50,7 +50,10 @@ export default function LeafModal({ leaf, show, onHide }: LeafModalProps) {
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-green-900/60 to-transparent" />
+            <div
+              className="absolute inset-0 bg-gradient-to-t from-green-900/60 to-transparent cursor-pointer"
+              onClick={() => setShowFullscreen(true)}
+            />
             <Button
               variant="outline"
               size="icon"

@@ -9,7 +9,7 @@ import { images } from "@/lib/data";
 import { StepCardProps } from "@/lib/types";
 
 interface UserGuideProps {
-  onClose: () => void;
+  onClose?: () => void;
   isModal?: boolean;
 }
 
@@ -98,7 +98,10 @@ const steps = [
   },
 ];
 
-export default function UserGuide({ onClose, isModal = false }: UserGuideProps) {
+export default function UserGuide({
+  onClose,
+  isModal = false,
+}: UserGuideProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     align: "center",
@@ -113,8 +116,14 @@ export default function UserGuide({ onClose, isModal = false }: UserGuideProps) 
   useEffect(() => {
     if (emblaApi) {
       const onSelectHandler = () => {
-        setActiveIndex(emblaApi.selectedScrollSnap());
+        const currentIndex = emblaApi.selectedScrollSnap();
+        setActiveIndex(currentIndex);
         setLastInteractionTime(Date.now());
+
+        // Reset to first slide if we reach the end and not in modal mode
+        if (currentIndex === steps.length - 1 && !isModal) {
+          setTimeout(() => emblaApi.scrollTo(0), 5000);
+        }
       };
 
       const handleInteraction = () => {
@@ -142,7 +151,7 @@ export default function UserGuide({ onClose, isModal = false }: UserGuideProps) 
         rootNode.removeEventListener("mousemove", handleInteraction);
       };
     }
-  }, [emblaApi, lastInteractionTime]);
+  }, [emblaApi, lastInteractionTime, isModal, steps.length]);
 
   const isLastStep = activeIndex === steps.length - 1;
   const showCloseButton = isModal && isLastStep;
@@ -241,7 +250,7 @@ export default function UserGuide({ onClose, isModal = false }: UserGuideProps) 
 
       {/* Close button - only shown in modal and on last step */}
       {showCloseButton && (
-        <div className="flex justify-end -mt-6">
+        <div className="flex justify-end -mt-0">
           <Button
             variant="default"
             onClick={onClose}
