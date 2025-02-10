@@ -69,6 +69,16 @@ services:
     networks:
       - app-network
 
+  nextjs:
+    build:
+      context: C:/Users/faith/Snapfolia/production/nextjs-frontend  # Point to the location of your Next.js project
+      dockerfile: Dockerfile
+    container_name: nextjs-frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
   nginx:
     build:
       context: .
@@ -84,6 +94,7 @@ services:
       - flask-app-3
       - flask-app-4
       - flask-app-5
+      - nextjs
     networks:
       - app-network
 
