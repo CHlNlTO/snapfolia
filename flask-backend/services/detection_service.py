@@ -12,7 +12,6 @@ class DetectionService:
     def process_image(self, file):
         logger.info("Processing Image...")
         image = self.image_processor.convert_to_jpg(file)
-
         yolov8_results = self.object_detector.detect_and_classify_leaf(image)
     
         if yolov8_results.get("leaf_detected"):
