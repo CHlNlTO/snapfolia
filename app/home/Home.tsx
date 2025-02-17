@@ -54,12 +54,12 @@ export default function Home() {
         </div>
       </section>
       <Link
-        className="hidden sm:flex fixed bottom-4 right-4 bg-green-600 text-white text-sm font-extrabold items-center justify-center gap-4 p-2 rounded-sm"
+        className="hidden sm:flex fixed bottom-4 right-4 bg-green-600 text-white text-sm font-extrabold items-center justify-center gap-2 py-2 px-3 rounded-sm"
         href={externalLinks.userFeedback.url}
         target="_blank"
       >
         <MessageSquareShare className="w-6 h-6 text-white" />
-        Feedback
+        Got feedback?
       </Link>
     </main>
   );
