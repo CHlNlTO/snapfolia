@@ -6,7 +6,7 @@ import { ScanProgress } from "@/components/component/ScanProgress";
 import { ScanResult } from "@/components/component/ScanResult";
 import { useFileStore } from "@/store/useFileStore";
 import { externalLinks } from "@/lib/data";
-import { MessageSquareShare } from "lucide-react";
+import { Send } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
@@ -58,7 +58,7 @@ export default function Home() {
         href={externalLinks.userFeedback.url}
         target="_blank"
       >
-        <MessageSquareShare className="w-6 h-6 text-white" />
+        <Send className="w-4 h-4 text-white" />
         Got feedback?
       </Link>
     </main>
