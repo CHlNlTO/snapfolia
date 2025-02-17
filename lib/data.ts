@@ -12,7 +12,7 @@ export const externalLinks = {
   },
   userFeedback: {
     name: "User Feedback Form",
-    url: "https://forms.gle/3YQ8t9mKpZz6YnKv5",
+    url: "https://forms.gle/NrRUiMt8VQceM8N59",
   },
 };
 
@@ -29,10 +29,6 @@ export const links = [
     name: "Developers",
     href: "/developers",
   },
-  // {
-  //   name: "Feedback",
-  //   href: "https://forms.gle/NrRUiMt8VQceM8N59",
-  // },
 ];
 
 export const instructions = {

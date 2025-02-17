@@ -9,7 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, MessageSquareShare } from "lucide-react";
 
 export default function Navbar() {
   return (
@@ -52,6 +52,13 @@ export default function Navbar() {
               height={50}
               quality={100}
             />
+          </Link>
+          <Link
+            className="mr-3 text-sm font-extrabold flex sm:hidden items-center justify-center gap-4 ring-green-600 focus:p-1 outline-green-600"
+            href={externalLinks.userFeedback.url}
+            target="_blank"
+          >
+            <MessageSquareShare className="w-6 h-6 text-green-700 flex md:hidden ring-green-600 focus:p-1 outline-green-600" />
           </Link>
           <Sheet>
             <SheetTrigger>
