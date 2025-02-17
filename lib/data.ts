@@ -10,6 +10,10 @@ export const externalLinks = {
     name: "FAITH Colleges",
     url: "https://firstasia.edu.ph",
   },
+  userFeedback: {
+    name: "User Feedback Form",
+    url: "https://forms.gle/3YQ8t9mKpZz6YnKv5",
+  },
 };
 
 export const links = [
@@ -21,9 +25,13 @@ export const links = [
     name: "Dataset",
     href: "/dataset",
   },
+  {
+    name: "Developers",
+    href: "/developers",
+  },
   // {
-  //   name: "Developers",
-  //   href: "/developers",
+  //   name: "Feedback",
+  //   href: "https://forms.gle/NrRUiMt8VQceM8N59",
   // },
 ];
 

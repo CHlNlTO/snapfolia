@@ -154,7 +154,6 @@ export default function UserGuide({
   }, [emblaApi, lastInteractionTime, isModal]);
 
   const isLastStep = activeIndex === steps.length - 1;
-  const showCloseButton = isModal && isLastStep;
 
   return (
     <div className="w-full max-h-[80vh] overflow-auto bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg p-6">
@@ -248,8 +247,7 @@ export default function UserGuide({
         </button>
       </div>
 
-      {/* Close button - only shown in modal and on last step */}
-      {showCloseButton && (
+      {isModal && (
         <div className="flex justify-end -mt-0">
           <Button
             variant="default"

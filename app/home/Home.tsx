@@ -36,6 +36,16 @@ export default function Home() {
                 />
               )}
             </div>
+            {/* <p className="text-gray-600 text-sm text-center mt-2 block">
+              Have a feedback? Click{" "}
+              <a
+                className="text-green-500 underline"
+                href={externalLinks.userFeedback.url}
+                target="_blank"
+              >
+                here
+              </a>
+            </p> */}
           </div>
         </div>
         <div className="flex flex-col items-center lg:items-start justify-center w-full max-w-[800px] mt-5">

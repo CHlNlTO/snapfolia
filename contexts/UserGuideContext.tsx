@@ -1,18 +1,27 @@
 "use client";
 
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 
-type UserGuideContextType = {
+interface UserGuideContextType {
   isOpen: boolean;
-  setIsOpen: (open: boolean) => void;
-};
+  setIsOpen: (isOpen: boolean) => void;
+}
 
 const UserGuideContext = createContext<UserGuideContextType | undefined>(
   undefined
 );
 
 export function UserGuideProvider({ children }: { children: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    // Check localStorage when the provider mounts
+    const hasSeenGuide = localStorage.getItem("hasSeenUserGuide");
+    if (!hasSeenGuide) {
+      setIsOpen(true);
+      localStorage.setItem("hasSeenUserGuide", "true");
+    }
+  }, []);
 
   return (
     <UserGuideContext.Provider value={{ isOpen, setIsOpen }}>
@@ -21,10 +30,10 @@ export function UserGuideProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-export const useUserGuide = () => {
+export function useUserGuide() {
   const context = useContext(UserGuideContext);
   if (context === undefined) {
     throw new Error("useUserGuide must be used within a UserGuideProvider");
   }
   return context;
-};
+}
