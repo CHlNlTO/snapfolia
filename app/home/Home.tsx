@@ -5,6 +5,9 @@ import UserGuide from "@/components/component/UserGuide";
 import { ScanProgress } from "@/components/component/ScanProgress";
 import { ScanResult } from "@/components/component/ScanResult";
 import { useFileStore } from "@/store/useFileStore";
+import { externalLinks } from "@/lib/data";
+import { MessageSquareShare } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   const { file, isScanning, scanResult, error } = useFileStore();
@@ -36,16 +39,6 @@ export default function Home() {
                 />
               )}
             </div>
-            {/* <p className="text-gray-600 text-sm text-center mt-2 block">
-              Have a feedback? Click{" "}
-              <a
-                className="text-green-500 underline"
-                href={externalLinks.userFeedback.url}
-                target="_blank"
-              >
-                here
-              </a>
-            </p> */}
           </div>
         </div>
         <div className="flex flex-col items-center lg:items-start justify-center w-full max-w-[800px] mt-5">
@@ -60,6 +53,14 @@ export default function Home() {
           )}
         </div>
       </section>
+      <Link
+        className="hidden sm:flex fixed bottom-4 right-4 bg-green-600 text-white text-sm font-extrabold items-center justify-center gap-4 p-2 rounded-sm"
+        href={externalLinks.userFeedback.url}
+        target="_blank"
+      >
+        <MessageSquareShare className="w-6 h-6 text-white" />
+        Feedback
+      </Link>
     </main>
   );
 }
