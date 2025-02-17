@@ -21,10 +21,10 @@ export const links = [
     name: "Dataset",
     href: "/dataset",
   },
-  {
-    name: "Developers",
-    href: "/developers",
-  },
+  // {
+  //   name: "Developers",
+  //   href: "/developers",
+  // },
 ];
 
 export const instructions = {
