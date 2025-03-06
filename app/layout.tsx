@@ -1,65 +1,74 @@
-import type { Metadata } from "next";
+// app/layout.tsx
+"use client";
+
+// import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/component/Navbar";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { UserGuideProvider } from "@/contexts/UserGuideContext";
-import Script from "next/script";
+import NetworkStatusIndicator from "@/components/component/NetworkStatusIndicator";
+import { useEffect } from "react";
+import { preloadModels } from "@/lib/api";
+import ServiceWorkerInit from "@/components/component/ServiceWorkerInit";
+import PwaInstallPrompt from "@/components/component/PwaInstallPrompt";
+
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Snapfolia",
-  description: "A leaf classifier application with offline capabilities",
-  manifest: "/manifest.json",
-  themeColor: "#10b981",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "default",
-    title: "Snapfolia",
-  },
-};
+// Metadata moved to a separate export
+// export const metadata: Metadata = {
+//   title: "Snapfolia",
+//   description: "A leaf classifier application",
+// };
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Preload models in the background
+  useEffect(() => {
+    // Use requestIdleCallback or setTimeout to delay loading until the page is idle
+    if (typeof window !== "undefined") {
+      const loadModels = () => {
+        console.log("Preloading models in background...");
+        preloadModels().catch((error) => {
+          console.warn("Failed to preload models:", error);
+        });
+      };
+
+      if ("requestIdleCallback" in window) {
+        (
+          window as unknown as {
+            requestIdleCallback: (
+              callback: () => void,
+              options?: { timeout: number }
+            ) => void;
+          }
+        ).requestIdleCallback(loadModels, { timeout: 5000 });
+      } else {
+        // Fallback for browsers that don't support requestIdleCallback
+        setTimeout(loadModels, 3000);
+      }
+    }
+  }, []);
+
   return (
     <html lang="en">
       <head>
-        <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+        <meta name="theme-color" content="#22c55e" />
       </head>
       <body className={`${inter.className} overflow-x-hidden`}>
         <UserGuideProvider>
           <Navbar />
           {children}
+          <NetworkStatusIndicator />
+          <ServiceWorkerInit />
+          <PwaInstallPrompt />
           <Analytics />
         </UserGuideProvider>
-
-        {/* Register service worker */}
-        <Script id="register-sw" strategy="afterInteractive">
-          {`
-            if ('serviceWorker' in navigator) {
-              window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/sw.js').then(
-                  function(registration) {
-                    console.log('Service Worker registration successful with scope: ', registration.scope);
-                  },
-                  function(err) {
-                    console.log('Service Worker registration failed: ', err);
-                  }
-                );
-              });
-            }
-          `}
-        </Script>
-
-        {/* Preload TensorFlow.js */}
-        <Script
-          src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"
-          strategy="beforeInteractive"
-        />
       </body>
     </html>
   );
