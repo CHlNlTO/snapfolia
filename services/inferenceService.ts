@@ -134,7 +134,7 @@ export async function detectAndClassify(file: File): Promise<LeafScanResult> {
     if (Array.isArray(detectionResults)) {
       detectionResults.forEach((tensor) => tensor.dispose());
     } else {
-      detectionResults.dispose();
+      (detectionResults as tf.Tensor).dispose();
     }
 
     if (
