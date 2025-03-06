@@ -1,6 +1,12 @@
+// lib/api.ts
 import { LeafScanResult } from "./types";
 import { SCAN_ERRORS, createErrorResponse, ScanErrorType } from "./errors";
+import { modelService } from "@/services/modelService";
 
+/**
+ * Scans a leaf image for classification
+ * Will use local model if offline, otherwise use server API
+ */
 export async function scanLeafImage(
   formData: FormData
 ): Promise<LeafScanResult> {
@@ -18,21 +24,28 @@ export async function scanLeafImage(
       );
     }
 
-    // Validate file size (5MB limit)
+    // Validate file size (100MB limit)
     if (file.size > 100 * 1024 * 1024) {
       return createErrorResponse(
         SCAN_ERRORS[ScanErrorType.VALIDATION].FILE_TOO_LARGE
       );
     }
 
-    const apiFormData = new FormData();
-    apiFormData.append("file", file);
+    // Check if we're online or offline
+    if (!modelService.isNetworkAvailable()) {
+      console.log("Network offline, using local model");
+      return await classifyWithLocalModel(file);
+    }
 
-    // Add timeout to fetch
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
-
+    // We're online, attempt to use the server API
     try {
+      const apiFormData = new FormData();
+      apiFormData.append("file", file);
+
+      // Add timeout to fetch
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+
       const response = await fetch(
         "https://trees.firstasia.edu.ph/api/upload",
         {
@@ -78,15 +91,24 @@ export async function scanLeafImage(
           : "No leaf detected",
       };
     } catch (fetchError) {
+      // Network error or timeout - fallback to local model
       if (
         fetchError &&
         typeof fetchError === "object" &&
         "name" in fetchError &&
         fetchError.name === "AbortError"
       ) {
-        return createErrorResponse(SCAN_ERRORS[ScanErrorType.NETWORK].TIMEOUT);
+        console.log("Server request timed out, falling back to local model");
+      } else {
+        console.log("Network error, falling back to local model");
       }
-      return createErrorResponse(SCAN_ERRORS[ScanErrorType.NETWORK].OFFLINE);
+
+      // Preload the model for future use even if we're using server now
+      modelService
+        .loadModel()
+        .catch((err) => console.warn("Model preloading failed:", err));
+
+      return await classifyWithLocalModel(file);
     }
   } catch (error) {
     console.error("Leaf scan error:", error);
@@ -95,6 +117,22 @@ export async function scanLeafImage(
       message: "Unexpected error",
       details:
         error instanceof Error ? error.message : "An unknown error occurred",
+    });
+  }
+}
+
+/**
+ * Use the local TensorFlow.js model to classify the image
+ */
+async function classifyWithLocalModel(file: File): Promise<LeafScanResult> {
+  try {
+    return await modelService.classifyImage(file);
+  } catch (error) {
+    console.error("Local model error:", error);
+    return createErrorResponse({
+      type: ScanErrorType.UNKNOWN,
+      message: "Local processing failed",
+      details: error instanceof Error ? error.message : String(error),
     });
   }
 }

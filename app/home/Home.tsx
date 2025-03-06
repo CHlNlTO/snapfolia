@@ -4,10 +4,13 @@ import { FileUpload } from "@/components/component/FileUpload";
 import UserGuide from "@/components/component/UserGuide";
 import { ScanProgress } from "@/components/component/ScanProgress";
 import { ScanResult } from "@/components/component/ScanResult";
+import NetworkStatus from "@/components/component/NetworkStatus";
 import { useFileStore } from "@/store/useFileStore";
 import { externalLinks } from "@/lib/data";
 import { Send } from "lucide-react";
 import Link from "next/link";
+import { useEffect } from "react";
+import { modelService } from "@/services/modelService";
 
 export default function Home() {
   const { file, isScanning, scanResult, error } = useFileStore();
@@ -17,8 +20,25 @@ export default function Home() {
     scanResult?.leaf_detected &&
     (scanResult?.classes ?? []).length > 0;
 
+  // Preload the model on component mount
+  useEffect(() => {
+    // Preload model in the background if we're online
+    if (navigator.onLine) {
+      console.log("Preloading model for offline use...");
+      modelService.loadModel().catch((err) => {
+        console.warn("Model preloading failed:", err);
+      });
+    }
+
+    // Cleanup on unmount
+    return () => {
+      // No cleanup needed for preloading
+    };
+  }, []);
+
   return (
     <main className="relative mx-auto mt-20 lg:mt-10 flex flex-col items-center overflow-hidden space-y-20 min-h-screen my-4 w-full">
+      <NetworkStatus />
       <section className="flex flex-col lg:grid grid-cols-2 items-center gap-0 lg:gap-20 lg:items-start justify-center mt-2 lg:mt-20 w-full">
         <div className="flex flex-col items-end justify-center space-y-4 mr-0 lg:mr-20">
           <div className="flex flex-col items-center space-y-4 justify-center w-full max-w-[400px]">
