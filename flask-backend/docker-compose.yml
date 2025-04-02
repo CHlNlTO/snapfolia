@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile.flask 
     container_name: flask-app-1
-    image: flask-app:v1.2.2
+    image: flask-app:v3.0.0  # Updated version to v3.0.0
     runtime: nvidia
     ports:
       - "5000:5000"
@@ -18,7 +18,7 @@ services:
       context: .
       dockerfile: Dockerfile.flask 
     container_name: flask-app-2
-    image: flask-app:v1.2.2
+    image: flask-app:v3.0.0  # Updated version to v3.0.0
     runtime: nvidia
     ports:
       - "5001:5000"
@@ -32,7 +32,7 @@ services:
       context: .
       dockerfile: Dockerfile.flask 
     container_name: flask-app-3
-    image: flask-app:v1.2.2
+    image: flask-app:v3.0.0  # Updated version to v3.0.0
     runtime: nvidia
     ports:
       - "5002:5000"
@@ -46,7 +46,7 @@ services:
       context: .
       dockerfile: Dockerfile.flask 
     container_name: flask-app-4
-    image: flask-app:v1.2.2
+    image: flask-app:v3.0.0  # Updated version to v3.0.0
     runtime: nvidia
     ports:
       - "5003:5000"
@@ -60,7 +60,7 @@ services:
       context: .
       dockerfile: Dockerfile.flask 
     container_name: flask-app-5
-    image: flask-app:v1.2.2
+    image: flask-app:v3.0.0  # Updated version to v3.0.0
     runtime: nvidia
     ports:
       - "5004:5000"
@@ -84,7 +84,7 @@ services:
       context: .
       dockerfile: Dockerfile.nginx 
     container_name: nginx
-    image: nginx:latest
+    image: nginx:latest  # This will pull the latest official nginx image from Docker Hub
     ports:
       - "80:80"
       - "443:443"

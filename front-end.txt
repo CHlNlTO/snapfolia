@@ -1,0 +1,2 @@
+Go here to see frontend
+C:\Users\faith\Snapfolia\production\nextjs-frontend
