@@ -1,11 +1,11 @@
 task: classify
 mode: train
 model: yolov8n-cls.pt
-data: ./data-cls.yaml
-epochs: 50
+data: F:\SNAPFOLIA\CLS_DS_59 - SPLIT
+epochs: 10
 time: null
 patience: 100
-batch: 8
+batch: 4
 imgsz: 640
 save: true
 save_period: -1
