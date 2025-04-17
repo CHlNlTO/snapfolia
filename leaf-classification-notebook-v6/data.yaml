@@ -1,9 +1,9 @@
 # Path to training and validation datasets
-train: F:/ds-final-obj40/train
-val: F:/ds-final-obj40/val
+train: F:/SNAPFOLIA/OBJ_TRAINING_FOLDER/train
+val: F:/SNAPFOLIA/OBJ_TRAINING_FOLDER/val
 
 # Number of classes
-nc: 40
+nc: 60
 # Class names
 names:
   0: Balete
@@ -46,3 +46,24 @@ names:
   37: Santol
   38: Inyam
   39: Hinadyong
+  40: Lipote
+  41: Palawan-Ipil
+  42: Philippine-Oak-Ulayan
+  43: White-Lawaan
+  44: Aherns-Balok
+  45: Banuyo
+  46: Kalantas
+  47: Malak-Malak
+  48: Balongeta
+  49: Kayumanis
+  50: Malabulak
+  51: Mapilig
+  52: Puso-Puso
+  53: Putat
+  54: Red-Lawaan
+  55: Tui
+  56: Kalingag
+  57: Katmon-Bayani
+  58: Kulatingan
+  59: Malugai
+    
