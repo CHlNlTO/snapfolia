@@ -6,6 +6,7 @@ export const useFileStore = create<FileState>((set, get) => ({
   file: null,
   isScanning: false,
   scanResult: null,
+  error: null,
   setFile: (file) => {
     // Revoke previous file preview if exists
     const currentFile = get().file;
@@ -18,7 +19,6 @@ export const useFileStore = create<FileState>((set, get) => ({
   },
   setIsScanning: (isScanning) => set({ isScanning }),
   setScanResult: (result: LeafScanResult | null) => set({ scanResult: result }),
-  error: null,
   setError: (error) => set({ error }),
   handleScan: async () => {
     const { file, setIsScanning, setScanResult, setError } = get();
@@ -28,12 +28,22 @@ export const useFileStore = create<FileState>((set, get) => ({
     setError(null);
 
     if (file) {
+      const startTime = performance.now();
       try {
         const formData = new FormData();
         formData.append("file", file);
         const result = await scanLeafImage(formData);
-        setScanResult(result);
-        console.log("Scan result:", result);
+        const endTime = performance.now();
+        const scanTime = endTime - startTime;
+        
+        // Add scan time to result
+        const resultWithTime = {
+          ...result,
+          scanTime
+        };
+        
+        setScanResult(resultWithTime);
+        console.log("Scan result:", resultWithTime);
       } catch (error) {
         console.error(error);
         setScanResult(null);

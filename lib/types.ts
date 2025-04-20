@@ -20,15 +20,19 @@ export interface LeafScanResult {
   success: boolean;
   message: string;
   error: ScanError | null;
+  scanTime?: number; // Added scan time in milliseconds
 }
 
 export interface FileState {
   file: FileWithPreview | null;
   isScanning: boolean;
+  scanResult: LeafScanResult | null | undefined;
   setFile: (file: FileWithPreview | null) => void;
   setIsScanning: (isScanning: boolean) => void;
+  setScanResult: (result: LeafScanResult | null) => void;
   handleScan: () => Promise<void>;
   clearFile: () => void;
+  resetScan: () => void;
   error: string | null;
   setError: (error: string | null) => void;
 }

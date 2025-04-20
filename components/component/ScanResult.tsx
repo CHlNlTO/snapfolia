@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { LeafScanResult } from "@/lib/types";
-import { AlertCircle, Leaf } from "lucide-react";
+import { AlertCircle, Leaf, Clock } from "lucide-react";
 import { LeafResultCard } from "./LeafResultCard";
 import LeafModal from "./LeafModal";
 import { leaves } from "@/lib/data";
@@ -63,6 +63,11 @@ export const ScanResult: React.FC<ScanResultProps> = ({
   if (!scanResult.leaf_detected || !scanResult.classes?.length)
     return <NoLeafDetected />;
 
+  // Format scan time if available
+  const formattedScanTime = scanResult.scanTime 
+    ? `${(scanResult.scanTime / 1000).toFixed(2)}s`
+    : null;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -102,6 +107,19 @@ export const ScanResult: React.FC<ScanResultProps> = ({
           </motion.div>
         ))}
       </div>
+
+      {/* Scan Time Display */}
+      {formattedScanTime && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="mt-6 flex items-center justify-center gap-2 text-emerald-700 bg-emerald-50 py-2 px-4 rounded-md shadow-sm"
+        >
+          <Clock className="w-4 h-4" />
+          <span className="font-medium">Scan Time: {formattedScanTime}</span>
+        </motion.div>
+      )}
 
       {leafData && (
         <LeafModal
