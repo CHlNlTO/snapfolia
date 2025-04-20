@@ -32,6 +32,33 @@ const leaves = [
 
   {
     id: 2,
+    name: "Aherns Balok",
+    englishName: "Aherns Balok",
+    scientificName: "Millettia ahernii",
+    image: "assets/img/leaf-aherns-balok.jpg",
+    treeImage: "assets/img/tree-aherns-balok.jpg",
+    generalInfo:
+      "Aherns Balok, also known as Philippine Wisteria, is an endemic tree species in the Philippines. It is admired for its vibrant purple, pendulous flowers that resemble those of the Japanese Wisteria. The tree can grow up to 25 meters tall and is found in various parts of Luzon.",
+    botany:
+      "Millettia ahernii is a perennial, non-climbing tree belonging to the Fabaceae family. It can reach heights of up to 25 meters. The tree is characterized by its compound leaves and striking purple flowers that hang in clusters, blooming seasonally. Its wood is noted for its density and durability.",
+    distribution: [
+      "Endemic to the Philippines, primarily found in Luzon.",
+      "Commonly observed in regions such as Cagayan, Ilocos Sur, Rizal, and Quezon.",
+    ],
+    reference: "(c) https://npdc.gov.ph/aherns-balok/",
+    uses: [
+      "Ornamental: Valued for its aesthetic appeal due to its vibrant purple flowers.",
+      "Biofuel: Recognized as a potential source of biofuel in certain regions of the Philippines.",
+    ],
+    folklore:
+      "There are no folklore or folkloric medicinal uses associated with Aherns Balok.",
+    description:
+      "Aherns Balok is a medium to large-sized tree reaching up to 25 meters in height. It features compound leaves and produces pendulous clusters of purple flowers, especially during its blooming season. The tree thrives in wet tropical climates and is a notable member of the Fabaceae family.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 3,
     name: "Alagao",
     englishName: " Alagaw tree",
     scientificName: "Premna odorata",
@@ -44,7 +71,8 @@ const leaves = [
     distribution: [
       "Often found in lowland rainforests or secondary forests alongside other native flora.",
     ],
-    reference: "(c) https://www.agraryo.com/agroforestry/alagaw-tree-description-uses-and-benefits/",
+    reference:
+      "(c) https://www.agraryo.com/agroforestry/alagaw-tree-description-uses-and-benefits/",
     uses: [
       "The Alagaw plant has a long history of use in traditional medicine. Its leaves, bark, and roots are used to treat a variety of health conditions.",
       "The leaves can be used to make a bath that can be taken to relieve muscle pain and stress.",
@@ -57,7 +85,7 @@ const leaves = [
   },
 
   {
-    id: 3,
+    id: 4,
     name: "Alibangbang",
     englishName: " Butterfly Tree",
     scientificName: "Bauhinia malabarica",
@@ -85,8 +113,9 @@ const leaves = [
       "Bauhinia monandra is a small tree, usually reaching 3 to 7 m tall, occasionally to 15 m. Bark is gray and smooth, becoming reddish-brown when mature. Leaves are sub-cordate, butterfly-shaped, simple and alternate, 7-20 cm long and wide. Petioles are 2.5-6 cm long. Flowers are five-petaled, borne in short, axillary raceme clusters; petals are pale pinkish, large and spreading, measuring 0.5 cm long and 0.3 cm wide, with 1 single, curved stamen measuring 25 - 50 mm long, style about 35 mm long. Fruit is a large, brown, flattened pod measuring 12-25 cm long and 2-3 cm wide, containing 10-20 seeds. Seeds are flat, 10-12 mm long and 7-8 mm wide.",
     location: "batangas-lakelands",
   },
+
   {
-    id: 4,
+    id: 5,
     name: "Amugis",
     englishName: " Amugis",
     scientificName: "Koordersiodendron pinnatum",
@@ -115,7 +144,7 @@ const leaves = [
   },
 
   {
-    id: 5,
+    id: 6,
     name: "Antipolo",
     englishName: " Antipolo Tree",
     scientificName: "Artocarpus blancoi",
@@ -142,7 +171,7 @@ const leaves = [
   },
 
   {
-    id: 6,
+    id: 7,
     name: "Apitong",
     englishName: " Apitong",
     scientificName: "Dipterocarpus grandiflorus",
@@ -171,8 +200,9 @@ const leaves = [
       "The Apitong is a medium to large resinous tree that can grow up to 40 meters tall. It features a straight, cylindrical trunk that is branchless for up to 30 meters and can reach a diameter of up to 125 centimeters.",
     location: "faith-colleges",
   },
+
   {
-    id: 7,
+    id: 8,
     name: "Asis",
     englishName: " Asis Tree",
     scientificName: "Leucocnide alba",
@@ -199,8 +229,9 @@ const leaves = [
       "Alagasi is an erect shrub or small tree, reaching a height of 2 to 4 meters. Leaves are papery, oblong or ovate, 10 to 15 centimeters long, 3 to 5 centimeters wide, felty and harsh to touch, gray or chalky white beneath and green on the other side; pointed at the apex, abruptly and broadly rounded, and 3-nerved at the base. Flowers are capitate, on 8-millimeter long peduncles, either single or few-clustered, 1 centimeter in diameter. Male flowers are white, upon short pedicels. Fruiting heads are dark green, nearly spherical, with compressed achenes.",
     location: "marian-orchard",
   },
+
   {
-    id: 8,
+    id: 9,
     name: "Balayong",
     englishName: " Palawan Cherry",
     scientificName: "Cassia nodosa",
@@ -225,8 +256,9 @@ const leaves = [
       "Balayong is a medium to large-sized tree that is able to grow up to about 10 to 20 meters tall. Its green leaves are measuring from about 15 to 30 centimeters long with each leaf consisting of 5 to 12 pairs of oblong to ovate leaflets about 2 to 5 centimeters long and 1.2 to 2 centimeters wide. Its branches are pendulous, slender and whitish in color. The pink to whitish-pink flowers bloom in a raceme inflorescence with about 10 yellow stamens, surrounded with green anthers. The fruit of Balayong is a cylindrical seed pod measuring in about 30 to 70 centimeters long and turns to black when it ripes.",
     location: "faith-colleges",
   },
+
   {
-    id: 9,
+    id: 10,
     name: "Balete",
     englishName: " Rubber Fig",
     scientificName: "Ficus clusiifolia Summerh.",
@@ -252,8 +284,9 @@ const leaves = [
       "Ficus elastica is a glabrous spreading tree, up to 10 meters high, normally starting as an epiphyte, sending down numerous adventitious roots from the trunk and larger branches. Leaves are very leathery, smooth and shining, elliptic-oblong, 15 to 25 centimeters long, the tip with a tapering point and entire margin.",
     location: "marian-orchard",
   },
+
   {
-    id: 10,
+    id: 11,
     name: "Banaba",
     englishName: " Queen's Crape Myrtle",
     scientificName: "Lagerstroemia speciosa",
@@ -285,8 +318,9 @@ const leaves = [
       "Banaba is a medium-sized tree growing up to 30 meters tall and 40 centimeters in diameter, with rounded leaf bases and acute or obtuse apices. The young leaves are dull reddish brown, turning yellow and reddish before falling. Flowers have six sub-orbicular petals, and the woody, globose fruits are 2 to 3.5 centimeters long.",
     location: "batangas-lakelands",
   },
+
   {
-    id: 11,
+    id: 12,
     name: "Bani",
     englishName: " Pongam",
     scientificName: "Pongamia pinnata",
@@ -312,8 +346,38 @@ const leaves = [
       "Bani is a smooth tree growing 8 to 25 meters tall, with compound leaves and fragrant flowers in shades of purple, pink, or white. The tree produces woody, oblong pods containing a single seed. It belongs to the species Pongamia pinnata in the pea family, Fabaceae. It has a large canopy, straight or crooked trunk, and smooth or fissured gray-brown bark. The tree has glossy, deep green mature leaves and flowers that bloom throughout the year.",
     location: "batangas-lakelands",
   },
+
   {
-    id: 12,
+    id: 13,
+    name: "Banuyo",
+    englishName: "Banuyo",
+    scientificName: "Wallaceodendron celebicum",
+    image: "assets/img/leaf-banuyo.jpg",
+    treeImage: "assets/img/tree-banuyo.jpg",
+    generalInfo:
+      "Banuyo, or Wallaceodendron celebicum, is a large, nitrogen-fixing tree native to the Philippines and parts of Indonesia. It is valued for its durable timber and is often planted as a shade or ornamental tree in coastal areas.",
+    botany:
+      "Banuyo can grow up to 45 meters tall, with a straight, cylindrical bole that may be free of branches for up to 31 meters and up to 1.6 meters in diameter. The bark is grey-brown, smooth when young, becoming cracked and flaking with age. Leaves are bipinnate with 3–5 pairs of pinnae, each bearing glossy green oblong leaflets. Flowers are creamy-white, borne in erect clusters on the sides of branches during the rainy season. The tree produces flat, brown, ribbed seedpods containing flat, oblong seeds.",
+    distribution: [
+      "Native to the Philippines and Sulawesi.",
+      "Found in coastal and inland forests from sea level up to 850 meters elevation.",
+      "In the Philippines, it is distributed along the east coast from Luzon to Mindanao.",
+    ],
+    reference: "(c) https://forestry.com/trees/banuyo-tree/",
+    uses: [
+      "Timber: Used for furniture, cabinetry, carvings, decorative veneers, and interior joinery.",
+      "Ornamental: Planted as a shade and landscape tree in coastal regions due to its attractive foliage and form.",
+      "Ecological: As a nitrogen-fixing species, it contributes to soil fertility.",
+    ],
+    folklore:
+      "There are no folklore or folkloric medicinal uses associated with Banuyo.",
+    description:
+      "Banuyo is a medium to large-sized tree reaching up to 45 meters in height. It features bipinnate leaves with glossy green leaflets and produces creamy-white flowers in clusters. The tree thrives in tropical climates and is a member of the Fabaceae family.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 14,
     name: "Barako",
     englishName: " Liberica Coffee",
     scientificName: "Coffea liberica",
@@ -341,8 +405,9 @@ const leaves = [
       "Barako coffee trees, towering up to 20 meters, continued to produce large cherries, beans, and leaves that are among the largest of all coffee varieties. Known for its robust flavor and strong fragrance reminiscent of aniseed, barako is favored over Robusta by many Philippine coffee drinkers.",
     location: "batangas-lakelands",
   },
+
   {
-    id: 13,
+    id: 15,
     name: "Bayabas",
     englishName: " Guava",
     scientificName: "Psidium guajava",
@@ -370,8 +435,9 @@ const leaves = [
       "Depending in the place and region of where the trees are, the leaves will be either have an evergreen or deciduous characteristics with them. The leaves are alternate, simple oval with a point at the end, and has 4 to 13 cm long and 2 to 6 cm broad characteristic.",
     location: "marian-orchard",
   },
+
   {
-    id: 14,
+    id: 16,
     name: "Betis",
     englishName: " Madhuca betis",
     scientificName: "Azaola betis Blanco",
@@ -398,8 +464,9 @@ const leaves = [
       "Betis is a good-sized tree reaching a height of 30 meters. Bark is brown and ridged. Leaves are clustered at the ends of the branchlets, oblong-obovate, 20 to 25 centimeters long, 7 to 9 centimeters wide, smooth on the upper surface, very hairy beneath, pointed at both ends. Flowers are numerous, hairy, pale white, borne in rounded clusters. Fruit is ellipsoid, brownish, grows upon thickened smooth stalks, 3 to 4 centimeters long, with a large and shiny seed.",
     location: "faith-colleges",
   },
+
   {
-    id: 15,
+    id: 17,
     name: "Binunga",
     englishName: " Parasol",
     scientificName: "Macaranga tanarius",
@@ -426,8 +493,37 @@ const leaves = [
       "Binuñga is a small, dioecious tree reaching heights of 4 to 8 meters, characterized by peltate leaves that are ovate to oblong-ovate, 10 to 25 centimeters long. Male flowers are small and borne on slender peduncles, while female flowers appear in simple spikes or racemes. Its capsules, covered with pale, waxy glands and elongated spinelike processes, are 10 to 12 millimeters in diameter.",
     location: "batangas-lakelands",
   },
+
   {
-    id: 16,
+    id: 18,
+    name: "Bolong-eta",
+    englishName: "Bolong-eta",
+    scientificName: "Diospyros pilosanthera",
+    image: "assets/img/leaf-bolong-eta.jpg",
+    treeImage: "assets/img/tree-bolong-eta.jpg",
+    generalInfo:
+      "Bolong-eta, also known as Diospyros pilosanthera, is a native tree species of the Philippines belonging to the ebony family (Ebenaceae). It is recognized for its durable hardwood and ecological significance in tropical forest ecosystems.",
+    botany:
+      "Diospyros pilosanthera is a mid-canopy tree that can grow up to 35 meters tall with a trunk diameter reaching up to 50 centimeters. The tree features dark, rough bark and broad, leathery green leaves. It produces small, aromatic, pale-colored flowers that typically bloom in clusters during the spring. The fruits are round to ovoid, up to 3.5 centimeters in diameter, and are consumed by various wildlife species.",
+    distribution: [
+      "Native to the Philippines and widely distributed across Southeast Asia, including Thailand, Cambodia, Vietnam, Malaysia, Indonesia, and New Guinea.",
+      "In the Philippines, it thrives in lowland and mid-elevation forests, from sea level up to 1,600 meters altitude.",
+    ],
+    reference: "(c) https://forestry.com/trees/bolong-eta-tree/",
+    uses: [
+      "Timber: The dense hardwood is utilized in furniture making and carpentry.",
+      "Ecological: Supports biodiversity by providing habitat and food for wildlife; contributes to soil stabilization and forest regeneration.",
+      "Reforestation: Employed in reforestation and biodiversity enhancement projects due to its adaptability and ecological benefits.",
+    ],
+    folklore:
+      "Bolong-eta trees are believed to be dwelling places of forest spirits or 'diwatas.' These trees are often found at the edges or entrances of forests and are respected by local inhabitants who associate them with supernatural guardianship.",
+    description:
+      "Bolong-eta is a medium to large-sized tree reaching up to 35 meters in height. It possesses dark, rough bark, broad green leaves, and produces small, aromatic flowers. The tree is well-adapted to tropical climates and plays a vital role in maintaining forest biodiversity.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 19,
     name: "Dao",
     englishName: " Bilimbi",
     scientificName: "Averrhoa bilimbi",
@@ -456,8 +552,9 @@ const leaves = [
       "Dao is a large tree, growing 30 meters or taller, with the trunk 1 meter or more in diameter. Leaves are alternate and pinnately compound. Leaflets are smooth, oblong, 5 to 7 pairs, up to 15 centimeters long and 4 centimeters wide, pointed at the apex, and abruptly tapered at the base. Flowers are small, white, and fragrant, hanging in lax panicles. Fruit is globose, green turning yellow when ripe with oval markings on the upper side of the fruit, about 2 to 3 centimeters in diameter.",
     location: "marian-orchard",
   },
+
   {
-    id: 17,
+    id: 20,
     name: "Dita",
     englishName: " Blackboard",
     scientificName: "Alstonia scholaris",
@@ -484,8 +581,9 @@ const leaves = [
       "Dita is a smooth tree growing 6 to 20 meters high. Branches are lenticellate. Bark is dark grayish, somewhat rough, yielding an abundant, bitter, and milky sap. Leaves are in whorls,4 to 7in a whorl, leathery, narrowly obovate to spatulate, 10 to 20 centimeters long, 3 to 4.5 centimeters wide, pointed at the base, rounded at the apex, glossy green on the upper surface, white or grayish on the underside. Lateral nerves are very numerous, parallel, and terminating in a intramarginal vein. Flowers are crowded, numerous, somewhat hairy, greenish-white, about 1 centimeter long, hairy in the throat, borne in compact, hairy cymes about 10 centimeters long. Fruits is made up of two slender follicles which are pendulous and cylindric follicles, 20 to 40 centimeters long, 4 to 5 millimeters in diameter. Seeds are 3 to 4 millimeters long, with brown ciliate hairs on the ends.",
     location: "marian-orchard",
   },
+
   {
-    id: 18,
+    id: 21,
     name: "Duhat",
     englishName: " Malabar Plum",
     scientificName: "Syzygium cuminia",
@@ -511,8 +609,9 @@ const leaves = [
       "Duhat is a smooth tree, about 8 to 15 meters high with white branchlets and reddish young shoots. Leaves are opposite, shiny and leathery, oblong-ovate to elliptic or obovate-elliptic, 6 to 12 centimeters long, the tip being broad and shortly pointed. Panicles are borne mostly from the branchlets below the leaves, often being axillary or terminal, about 4 to 6 centimeters long.",
     location: "faith-colleges",
   },
+
   {
-    id: 19,
+    id: 22,
     name: "Eucalyptus",
     englishName: " Eucalyptus",
     scientificName: "Eucalyptus globulus",
@@ -539,8 +638,9 @@ const leaves = [
       "Eucalyptus is an evergreen tree that can grow over 15 meters tall. Its grayish bark peels off in long, thin strips, revealing whitish gray underneath. Young leaves are blue-green and clasp the stem, while mature leaves are dark green, leathery, and lance-shaped, often over 30 centimeters long. The white flowers, about 1.5 centimeters in diameter, become fragrant as they mature. The fruit is rounded, approximately 8 millimeters in diameter.",
     location: "batangas-lakelands",
   },
+
   {
-    id: 20,
+    id: 23,
     name: "Guyabano",
     englishName: " Soursop",
     scientificName: "Annona muricata",
@@ -567,8 +667,9 @@ const leaves = [
       "Guyabano is a small tree, usually less than 7 meters high. Leaves are smooth, glossy, shiny, oblong-obovate to oblong, 7 to 20 centimeters in length, pointed on both ends, with petioles about 5 millimeters long. Flower is solitary, large, solitary, yellow or greenish-yellow. Three outer petals are broadly ovate with a heart-shaped base, up to 5 centimeters long, and 3 centimeters wide; and the inner three are also large, elliptic to obovate, and rounded. Fruit is ovoid and large, up to 18 centimeters long, covered with small scattered, soft spinelike processes. Skin is thin, and the pulp is soft, rather fibrous, white, and fleshy, with an agreeable, but rather sour flavor.",
     location: "marian-orchard",
   },
+
   {
-    id: 21,
+    id: 24,
     name: "Hinadyong",
     englishName: " Oriental trema",
     scientificName: "Trema orientalis",
@@ -595,8 +696,9 @@ const leaves = [
       "Anabiong, also known as Hanadiong, characterized by elongated branches and oblong-ovate to lanceolate leaves that are 8 to 15 centimeters long. The tree's cymes are dense and hairy, with numerous white flowers and ovoid fruits about 3.5 centimeters long. It is commonly found in deserted clearings, thickets, and second-growth forests throughout the Philippines at low to medium altitudes, and occasionally up to 2,000 meters.",
     location: "batangas-lakelands",
   },
+
   {
-    id: 22,
+    id: 25,
     name: "Ilang-Ilang",
     englishName: " Ylang-ylang",
     scientificName: "Cananga odorata",
@@ -625,7 +727,7 @@ const leaves = [
   },
 
   {
-    id: 23,
+    id: 26,
     name: "Inyam",
     englishName: " Black Currant Tree",
     scientificName: "Antidesma ghaesembilla",
@@ -638,22 +740,22 @@ const leaves = [
     distribution: [
       "This specie is native to the Philippines and various regions across Asia and Oceania",
       "Primarily in wet tropical biomes",
-  
     ],
     reference: "(c) http://www.stuartxchange.org/Binayuyo",
     uses: [
       "This tree’s fully ripe fruit can be eaten raw, cooked, pickled, or made into jams and jellies.",
       "In East Kalimantan, the resin (nyatang) from the tree is burnt to make a black dye for sunhats.",
     ],
-    folklore: "In various countries, the plant serves diverse medicinal purposes: in Thailand, leaf decoctions nourish the blood and flowers treat herpes simplex; in Vietnam, leaves and bark alleviate cough and rheumatism; in China, stems address menstrual disorders; in Bangladesh, leaves enhance breast milk production; and in Cambodia, the plant is used for stomachaches.",
-  
+    folklore:
+      "In various countries, the plant serves diverse medicinal purposes: in Thailand, leaf decoctions nourish the blood and flowers treat herpes simplex; in Vietnam, leaves and bark alleviate cough and rheumatism; in China, stems address menstrual disorders; in Bangladesh, leaves enhance breast milk production; and in Cambodia, the plant is used for stomachaches.",
+
     description:
       "Also known as the Black Currant Tree, this species belongs to the Phyllanthaceae family. It’s a tropical plant with a thick trunk and simple, alternate leaves. The fruit is a cluster of small, greenish-yellow drupes. This tree is usually harvested from the wild for local use as food and medicine.",
     location: "batangas-lakelands",
   },
 
   {
-    id: 24,
+    id: 27,
     name: "Ipil",
     englishName: " Ironwood",
     scientificName: "Intsia bijuga",
@@ -679,8 +781,66 @@ const leaves = [
       "Ipil is a medium-sized, slow growing tree reaching a height of 20 to 45 meters and a trunk of 0.5 to 5 meters. Mature trees have steep rounded buttresses. Bark is 5 to 8 millimeters thick, gray in color with an orange tinge. The inner bark is light brown and mottled with brown specks. Leaves are alternate and simply compound with usually two pairs of leaflets, 8 to 12 centimeters long and 5 to 8.5 centimeters wide. Flowers are fragrant, white or reddish, borne in panicles 6 to 10 centimeters long. Pods are oblong or pear-shaped, woody, tardily dehiscent, 10 to 25 centimeters long and 4 to 6 centimeters wide, with 3 to 9 orbicular seeds.",
     location: "faith-colleges",
   },
+
   {
-    id: 25,
+    id: 28,
+    name: "Kalantas",
+    englishName: "Kalantas",
+    scientificName: "Toona calantas",
+    image: "assets/img/leaf-kalantas.jpg",
+    treeImage: "assets/img/tree-kalantas.jpg",
+    generalInfo:
+      "Kalantas (Toona calantas) is a native Philippine mahogany species known for its reddish, fine-grained wood. It is listed as vulnerable due to overexploitation and habitat degradation.",
+    botany:
+      "Toona calantas is a deciduous tree that can grow up to 30 meters tall. The trunk is straight and cylindrical, with a dense crown. Leaves are compound and alternately arranged, with leaflets that are oblong and pointed. Flowers are small, white to pale pink, and fragrant. Fruits are capsule-like and split open to release winged seeds.",
+    distribution: [
+      "Endemic to the Philippines.",
+      "Found in lowland and lower montane forests from Luzon to Mindanao.",
+    ],
+    reference: "(c) https://forestry.com/trees/kalantas-tree/",
+    uses: [
+      "Timber: Wood is reddish, durable, and used for high-quality furniture, interior finishing, and cabinetry.",
+      "Reforestation: Recommended for restoration projects due to its fast growth and ecological value.",
+      "Traditional uses: Parts of the tree are used in folk medicine to treat stomach ailments.",
+    ],
+    folklore:
+      "Kalantas is sometimes regarded as a 'royal' tree because of its fine wood. In rural legends, trees that grow perfectly straight and tall are believed to house ancestral spirits watching over the forest.",
+    description:
+      "Kalantas is a large deciduous tree with high-quality reddish wood and compound leaves. It grows best in well-drained forest soils and is essential to native forest biodiversity and restoration efforts.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 29,
+    name: "Kalingag",
+    englishName: "Kalingag",
+    scientificName: "Cinnamomum mercadoi",
+    image: "assets/img/leaf-kalingag.jpg",
+    treeImage: "assets/img/tree-kalingag.jpg",
+    generalInfo:
+      "Kalingag (Cinnamomum mercadoi) is a native cinnamon tree species found in the Philippines. Known for its aromatic bark and ecological value, it is now considered vulnerable due to habitat loss and overharvesting.",
+    botany:
+      "Cinnamomum mercadoi is a small to medium-sized evergreen tree reaching 10–15 meters tall. The bark is grayish-brown and aromatic, resembling that of commercial cinnamon. Leaves are simple, opposite, glossy green, and aromatic when crushed. The flowers are small, yellowish-white, and clustered in panicles. Fruits are ovoid drupes that darken when mature.",
+    distribution: [
+      "Endemic to the Philippines.",
+      "Found in primary and secondary forests at low to medium elevations in Luzon, Mindoro, Samar, Leyte, and Mindanao.",
+    ],
+    reference:
+      "(c) https://www.inaturalist.org/taxa/190591-Cinnamomum-mercadoi",
+    uses: [
+      "Traditional medicine: Bark is used to treat colds, flu, and digestive problems.",
+      "Spice: Sometimes used as a local alternative to commercial cinnamon.",
+      "Essential oils: Leaves and bark contain aromatic oils with potential use in perfumery and herbal products.",
+    ],
+    folklore:
+      "In Laguna, old locals use the decoction of leaves used for cough, nausea, vomiting, and hypertension. Some indigenous groups believe that boiling its bark drives away evil spirits and bad energy.",
+    description:
+      "Kalingag is an evergreen tree native to the Philippines, prized for its cinnamon-scented bark and glossy green leaves. It grows in forested areas and is valued in traditional medicine and as a spice substitute.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 30,
     name: "Kalios",
     englishName: " Sandpaper",
     scientificName: "Streblus asper",
@@ -706,8 +866,9 @@ const leaves = [
       "Kalios is a rigid and densely branched tree, 4 to 15 meters high. Leaves are oblong-ovate to subrhomboid, 4 to 12 centimeters long, very rough on both sides, with finely toothed margins, the tip blunt or tapering to a point, the base narrowed. Male flowers are in roundish heads, 4 to 7 millimeters in diameter, short-peduncled, greenish-yellow or nearly white. Female flowers are peduncled, usually in pairs, green, the sepals accrescent and nearly enclosing the fruit. Fruit is ovoid, 8 to 10 millimeters long, pale yellow, the pericarp soft and fleshy. Seed is ovoid, 5 to 6 millimeters long.",
     location: "faith-colleges",
   },
+
   {
-    id: 26,
+    id: 31,
     name: "Kamagong",
     englishName: " Mountain Persimmon",
     scientificName: "Diospyros montana",
@@ -733,8 +894,92 @@ const leaves = [
       "Kamagong is a small deciduous tree growing up to a height of 15 meters. Bole and older branches are armed with long, hard, stiff, divaricate spines from the stumps of branches. Bark is smooth, grey or yellowish grey. Branchlets are slender, glabrous. Leaves are simple, alternate, elliptic, lance-shaped, somewhat heart-shaped at the base, and sharp or blunt at the tip; smooth above and velvety underneath. Petioles are 5-10 mm, slender, grooved above, glabrous, Male and female flowers grow on separate trees. Male flowers are are borne in 3-flowered clusters while female flowers occur singly. Flowers are creamy white or greenish-white, tubular with 4 petals which are curved back. Sepals are ovate, velvety. Stamens of the male flower are longer than the flower tube. Fruit is a berry, 1.5-2 cm across, ovoid to obconical, yellow to orange when ripe, with 3-5 rough and black seeds.",
     location: "faith-colleges",
   },
+
   {
-    id: 27,
+    id: 32,
+    name: "Katmon-Bayani",
+    englishName: "Katmon-Bayani",
+    scientificName: "Dillenia megalantha",
+    image: "assets/img/leaf-katmon-bayani.jpg",
+    treeImage: "assets/img/tree-katmon-bayani.jpg",
+    generalInfo:
+      "Katmon-Bayani (Dillenia megalantha) is a Philippine endemic tree notable for its large, leathery leaves and striking yellow flowers. It is closely related to other Katmon species but is distinguishable by its larger foliage and growth habit.",
+    botany:
+      "Dillenia megalantha is a small to medium-sized tree with a dense crown. Its leaves are large, simple, and rough-textured, with serrated margins. The flowers are large, showy, and yellow, with numerous stamens. Fruits are round and fleshy, turning from green to yellow as they mature.",
+    distribution: [
+      "Endemic to the Philippines.",
+      "Found in forests at medium to high elevations, particularly in Palawan.",
+    ],
+    reference: "(c) https://binhi.ph/tree-info/?tree-name=Katmon%20bayani",
+    uses: [
+      "Ornamental: Valued for its showy flowers and unique foliage.",
+      "Conservation: Planted in reforestation projects and botanical gardens to preserve native biodiversity.",
+    ],
+    folklore:
+      "There are no folklore or folkloric medicinal uses associated with Katmon-Bayani.",
+    description:
+      "Katmon-Bayani is an endemic tree with striking yellow flowers and broad, leathery leaves. It thrives in highland forests and is increasingly used in conservation and ornamental planting efforts.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 33,
+    name: "Kayumanis",
+    englishName: "Anise-scented Clausena",
+    scientificName: "Clausena anisum-olens",
+    image: "assets/img/leaf-kayumanis.jpg",
+    treeImage: "assets/img/tree-kayumanis.jpg",
+    generalInfo:
+      "Kayumanis (Clausena anisum-olens) is a small aromatic tree or shrub found in the Philippines and neighboring regions. Its name means 'sweet wood' in Filipino, referring to its anise-like scent.",
+    botany:
+      "Clausena anisum-olens is a shrub or small tree reaching 3–7 meters in height. Leaves are compound, with leaflets that emit a strong anise-like aroma when crushed. Flowers are small, white, and fragrant, arranged in terminal clusters. Fruits are small, round, and turn purplish-black when ripe.",
+    distribution: [
+      "Native to the Philippines and parts of Southeast Asia.",
+      "Common in secondary forests, lowland thickets, and rural home gardens.",
+    ],
+    reference: "(c) https://prosea.prota4u.org/view.aspx?id=657",
+    uses: [
+      "Culinary: Leaves and fruits are used in traditional cooking for their sweet, spicy aroma. Also used as a condiment in preparing local dishes and beverages.",
+      "Medicinal: Employed in folk remedies for coughs, stomachaches, and infections.",
+      "Cultural: Grown near homes for its fragrance and believed to ward off insects.",
+    ],
+    folklore:
+      "Kayumanis is considered a healing tree. Elders use its leaves in herbal baths and believe it has protective energy, especially when planted near windows or doorways.",
+    description:
+      "Kayumanis is a fragrant, anise-scented tree with medicinal and culinary uses. Its aromatic leaves and practical benefits make it a favorite in traditional Filipino households.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 34,
+    name: "Kulatingan",
+    englishName: "Kulatingan",
+    scientificName: "Pterospermum obliquum",
+    image: "assets/img/leaf-kulatingan.jpg",
+    treeImage: "assets/img/tree-kulatingan.jpg",
+    generalInfo:
+      "Kulatingan (Pterospermum obliquum) is a native Philippine tree known for its large leaves and fragrant flowers. It is typically found in lowland primary and secondary forests and is part of the Malvaceae family.",
+    botany:
+      "A medium to large tree that can grow up to 25 meters tall. Leaves are oblong to elliptic with oblique bases and covered with fine hairs underneath. Flowers are large, white, and fragrant, blooming at night. Fruits are woody capsules with winged seeds, a trait characteristic of the genus.",
+    distribution: [
+      "Native to the Philippines.",
+      "Found in lowland primary and secondary forests, often in shaded or moist areas.",
+    ],
+    reference:
+      "(c) https://borisprivatesanctum.blogspot.com/2023/11/kulatingan-pterospermum-obliquum.html",
+    uses: [
+      "Timber: Wood is used for general construction and furniture.",
+      "Ecological: Plays a role in forest regeneration and supports pollinators like moths and bees.",
+    ],
+    folklore:
+      "There are no folklore or folkloric medicinal uses associated with Kulatingan.",
+    description:
+      "Kulatingan is a native forest tree with oblique-based leaves, fragrant white blossoms, and ecological value in forest ecosystems. It’s valued for both its wood and its role in biodiversity.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 35,
     name: "Langka",
     englishName: " Jackfruit",
     scientificName: "Artocarpus brasiliensis",
@@ -761,8 +1006,9 @@ const leaves = [
       "Langka is a smooth tree reaching a height of 8 to 15 meters. Leaves are alternate, leathery, elliptic-oblong to obovate, entire or sometimes 3-lobed, 7 to 15 centimeters long, the apex and base both pointed. Female heads are embraced by spathaceous, deciduous, stipular sheaths, 5 to 8 centimeters long. Sepals are two. Spike is 5 to 15 centimeters long.",
     location: "marian-orchard",
   },
+
   {
-    id: 28,
+    id: 36,
     name: "Lansones",
     englishName: " Langsat",
     scientificName: "Lansium domesticum",
@@ -789,8 +1035,38 @@ const leaves = [
       "Lansones is a tree reaching heights of 4 to 15 meters, with alternate leaves composed of 5 to 7 oblong-elliptic leaflets. It produces small, yellow flowers on spikes and yellowish-white fruit with translucent, bitter seeds surrounded by succulent pulp.",
     location: "batangas-lakelands",
   },
+
   {
-    id: 29,
+    id: 37,
+    name: "Lipote",
+    englishName: "Lipote",
+    scientificName: "Syzygium polycephaloides",
+    image: "assets/img/leaf-lipote.jpg",
+    treeImage: "assets/img/tree-lipote.jpg",
+    generalInfo:
+      "Lipote (Syzygium polycephaloides) is an indigenous fruit-bearing tree of the Philippines, known for its dark purple, grape-like fruits. It is often confused with duhat (Syzygium cumini) but differs in fruiting pattern and taste.",
+    botany:
+      "A medium-sized tree with smooth bark and glossy, opposite leaves. It produces clusters of small white flowers followed by purplish-black, round fruits. The fruits are edible with a mildly sweet, tart flavor and contain a single seed.",
+    distribution: [
+      "Endemic to the Philippines.",
+      "Grows in lowland forests, coastal thickets, and is occasionally cultivated in backyards.",
+    ],
+    reference:
+      "(c) https://caintaplantnursery.com/our-products/philippine-indigenous-plants/lipote/",
+    uses: [
+      "Food: Fruits are eaten fresh or made into jams, jellies, and wine.",
+      "Medicinal: Traditionally used to aid digestion and control blood sugar. Ifugaos use the sour fruit for treating coughs.",
+      "Reforestation: Planted in agroforestry systems and biodiversity gardens.",
+    ],
+    folklore:
+      "There are no folklore or other folkloric medicinal uses associated with Lipote.",
+    description:
+      "Lipote is a native fruit tree of the Philippines, bearing edible grape-like fruits rich in flavor and nutritional value. It's both culturally and ecologically significant.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 38,
     name: "Madre-Cacao",
     englishName: " Gliricidia",
     scientificName: "Gliricidia Sepium",
@@ -819,8 +1095,9 @@ const leaves = [
       "Kakawati or Madre Cacao is a deciduous tree, reaching 3 to 10 meters in height, with smooth bark. Its leaves are 15 to 25 centimeters long, composed of 13 opposite leaflets that are oblong-ovate, typically 4 to 6 centimeters long. The tree blooms profusely with pink flowers in February and March, held in numerous racemes on leafless branches. Its pods are narrow, oblong to oblanceolate, 10 to 14 centimeters long, containing 6 to 8 seeds.",
     location: "batangas-lakelands",
   },
+
   {
-    id: 30,
+    id: 39,
     name: "Mahogany",
     englishName: " Mahogany",
     scientificName: "Swietenia macrophylla",
@@ -846,8 +1123,93 @@ const leaves = [
       "Mahogany is a deciduous, erect tree growing to a height of 10 meters, with a heavy, dark-green, and dense crown. The trunk is more or less buttressed. Bark is dark gray and ridged. Young leaves when in the flush are pink, soon turning green. Leaves are alternate, smooth, compound, about 15 centimeters long, in 3 to 6 pairs, most often 5 pairs, of leaflets. Leaflets are inequilateral, ovate to oblong-ovate, 5 to 8 centimeters long and half as wide, pointed at the tip, broadly obtuse or rounded at the base. Flowers are greenish yellow, about 8 millimeters wide, borne in axillary panicles shorter than the foliage. Calyx is rim-like and the petals are oblong, less than 5 millimeters in length. Staminal tube is slightly reddish, thick, and nearly as long as the corolla.",
     location: "faith-colleges",
   },
+
   {
-    id: 31,
+    id: 40,
+    name: "Malabulak",
+    englishName: "Red Silk-Cotton Tree",
+    scientificName: "Bombax ceiba",
+    image: "assets/img/leaf-malabulak.jpg",
+    treeImage: "assets/img/tree-malabulak.jpg",
+    generalInfo:
+      "Malabulak (Bombax ceiba) is a large deciduous tree known for its showy red flowers and cotton-like fiber. It thrives in lowland forests and open fields and is valued both ecologically and culturally.",
+    botany:
+      "Grows up to 30 meters tall with a straight trunk and thorny bark. Leaves are palmately compound with 5 to 7 leaflets. Flowers are bright red and appear before the leaves, attracting birds and insects. Fruit is a capsule that splits open to release cotton-like fibers.",
+    distribution: [
+      "Scattered in lowland forests, open grasslands, and near rivers throughout the Philippines.",
+      "Also found in tropical Asia and commonly cultivated for ornamental use.",
+    ],
+    reference: "(c) https://www.philippinature.net/malabulak-tree/",
+    uses: [
+      "Fiber: The silky floss from the fruit is used for stuffing pillows and mattresses, usually as bedding for infants.",
+      "Timber: Lightweight wood used for making matches, plywood, and crates.",
+      "Traditional: Bark and flowers are used in some folk remedies and rituals.",
+    ],
+    folklore:
+      "Some communities believe its appearance marks seasonal transitions. It is said that if a person sleeps under the tree or stays near it for long periods, they may experience vivid dreams or visions.",
+    description:
+      "A tall, deciduous tree with vivid red blooms and thorny branches. Malabulak is both ornamental and practical, known for its cotton-like fiber and use in lightweight woodcraft.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 41,
+    name: "Malak Malak",
+    englishName: "Malak-malak",
+    scientificName: "Palaquium philippense",
+    image: "assets/img/leaf-malakmalak.jpg",
+    treeImage: "assets/img/tree-malakmalak.jpg",
+    generalInfo:
+      "Malak-malak (Palaquium philippense) is a native tree known for its thick, leathery leaves and milky sap. It belongs to the Sapotaceae family and was once abundant in the forests of the Philippines.",
+    botany:
+      "A medium-sized evergreen tree with glossy, dark green leaves. Produces small, pale flowers and round fruits. The bark exudes a sticky latex when cut. Wood is dense and fine-textured.",
+    distribution: [
+      "Endemic to the Philippines.",
+      "Typically found in lowland dipterocarp forests, though now considered threatened due to habitat loss.",
+    ],
+    reference: "(c) https://npdc.gov.ph/malak-malak/",
+    uses: [
+      "Wood: Highly prized for its durability; used in construction, boat building, and furniture.",
+      "Latex: The tree's milky sap may have been historically used for caulking boats.",
+      "Conservation: Now rare and part of conservation and reforestation programs.",
+    ],
+    folklore:
+      "The latex from Malak Malak was believed to have protective properties when used in rituals or applied to tools.",
+    description:
+      "A once-abundant Philippine hardwood, Malak-malak is a dense, glossy-leafed tree with valuable timber and cultural relevance. Its population is now in decline, prompting conservation efforts.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 42,
+    name: "Malugai",
+    englishName: "Malugai",
+    scientificName: "Pometia pinnata",
+    image: "assets/img/leaf-malugai.jpg",
+    treeImage: "assets/img/tree-malugai.jpg",
+    generalInfo:
+      "Malugai (Pometia pinnata) is a tall native fruit tree that thrives in tropical lowland forests. It produces edible fruits and is valued for its hardwood, making it important both ecologically and economically.",
+    botany:
+      "A large tree reaching up to 40 meters in height. Leaves are compound, glossy, and alternately arranged. Flowers are small and borne in panicles. Fruits are round or oval, reddish to brown, with sweet, translucent pulp surrounding a single seed.",
+    distribution: [
+      "Widespread in the Philippines and other Southeast Asian countries.",
+      "Grows in lowland forests, secondary growth, and near rivers or streams.",
+    ],
+    reference: "(c) https://forestry.com/trees/malugai-tree/",
+    uses: [
+      "Food: Fruits are edible and enjoyed locally for their sweet flavor.",
+      "Timber: Wood is used for furniture, flooring, and construction.",
+      "Agroforestry: Commonly integrated into reforestation and mixed-use landscapes.",
+    ],
+    folklore:
+      "The tree is often left standing in forest clearings due to its edible fruits, and is believed to be a dwelling place for spirits making it disrespectful to cut down.",
+    description:
+      "Malugai is a tall, fruit-bearing native tree with sweet, edible fruits and valuable hardwood. It plays a role in sustainable forestry and is recognized for its ecological and economic value.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 43,
     name: "Mangga",
     englishName: " Mango",
     scientificName: "Mangifera indica",
@@ -873,8 +1235,36 @@ const leaves = [
       "The Mango trees are deep-rooted, symmetrical evergreens that can grow up to 90 feet tall and 80 feet wide. They have simple, alternate lanceolate leaves, 12 to 16 inches long, which are yellow-green, purple, or copper when young and become leathery, glossy, and deep green as they mature. The leaves, ranging from 5 to 16 inches, remain on the tree for over a year.",
     location: "faith-colleges",
   },
+
   {
-    id: 32,
+    id: 44,
+    name: "Mapilig",
+    englishName: "Mapilig",
+    scientificName: "Xanthostemon bracteatus",
+    image: "assets/img/leaf-mapilig.jpg",
+    treeImage: "assets/img/tree-mapilig.jpg",
+    generalInfo:
+      "Mapilig (Xanthostemon bracteatus) is a small to medium-sized tree that is native to the Philippines. It is known for its bright yellow flowers that bloom in clusters, making it a popular ornamental tree.",
+    botany:
+      "A small to medium-sized evergreen tree, growing up to 15 meters tall. The leaves are lance-shaped and leathery. The flowers are bright yellow, borne in dense, showy clusters at the tips of the branches. The fruit is a capsule containing numerous small seeds.",
+    distribution: [
+      "Found primarily in the Philippines, especially in lowland forests and along coastal areas.",
+      "Commonly planted as an ornamental tree due to its striking flowers.",
+    ],
+    reference: "(c) https://binhi.ph/tree-info/?tree-name=Mapilig",
+    uses: [
+      "Ornamental: Popular for landscaping and decorative purposes due to its vibrant flowers.",
+      "Wood: The wood is light and used in various local crafts.",
+    ],
+    folklore:
+      "There are no folklore or folkloric medicinal uses associated with Mapilig.",
+    description:
+      "A small, evergreen tree with vibrant yellow flowers that bloom in clusters, making it a popular choice for ornamental planting. Its wood is light and used locally for various crafts.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 45,
     name: "Mulawin",
     englishName: " Small-flower Chaste",
     scientificName: "Vitex parviflora",
@@ -902,8 +1292,9 @@ const leaves = [
       "Mulawin is a tree that reaches a height of 8 to 15 meters, smooth or nearly so, with inflorescences that may be slightly hairy. Leaflets are three, stalked, ovate to lanceolate, 7 to 18 centimeters long, pointed at the tip, shining and quite smooth. Flowers are blue, numerous, 6 to 8 millimeters long, hairy outside the corolla, borne on terminal, paniculate and ample inflorescences, up to 20 centimeters in length. Fruit is rounded, 5 to 6 millimeters in diameter.",
     location: "faith-colleges",
   },
+
   {
-    id: 33,
+    id: 46,
     name: "Narra",
     englishName: " Rosewood",
     scientificName: "Pterocarpus indicus",
@@ -932,8 +1323,36 @@ const leaves = [
       "Narra is a majestic reddish hard wood tree, growing to 33 meters nigh and 2 meters in diameter with an irregular fluted trunk. Leaves are compound, pinnate, 15 to 30 centimeters long, with 7 to 11 leaflets which ovate to oblong-ovate, and 5 to 10 centimeters long. Flowers are numerous, yellow, fragrant, and about 1.5 centimeters long, on branched, axillary panicles. Pods are disc-shaped, flat, with winged margins, hairy when young but smooth or nearly so when mature, more or less reticulate and undulate, and very shortly beaked, orbicular to obovate, including the wing 4 to 5.5 centimeters long, and the wing 1 to 1.5 centimeters wide.",
     location: "faith-colleges",
   },
+
   {
-    id: 34,
+    id: 47,
+    name: "Palawan Ipil",
+    englishName: "Palawan Ipil",
+    scientificName: "Intsia bijuga",
+    image: "assets/img/leaf-palawan-ipil.jpg",
+    treeImage: "assets/img/tree-palawan-ipil.jpg",
+    generalInfo:
+      "Palawan Ipil (Intsia bijuga) is a large tree species endemic to the Philippines, especially found in Palawan. Known for its durable wood, it is highly valued in construction and boat-building industries.",
+    botany:
+      "A large evergreen tree that can grow up to 40 meters tall. The leaves are leathery and dark green. The flowers are small and yellow, arranged in panicles. The fruit is a flat, woody pod that contains several seeds.",
+    distribution: [
+      "Endemic to the Philippines, particularly in Palawan and other parts of the tropical rainforests of Southeast Asia.",
+      "Thrives in lowland forests and coastal areas.",
+    ],
+    reference: "(c) https://projecttreetag.ciit.edu.ph/ttp/2024/03/12/ipil/",
+    uses: [
+      "Timber: The wood is dense, hard, and durable, widely used in construction, furniture, and boat-building.",
+      "Traditional Uses: In some regions, the bark and leaves are used for medicinal purposes to treat a range of ailments such as diarrhoea, rheumatism, pain, colds and influenza.",
+    ],
+    folklore:
+      "There are no folklore or folkloric medicinal uses associated with Palawan Ipil.",
+    description:
+      "A large, sturdy tree known for its dense, durable wood. It is highly sought after for construction and boat-building, with significant cultural and ecological importance.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 48,
     name: "Palo-Maria",
     englishName: " Palo-Maria",
     scientificName: "Balsamaria inophyllum",
@@ -962,8 +1381,120 @@ const leaves = [
       "Palo-maria is a medium-sized or large tree, reaching a height of 20 meters. Leaves are leathery, shiny, elliptic to obovate-elliptic, 9 to 18 centimeters long, narrowed to a pointed base and somewhat rounded tip. Flowers are fragrant, white, 2 to 2.5 centimeters diameter, borne on axillary racemes 5 to 10 centimeters long. Fruit is round, yellow, smooth, pulpy, 3 to 4 centimeters in diameter.",
     location: "faith-colleges",
   },
+
   {
-    id: 35,
+    id: 49,
+    name: "Philippine Oak / Ulayan",
+    englishName: "Philippine Oak",
+    scientificName: "Lithocarpus philippinensis",
+    image: "assets/img/leaf-philippine-oak.jpg",
+    treeImage: "assets/img/tree-philippine-oak.jpg",
+    generalInfo:
+      "The Philippine Oak (Lithocarpus philippinensis), also known as Ulayan, is a large tree endemic to the Philippines. It is recognized for its thick bark, glossy leaves, and acorn-like fruits.",
+    botany:
+      "A large evergreen tree that can grow up to 30 meters tall. The leaves are leathery, oblong, and dark green with a smooth margin. The tree produces small, inconspicuous flowers and acorn-like fruits. The bark is rough and fissured.",
+    distribution: [
+      "Endemic to the Philippines, commonly found in montane forests.",
+      "Thrives at higher elevations, typically between 600 to 1,500 meters above sea level.",
+    ],
+    reference:
+      "(c) https://www.selinawamucii.com/plants/fagaceae/lithocarpus-philippinensis/",
+    uses: [
+      "Wood: The wood is heavy, dense, and resistant to decay, making it ideal for construction, furniture, and carving.",
+      "Acorns: The fruits, though not commonly consumed, have been used in folk medicine and for other local purposes.",
+    ],
+    folklore:
+      "There are no folklore or folkloric medicinal uses associated with Philippine Oak or the Ulayan.",
+    description:
+      "A tall, evergreen tree with leathery, glossy leaves and distinctive acorn-like fruits. The Philippine Oak is prized for its dense wood and cultural significance, especially in higher-elevation forests.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 50,
+    name: "Puso Puso",
+    englishName: "Puso Puso",
+    scientificName: "Litsea glutinosa",
+    image: "assets/img/leaf-puso-puso.jpg",
+    treeImage: "assets/img/tree-puso-puso.jpg",
+    generalInfo:
+      "Puso Puso (Litsea glutinosa) is a medium-sized tree that grows abundantly in tropical forests of the Philippines. Its name 'Puso Puso' comes from its heart-shaped leaves, which are often used in traditional medicine and crafts.",
+    botany:
+      "A medium-sized evergreen tree growing up to 25 meters tall. The leaves are glossy, ovate to heart-shaped, and have a strong, pleasant scent when crushed. Small, pale yellow flowers bloom in clusters, followed by small dark purple to black fruits.",
+    distribution: [
+      "Widely distributed in tropical and subtropical regions of the Philippines, particularly in lowland forests and coastal areas.",
+      "Thrives in moist, well-drained soils, and is often found in areas with regular rainfall.",
+    ],
+    reference: "(c) https://www.stuartxchange.org/Puso-puso.html",
+    uses: [
+      "Medicinal: Traditionally used for treating wounds, coughs, and digestive issues. The seed oil is also used for making soap.",
+      "Wood: The wood is used in construction and carving, especially in rural communities.",
+      "Crafts: The leaves are sometimes used in weaving for baskets or mats.",
+    ],
+    folklore:
+      "In Bangladesh, leaves are used for diarrhea and dysentery, for excessive semen flow in young boys, poultices for wounds and bruises. Dried bark powder used for treatment of osteoporosis.",
+    description:
+      "A medium-sized tree with glossy, heart-shaped leaves and small, yellow flowers. Its fruits are dark purple to black, and the tree is known for its medicinal and practical uses in local communities.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 51,
+    name: "Putat",
+    englishName: "Putat",
+    scientificName: "Barringtonia racemosa",
+    image: "assets/img/leaf-putat.jpg",
+    treeImage: "assets/img/tree-putat.jpg",
+    generalInfo:
+      "Putat (Barringtonia racemosa) is a coastal tree species found throughout the Philippines. Known for its large, fragrant flowers and its ability to grow in saline environments, it plays an important role in coastal ecosystems.",
+    botany:
+      "A medium-sized coastal tree that can reach up to 15 meters in height. It has large, oval-shaped leaves with smooth edges. The flowers are large, white to pink, with long, silky stamens that form dense clusters. The fruit is a woody capsule that contains several seeds.",
+    distribution: [
+      "Found along the coastlines and tidal mudflats of the Philippines and other parts of Southeast Asia.",
+      "Thrives in saline, coastal environments and is often seen in mangrove areas.",
+    ],
+    reference: "(c) https://www.ust.edu.ph/ust-manila-tree-inventory/putat/",
+    uses: [
+      "Medicinal: The bark, leaves, and seeds are used in traditional medicine to treat various ailments such as fever and wounds.",
+      "Wood: The wood is lightweight and is sometimes used in boat-building and for making small household items.",
+      "Environmental: The tree plays a significant role in coastal ecosystems by stabilizing soil and providing habitat for wildlife.",
+    ],
+    folklore:
+      "Bark and leaves are used for rat and snake bits, on boils and gastric ulcers. Powdered fruit can be used as snuff to clear the nostrils.",
+    description:
+      "A coastal tree with large, fragrant flowers and dense clusters of silky stamens. The tree thrives in saline environments and provides essential ecological services in coastal areas.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 52,
+    name: "Red Lauan",
+    englishName: "Red Lauan",
+    scientificName: "Shorea negrosensis",
+    image: "assets/img/leaf-red-lauan.jpg",
+    treeImage: "assets/img/tree-red-lauan.jpg",
+    generalInfo:
+      "Red Lauan (Shorea negrosensis) is a tall, majestic tree endemic to the Philippines. Known for its hard, durable wood, it is highly sought after in the timber industry and is also important in maintaining the health of forest ecosystems.",
+    botany:
+      "A large, evergreen tree that can grow up to 50 meters tall. The leaves are large, leathery, and ovate, with a glossy dark green surface. The flowers are small, yellowish, and borne in axillary clusters. The fruit is a small, woody capsule containing several seeds.",
+    distribution: [
+      "Endemic to the Philippines, particularly in the rainforests of Negros and other parts of the Visayas.",
+      "Found in lowland and montane forests, typically at elevations of 300 to 1,500 meters.",
+    ],
+    reference: "(c) https://binhi.ph/tree-info/?tree-name=Red%20Lauan",
+    uses: [
+      "Timber: The wood is hard, durable, and resistant to decay, making it ideal for furniture, construction, and flooring.",
+      "Ecological: Plays an important role in maintaining forest biodiversity and soil stability.",
+    ],
+    folklore:
+      "Due to its durability, it's considered as protection from evil forces and cutting it down is taboo.",
+    description:
+      "A tall and robust tree with dark green, leathery leaves. The wood of Red Lauan is highly valued for its strength and resistance to decay, making it a significant species in the timber industry.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 53,
     name: "Scramble-Egg",
     englishName: " Scrambled Egg",
     scientificName: "Senna surattensis",
@@ -991,8 +1522,9 @@ const leaves = [
       "Is a shrub or small erect evergreen tree, 5-8 m tall, with brown-greyish smooth bark, tending to fissure slightly with the age, and dense and rounded top. The leaves, on a 2-3 cm long petiole, are alternate, paripinnate, 10-15 cm long, with pubescent rachis, linear stipules, 0,5-1 cm long, and 7-9 couples of opposite leaflets, oblong-elliptic with rounded apex, 2,5-5 cm long and 1-1,6 cm broad, of intense green colour and glabrous above, glaucous and slightly pubescent below. A gland, about 1 mm long, is present at the base of the pedicel of the first 2-3 couples of leaflets.",
     location: "faith-colleges",
   },
+
   {
-    id: 36,
+    id: 54,
     name: "Sintores",
     englishName: " Mandarin Orange",
     scientificName: "Citrus reticulata Blanco",
@@ -1020,8 +1552,36 @@ const leaves = [
       "Dalanghita is a small tree. Leaves are smooth, oblong to broadly lanceolate, 4 to 10 centimeters long, with narrowly winged short petioles of about 1 centimeter long. Flowers are white, short-pedicelled and mostly solitary. Fruits are hesperidums, with a loose skin and leathery pericarp, with a sweet pulp that is only fairly juicy. Green fruit turns to yellow, greenish yellow or orange. Of many varieties, the large ones attain a size of about 10 centimeters in diameter and about 9 centimeters thick. Pulp is sweet and only fairly juicy.",
     location: "faith-colleges",
   },
+
   {
-    id: 37,
+    id: 55,
+    name: "Santol",
+    englishName: "  Wild Mangosteen",
+    scientificName: "Sandoricum koetjape ",
+    image: "assets/img/leaf-santol.jpg",
+    treeImage: "assets/img/tree-santol.jpg",
+    generalInfo:
+      "The Santol tree belongs to the Meliaceae family and can grow up to 30 meters tall in favorable conditions. Santol produces a round, yellowish-green fruit that has a thick, fleshy rind and a sweet-to-sour pulp surrounding the seeds.",
+    botany:
+      "The Santol tree is a large tropical tree, reaching up to 30 meters in height, with broad trifoliate leaves. It bears round, thick-skinned fruits that turn yellowish-brown when ripe, containing cottony, sweet or sour flesh surrounding large seeds. The tree’s extensive root system helps it thrive in different soil types, providing stability and nutrient uptake ",
+    distribution: [
+      "Native to Southeast Asia and grows predominantly in the Philippines, Thailand, Malaysia, and Indonesia.",
+      "In some regions, Santol has spread to tropical areas like Hawaii and the Caribbean.",
+    ],
+
+    reference: "(c) http://www.stuartxchange.org/Santol",
+    uses: [
+      "The Santol fruit is eaten fresh or used in various dishes, including jams, jellies, and desserts.",
+      "The bark, leaves, and roots have been used in traditional medicine. They are believed to have anti-inflammatory, astringent, and tonic properties.",
+    ],
+    folklore: "There are no folklore or folkloric medicinal uses for Santol.",
+    description:
+      "The Santol tree belongs to the Meliaceae family and can grow up to 30 meters tall in favorable conditions. Santol produces a round, yellowish-green fruit that has a thick, fleshy rind and a sweet-to-sour pulp surrounding the seeds.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 56,
     name: "Talisay",
     englishName: " Indian-Almond",
     scientificName: "Terminalia Catappa",
@@ -1050,34 +1610,7 @@ const leaves = [
   },
 
   {
-    id: 38,
-    name: "Santol",
-    englishName: "  Wild Mangosteen",
-    scientificName: "Sandoricum koetjape ",
-    image: "assets/img/leaf-santol.jpg",
-    treeImage: "assets/img/tree-santol.jpg",
-    generalInfo:
-      "The Santol tree belongs to the Meliaceae family and can grow up to 30 meters tall in favorable conditions. Santol produces a round, yellowish-green fruit that has a thick, fleshy rind and a sweet-to-sour pulp surrounding the seeds.",
-    botany:
-      "The Santol tree is a large tropical tree, reaching up to 30 meters in height, with broad trifoliate leaves. It bears round, thick-skinned fruits that turn yellowish-brown when ripe, containing cottony, sweet or sour flesh surrounding large seeds. The tree’s extensive root system helps it thrive in different soil types, providing stability and nutrient uptake ",
-    distribution: [
-      "Native to Southeast Asia and grows predominantly in the Philippines, Thailand, Malaysia, and Indonesia.",
-      "In some regions, Santol has spread to tropical areas like Hawaii and the Caribbean.",
-    ],
-
-    reference: "(c) http://www.stuartxchange.org/Santol",
-    uses: [
-      "The Santol fruit is eaten fresh or used in various dishes, including jams, jellies, and desserts.",
-      "The bark, leaves, and roots have been used in traditional medicine. They are believed to have anti-inflammatory, astringent, and tonic properties.",
-    ],
-    folklore: "There are no folklore or folkloric medicinal uses for Santol.",
-    description:
-      "The Santol tree belongs to the Meliaceae family and can grow up to 30 meters tall in favorable conditions. Santol produces a round, yellowish-green fruit that has a thick, fleshy rind and a sweet-to-sour pulp surrounding the seeds.",
-    location: "batangas-lakelands",
-  },
-
-  {
-    id: 39,
+    id: 57,
     name: "Tibig",
     englishName: " Sacking Tree",
     scientificName: "Ficus nota",
@@ -1104,8 +1637,65 @@ const leaves = [
       "Tibig is an erect, spreading, dioecious perennial tree, growing to a height of 8-10 meters. Branchlets are hairy. Leaves oblong to elliptic-obovate, 15 to 35 centimeters long and 8 to 12 centimeters wide; soft and pubescent beneath, the margins irregular and distinctly toothed, the apex abruptly acute, and the base auriculate. Midrib of leaves is stout, with 7 to 9 pairs of ascending, curved nerves.",
     location: "batangas-lakelands",
   },
+
   {
-    id: 40,
+    id: 58,
+    name: "Tui",
+    englishName: "Tui",
+    scientificName: "Dolichandrone spathacea",
+    image: "assets/img/tui.jpg",
+    treeImage: "assets/img/tree-tui.jpg",
+    generalInfo:
+      "Tui (Dolichandrone spathacea) is a medium-sized tree found in tropical forests in the Philippines. It typically grows between 15 to 25 meters in height. Its leaves are large, glossy, and elliptical in shape, while the flowers are white or pale yellow, arranged in dense clusters. The tree is known for its prominent white flowers that attract a variety of pollinators. It is mostly found in lowland and montane forests and is used for its timber in some areas.",
+    botany:
+      "Dolichandrone spathacea is a deciduous tree with a straight trunk and an expansive canopy. The leaves are opposite, simple, and leathery, typically measuring 10-20 cm in length. The flowers are trumpet-shaped, white to pale yellow, and are found in large panicles. The fruit is a capsule containing winged seeds that are dispersed by the wind.",
+    distribution: [
+      "Found in lowland and montane forests across the Philippines, especially in tropical regions.",
+      "Commonly seen in forested areas, often near streams and riverbanks.",
+    ],
+    reference:
+      "(c) https://www.inaturalist.org/taxa/191683-Dolichandrone-spathacea",
+    uses: [
+      "Wood: The tree's wood is used for general construction and making furniture.",
+      "Timber: Known for being sturdy and durable, suitable for boat building and carpentry.",
+      "Culinary: The flower is edible, commonly used in Thai cuisines.",
+    ],
+    folklore:
+      "In the Philippines, poultice of fresh leaves and bark is applied against flatulence to women after childbirth.",
+    description:
+      "Tui is a tree known for its large, glossy leaves and fragrant white flowers. The tree grows in tropical forests, often near water sources. Its timber is valuable in various local industries, while its flowers attract pollinators like bees and butterflies.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 59,
+    name: "White Lauan",
+    englishName: "White Lauan",
+    scientificName: "Shorea contorta",
+    image: "assets/img/white-lauan.jpg",
+    treeImage: "assets/img/tree-white-lauan.jpg",
+    generalInfo:
+      "White Lauan (Shorea contorta) is a species of tree found in the forests of the Philippines. It is a member of the dipterocarp family and can grow up to 50 meters tall. The tree's wood is light-colored, durable, and commonly used in construction and furniture making. White Lauan is typically found in lowland rainforests and is an important species for forest regeneration and timber production.",
+    botany:
+      "Shorea contorta is a large tree with smooth, grayish bark. Its leaves are alternate, elliptical, and leathery. The flowers are small, pale yellow, and arranged in clusters, typical of the dipterocarp family. The fruit is a woody capsule containing two winged seeds that are dispersed by the wind.",
+    distribution: [
+      "Primarily found in the lowland rainforests of the Philippines.",
+      "Commonly planted for its valuable timber in both commercial and local uses.",
+    ],
+    reference: "(c) https://forestry.com/trees/philippine-white-lauan-tree/",
+    uses: [
+      "Wood: White Lauan is widely used in construction, furniture making, and general carpentry due to its strength and durability.",
+      "Timber: The timber is also used for making plywood and other wood products.",
+    ],
+    folklore:
+      "Wood decoction used to inhibit tumors, but no notable source or verification.",
+    description:
+      "White Lauan is an important tree species in Philippine forests, providing both ecological and economic value. It is known for its tall stature and valuable timber, which is used in a variety of construction applications.",
+    location: "batangas-lakelands",
+  },
+
+  {
+    id: 60,
     name: "Yakal",
     englishName: " Philippine Teak",
     scientificName: "Shorea astylosa",
@@ -1130,7 +1720,6 @@ const leaves = [
       "Yakal is a medium to large tree about 25 to 30 meters tall. Its wood is hard and dark brownish-yellow, its branchlets slender, blackish, and slightly hairy. Its leaves are coriaceous, ovate to lanceolate, or oblong-lanceolate or apex acuminate. The base are rounded to cuneate, glabrous above and slightly hairy underneath. Its blade is 6.5-nine centimeters long and two-4.5 centimeters wide, with its petiole slender, 10-23 millimeters long, and dark. Its inflorescence are axillary, paniculate, and up to about six centimeters long, with its flowers yellow, very short-stalked, and about 12 millimeters long. The flowers' petals are narrowly oblong or oblong-lanceolate, more or less twisted in bud, rounded at apex, 18 millimeters long, and reticulate.",
     location: "faith-colleges",
   },
-
 ];
 
 export default leaves;
