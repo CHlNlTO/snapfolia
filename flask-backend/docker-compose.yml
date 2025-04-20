@@ -1,10 +1,19 @@
+x-flask-image: &flask-image flask-app:v3.2.0  # <== Set your version/tag here ONCE
+
 services:
-  flask-app-1:
+  flask-app-builder:
     build:
       context: .
-      dockerfile: Dockerfile.flask 
+      dockerfile: Dockerfile.flask
+    image: *flask-image
+    container_name: flask-app-builder
+    runtime: nvidia
+    networks:
+      - app-network
+
+  flask-app-1:
+    image: *flask-image
     container_name: flask-app-1
-    image: flask-app:v3.0.0  # Updated version to v3.0.0
     runtime: nvidia
     ports:
       - "5000:5000"
@@ -14,11 +23,8 @@ services:
       - app-network
 
   flask-app-2:
-    build:
-      context: .
-      dockerfile: Dockerfile.flask 
+    image: *flask-image
     container_name: flask-app-2
-    image: flask-app:v3.0.0  # Updated version to v3.0.0
     runtime: nvidia
     ports:
       - "5001:5000"
@@ -28,11 +34,8 @@ services:
       - app-network
 
   flask-app-3:
-    build:
-      context: .
-      dockerfile: Dockerfile.flask 
+    image: *flask-image
     container_name: flask-app-3
-    image: flask-app:v3.0.0  # Updated version to v3.0.0
     runtime: nvidia
     ports:
       - "5002:5000"
@@ -42,11 +45,8 @@ services:
       - app-network
 
   flask-app-4:
-    build:
-      context: .
-      dockerfile: Dockerfile.flask 
+    image: *flask-image
     container_name: flask-app-4
-    image: flask-app:v3.0.0  # Updated version to v3.0.0
     runtime: nvidia
     ports:
       - "5003:5000"
@@ -56,11 +56,8 @@ services:
       - app-network
 
   flask-app-5:
-    build:
-      context: .
-      dockerfile: Dockerfile.flask 
+    image: *flask-image
     container_name: flask-app-5
-    image: flask-app:v3.0.0  # Updated version to v3.0.0
     runtime: nvidia
     ports:
       - "5004:5000"
@@ -71,7 +68,7 @@ services:
 
   nextjs:
     build:
-      context: C:/Users/faith/Snapfolia/production/nextjs-frontend  # Point to the location of your Next.js project
+      context: C:/Users/faith/Snapfolia/production/nextjs-frontend
       dockerfile: Dockerfile
     container_name: nextjs-frontend
     ports:
@@ -82,9 +79,9 @@ services:
   nginx:
     build:
       context: .
-      dockerfile: Dockerfile.nginx 
+      dockerfile: Dockerfile.nginx
     container_name: nginx
-    image: nginx:latest  # This will pull the latest official nginx image from Docker Hub
+    image: nginx:latest
     ports:
       - "80:80"
       - "443:443"

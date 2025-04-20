@@ -1,0 +1,9 @@
+E:\Snapfolia - CS\snapfolia>.\venv\Scripts\activate
+(venv) E:\Snapfolia - CS\snapfolia>cd flask-backend
+(venv) E:\Snapfolia - CS\snapfolia\flask-backend>docker-compose up
+
+If didn't start just reload it 
+ctrl + c 
+then compose up
+
+Note: Make sure docker desktop is running 
