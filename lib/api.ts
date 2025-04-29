@@ -41,9 +41,19 @@ export async function scanLeafImage(
 
     // Check if online and server is reachable
     const isOnline = navigator.onLine;
-    const isServerReachable = isOnline
-      ? await checkServerReachability()
-      : false;
+    let isServerReachable = false;
+
+    if (isOnline) {
+      try {
+        isServerReachable = await checkServerReachability();
+      } catch (e) {
+        console.error("Error checking server reachability:", e);
+        isServerReachable = false;
+      }
+    }
+
+    console.log("Online status:", isOnline);
+    console.log("Server reachable:", isServerReachable);
 
     // If online and server is reachable, use the server API
     if (isOnline && isServerReachable) {

@@ -25,10 +25,14 @@ export const useOnlineStatus = () => {
 // Check if the API server is reachable
 export const checkServerReachability = async (): Promise<boolean> => {
   try {
-    await fetch("https://trees.firstasia.edu.ph/api/", {
-      method: "HEAD",
-      mode: "no-cors",
-      cache: "no-store",
+    // Create an AbortController for timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+
+    // Instead of just a HEAD request, make a GET request to actually test the connection
+    const response = await fetch("https://trees.firstasia.edu.ph/api/", {
+      method: "GET",
+      signal: controller.signal,
       headers: {
         "Cache-Control": "no-cache, no-store, must-revalidate",
         Pragma: "no-cache",
@@ -36,11 +40,23 @@ export const checkServerReachability = async (): Promise<boolean> => {
       },
     });
 
-    // No-cors mode always returns type: 'opaque' which means we can't check status
-    // Instead, if the fetch didn't throw, we assume the server is reachable
-    return true;
+    clearTimeout(timeoutId);
+
+    // Log detailed information about the response
+    console.log("Server reachability response:", {
+      status: response.status,
+      ok: response.ok,
+      statusText: response.statusText,
+    });
+
+    return response.ok;
   } catch (error) {
-    console.error("Server reachability check failed:", error);
+    // More detailed error logging
+    console.error("Server reachability check failed:", {
+      error,
+      message: error instanceof Error ? error.message : String(error),
+      type: error instanceof Error ? error.constructor.name : typeof error,
+    });
     return false;
   }
 };
