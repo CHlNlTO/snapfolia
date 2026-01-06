@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Developer } from "../../lib/types";
-import { SocialLinks } from "./SocialLinks";
+// import { SocialLinks } from "./SocialLinks";
 
 export const DeveloperItem = ({
   image,
   firstName,
   lastName,
   role,
-  socials,
+  // socials,
 }: Developer) => (
   <motion.div
     initial={{ opacity: 0, scale: 0.9 }}
@@ -25,7 +25,8 @@ export const DeveloperItem = ({
           alt={`${firstName} ${lastName}`}
           width={140}
           height={140}
-          className="w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-110"
+          className="w-full h-full object-cover rounded-full"
+          // className="w-full h-full object-cover rounded-full transition-transform duration-300 group-hover:scale-110"
         />
       </div>
     </div>
@@ -39,7 +40,7 @@ export const DeveloperItem = ({
       <span className="inline-block px-3 py-1 rounded-full text-[10px] font-medium bg-emerald-100 text-emerald-700">
         {role}
       </span>
-      <SocialLinks socials={socials} />
+      {/* <SocialLinks socials={socials} /> */}
     </div>
   </motion.div>
 );
